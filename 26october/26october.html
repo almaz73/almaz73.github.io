@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #222;
+            color: wheat;
+            font-size: 22px;
+
+        }
+
+        .window {
+            border: 4px double wheat;
+            padding: 40px;
+            margin: 40px;
+            box-shadow: 0 0 10px wheat;
+            transition: box-shadow 0.5s ease-in-out;
+        }
+
+        .window:hover {
+            box-shadow: 0 0 20px wheat;
+        }
+
+        a {
+            color: yellowgreen;
+            margin: 10px;
+        }
+
+        div {
+            padding: 3px;
+            margin: 3px;
+        }
+
+        .borderDiv {
+            width: 100%;
+            border: 2px dashed orangered;
+            margin-top: 20px;
+            padding: 9px;
+        }
+
+        .borderDiv div {
+            border: 1px dashed pink;
+        }
+    </style>
+    <script>
+        function trigger(val) {
+            if (val == undefined) {
+                let L = localStorage.getItem('TAG');
+                val = L || '.tag1';
+            }
+
+            let isOpen = document.querySelector(val).style.display == 'block';
+            document.querySelector(val).style.display = isOpen ? 'none' : 'block';
+
+            if (!isOpen) localStorage.setItem('TAG', val);
+        }        
+    </script>
+</head>
+
+<body onload="trigger()">
+    tags: <a href="javascript:trigger('.tag1')">Организация рабочего места</a>,
+    <a href="javascript:trigger('.tag2')">Github</a>,
+    <a href="javascript:trigger('.tag3')">htmlacademy.ru</a>,
+    <a href="javascript:trigger('.tag4')">CSS</a>,
+    <a href="javascript:trigger('.tag5')">Работа с изображениями</a>
+
+    <div class="window tag1" style="display: none">
+        Организация рабочего места
+        <ul>
+            <li>по умолчанию устанавливаем браузер Chrome</li>
+            <li>настраиваем чтобы файлы показывались с расширением. </li>
+            <li>cоздаем папку c://my_projects и открываем его в vscode </li>
+            <li>распологаем слева редактор, справа браузер</li>
+            <li>волшебная кнопка для VSCode : ALT+SHIFT+F</li>
+        </ul>
+    </div>
+
+    <div class="window tag2" style="display: none">
+        Github
+        <ul>
+            <li>https://github.com/almaz73/html-css-examples учимся клонировать проект</li>
+            <li>нужен ли партфолио программисту ?</li>
+            <li>Как самому создать версионное хранилище данных</li>
+            <img src="github.png" />
+        </ul>
+    </div>
+
+    <div class="window tag3" style="display: none">
+        https://htmlacademy.ru/courses/41/run/1
+        <ul>
+            <li> Состояние прохождения курса</li>
+            <li> Пройти один вместе</li>
+        </ul>
+    </div>
+
+    <div class="window tag4" style="display: none">
+        CSS
+        <ul>
+            <li>Способы использования, инлайн, в стилях, в отдельном файле</li>
+            <li>Селекторы, приоритеты</li>
+            <li>Работа в консоле браузера, $0, document.querySelector</li>
+            <li>Поток, блочные и строчные элементы, display</li>
+            <li>css без селекторов, переназначение стилей по умолчанию</li>
+            <li>Табличная верстка, верстка дивами, flexbox и grid</li>
+
+            <table style="background: rgb(56, 51, 63); " border="1" width="100%">
+                <tr>
+                    <td colspan="3">Табличная версия. </td>
+                </tr>
+                <tr>
+                    <td style="width: 200px; height: 50px;">табличная 1</td>
+                    <td style="background: darkblue; ">Контент</td>
+                </tr>
+                <tr>
+                    <th colspan="3">bottom</th>
+                </tr>
+            </table>
+
+            <div class='borderDiv'>
+                <div style="widht:100%"> первый div</div>
+                <div style="width:200px; float: left; height: 50px;"> второй div</div>
+                <div style="float:left; width: calc(100% - 230px); height: 50px"> третий div</div>
+                <div style="clear: both;"></div>
+                <div> четвертый div</div>
+            </div>
+
+            <div class='borderDiv'> FLEXBOX лучше использовать в однострочных случаях</div>
+
+            <div class='borderDiv'> CSS-GRID есть пример в папке: <a href="cssgrid.html">cssgrid.html</a></div>
+
+        </ul>
+    </div>
+
+    <div class="window tag5" style="display: none">
+        https://htmlacademy.ru/courses/41/run/1
+        <ul>
+            <li> Состояние прохождения курса</li>
+            <li> Пройти один вместе</li>
+        </ul>
+    </div>
+
+
+    <div style="font-size: 12px;">
+    Реклама: <hr>
+    «Академия» (Айзек Азимов)<br>
+    «Человек + машина. Новые принципы работы в эпоху искусственного интеллекта» (Пол Доэрти, Джеймс Уилсон)<br>
+    «Искусственный интеллект. Этапы. Угрозы. Стратегии» (Ник Бостром)<br>
+    </div>
+</body>
+
+</html>
