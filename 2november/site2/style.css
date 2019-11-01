@@ -1,0 +1,57 @@
+body{
+    background: black;
+    margin:0 auto;
+    font-family: Arial
+}
+
+.container{  
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.left-panel{
+    background: linear-gradient(  darkgreen 5%, black ); 
+    width: 300px;
+    height: 100%;
+    float: left;
+    padding-top: 100px;
+}
+
+.right-panel{
+    width: 900px;
+    min-height: 100%;
+    float: left;
+    background: wheat;
+}
+
+.left-panel a{
+    color: wheat;
+    text-decoration: none;
+    font-size: 28px;
+    display: block;
+    padding: 12px 30px;
+    text-align: right;
+}
+.left-panel a:hover{
+    color: orange;
+}
+#captain{
+    position: fixed;
+    bottom: 40px;
+    left: calc(50% - 600px);
+}
+
+.right-panel {
+    color: darkslategrey;
+    text-align: center;       
+}
+.right-panel p{
+    text-align: justify;
+    margin: 5px 40px;
+    font-size: 20px;
+}
+.right-panel img{
+    width: 800;
+    margin: 30px;
+    box-shadow: 0 0 10px darkslategray;
+}
