@@ -1,13 +1,32 @@
+html{
+    height: 100%;
+}
+
 body{
     background: black;
     margin:0 auto;
-    font-family: Arial
+    font-family: Arial;
+    color: wheat;
+
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
+
+
 .container{  
+    height: 100%;
     width: 1200px;
     margin: 0 auto;
 }
+
+.right-panel img{
+    width: 800;
+    margin: 30px;
+    box-shadow: 0 0 10px darkslategray;
+}
+
 
 .left-panel{
     background: linear-gradient(  darkgreen 5%, black ); 
@@ -49,9 +68,4 @@ body{
     text-align: justify;
     margin: 5px 40px;
     font-size: 20px;
-}
-.right-panel img{
-    width: 800;
-    margin: 30px;
-    box-shadow: 0 0 10px darkslategray;
 }
