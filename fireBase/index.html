@@ -12,7 +12,7 @@
 <body onload="init()">
 
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <!--script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script-->
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 
 
@@ -20,20 +20,23 @@
         let db;
         function init() {
             var firebaseConfig = {
-                apiKey: "AIzaSyC9MFjGUm44V3_NLfrqbFGS7iVJM1ZJBUI",
-                authDomain: "experiment2-20816.firebaseapp.com",
-                databaseURL: "https://experiment2-20816.firebaseio.com",
-                projectId: "experiment2-20816",
-                storageBucket: "experiment2-20816.appspot.com",
-                messagingSenderId: "49226698830",
-                appId: "1:49226698830:web:1bb5c8c25fb071bd55331f",
-                measurementId: "G-BTT7V981G7"
+                apiKey: "AIzaSyBG-JTEatQGl7crnowv5fD7MuHSTpVwhpw",
+                authDomain: "myexperiment-169dd.firebaseapp.com",
+                databaseURL: "https://myexperiment-169dd.firebaseio.com",
+                projectId: "myexperiment-169dd",
+                storageBucket: "myexperiment-169dd.appspot.com",
+                messagingSenderId: "382700959515",
+                appId: "1:382700959515:web:b61b2a07505b9e712ac5be"
             };
             // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
-            firebase.analytics();
+            //firebase.analytics();
 
-            db = firebase.firestore();
+
+
+
+
+        ;
             db.collection("users").add({
                 first: "Ada",
                 last: "Lovelace",
@@ -46,6 +49,9 @@
                     console.error(" ??? Error adding document: ", error);
                 });
 
+            var ref = db.collection("users")
+            //var rootRef = ref.child('graduate')
+            console.log("%c # ", "background: orange", "ref=", ref)
         }
 
         function writeDate() {
