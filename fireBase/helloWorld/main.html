@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,19 @@
     <title>Document</title>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
 </head>
-<body>
-    <h1>Добро пожаловать на страницу авторизованую страницу</h1>
-    <button onclick="mainApp.logOut()">
-        Logout
-    </button>
 
-    <a href="chatPage.html">На страницу ввода данных для авторизованных пользотвателей</a>
+<body style="background: darkseagreen;">
+    <h1>
+        Добро пожаловать на страницу авторизованую страницу
+        <button onclick="mainApp.logOut()"> Logout </button>
+    </h1>
 
-    <script src="firebase.js"></script>
-    <script src="main.js"></script>
+
+    <li><a href="chatPage.html">Cтраница для ввода данных авторизованным пользотвателям</a>
+    <li><a href="chatPageWithourAutorization.html">Страница для не авторизованных пользотвателей</a>
+
+        <script src="firebase.js"></script>
+        <script src="main.js"></script>
 </body>
+
 </html>
