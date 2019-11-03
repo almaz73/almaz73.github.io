@@ -11,7 +11,7 @@
 
 <body onload="init()">
 
-    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
 
 
     <script>
@@ -41,18 +41,19 @@
                 console.log("%c # ","background: orange", "snap=", snap.val())
                 bigOne.innerText = snap.val()
                 console.log("%c # ","background: orange", " bigOne.innerText=",  bigOne.innerText)
-            });
-
-            var dbRef = firebase.database().ref('users').child('test');
+            })
+            
+            var dbRef = firebase.database().ref('users');
             dbRef.on('value', snap => {
                 console.log("%c # ","background: orange", "snap=", snap.val())
-                bigOne.innerText = snap.val()
-                console.log("%c # ","background: orange", " bigOne.innerText=",  bigOne.innerText)
-            });
+                bigOne.innerText += " ; +  "+snap.val().name+', '+snap.val().age
+            })
+           
         }
 
         function writeDate() {
-            db.collection('Users').add({
+            console.log("%c # ","background: orange", "firebase=",firebase )
+            firebase.database().ref('users').set({
                 name: document.getElementById("nameField").value,
                 age: document.getElementById("ageField").value
             }).then(
