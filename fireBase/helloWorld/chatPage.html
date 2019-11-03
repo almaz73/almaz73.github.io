@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+</head>
+
+<body style="background: darkcyan">
+    <h1> Страница заметок для авторизованных пользователей
+        <!-- <button onclick="mainApp.logOut()">
+            Logout
+        </button> -->
+    </h1>
+
+
+    <textarea id="txt"></textarea>
+    <button onclick="submit()">Отправить</button>
+    <br>
+    <div id="answer"></div>
+
+
+    <script src="firebase.js"></script>
+    <!--script src="main.js"></script-->
+
+    <script>
+        function submit() {
+            let value = document.querySelector('#txt').value;
+            console.log("%c # ", "background: orange", "value=", value)
+            let firebase = app_firebase;
+
+            firebase.database().ref('txt').set({
+                text: value,
+            }).then(
+                res => {
+                    var dbRef = firebase.database().ref('txt');
+                    dbRef.on('value', snap => {
+                        console.log("%c # ", "background: orange", "snap=", snap.val())
+                        document.getElementById('answer').innerHTML = "<h3 style='color:#a3eaa3'>Текст записан: " + snap.val().text+"</h3>"
+                    })
+                },
+                err => {
+                    console.log('%c ### ', 'background:red', 'err=', err)
+                    document.getElementById('answer').innerHTML = "<h3 style='color:red'>Ошибка, текст не записан. Вы не авторизованы</h3>";
+                }
+            )
+
+
+        }
+    </script>
+</body>
+
+</html>
