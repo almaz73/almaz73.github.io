@@ -1,5 +1,5 @@
 function init() {
-
+    
     var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     // Setup Firebase
@@ -15,6 +15,7 @@ function init() {
     firebase.initializeApp(config)
 
     var usersRef = firebase.database().ref('users')
+    console.log("%c # ","background: orange", "usersRef=", usersRef)
 
     // create Vue app
     var app = new Vue({
@@ -49,7 +50,7 @@ function init() {
             }
         },
         // methods
-        methods: {
+        methods: {          
             addUser: function () {
                 if (this.isValid) {
                     usersRef.push(this.newUser)

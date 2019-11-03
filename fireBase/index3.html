@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="По уроку https://www.youtube.com/watch?v=-UOkri_WNWQ">
+    <title>FIREBASE</title>
+</head>
+
+<body onload="init()">
+
+    <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+
+
+    <script>
+        let db;
+        function init() {
+            var firebaseConfig = {
+                apiKey: "AIzaSyBG-JTEatQGl7crnowv5fD7MuHSTpVwhpw",
+                authDomain: "myexperiment-169dd.firebaseapp.com",
+                databaseURL: "https://myexperiment-169dd.firebaseio.com",
+                projectId: "myexperiment-169dd",
+                storageBucket: "myexperiment-169dd.appspot.com",
+                messagingSenderId: "382700959515",
+                appId: "1:382700959515:web:b61b2a07505b9e712ac5be"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            //firebase.analytics();
+
+            console.log("%c # ","background: orange", "firebase=", firebase)
+
+
+
+        // getting the text value from the database
+            var bigOne = document.getElementById('bigOne');
+            var dbRef = firebase.database().ref().child('text');
+            dbRef.on('value', snap => {
+                console.log("%c # ","background: orange", "snap=", snap.val())
+                bigOne.innerText = snap.val()
+                console.log("%c # ","background: orange", " bigOne.innerText=",  bigOne.innerText)
+            });
+
+            var dbRef = firebase.database().ref('users').child('test');
+            dbRef.on('value', snap => {
+                console.log("%c # ","background: orange", "snap=", snap.val())
+                bigOne.innerText = snap.val()
+                console.log("%c # ","background: orange", " bigOne.innerText=",  bigOne.innerText)
+            });
+        }
+
+        function writeDate() {
+            db.collection('Users').add({
+                name: document.getElementById("nameField").value,
+                age: document.getElementById("ageField").value
+            }).then(
+                res => console.log('%c ### ', 'background:green', 'el=', res),
+                err => console.log('%c ### ', 'background:red', 'err=', err)
+            )
+        }
+    </script>
+       
+
+    <h1>
+        FireBase пользователь</h1>
+    <input type="text" placeholder="name" id="nameField" value="tuutuut">
+    <input type="text" placeholder="age" id="ageField">
+    <button onclick="writeDate()">Сохранить</button>
+
+    <h1 id="bigOne"> 0 0 0 </h1>
+
+</body>
+
+</html>
