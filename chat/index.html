@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/png" href="assets/none.png" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+    <script src="assets/firebase.js"></script>
+    <title>Чат инкогникто</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: darkslategray;
+            color: wheat;
+            text-align: center;
+        }
+
+        img {
+            transition: box-shadow .5s ease-in-out;
+        }
+
+        .head:hover~img {
+            box-shadow: 0 0 330px blanchedalmond;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .head:hover~.explain {
+            height: 70px;
+            opacity: 1;
+        }
+
+        .area {
+            background: darkgray;
+            font-size: 18px;
+            border: none;
+            margin: 4px;
+            border-radius: 6px;
+        }
+
+        .explain {
+            transition: opacity 1s ease-in-out;
+            height: 0px;
+            opacity: 0;
+            overflow: hidden;
+        }
+
+        #vue-div input {
+            margin: 8px;
+            padding: 3px;
+        }
+
+        /** Раздел комментариев **/
+        .section {
+            border: 1px solid wheat;
+            border-radius: 6px;
+            padding: 0px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #354037
+        }
+
+        table {
+            border-spacing: 0;
+        }
+
+        .section:nth-child(2n) {
+            background: #204b47
+        }
+
+        /* .section:nth-child(1) {
+            background: #666;
+        } */
+
+        .aut,
+        .com {
+            padding: 28px;
+            text-align: justify;
+        }
+
+        .aut {
+            min-width: 150px;
+        }
+
+        .com {
+            border-left: 1px dashed wheat;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class='head'>Инкогнито чат</h1>
+
+    <img src="assets/none.png">
+    <div class="explain">
+        <p>Каждый может оставить свое мнение, не представляясь и оставаясь обсолютно неизвестным.</p>
+        <p>Всегда помните про уважение, поддержку и помощь друг другу.</p>
+    </div>
+    <hr>
+
+    <div id="vue-div">
+        Вы представились как:
+        <input v-model="nameAuthor" @input="changeName" class="area">
+        <br>
+        <textarea :disabled="nameAuthor.length===0"
+            :title="nameAuthor.length===0?'Необходимо представиться, выберите имя':''" v-model="comment" class="area"
+            name="textarea" id="" cols="70" rows="3">
+        </textarea>
+        <br>
+        <button @click="saveText" class="area">Опубликовать</button>
+        <br>
+
+        <table class="section" v-for="data in tableData">
+            <tr>
+                <td class="aut"> {{data.author}}</td>
+                <td class="com">
+                    {{data.comment}}
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script src="assets/js.js"></script>
+</body>
+
+</html>
