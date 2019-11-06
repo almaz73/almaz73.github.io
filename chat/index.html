@@ -105,8 +105,7 @@
         Вы представились как:
         <input v-model="nameAuthor" @input="changeName" class="area">
         <br>
-        <textarea :disabled="nameAuthor.length===0"
-            :title="nameAuthor.length===0?'Необходимо представиться, выберите имя':''" v-model="comment" class="area"
+        <textarea v-model="comment" class="area"
             name="textarea" id="" cols="70" rows="3">
         </textarea>
         <br>
