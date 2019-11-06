@@ -80,10 +80,16 @@
             padding: 28px;
             text-align: justify;
         }
-
         .aut {
-            min-width: 150px;
+                min-width: 150px;
+            }
+
+        @media (max-width: 600px) {
+            .aut {
+                min-width: inherit;
+            }
         }
+
 
         .com {
             border-left: 1px dashed wheat;
@@ -105,11 +111,10 @@
         Вы представились как:
         <input v-model="nameAuthor" @input="changeName" class="area">
         <br>
-        <textarea v-model="comment" class="area"
-            name="textarea" id="" cols="70" rows="3">
+        <textarea v-model="comment" class="area" style="width: 100%; max-width: 700px;" name="textarea" id="" rows="3">
         </textarea>
         <br>
-        <button @click="saveText" class="area">Опубликовать</button>
+        <button @click="saveText" class="area" style="padding: 10px;">Опубликовать</button>
         <br>
 
         <table class="section" v-for="data in tableData">

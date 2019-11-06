@@ -13,8 +13,8 @@ new Vue({
             localStorage.setItem('NAME_AUTHOR', this.nameAuthor)
         },
         saveText() {            
-            if(this.nameAuthor==="") alert('НЕОБХОДИМО ИМЯ ОТПРАВИТЕЛЯ')
-            if(this.comment==="") alert('НЕОБХОДИМ КОММЕНТАРИЙ');
+            if(this.nameAuthor=="") return alert('НЕОБХОДИМО ИМЯ ОТПРАВИТЕЛЯ')
+            if(this.comment=="") return  alert('НЕОБХОДИМ КОММЕНТАРИЙ');
             firebase.database().ref('guest').push({
                 author: this.nameAuthor,
                 comment: this.comment, 
