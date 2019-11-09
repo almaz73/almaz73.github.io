@@ -1,0 +1,40 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background: #010109;
+    background: grey;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 900px) {
+    body {
+        background-image: url(assets/fon_norrow_norrow.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media (min-width: 900px) and (max-width: 1000px) {
+    body {
+        background-image: url(assets/fon_norrow.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+    body {
+        background-image: url(assets/fon_middle.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media (min-width: 1300px) {
+    body {
+        background-image: url(assets/fon_big.jpg);
+    }
+}
