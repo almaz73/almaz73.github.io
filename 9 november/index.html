@@ -10,7 +10,7 @@
         html {
             height: 100%;
             background: #33bb88;
-            background-image: url(http://4.bp.blogspot.com/-U8yGexT-ysY/Tc6attygkBI/AAAAAAAAA4E/am1FwrGcgNc/s1600/121775-1920x1080.jpg); 
+            background-image: url(http://4.bp.blogspot.com/-U8yGexT-ysY/Tc6attygkBI/AAAAAAAAA4E/am1FwrGcgNc/s1600/121775-1920x1080.jpg);
             background-repeat: no-repeat;
             background-size: 100% 100%;
             font-family: Arial;
@@ -27,8 +27,7 @@
             Повторение создания страниц и перелинковку (связывание через ссылки)
         </li>
         <li>
-            Повторение добавления классов к тегам и применение для них стилей
-            background: green; width: 300px; font-size: 30px; color: orange; text-align: center
+            Повторение добавления классов к тегам и применение для них стилей background: green; width: 300px; font-size: 30px; color: orange; text-align: center
         </li>
         <li>
             Разбор работы тегов: p, h1(h2,h3,h4,h5,h6), s
@@ -47,12 +46,34 @@
             table - использование таблиц
         </li>
         <li>
-            фоновый рисунок <br>
-            background-image: url( ссылка );<br>
-            background-size: cover;
+            фоновый рисунок <br> background-image: url( ссылка );<br> background-size: cover;
 
         </li>
     </ol>
+    <h4>Музыка</h4>
+
+    <audio controls style="width: 80px;">
+        <source src="sound1.ogg" type="audio/ogg">
+        <source src="sound1.mp3" type="audio/mpeg" >Your browser does not support the audio element.
+    </audio>
+
+    <audio controls>
+        <source src="sound1.ogg" type="audio/ogg">
+        <source src="sound1.mp3" type="audio/mpeg">Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
+
+    <audio id="player" src="sound1.mp3"></audio>
+    <br>
+    <br>
+    <span style="border:5px dashed blue; background: blanchedalmond; padding: 3px;">
+        <button onclick="document.getElementById('player').play()">Play</button>
+        <button onclick="document.getElementById('player').pause()">Pause</button>
+        <button onclick="document.getElementById('player').volume += 0.1">Vol+ </button>
+        <button onclick="document.getElementById('player').volume -= 0.1">Vol- </button>
+    </span>
+
+
 </body>
 
 </html>
