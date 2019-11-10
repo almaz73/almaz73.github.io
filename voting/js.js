@@ -7,7 +7,7 @@ new Vue({
             dirty: false,
             works: [
                 { site: 'daniyar', name: 'Сайт Данияра', vote: '' },
-                { site: 'anton', name: 'Сайт Антон' },
+                { site: 'anton', name: 'Сайт Антона' },
                 { site: 'damir', name: 'Сайт Дамира' },
                 { site: 'daniyar2', name: 'Второй сайт Данияра - квест' },
                 { site: 'amir', name: 'Сайт Амира' },
