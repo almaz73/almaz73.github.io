@@ -1,0 +1,126 @@
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: indigo;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        h1 {
+            margin-left: 500px;
+            font-family: 'ZCOOL XiaoWei', serif;
+
+        }
+
+        h2 {
+            
+            font-family: 'ZCOOL XiaoWei', serif;
+        }
+
+        .backgroung1 {
+            height: 100%;
+            display: grid;
+            grid-template-areas:
+                't t t t '
+                'm c c c '
+                'm c c c '
+                'b b b b';
+            grid-template-rows: 100px 1fr 100px;
+            grid-template-columns: 400px 1fr;
+
+        }
+
+        #top {
+            background: blue;
+            grid-area: t;
+        }
+
+        #menu {
+            background: blueviolet;
+            grid-area: m;
+        }
+
+        #content {
+            background: aqua;
+            grid-area: c;
+            padding: 20px;
+        }
+
+        #bottom {
+            background: rgb(5, 112, 161);
+            grid-area: b;
+            height: 70px;
+            padding: 4px;
+        }
+
+        .btn {
+            background: rgb(5, 112, 161);
+            border-radius: 5px;
+            text-align: center;
+            height: 40px;
+            font-size: 30px;
+            margin: 10px;
+            border: 1px solid black;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .btn:hover {
+            background: blue;
+            cursor: pointer;
+            box-shadow: 0 0 10px black;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <title>Fandom Undertale </title>
+    <div class="backgroung1">
+        <div id="top">
+            <h1> Fandom Undertale</h1>
+        </div>
+        <div id="content">
+            <h2>Добро пожаловать! </h2>
+            <h4>Здесь вы сможете найти интересующую вас информацию по Undertale, Deltarune, а также различному
+                фан-контенту.
+                Вы также помочь нам, улучшив <a href="">уже существующие</a> статьи или написав <a
+                    href="">недостающие</a>, или просто приятно провести время в компании фанатов, узнавая о своей
+                любимой (или пока ещё не очень) вселенной много нового!
+                Необходимую информацию о редактировании и создании Вы можете найти в справке или в уголке сообщества.
+                На данный момент, мы написали уже 590 статьи и мы продолжаем расширять их список! Ведите себя хорошо и
+                приятного вам пребывания на проекте!</h4>
+            <h3>
+                Также прочтите <a href="">общие правила</a>, <a href="">правила обсуждений</a> и <a href="">рекомендации
+                    по оформлению статей.</a></h3>
+
+        </div>
+        <div id="menu"> 
+            <li class="btn" onclick="alert()">
+                Cодержание
+            </li>
+            <li class="btn" onclick="alert()">
+                Меню
+            </li>
+            <li class="btn" onclick="alert()">
+                Ccылки
+            </li>
+            <li class="btn" onclick="alert()">
+                Главная страница
+            </li>
+        </div>
+        <div id="bottom">Ссылки:
+            <img src="">
+            <span class="btn" onclick="alert()">
+                <a href="https://www.instagram.com/gdana_cross/?hl=ru">Инстаграм</a>
+            </span>
+            <span class="btn" onclick="alert()">
+                <a href="https://vk.com/eyes2019">Вк</a>
+            </span>
+
+        </div>
+
+</html>

@@ -12,9 +12,10 @@ new Vue({
         changeName() {
             localStorage.setItem('NAME_AUTHOR', this.nameAuthor)
         },
-        saveText() {            
-            if(this.nameAuthor=="") return alert('НЕОБХОДИМО ИМЯ ОТПРАВИТЕЛЯ')
-            if(this.comment=="") return  alert('НЕОБХОДИМ КОММЕНТАРИЙ');
+        saveText() {   
+            
+            if(this.nameAuthor.trim()=="") return alert('НЕОБХОДИМО ИМЯ ОТПРАВИТЕЛЯ')
+            if(this.comment.trim()=="") return  alert('НЕОБХОДИМ КОММЕНТАРИЙ');
             firebase.database().ref('guest').push({
                 author: this.nameAuthor,
                 comment: this.comment, 
@@ -26,7 +27,7 @@ new Vue({
         },
         showComments(){
             this.comment='';
-            let dbRef = firebase.database().ref('guest').limitToLast(50);
+            let dbRef = firebase.database().ref('guest').limitToLast(250);
             dbRef.on('value', snap => {
                 let obj = snap.val();    
                 this.tableData=[];
