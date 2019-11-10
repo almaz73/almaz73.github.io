@@ -29,7 +29,7 @@
                 <a :href="'../projects/'+work.site+'/'+work.site+'.zip'" title="Скачать сайт">
                     <img src="zip.png" width="27" height="24">
                 </a>
-                <a :href="'../projects/'+work.site" style="min-width: 200px;">{{work.name}}</a>
+                <a :href="'../projects/'+work.site" style="min-width: 100px;">{{work.name}}</a>
                 <span v-if="isLogged">
                     <input @change="change()" type="range" min="0" max="10" value="5" v-model="work.vote">
                     {{work.vote}}
@@ -44,10 +44,11 @@
             <a title="Общие оценки появятся скоро. Публикуйте быстрее работы." href="" onclick="alert('Общие оценки появятся скоро, ждем. Публикуйте быстрее работы')">
                 Посмотреть результаты
             </a>
-            <hr>
+            <br> <br>
             <a href="../index.html">
-                    На главную
-                </a>
+                На главную
+            </a>
+            <br><br>
         </div>
     </div>
 
