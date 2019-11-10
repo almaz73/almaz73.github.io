@@ -1,0 +1,33 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif, Helvetica, sans-serif;
+    color: lightgrey;
+    background: darkseagreen;
+    background-image: url(fon1.jpg);
+    text-align: center;
+}
+
+#vue-root {
+    padding: 0 10px;
+}
+
+.logButtons button,
+.saveButton {
+    border: none;
+    background: darkcyan;
+    border-radius: 6px;
+    padding: 13px;
+}
+
+#vue-root .ol {
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#vue-root li {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 15px 0;
+}

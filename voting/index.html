@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="firebase.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="vue-root">
+        <div class="logButtons">
+            <span> {{loggedMail}} </span>
+            <button @click="autorization()" v-if="!isLogged"> Зарегистрироваться </button>
+            <button @click="logOut()" v-if="isLogged"> Выйти </button>
+        </div>
+
+        <h2>
+            Система оценивания сайтов.
+        </h2>
+
+        <div class="ol">
+            <li v-for="work in works">
+                <a :href="'../projects/'+work.site+'/'+work.site+'.zip'" title="Скачать сайт">
+                    <img src="zip.png" width="27" height="24">
+                </a>
+                <a :href="'../projects/'+work.site" style="min-width: 200px;">{{work.name}}</a>
+                <span v-if="isLogged">
+                    <input @change="change()" type="range" min="0" max="10" value="5" v-model="work.vote">
+                    {{work.vote}}
+                </span>
+            </li>
+        </div>
+        <div style="text-align: center;">
+            <button class='saveButton' v-if="dirty" @click="save()">
+                Сохранить изменения
+            </button>
+            <br><br>
+            <a title="Общие оценки появятся скоро. Публикуйте быстрее работы." href="" onclick="alert('Общие оценки появятся скоро, ждем. Публикуйте быстрее работы')">
+                Посмотреть результаты
+            </a>
+            <hr>
+            <a href="../index.html">
+                    На главную
+                </a>
+        </div>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+
+</html>
