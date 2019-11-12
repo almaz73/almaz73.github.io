@@ -16,6 +16,7 @@
     <div id="vue-root">
         <div class="logButtons">
             <span> {{loggedMail}} </span>
+            <span v-if="!isLogged">Зарегистрируйтесь, чтобы поставить баллы сайтам</span>
             <button @click="autorization()" v-if="!isLogged"> Зарегистрироваться </button>
             <button @click="logOut()" v-if="isLogged"> Выйти </button>
         </div>
@@ -30,9 +31,12 @@
                     <img src="zip.png" width="27" height="24">
                 </a>
                 <a :href="'../projects/'+work.site" style="min-width: 100px;">{{work.name}}</a>
-                <span v-if="isLogged">
+                <span v-if="isLogged && !isAssessment">
                     <input @change="change()" type="range" min="0" max="10" value="5" v-model="work.vote">
                     {{work.vote}}
+                </span>
+                <span v-if="isAssessment">                   
+                    {{work.rating}}
                 </span>
             </li>
         </div>
@@ -41,8 +45,9 @@
                 Сохранить изменения
             </button>
             <br><br>
-            <a title="Общие оценки появятся скоро. Публикуйте быстрее работы." href="" onclick="alert('Общие оценки появятся скоро, ждем. Публикуйте быстрее работы')">
-                Посмотреть результаты
+            <a href="#" @click="changeShow()">
+                <span v-if="!isAssessment">Посмотреть результаты</span>
+                <span v-if="isAssessment">Оценить работы</span>
             </a>
             <br> <br>
             <a href="../index.html">

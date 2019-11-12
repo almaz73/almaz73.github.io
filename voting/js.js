@@ -5,8 +5,10 @@ new Vue({
             isLogged: false,
             loggedMail: '',
             dirty: false,
+            isAssessment: false,
+            oldWorks: [],
             works: [
-                { site: 'daniyar', name: 'Сайт Данияра', vote: '' },
+                { site: 'daniyar', name: 'Сайт Данияра' },
                 { site: 'anton', name: 'Сайт Антона' },
                 { site: 'damir', name: 'Сайт Дамира' },
                 { site: 'daniyar2', name: 'Второй сайт Данияра - квест' },
@@ -40,6 +42,16 @@ new Vue({
             this.dirty = true;
             this.$forceUpdate();
         },
+        changeShow() {
+            this.isAssessment = !this.isAssessment
+            if (this.isAssessment) {
+                this.works.sort((a, b) => {
+                    return b.rating - a.rating
+                })
+            } else {
+                this.works = JSON.parse(JSON.stringify(this.oldWorks))
+            }
+        },
         getVotes() {
             let author = this.loggedMail.replace('@', '').replace('.', '')
             firebase.database().ref('voting').child(author)
@@ -50,7 +62,7 @@ new Vue({
                         if (existElement) el.vote = existElement.vote;
                     })
 
-
+                    this.$forceUpdate();
                 })
         },
         getState() {
@@ -66,6 +78,33 @@ new Vue({
                 }
 
             })
+        },
+        getAllVotes() {
+            firebase.database().ref('voting').on('value', snap => {
+                let votes = snap.val()
+
+                let sites = {};
+                Object.keys(votes).forEach(el => {
+                    let node = votes[el].v;
+                    node.forEach(item => {
+                        let nameSite = item.site;
+                        if (sites[nameSite]) {
+                            let old = sites[nameSite];
+                            sites[nameSite] = { count: old.count + 1, sum: old.sum + parseInt(item.vote) }
+                        } else {
+                            sites[nameSite] = { count: 1, sum: parseInt(item.vote) }
+                        }
+                    })
+                })
+
+                Object.keys(sites).forEach(el => {
+                    let author = this.works.find(item => item.site === el)
+                    author.rating = Math.ceil(sites[el].sum / sites[el].count * 10) / 10
+                })
+                this.oldWorks = JSON.parse(JSON.stringify(this.works))
+            })
+
+
         },
         save() {
             let that = this;
@@ -87,5 +126,6 @@ new Vue({
     },
     mounted() {
         this.getState()
+        this.getAllVotes()
     }
 })
