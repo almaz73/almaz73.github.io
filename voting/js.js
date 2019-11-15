@@ -18,6 +18,7 @@ new Vue({
                 { site: 'timur', name: 'Сайт Тимура' },
                 { site: 'damir2', name: 'Второй сайт Дамира' },
                 { site: 'dima', name: 'Сайт Дмитрия' },
+                { site: 'amirLatypov', name: ' Сайт Латыпова Амира' }
 
             ]
         };
