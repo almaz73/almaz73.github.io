@@ -19,15 +19,15 @@
             </button>
     </a>
     <div id="vue-root">
-        <div class="logButtons">
+        <!-- <div class="logButtons">
             <span> {{loggedMail}} </span>
             <span v-if="!isLogged">Зарегистрируйтесь, чтобы поставить баллы сайтам</span>
             <button @click="autorization()" v-if="!isLogged"> Зарегистрироваться </button>
             <button @click="logOut()" v-if="isLogged"> Выйти </button>
-        </div>
+        </div> -->
 
         <h2>
-            Система оценивания сайтов.
+            Работы учеников.
         </h2>
 
         <div class="ol">
@@ -51,7 +51,7 @@
             </button>
             <br><br>
             <a href="#" @click="changeShow()">
-                <span v-if="!isAssessment">Посмотреть результаты</span>
+                <!-- <span v-if="!isAssessment">Посмотреть результаты</span> -->
                 <span v-if="isAssessment">Оценить работы</span>
             </a>
             <br> <br>
