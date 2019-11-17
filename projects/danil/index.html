@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assel Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+
+        .menu-main {
+            list-style: none;
+            margin: 40px 0 5px;
+            padding: 25px 0 5px;
+            text-align: center;
+            background: rgb(83, 83, 83);
+            border-top: 5px solid #feb386;
+            border-left: 5px solid grey;
+            border-right: 5px solid grey;
+            border-bottom: 5px solid grey;
+            box-shadow: 0 0 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+        }
+
+        .menu-main li {
+            display: inline-block;
+        }
+
+        .menu-main li:after {
+            content: "|";
+            color: #fffefe;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .menu-main li:last-child:after {
+            content: none;
+        }
+
+        .menu-main a {
+            text-decoration: none;
+            font-family: 'Ubuntu Condensed', sans-serif;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 20px;
+            margin: 0 34px 0 30px;
+            font-size: 17px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: color .2s;
+        }
+
+        .menu-main a,
+        .menu-main a:visited {
+            color: #ffffff;
+        }
+
+        .menu-main a.current,
+        .menu-main a:hover {
+            color: #feb386;
+
+        }
+
+        .menu-main a:before,
+        .menu-main a:after {
+            content: "";
+            position: absolute;
+            height: 4px;
+            top: auto;
+            right: 50%;
+            bottom: -5px;
+            left: 50%;
+            background: #feb386;
+            transition: .8s;
+        }
+
+        .menu-main a:hover:before,
+        .menu-main .current:before {
+            left: 0;
+        }
+
+        .menu-main a:hover:after,
+        .menu-main .current:after {
+            right: 0;
+        }
+
+        @media (max-width: 550px) {
+            .menu-main {
+                padding-top: 0;
+            }
+
+            .menu-main li {
+                display: block;
+            }
+
+            .menu-main li:after {
+                content: none;
+            }
+
+            .menu-main a {
+                padding: 25px 0 20px;
+                margin: 0 30px;
+            }
+        }
+
+        body {
+            margin: 0;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background: grey;
+
+        }
+
+        .div1 {
+            background: rgb(83, 83, 83);
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            z-index: 5;
+            margin: 0;
+
+        }
+
+        h1 {
+            font-family: 'Tangerine', thin;
+            position: fixed;
+            z-index: 16;
+            font-size: 70px;
+            color: white;
+            top: -30px;
+            left: 20px;
+            text-shadow: 0 0 10px black;
+        }
+
+        .line {
+            width: 100%;
+            height: 5px;
+            position: fixed;
+            background: grey;
+            z-index: 6;
+
+        }
+
+        .line1 {
+            width: 100%;
+            height: 5px;
+            position: fixed;
+            background: grey;
+            z-index: 6;
+            top: 55px;
+        }
+
+        .transparency {
+            background: rgb(83, 83, 83);
+            opacity: 0.9;
+            z-index: 2;
+            width: 1170px;
+            height: 1500px;
+            position: absolute;
+            top: 100px;
+            left: 45px;
+            border: 10px solid grey;
+        }
+
+        .name {
+            position: fixed;
+            width: 275px;
+            height: 80px;
+            z-index: 15;
+            background: rgb(83, 83, 83);
+            left: 10px;
+            border-top: 5px solid #feb386;
+            border-left: 5px solid grey;
+            border-right: 5px solid grey;
+            border-bottom: 5px solid grey;
+            box-shadow: 0 0 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        h2 {
+            position: absolute;
+            z-index: 3;
+            top: 650px;
+            color: white;
+            left: 130px;
+            font-size: 75px;
+            border-bottom: 5px solid grey;
+            font-family: 'Ubuntu Condensed', sans-serif;
+
+        }
+
+        .line-in-trans {
+            background: #feb386;
+            position: absolute;
+            width: 1050px;
+            height: 5px;
+            top: 655px;
+            z-index: 3;
+            left: 113px;
+
+        }
+
+        .line-in-trans1 {
+            background: #feb386;
+            position: absolute;
+            z-index: 3;
+            width: 10px;
+            height: 1500px;
+            top: 120px;
+            left: 80px;
+        }
+
+        .line-in-trans2 {
+            background: #feb386;
+            position: absolute;
+            z-index: 3;
+            width: 10px;
+            height: 1500px;
+            top: 120px;
+            right: 65px;
+
+        }
+
+        .line-in-trans3 {
+            background: #feb386;
+            position: absolute;
+            width: 1050px;
+            height: 5px;
+            top: 1105px;
+            z-index: 3;
+            left: 113px;
+
+        }
+
+        .text {
+            position: absolute;
+            top: 800px;
+            margin: 0;
+            z-index: 3;
+            left: 350px;
+            font-size: 25px;
+            color: white;
+            width: 800px;
+
+        }
+
+        .h2 {
+            position: absolute;
+            z-index: 3;
+            top: 1050px;
+            color: white;
+            left: 130px;
+            font-size: 75px;
+            border-bottom: 5px solid grey;
+            font-family: 'Ubuntu Condensed', sans-serif;
+        }
+
+        .text1 {
+            position: absolute;
+            top: 1250px;
+            margin: 0;
+            z-index: 3;
+            left: 140px;
+            font-size: 25px;
+            color: white;
+            width: 600px;
+
+
+        }
+
+        h3 {
+            position: absolute;
+            z-index: 3;
+            top: 1180px;
+            color: #feb386;
+            left: 140px;
+            font-size: 35px;
+            font-family: 'Ubuntu Condensed', sans-serif;
+        }
+
+        .qqqq {
+            position: absolute;
+            width: 1264px;
+            height: 650px;
+            background: black;
+            opacity: 0.7;
+            z-index: 4;
+            top: 65px;
+            left: 0px;
+
+        }
+
+        .h1 {
+            position: absolute;
+            color: white;
+            top: 110px;
+            left: 350px;
+            font-size: 150px;
+        }
+
+        .submenu {
+            background: rgb(83, 83, 83);
+            position: absolute;
+            left: 0;
+            top: 100%;
+            z-index: 5;
+            width: 125px;
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: 0 0;
+            transition: .5s ease-in-out;
+        }
+
+        .submenu a {
+            color: white;
+            text-align: left;
+            padding: 12px 15px;
+            font-size: 13px;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+
+        .submenu li:last-child a {
+            border-bottom: none;
+        }
+
+        .submenu-link:after {
+            content: \f107;
+            font-family: "fontAwesome";
+            color: inherit;
+            margin-left: 10px;
+        }
+
+        .menu-main>li:hover .submenu {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+
+        nav {
+            display: table;
+            margin: 0 auto;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-main::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .menu-main>li {
+            position: relative;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Assel Studio</h1>
+    <div>
+        <div class="qqqq">
+            <h1 class="h1">Assel Studio</h1>
+        </div>
+        <div class="text1">
+            <p algin="left"></p>Маникюр на длинные ногти делает руку более утонченной, изящной и женственной, но только
+            если это не слишком длинные ногти, поэтому выбирайте умеренную длину ногтевой пластины. Сегодня
+            миндалевидная форма ногтей самая востребованная, и именно ее, чаще всего выбирают представительницы
+            прекрасного пола. Покрытие данных ногтей может быть любым, но самое популярное это цвет нюд (от нежного
+            розового до бежевых оттенков).
+        </div>
+        <div class="text">
+            <p algin="left">Здраствуйте друзья! Приглашаю Вас в свою студию "Assel Studio".
+                Меня зовут Гузель, я владелица студии. Занимаюсь ногтевым сервисом
+                10 лет. В моей студии Вам предложат любой вид дизайна ногтей от классического маникюра френч до
+                незабываемого дизайна minx. Огромный выбор цветов покрытий ногтей. В уютной атмосфере Вам предложат чай,
+                кофе. Маникюр с покрытием займет всего 1 час Вашего времени! Находимся мы по адресу - <a
+                    href="https://yandex.ru/maps/43/kazan/?ll=49.086327%2C55.818119&mode=search&sll=49.086328%2C55.818119&source=wizgeo&text=%D0%A0%D0%BE%D1%81%D1%81%D0%B8%D1%8F%2C%20%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%A2%D0%B0%D1%82%D0%B0%D1%80%D1%81%D1%82%D0%B0%D0%BD%2C%20%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C%2C%202-%D1%8F%20%D0%AE%D0%B3%D0%BE-%D0%97%D0%B0%D0%BF%D0%B0%D0%B4%D0%BD%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%203&utm_medium=maps-desktop&utm_source=serp&z=17"
+                    style="text-decoration: none;">2-ая Юго-западная, 3</a>. Есть парковка (бесплатная), в семи минутах
+                ходьбы от станции метро "Козья слобода". Ваши пальчики будут идеальные!
+            </p>
+        </div>
+        <div class="line-in-trans3"></div>
+        <div class="line-in-trans2"></div>
+        <DIv class="line-in-trans1"></DIv>
+        <div class="line-in-trans"></div>
+        <div class="name"></div>
+        <div class="transparency"></div>
+        <div class="line"></div>
+        <div class="line1"></div>
+        <div class="div1">
+        </div>
+        <img src="images.png"
+            style="position: absolute; width: 200px; height: 250px; z-index: 3; top: 830px; left: 130px; border: 5px solid #feb386;">
+        <img src="5VOJ6S.png" style="position: fixed; z-index: 1;">
+        <img src="1.jpg"
+            style="position: absolute;width:632px; height: 650px; z-index: 3;top: 60px; left: 0px; border-bottom: 5px solid #feb386; border-top: 5px solid #feb386; ">
+        <img src="2.jpg"
+            style="position: absolute;width: 632px; height: 650px; z-index: 3;top: 60px; right: 0px; border-bottom: 5px solid #feb386;border-top: 5px solid #feb386 ;">
+        <img src="3.jpg" alt=""
+            style="position: absolute; width: 350px; height: 350px; z-index: 3; top: 1200px;left: 800px; border: 5px solid #feb386;">
+    </div>
+    <nav>
+        <ul class="menu-main" style="margin: 0%; z-index: 20; position: fixed; left: 500px;">
+            <li><a href="" class="current">Главная</a></li>
+            <li><a href="index2.html">Маникюр</a></li>
+            <li><a href="">Педикюр</a></li>
+            <li><a href="" class="submenu-link">Данные</a></li>
+        </ul>
+    </nav>
+
+    <h2>Обо мне и студии</h2>
+    <h2 class="h2">Тренд 2019</h2>
+    <h3>Длинные ногти</h3>
+
+
+
+
+</body>
+
+</html>

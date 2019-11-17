@@ -14,12 +14,15 @@ new Vue({
                 { site: 'daniyar2', name: 'Второй сайт Данияра - квест' },
                 { site: 'amir', name: 'Сайт Амира' },
                 { site: 'nazirbek', name: 'Сайт Назирбек' },
-                { site: 'gdana', name: 'Сайт Жданы' },
+                { site: 'gdana', name: 'Сайт Жданы (2)' },
                 { site: 'timur', name: 'Сайт Тимура' },
                 { site: 'damir2', name: 'Второй сайт Дамира' },
                 { site: 'dima', name: 'Сайт Дмитрия' },
                 { site: 'amirLatypov', name: ' Сайт Латыпова Амира' },
-                { site: 'kamil', name: ' Сайт Камиля' }
+                { site: 'kamil', name: ' Сайт Камиля' },
+                { site: 'daniyar4', name: '4 сайт Данияра ' },
+                { site: 'danil', name: 'Сайт Данила' },
+                { site: 'rafael', name: 'Сайт Рафаэля' }
             ]
         };
     },

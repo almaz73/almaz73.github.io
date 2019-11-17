@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Маникюр</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+
+        .menu-main {
+            list-style: none;
+            margin: 40px 0 5px;
+            padding: 25px 0 5px;
+            text-align: center;
+            background: rgb(83, 83, 83);
+            border-top: 5px solid #feb386;
+            border-left: 5px solid grey;
+            border-right: 5px solid grey;
+            border-bottom: 5px solid grey;
+            box-shadow: 0 0 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+
+        }
+
+        .menu-main li {
+            display: inline-block;
+        }
+
+        .menu-main li:after {
+            content: "|";
+            color: #fffefe;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .menu-main li:last-child:after {
+            content: none;
+        }
+
+        .menu-main a {
+            text-decoration: none;
+            font-family: 'Ubuntu Condensed', sans-serif;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 20px;
+            margin: 0 34px 0 30px;
+            font-size: 17px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: color .2s;
+        }
+
+        .menu-main a,
+        .menu-main a:visited {
+            color: #ffffff;
+        }
+
+        .menu-main a.current,
+        .menu-main a:hover {
+            color: #feb386;
+        }
+
+        .menu-main a:before,
+        .menu-main a:after {
+            content: "";
+            position: absolute;
+            height: 4px;
+            top: auto;
+            right: 50%;
+            bottom: -5px;
+            left: 50%;
+            background: #feb386;
+            transition: .8s;
+        }
+
+        .menu-main a:hover:before,
+        .menu-main .current:before {
+            left: 0;
+        }
+
+        .menu-main a:hover:after,
+        .menu-main .current:after {
+            right: 0;
+        }
+
+        @media (max-width: 550px) {
+            .menu-main {
+                padding-top: 0;
+            }
+
+            .menu-main li {
+                display: block;
+            }
+
+            .menu-main li:after {
+                content: none;
+            }
+
+            .menu-main a {
+                padding: 25px 0 20px;
+                margin: 0 30px;
+            }
+        }
+
+        body {
+            margin: 0;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background: grey;
+
+        }
+
+        .div1 {
+            background: rgb(83, 83, 83);
+            width: 100%;
+            height: 60px;
+            position: fixed;
+            z-index: 5;
+            margin: 0;
+
+        }
+
+        h1 {
+            font-family: 'Tangerine', thin;
+            position: fixed;
+            z-index: 16;
+            font-size: 70px;
+            color: white;
+            top: -30px;
+            left: 20px;
+            text-shadow: 0 0 10px black;
+        }
+
+        .line {
+            width: 100%;
+            height: 5px;
+            position: fixed;
+            background: grey;
+            z-index: 6;
+
+        }
+
+        .line1 {
+            width: 100%;
+            height: 5px;
+            position: fixed;
+            background: grey;
+            z-index: 6;
+            top: 55px;
+        }
+
+        .transparency {
+            background: rgb(83, 83, 83);
+            opacity: 0.9;
+            z-index: 2;
+            width: 1170px;
+            height: 1500px;
+            position: absolute;
+            top: 100px;
+            left: 45px;
+            border: 10px solid grey;
+        }
+
+        .name {
+            position: fixed;
+            width: 275px;
+            height: 80px;
+            z-index: 15;
+            background: rgb(83, 83, 83);
+            left: 10px;
+            border-top: 5px solid #feb386;
+            border-left: 5px solid grey;
+            border-right: 5px solid grey;
+            border-bottom: 5px solid grey;
+            box-shadow: 0 0 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .line-in-trans1 {
+            background: #feb386;
+            position: absolute;
+            z-index: 3;
+            width: 10px;
+            height: 1500px;
+            top: 120px;
+            left: 80px;
+        }
+
+        .line-in-trans2 {
+            background: #feb386;
+            position: absolute;
+            z-index: 3;
+            width: 10px;
+            height: 1500px;
+            top: 120px;
+            right: 65px;
+
+        }
+        h2{
+            position: absolute;
+            z-index: 3;
+            top: 75px;
+            color: white;
+            left: 130px;
+            font-size: 75px;
+            border-bottom: 5px solid grey;
+            font-family: 'Ubuntu Condensed', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+        <h1>Assel Studio</h1>
+    <div>
+        <div class="line-in-trans2"></div>
+        <DIv class="line-in-trans1"></DIv>
+        <div class="name"></div>
+        <div class="transparency"></div>
+        <div class="line"></div>
+        <div class="line1"></div>
+        <div class="div1"></div>
+    </div>
+    <img src="5VOJ6S.png" style="position: fixed; z-index: 1;">
+    
+    <ul class="menu-main" style="margin: 0%; z-index: 20; position: fixed; left: 500px;">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="" class="current">Маникюр</a></li>
+        <li><a href="">Педикюр</a></li>
+        <li><a href="">Данные</a></li>
+    </ul>
+    <h2>Дизайны маникюра</h2>
+</body>
+
+</html>
