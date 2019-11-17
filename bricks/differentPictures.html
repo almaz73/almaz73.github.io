@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: yellow;
+            text-align: center;
+        }
+        
+        .picture {
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 600px) {
+            /* выполняется если ширина меньше 600px */
+            .picture {
+                width: 300px;
+                height: 131px;
+                background: url(cargo_animal_little.jpg);
+                border-radius: 55px;
+                box-shadow: 0 0 10px black;
+            }
+        }
+        
+        @media (min-width: 600px) {
+            /* выполняется если ширина больше 600px */
+            .picture {
+                width: 752px;
+                height: 329px;
+                background: url(cargo_animal.jpeg);
+                border-radius: 135px;
+                box-shadow: 0 0 10px black;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="picture"></div>
+    <h3>
+        Один вид оптимизации сайта - уменьшение размеров файлов.
+    </h3>
+    <p>
+        Исследования говорят что если сайт долго открывается, этот сайт люди не посещают.
+    </p>
+</body>
+
+</html>

@@ -9,11 +9,13 @@
     <style>
          :root {
             --backColor: darkgray;
-            --color: green;
+            --color: darkred;
         }
         
         body {
             background: var(--backColor);
+            background-image: url(bricks.jpg);
+            line-height: 40px;
             color: var(--color);
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             text-align: center;
@@ -28,7 +30,7 @@
             color: var(--color);
             font-size: 1.5em;
             text-decoration: none;
-            transition: font-size 0.1s ease-in-out;
+            transition: font-size 0.1s ease;
             text-shadow: 1px 1px 1px black;
         }
         
@@ -39,7 +41,22 @@
         }
         
         a:visited {
-            color: #531616;
+            color: #8f6767;
+        }
+        
+        img.rot {
+            width: 100px;
+            transform: rotate(0deg);
+            transition: transform .2s ease-in-out;
+            cursor: pointer;
+        }
+        
+        img.rot:hover {
+            transform: rotate(-15deg);
+        }
+        
+        img.rot:active {
+            transform: rotate(360deg);
         }
     </style>
 </head>
@@ -50,7 +67,7 @@
             Домой
         </button>
     </a>
-    <h1>Примеры - кирпичики для создания сайта </h1>
+    <h1 style="text-shadow: 1px 2px 3px black;">Примеры - кирпичики для создания сайта </h1>
     <a href="logotype.zip"><img src="zip.png"></a>
     <a href="logotype.html">
         Пример загловка сайта с логотипом.
@@ -80,6 +97,14 @@
     <a href="floatText.html">
         Пример сайта где текст обтекает рисунки
     </a> <br>
+
+    <a href="differentPictures.zip"><img src="zip.png"></a>
+    <a href="differentPictures.html">
+        Использование разных рисунков для смартфона и копьютера на сайте
+    </a> <br>
+
+
+    <img class="rot" style="width: inherit;" src="captain.png" alt="">
 </body>
 
 </html>
