@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: purple;
+        }
+        
+        #cubic {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 120px;
+            height: 120px;
+            background: yellowgreen;
+            border: 3px solid red;
+            box-shadow: 0 0 40px black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cubic"></div>
+    <button onclick="move('1')"> направо (1)</button>
+    <button onclick="move('2')"> налево (2)</button>
+    <button onclick="move('3')"> наверх (3)</button>
+    <button onclick="move('4')"> вниз (4)</button>
+</body>
+
+<script>
+    document.querySelector('#cubic').style.left = "300px"
+    document.querySelector('#cubic').style.top = "100px"
+
+    function move(cod) {
+        let div = document.querySelector('#cubic');
+
+
+        let top = parseInt(div.style.top);
+        let left = parseInt(div.style.left);
+
+
+        if (cod == '1') left = left + 30;
+        if (cod == '2') left = left - 30;
+        if (cod == '3') top = top - 30;
+        if (cod == '4') top = top + 30;
+
+        console.log("top, left = ", top, left)
+
+        div.style.left = left + 'px';
+        div.style.top = top + 'px';
+
+    }
+</script>
+
+</html>
