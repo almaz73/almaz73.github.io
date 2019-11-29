@@ -1,0 +1,14 @@
+body {
+    background: darkblue;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+a {
+    color: darkcyan;
+}
+
+a:hover {
+    color: pink;
+}
