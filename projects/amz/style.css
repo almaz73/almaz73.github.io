@@ -1,0 +1,58 @@
+:root {
+    --maxWidth: 800px;
+}
+
+@font-face {
+    font-family: MyRobotoRegular;
+    src: url(Roboto-Regular.ttf);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'MyRobotoRegular', Arial, Verdana, Tahoma, sans-serif;
+}
+
+.menu-panel {
+    max-width: var(--maxWidth);
+    margin: 8px auto;
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.login {
+    margin-left: auto;
+}
+
+.hr {
+    border-color: chocolate;
+    background: #999;
+    height: 1px;
+    width: 100%;
+}
+
+.top {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lengths {
+    max-width: var(--maxWidth);
+    margin: auto;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.footer {
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
