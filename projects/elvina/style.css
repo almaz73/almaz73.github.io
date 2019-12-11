@@ -1,0 +1,72 @@
+
+main {
+    font-size: 22px;
+    padding: 0 200px;
+}
+.logo img{
+    width: 300px;
+    
+}
+header{
+    height: 130px;
+    border-bottom: 1px solid black;
+    padding: 30px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+button {
+    border: none;
+    border-radius: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: white
+
+}
+.pages {
+    width: 170px;
+    height: 50px;
+    margin-right: 25px;
+    background-color: black;
+}
+.pages:hover {
+    background-color: #474444;
+    text-decoration: underline;
+}
+.img1 img{
+    width: 500px;
+}
+.img1 a1{
+    width: 500px;
+
+}
+.img3 img{
+    width: 500px;
+    border: 20px;
+}
+.img3 {
+    border: 20px;
+}
+.img4 img{
+    width: 500px;
+    border-top: 200px;
+}
+.inst{
+    width: 50px;
+    margin-right: 20px;
+}
+.inst img {
+    width: 100%;
+}
+.twit img{
+    width: 100%;
+}
+.twit{
+    width: 50px;
+}
+.social {
+    display: flex;
+}

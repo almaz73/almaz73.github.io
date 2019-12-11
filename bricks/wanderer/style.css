@@ -1,0 +1,53 @@
+        html,
+        body {
+            color: navajowhite;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: black;
+            background-image: url(fon.png);
+        }
+        
+        #content {
+            border: 5px solid sandybrown;
+            border-radius: 1.2em;
+            padding: 1.2em;
+            height: calc(100vh - 80px);
+            max-width: 800px;
+            margin: 10px auto;
+            background: #0b2e13;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        
+        #content button {
+            padding: 10px;
+            border-radius: 10px;
+            margin: 5px;
+        }
+        
+        #content button:hover {
+            background: yellow;
+        }
+        
+        #content button:focus {
+            outline: none;
+        }
+        
+        @media (max-width: 600px) {
+            /* выполняется если ширина меньше 600px */
+            .cibertrack {
+                width: 120px;
+                height: 70px;
+                background-image: url(little.png);
+            }
+        }
+        
+        @media (min-width: 600px) {
+            /* выполняется если ширина больше 600px */
+            .cibertrack {
+                width: 768px;
+                height: 462px;
+                background-image: url(big.png);
+            }
+        }
