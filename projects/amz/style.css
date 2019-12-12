@@ -1,5 +1,5 @@
 :root {
-    --maxWidth: 800px;
+    --maxWidth: 1000px;
 }
 
 @font-face {
@@ -9,14 +9,15 @@
 
 html,
 body {
-    height: 100%;
+    height: calc(100% - 6px);
+    padding: 0;
     margin: 0;
     font-family: 'MyRobotoRegular', Arial, Verdana, Tahoma, sans-serif;
 }
 
 .menu-panel {
     max-width: var(--maxWidth);
-    margin: 8px auto;
+    margin: 10px auto;
     display: flex;
     align-items: center;
 }
@@ -24,6 +25,10 @@ body {
 .menu {
     padding: 8px;
     cursor: pointer;
+}
+
+.menu-panel .menu {
+    margin-left: 30px;
 }
 
 .login {
@@ -41,18 +46,90 @@ body {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.lengths {
+.mesures {
     max-width: var(--maxWidth);
     margin: auto;
     height: 80px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.mesures button {
+    width: 200px;
+    height: 32px;
+    background: #e5e5e5;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.input {
+    position: relative;
+    width: 350px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.inp {
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    outline: none;
+    left: 0;
+    width: 100%;
+}
+
+.inp:focus {
+    border-bottom: 1px solid #5DA9E0;
+}
+
+.inp:hover {
+    /* background: palegoldenrod; */
+}
+
+.label {
+    position: absolute;
+    left: 0;
+    font-size: 14px;
+    color: #888;
+    top: 0;
+    transition: top .073s ease;
+}
+
+.inp:focus~.label,
+.inp:not(:placeholder-shown)~.label {
+    top: -20px;
 }
 
 .clearfix {
     clear: both;
 }
 
+.content {
+    height: calc(100% - 318px);
+}
+
 .footer {
     box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+    height: 177px;
+}
+
+.inner {
+    margin: auto;
+    max-width: var(--maxWidth);
+}
+
+.footer .inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer h3 {
+    padding: 0 8px;
+}
+
+.footer .menu {
+    font-size: 14px;
+    line-height: 10px;
 }
