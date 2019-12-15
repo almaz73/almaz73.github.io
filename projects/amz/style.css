@@ -139,6 +139,7 @@ body {
 .inner {
     margin: auto;
     max-width: var(--maxWidth);
+    min-width: 320px;
 }
 
 .footer .inner {
