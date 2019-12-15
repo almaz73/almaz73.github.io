@@ -22,13 +22,13 @@ body {
     align-items: center;
 }
 
-.menu {
-    padding: 8px;
+.menu-panel .menu {
+    margin-left: 30px;
     cursor: pointer;
 }
 
-.menu-panel .menu {
-    margin-left: 30px;
+.footer .menu {
+    padding: 8px
 }
 
 .login {
@@ -44,6 +44,13 @@ body {
 
 .top {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    background: white;
+}
+
+.top_imitation {
+    height: 153px;
 }
 
 .mesures {
@@ -80,14 +87,6 @@ body {
     width: 100%;
 }
 
-.inp:focus {
-    border-bottom: 1px solid #5DA9E0;
-}
-
-.inp:hover {
-    /* background: palegoldenrod; */
-}
-
 .label {
     position: absolute;
     left: 0;
@@ -106,9 +105,31 @@ body {
     clear: both;
 }
 
+
+/* контент */
+
 .content {
-    height: calc(100% - 318px);
+    min-height: calc(100% - 318px);
+    display: flex;
+    flex-flow: column wrap;
 }
+
+
+/*  Рендерим элементы как колонки */
+
+.container {
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(260px, 1fr));
+}
+
+.item {
+    /* border: 1px solid red; */
+    margin: -1px;
+    padding: 5px;
+}
+
+
+/* конец контент */
 
 .footer {
     box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
@@ -121,8 +142,8 @@ body {
 }
 
 .footer .inner {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat( auto-fill, minmax(260px, 1fr));
 }
 
 .footer h3 {
