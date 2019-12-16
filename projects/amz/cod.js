@@ -1,33 +1,39 @@
 let btnDiv, sizeDiv, limitDiv, resultDiv;
+let sentences;
 
-function start() {
+function init() {
     btnDiv = document.querySelector('#btn');
     limitDiv = document.querySelector('#limit');
     sizeDiv = document.querySelector('#size');
     resultDiv = document.querySelector('#result');
-    resultDiv.innerHTML = "";
-    blocking(true);
+    sentences = text.split('. ');
+}
 
-    text = text.replace(/\n/g, '');
-
+function start() {
     let arr = [];
     let size = +sizeDiv.value;
     let limit = +limitDiv.value;
 
+    resultDiv.innerHTML = "";
+    blocking(true);
+
     for (let i = 0; i < size; i++) {
-        let begin = Math.round(Math.random() * (text.length - 200)) + 10;
+        let begin = text.indexOf(".", Math.round(Math.random() * (text.length - 200))) + 1;
         let end = Math.round(Math.random() * 190) + 10;
-        let element = text.slice(begin, begin + end);
+        let element = text.slice(begin, begin + end).replace(/\n/g, '');
         arr.push(element)
     }
-    console.log(arr);
 
     queue(arr, mapper, limit);
 }
 
 function queue(arr, mapper, limit) {
     let counter = 0;
+    let sum = 0;
+    let sum_all = arr.length;
     let numberElement = 0;
+
+    for (let i = 0; i < limit && i < sum_all; i++) limiter();
 
     function limiter() {
         if (counter > limit) return;
@@ -35,19 +41,19 @@ function queue(arr, mapper, limit) {
         let data = arr.shift();
         counter++;
         numberElement++;
-
-        resultDiv.innerHTML += '<div class="_' + numberElement + '">' + numberElement + '</div>';
-
+        resultDiv.innerHTML += '<div class="_' + numberElement + '"><h4 style="text-indent:100px" >' + numberElement + '. ' + data + '</h4></div>';
         promise(data, numberElement)
             .then(
                 res => {
-                    document.querySelector('._' + res.numberElement).innerHTML += " " + res.data;
+                    document.querySelector('._' + res.numberElement).innerHTML += "<div> " + res.data + ".</div>";
                     counter--;
+                    sum++;
+                    if (sum === sum_all) blocking(false)
                     if (arr.length) limiter();
                 }
             )
     }
-    for (let i = 0; i < limit; i++) limiter();
+
 }
 
 function promise(data, numberElement) {
@@ -57,8 +63,7 @@ function promise(data, numberElement) {
 }
 
 function mapper(data, numberElement) {
-    console.log('>>>>> >>>> >>>> ' + data, numberElement)
-    return { data, numberElement } //'mapper' + data;
+    return { data: sentences[numberElement - 1], numberElement }
 }
 
 function blocking(val) {
