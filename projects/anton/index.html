@@ -9,24 +9,61 @@
 <body>
     <style>
     h1{
-        background: pink;
+        background: rgba(255, 255, 255, 0.76);
         
     }
-    </style>
-    <body style="text-align: center; background: rgb(251, 255, 0);"></body>
-    <p style="font-size: 50px; color: red;"
+    .picture {
+            margin: 0 auto;
+        }
+    
+    @media (max-width: 600px) {
+        .picture {
+            width: 200px;
+            height: 131px;
+            background: url(small_animals.jpg);
+            border-radius: 55px;
+            box-shadow: 0 0 10px black;
+            }
+    }
+    @media (min-width: 600px) {
+            .picture {
+                width: 600px;
+                height: 329px;
+                background: url(Animals.jpeg);
+                border-radius: 135px;
+                box-shadow: 0 0 10px black;
+            }
+    }
+    a{
+        text-decoration: none;
+    }
+   </style>
+
+
    <h1>Приют для домашних любимцев.</h1> 
+   <body style="text-align: center; background: rgb(251, 255, 0);"></body>
+    <p style="font-size: 50px; color: red;"></p>
+    <div class="picture"></div>
+
+    
    
-   <img style="border-radius: 135px; box-shadow: 0 0 10px black;"
-   src="https://bekair.aero/images/promo/cargo_animal.jpeg" alt="">
+<aside>
+    <a href="enemy.html">Здесь могла быть ваша реклама!</a>
+</aside>
+   
 <h2>ОНИ НУЖДАЮТСЯ В НАШЕЙ ПОМОЩИ!</h2>
 <a href="second Index.html"><h1>Кошки</h1></a>
 
 <a href="Dog.html"><h1>Собаки</h1></a>
+
 <a href="Mouse.html"><h1>Хомяки</h1></a>
+
 <a href="birds.html"><h1>Попугаи</h1></a>
+<pre>
 <h1>Наши контакты:
     г.Казань
     улица Тулпар
     дом 4
     телефон +7 999-999-99-99. </h1>
+</pre>
+</body>
