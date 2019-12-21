@@ -27,8 +27,7 @@ new Vue({
                 { site: 'danil2', name: 'Второй сайт Данила' },
                 { site: 'elvina', name: 'Сайт Эльвины' },
                 { site: 'rafael', name: 'Сайт Рафаэля' },
-                { site: 'egor', name: 'Сайт Егора' },
-                { site: 'rustam', name: 'Сайт Рустама' },
+                { site: 'egor', name: 'Сайт Егора' }
 
             ]
         };
