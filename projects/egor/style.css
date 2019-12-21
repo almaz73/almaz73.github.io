@@ -1,0 +1,73 @@
+.menu{
+      background: sss;
+}
+
+.bg{
+    background: black url(sb_devblog_bio_bg.png);
+    height: 1000px;
+    width: 101%;
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    z-index: 1;
+    top: -375px;
+}
+.logo-small {
+    position: relative; 
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    top:400px;
+    margin-bottom: 60px;
+}
+body{
+    background-color: black;
+    color: white;
+}
+.content{
+    margin:auto;
+    height: 850px;
+    width:800px ;
+    background-color: #1B1B1B;
+    top: -575px;
+    position: relative;
+    max-width: 875px;
+    z-index: 2;
+}
+.Zglvks{
+      margin: 20px;
+      top:20px;
+      position: relative;
+      font-family: 'Amatic SC', cursive;
+      size: 20px;
+      text-decoration: none;
+}
+.OmaGAD{
+    font-family: 'Press Start 2P', cursive;
+    margin: 25px;
+    float: left;
+}
+.gif1{
+    left: 50px;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+}
+.yhTgR{
+    margin:20px;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+}
+#Zglvks{
+    text-decoration: none;
+    color: white;
+}
+A:visited {
+    color:white; /* Цвет посещенной ссылки */
+   }

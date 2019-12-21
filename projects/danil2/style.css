@@ -1,0 +1,208 @@
+body{
+    margin: 0;
+}
+html{
+    margin: 0;
+}
+header{
+    background: rgb(44, 44, 44);
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    color: white;
+    border-bottom:solid 3px grey ;
+}
+.heading{
+    text-align: center;
+    font-size: 100px;
+    text-shadow: black 0 0 10px;
+
+}
+.table{
+    margin: auto;
+    position: absolute; 
+    height: 2000px;
+    width: 200px;
+    background: rgb(201, 201, 201);
+    color: white;
+    padding: 10px;
+    box-shadow: inset 0 0 20px 10px rgba(0,0,0,0.4);
+}
+.buttonnissan{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 10px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+    
+
+}
+.text{
+    position: relative;
+    text-align: center;
+    top: 15px;
+    text-decoration: none;
+}
+.buttonnissan:hover{
+    background: black;
+    color:grey ;
+}
+.buttonnissan:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}
+a{
+    text-decoration: none;
+    color: white;
+ 
+}
+h1{
+text-align: center;
+font-size: 25px;
+color: rgb(44, 44, 44);
+}
+.buttontoyota{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 20px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+}    
+.buttontoyota:hover{
+    background: black;
+    color:grey ;
+}
+.buttontoyota:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}
+.buttonmercedes-benz{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 30px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+}    
+.buttonmercedes-benz:hover{
+    background: black;
+    color:grey ;
+}
+.buttonmercedes-benz:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}
+.buttonbmw{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 40px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+}    
+.buttonbmw:hover{
+    background: black;
+    color:grey ;
+}
+.buttonbmw:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}
+.buttonaudi{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 50px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+}    
+.buttonaudi:hover{
+    background: black;
+    color:grey ;
+}
+.buttonaudi:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}
+.buttonford{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 60px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+}    
+.buttonford:hover{
+    background: black;
+    color:grey ;
+}
+.buttonford:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}
+.buttonlada{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 70px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+}    
+.buttonlada:hover{
+    background: black;
+    color:grey ;
+}
+.buttonlada:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}
+.buttonrenault{
+    position: relative;
+    background: rgb(44, 44, 44);
+    margin: auto;
+    width: 150px;
+    height: 50px;
+    top: 80px;
+    box-shadow: black 0 0 10px;
+    border-radius: 10px;
+    border: solid 2px white;
+}    
+.buttonrenault:hover{
+    background: black;
+    color:grey ;
+}
+.buttonrenault:active{
+    background: honeydew;
+    color: rgb(44, 44, 44);
+
+}

@@ -9,21 +9,27 @@ new Vue({
             oldWorks: [],
             works: [
                 { site: 'daniyar', name: 'Сайт Данияра' },
+                { site: 'daniyar2', name: 'Второй сайт Данияра - квест' },
+                { site: 'daniyar4', name: '4 сайт Данияра ' },
                 { site: 'anton', name: 'Сайт Антона' },
                 { site: 'damir', name: 'Сайт Дамира' },
-                { site: 'daniyar2', name: 'Второй сайт Данияра - квест' },
+                { site: 'damir2', name: 'Второй сайт Дамира' },
                 { site: 'amir', name: 'Сайт Амира' },
                 { site: 'nazirbek', name: 'Сайт Назирбек' },
                 { site: 'gdana', name: 'Сайт Жданы (2)' },
                 { site: 'timur', name: 'Сайт Тимура' },
-                { site: 'damir2', name: 'Второй сайт Дамира' },
+
                 { site: 'dima', name: 'Сайт Дмитрия' },
                 { site: 'amirLatypov', name: ' Сайт Латыпова Амира' },
                 { site: 'kamil', name: ' Сайт Камиля' },
-                { site: 'daniyar4', name: '4 сайт Данияра ' },
+
                 { site: 'danil', name: 'Сайт Данила' },
+                { site: 'danil2', name: 'Второй сайт Данила' },
                 { site: 'elvina', name: 'Сайт Эльвины' },
-                { site: 'rafael', name: 'Сайт Рафаэля' }
+                { site: 'rafael', name: 'Сайт Рафаэля' },
+                { site: 'egor', name: 'Сайт Егора' },
+                { site: 'rustam', name: 'Сайт Рустама' },
+
             ]
         };
     },
