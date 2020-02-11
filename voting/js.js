@@ -139,7 +139,7 @@ new Vue({
         }
     },
     mounted() {
-        /*  this.getState()
-         this.getAllVotes() */
+         this.getState()
+         this.getAllVotes() 
     }
 })
