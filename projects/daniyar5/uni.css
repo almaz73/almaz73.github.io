@@ -1,0 +1,15 @@
+body {
+    background-color: #FFFF84	;
+}
+p {
+    color: orange;
+    font-size:60px ;
+}
+.content {
+    width:500px ;
+    padding:350px;
+    height:100% ;
+    background-color: #FFC958;
+    margin:0 auto;
+
+}
