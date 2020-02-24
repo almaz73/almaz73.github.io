@@ -29,7 +29,8 @@ new Vue({
                 { site: 'elvina', name: 'Сайт Эльвины' },
                 { site: 'rafael', name: 'Сайт Рафаэля' },
                 { site: 'egor', name: 'Сайт Егора' },
-                { site: 'daniyar5', name: 'Еще раз Данияр' }
+                { site: 'daniyar5', name: 'Еще раз Данияр' },
+                { site: 'almaz', name: 'almaz' },
 
             ]
         };
