@@ -19,11 +19,16 @@ let div2 = document.querySelector('#secondDiv');
 let divTruth = document.querySelector('#truth');
 let divError = document.querySelector('#error');
 let thruthAnswer = document.querySelector('.thruth-answer');
+let lineLeft = document.querySelector('.line_left');
+let lineRight = document.querySelector('.line_right');
 let selected;
 let curentTask;
 let result = {count: 0, right: 0};
 
 function startTest(repeate) {
+    lineLeft.style.width = '0%';
+    lineRight.style.width = '0%';
+
     result = {count: 0, right: 0};
     if (repeate) {
         next(null, compilation.tasks[0])
@@ -38,6 +43,7 @@ startTest();
  * Карусель
  */
 function next(prevTask, nextTask) {
+    setLines(prevTask);
     bulidView(nextTask);
     div1.style.left = -document.body.offsetWidth + 'px';
     div2.style.left = 0;
@@ -53,6 +59,13 @@ function next(prevTask, nextTask) {
         bulidView(nextTask, true)
     }, 800);
     setTimeout(() => div2.style.display = 'block', 1200);
+}
+
+function setLines(prevTask) {
+    let procent = 100 / compilation.tasks.length;
+    let widthLeft = procent * (prevTask.id + 1);
+    lineLeft.style.width = widthLeft + '%';
+    lineRight.style.width = (99 - widthLeft) + '%';
 }
 
 function bulidView(task, first) {
