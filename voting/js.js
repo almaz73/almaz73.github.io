@@ -95,9 +95,10 @@ new Vue({
             })
         },
         getAllVotes() {
+            console.log("%c # ", "background: orange", "getAllVotes")
             firebase.database().ref('voting').on('value', snap => {
                 let votes = snap.val()
-
+                console.log("votes=", votes)
                 let sites = {};
                 Object.keys(votes).forEach(el => {
                     let node = votes[el].v;
@@ -140,7 +141,7 @@ new Vue({
         }
     },
     mounted() {
-         this.getState()
-         this.getAllVotes() 
+        this.getState()
+        this.getAllVotes()
     }
 })

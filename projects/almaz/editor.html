@@ -22,7 +22,6 @@
         @media (max-width: 600px) {
             .edgePanel-left, .edgePanel-right {
                 display: none;
-                background: yellow;
             }
         }
 
@@ -40,7 +39,7 @@
         }
 
         .content textarea {
-            width: 97%;
+            width: 92%;
             resize: vertical;
             font-size: 18px;
             background: #2d6987;
@@ -51,7 +50,8 @@
         .content button {
             border-radius: 6px;
             padding: 3px 10px;
-            background: #7b7b7b;
+            background: #b1b1b1;
+            margin: 2px 0;
         }
 
         .content .radio {
@@ -63,6 +63,15 @@
             pointer-events: none
         }
 
+        .content input {
+            width: 95%;
+            background: #2d6987;
+            padding: 5px;
+            border-radius: 6px;
+            font-size: 18px;
+            border: 2px double #555;
+        }
+
     </style>
 </head>
 <body>
@@ -70,34 +79,39 @@
 <div class="content">
     <h1>Редактор</h1>
     <div id="vue-edit">
-        <button @click="save()"> сохранить</button>
-        <div v-for="(element, place) in compilation.tasks">
-            <br>Вопрос: <textarea v-model="element.question"></textarea>
-            <br>Варианты ответов:
-            <table width="100%">
-                <tr v-for="(item, ind) in element.answers">
-                    <td class="radio" @click="changeRadio(element, ind)">
-                        <input :value="ind" type="radio" v-model.number="element.tmp">
-                    </td>
-                    <td>
-                        <textarea v-model="item.name"> </textarea>
-                    </td>
-                    <td style="width:40px; text-align: right">
-                        <span class="del-btn" @click="deleteAnswer(place, item.name)">✖</span>
-                    </td>
-                </tr>
-            </table>
-            <br><span v-show="element.tmp>=element.answers.length" style="color: darkred">*правильный ответ нужно выделить</span>
-            <button @click="addAnswer(place)"> Добавить вариант ответа</button>
-            <button @click="deleteQuestion(element)">Удалить вопрос со всеми ответами</button>
-            <hr>
+        <div v-if="compilation">
+            <input v-model="compilation.topic" placeholder="Выберите название опроснику">
+            <button @click="save()"> Cохранить</button>
+            <span v-if="!isDirty" style="color: green"> Опросник сохранен </span>
+            <span v-if="isDirty" style="color:darkred"> не сохранен </span>
+            <div v-for="(element, place) in compilation.tasks">
+                <br>Вопрос: <textarea v-model="element.question"></textarea>
+                <br>Варианты ответов:
+                <table width="100%">
+                    <tr v-for="(item, ind) in element.answers">
+                        <td class="radio" @click="changeRadio(element, ind)">
+                            <input :value="ind" type="radio" v-model.number="element.tmp">
+                        </td>
+                        <td>
+                            <textarea v-model="item.name"> </textarea>
+                        </td>
+                        <td style="width:40px; text-align: right">
+                            <span class="del-btn" @click="deleteAnswer(place, item.name)">✖</span>
+                        </td>
+                    </tr>
+                </table>
+                <br><span v-show="element.tmp>=element.answers.length" style="color: darkred">*правильный ответ нужно выделить</span>
+                <button @click="addAnswer(place)"> Добавить вариант ответа</button>
+                <button @click="deleteQuestion(element)">Удалить вопрос со всеми ответами</button>
+                <hr>
+            </div>
+            <button @click="addQuestion()"> Добавить новый вопрос</button>
         </div>
-        <button @click="addQuestion()"> Добавить новый вопрос</button>
     </div>
 </div>
 <div class="edgePanel-right"></div>
 <script src="js/firebase.js"></script>
+<script src="js/hash.js"></script>
 <script src="js/editor.js"></script>
-
 </body>
 </html>

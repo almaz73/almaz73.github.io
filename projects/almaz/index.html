@@ -7,33 +7,24 @@
     <meta name="author" content="">
     <!--<link rel="shortcut icon" href="assets/ico/favicon.png">-->
 
-    <title>Вопросник</title>
+    <title>Опросник</title>
 
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
     <script src="js/firebase.js"></script>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/myCss.css">
 
 
-    <script src="assets/js/jquery.min.js"></script>
-    <!--<script src="assets/js/modernizr.custom.js"></script>-->
     <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
+
 </head>
 
-<body data-spy="scroll" data-offset="0" data-target="#theMenu" style="background: #1A1A1A; height: 100%">
+<body style="background: #1A1A1A; height: 100%">
 
 
 <!-- Menu -->
@@ -41,19 +32,20 @@
     <div class="menu-wrap">
         <h1 class="logo"><a href="#">Навигация</a></h1>
         <i class="icon-remove menu-close"></i>
-        <a href="javascript: goPage('first.html')" class="smoothScroll">На главную</a>
-        <a href="javascript: goPage('tasks')" class="smoothScroll" style="color: white">Задачи</a>
-        <a href="javascript: goPage()" class="smoothScroll">Карта вопросов</a>
-        <a href="javascript: clearLocalStorage()" class="smoothScroll">очистить кэш</a>
+        <a href="javascript: goPage('first.html')">На главную</a>
+        <a href="javascript: goPage('tasks')" style="color: white">Задачи</a>
+        <a href="javascript: goPage()">Карта вопросов</a>
+        <a href="javascript: clearLocalStorage()">очистить кэш</a>
 
-        <a href="javascript: goPage('editor.html')">РЕДАКТИРОВАТЬ</a>
-
-        <a id="withoutRegister" href="login.html" class="smoothScroll">Зарегистрироваться</a>
+        <a id="withoutRegister" href="login.html">Зарегистрироваться</a>
         <span id="displayName">
-            <hr style="border-color: darkgray;">
-            <a href="javascript: goPage('editor.html')"
-                style="float: left; line-height: 2;"></a>
+            <hr style="border-color: darkgray;"/>
+            <a
+                    style="float: left; line-height: 2;"></a>
             <button style="margin-left: 20px;" onclick="logOut()">выйти</button>
+            <br>
+            <a href="javascript: goPage('listTasks.html')" style="clear: both">МОИ ОПРОСНИКИ</a>
+            <a id="buttonEdit" href="javascript: goPage('editor.html')">РЕДАКТИРОВАТЬ</a>
         </span>
 
     </div>
@@ -68,19 +60,20 @@
         <div class="logo">
             <img src="assets/img/logo.png">
         </div>
-<!--        <div id="results">№<span class="numberTask"></span> решено: <span class="resolve"> </span></div>-->
+        <!--        <div id="results">№<span class="numberTask"></span> решено: <span class="resolve"> </span></div>-->
         <br>
         <div class="row">
-            <h1>ВОПРОСЫ</h1>
-            <br>
-            <h3>Вперед!</h3>
+            <h1>ОПРОСНИК</h1>
+            <div id="info">
+                <h2 style="color: orange">Этот сайт позволяет создавать опросники всем желающим.
+                </h2>
+                <!--<BUTTON>более подробно...</BUTTON>-->
+            </div>
         </div>
-    </div><!-- /container -->
+    </div>
 
-</div><!-- /headerwrap -->
+</div>
 
-
-<!-- ========== CAROUSEL SECTION ========== -->
 <div id="pages">
     <iframe class="page-frame" frameborder="0" app_firebase="app_firebase"></iframe>
     <div id="tasks-divs">
@@ -99,18 +92,11 @@
 </div>
 
 <div class="lines">
-    <div class = "line line_left"></div>
-    <div class = "line line_right"></div>
+    <div class="line line_left"></div>
+    <div class="line line_right"></div>
 </div>
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<!--<script src="assets/js/classie.js"></script>-->
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/smoothscroll.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="js/cod.js"></script>
+<script src="js/main.js"></script>
 <script src="js/carousel.js"></script>
 </body>
 </html>

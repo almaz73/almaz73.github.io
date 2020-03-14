@@ -3,69 +3,56 @@ new Vue({
     name: 'редактор',
     data() {
         return {
-            compilation: {
-                author: 'Иванов.П',
-                type: 'simple',
-                tasks: [
-                    {
-                        hash: 2231,
-                        question: 'Самая большая гора:',
-                        answers: [{name: 'Калиманджаро'}, {name: 'Джамалунгма'}, {name: 'Казбек'}],
-                    },
-                    {
-                        hash: 2981,
-                        question: 'Самая большая планета солнечной системы:',
-                        answers: [{name: 'Нептун'}, {name: 'Юпитер'}, {name: 'Земля'}, {name: 'Туманновсть Андромеды'}, {name: 'Для тестирования длинный текст, на несколько строк, может даже на три и больше строк'}],
-                    },
-                    {
-                        hash: 2120,
-                        question: 'Самая быстрая птица:',
-                        answers: [{name: 'Стриж'}, {name: 'Ворона'}, {name: 'Аист'}]
-                    },
-                    {
-                        hash: 2902,
-                        question: 'Ближайшая к нам звезда:',
-                        answers: [{name: 'Сириус'}, {name: 'Звезда Бернарда'}, {name: 'Солнце'}]
-                    }
-                ]
-
-            },
-            methods: {
-                sum() {
-                }
-            }
+            compilation: null,
+            isDirty: false,
+            nameTask: null
         }
     },
-    created() {
-        // this.compilation.tasks.map(el => el.tmp = el.hash && el.hash.toString().slice(3));
-        getData()
+    mounted() {
+        let storage = localStorage.getItem('currentTask');
+        if (storage) {
+            let compilation = JSON.parse(storage);
+            this.compilation = compilation.value;
+            this.nameTask = compilation.nameTask;
+        }
     },
     methods: {
         getRandomNumber() {
             return parseInt(Math.random() * 9) + 1 + '';
         },
         save() {
-            console.log("%c # ", "background: orange", "el=", this.compilation)
-            sapeCompilation(this.compilation)
+            let author = crc16(window.user.email);
+            firebase.database().ref('olimpiada').child(author).child(this.nameTask).set(this.compilation)
+                .then(
+                    res => {
+                        this.isDirty = false;
+                    },
+                    err => console.log("%c # ", "background: red", "el=", err)
+                )
         },
         changeRadio(element, ind) {
+            this.isDirty = true;
             element.tmp = ind;
             element.hash = this.getRandomNumber() + this.getRandomNumber() + this.getRandomNumber() + (element.tmp + 1);
             this.$forceUpdate();
         },
         addAnswer(place) {
+            this.isDirty = true;
             this.compilation.tasks[place].answers.push({
                 question: '',
                 answers: [{name: ''}]
             })
         },
         deleteAnswer(place, name) {
+            this.isDirty = true;
             this.compilation.tasks[place].answers = this.compilation.tasks[place].answers.filter(el => el.name !== name);
         },
         addQuestion() {
+            this.isDirty = true;
             this.compilation.tasks.push({question: '', answers: [{name: ''}]})
         },
         deleteQuestion(element) {
+            this.isDirty = true;
             this.compilation.tasks = this.compilation.tasks.filter(el => el.question !== element.question);
         },
     }
