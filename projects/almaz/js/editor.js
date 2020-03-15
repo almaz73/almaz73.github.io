@@ -28,7 +28,6 @@ new Vue({
                 .then(
                     res => {
                         this.isDirty = false;
-                        alert('Опрос успешно сохранен.')
                     },
                     err => console.log("%c # ", "background: red", "el=", err)
                 )
@@ -52,7 +51,6 @@ new Vue({
                 });
                 if (!this.compilation.topic) error = 'Нет названия опроса';
             });
-            if (error) alert(error);
             return error;
         },
         changeRadio(element, ind) {
