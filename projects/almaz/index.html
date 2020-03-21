@@ -24,15 +24,22 @@
 
 </head>
 
-<body style="background: #1A1A1A; height: 100%">
+<body style="background: #444; height: 100%">
 
+<div class="alert">
+    <h3>Представтесь пожалуйста:</h3>
+    <input id="nameClient"><br>
+    <button onclick="saveSelectedName()">сохранить</button><br>
+    <small>*имя будет использовано для показа в таблице результатов</small>
+</div>
 
+<div id="hide-fon" onclick="trigger(true)"></div>
 <!-- Menu -->
 <nav class="menu" id="theMenu">
     <div class="menu-wrap">
         <h1 class="logo"><a href="#">Навигация</a></h1>
         <i class="icon-remove menu-close"></i>
-        <a href="javascript: goPage('first.html')">О программе</a>
+        <a href="javascript: goPage('about.html')">О программе</a>
         <a id="buttonTask" href="javascript: goPage('tasks')" style="color: white">Опрос</a>
         <!--        <a href="javascript: clearLocalStorage()">очистить кэш</a>-->
 
@@ -43,8 +50,8 @@
                     style="float: left; line-height: 2;"></a>
             <button style="margin-left: 20px;" onclick="logOut()">выйти</button>
             <br><br>
-<!--            <a href="javascript: goPage('first.html')">Инструкция</a>-->
-            <a href="javascript: goPage('listTasks.html')" style="clear: both">МОИ ОПРОСНИКИ</a>
+            <!--            <a href="javascript: goPage('first.html')">Инструкция</a>-->
+            <a href="javascript: goPage('listTasks.html')" style="clear: both">МОИ ОПРОСЫ</a>
             <a id="buttonEdit" href="javascript: goPage('editor.html')">РЕДАКТИРОВАТЬ</a>
         </span>
 
@@ -67,7 +74,7 @@
             <div id="info">
                 <h2 style="color: orange">Этот сайт позволяет создавать <br>опросы<br> всем желающим.
                 </h2>
-<!--                <a href="javascript: goPage('first.html'); trigger();">Более подробно...</a>-->
+                <!--                <a href="javascript: goPage('first.html'); trigger();">Более подробно...</a>-->
             </div>
         </div>
     </div>
@@ -96,6 +103,7 @@
 </div>
 
 <script src="js/main.js"></script>
+<script src="js/hash.js"></script>
 <script src="js/carousel.js"></script>
 </body>
 </html>

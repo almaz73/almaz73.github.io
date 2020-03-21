@@ -9,13 +9,22 @@ let lineLeft = document.querySelector('.line_left');
 let lineRight = document.querySelector('.line_right');
 let info = document.querySelector('#info');
 let buttonTask = document.querySelector('#buttonTask');
+let alert = document.querySelector('.alert');
+let nameClientArea = document.querySelector('#nameClient');
 let selected;
 let curentTask;
-let result = {count: 0, right: 0};
+let result = {count: 0, correct: 0};
+let counter = 1;
+let nameClient = localStorage.getItem('nameClient');
 buttonTask.style.display = 'none';
 
 function getDatas() {
     let paths = location.search.slice(3).split('/');
+    if (location.href.includes('%3E')) {
+        div1.style.left = 0;
+        getAndShowTableResults();
+        return;
+    }
 
     if (paths[1]) {
         info.innerHTML = '<h2 style="color: orange">Идет загрузка ...</h2>';
@@ -26,11 +35,37 @@ function getDatas() {
                 bulidView(compilation.tasks[0], true);
                 div1.style.left = 0;
                 buttonTask.style.display = 'block';
+                if (window.user) nameClient = window.user.displayName;
+                if (!nameClient) nameSelection();
             } else {
                 console.log("Входная ссылка неверна");
                 info.innerHTML = '<h2 style="color: hotpink">Ошибка!</h2><h2 style="color: orange">Ссылка неверна.</h2>'
             }
+            getCounter(paths);
         })
+    }
+}
+
+function getCounter(paths) {
+    firebase.database().ref('poll').child(paths[0]).child(paths[1]).child(nameClient)
+        .on('value', answer => {
+            counter = answer.val().counter || 0;
+            counter++;
+        });
+}
+
+function nameSelection() {
+    if (nameClient) nameClientArea.value = nameClient;
+    alert.style.display = 'block';
+    setTimeout(() => alert.style.opacity = 1, 500);
+    trigger(true);
+}
+
+function saveSelectedName() {
+    nameClient = nameClientArea.value;
+    if (nameClient.length > 2) {
+        localStorage.setItem('nameClient', nameClient);
+        alert.style.display = 'none';
     }
 }
 
@@ -38,7 +73,7 @@ function startTest() {
     lineLeft.style.width = '0%';
     lineRight.style.width = '0%';
 
-    result = {count: 0, right: 0};
+    result = {count: 0, correct: 0};
     if (!compilation.tasks) getDatas();
     else {
         div1.style.left = 0;
@@ -79,7 +114,7 @@ function setLines(prevTask) {
 
 function bulidView(task, first) {
     let div = first ? div1 : div2;
-    if (!task) return testFinished(div);
+    if (!task) return testFinished(div, first);
 
     div.innerHTML = `<h2>${task.question}</h2>`;
     task.answers.forEach((el, id) => {
@@ -89,11 +124,50 @@ function bulidView(task, first) {
     if (first) curentTask = task;
 }
 
-function testFinished(div) {
+function testFinished(div, first) {
+    if (!first) return;
     div.innerHTML = `<h2>Тест пройден</h2>`;
-    div.innerHTML += `<br></bt><div class="thruth-answer" style="color: white"><br>Результат:  ${result.right} из ${result.count}</div>`;
+    div.innerHTML += `<br></bt><div class="thruth-answer" style="color: white"><br>Результат:  ${result.correct} из ${result.count}</div>`;
     div.innerHTML += `<button class="check-btn finish" onclick="startTest()">Повторить</button>`;
-    // div.innerHTML += `<button class="check-btn finish2">К другим тестам</button>`
+    div.innerHTML += `<div id="tableResults"><a href="javascript:getAndShowTableResults()">К таблице результатов</a></div><br>
+                      <span style="color: white">Ваш результат записан под именем ${nameClient}</span>
+                      <a href="javascript: nameSelection()">${window.user ? '' : '✎'}</a>`;
+    saveResults(result.correct + ' из ' + result.count);
+}
+
+function saveResults(result) {
+    let paths = location.search.slice(3).split('/');
+    let json = {result, counter};
+    if (window.user) json.email = window.user.email;
+
+    firebase.database().ref('poll').child(paths[0]).child(paths[1]).child(nameClient).set(json).then(
+        res => {
+            console.log("success")
+        },
+        err => console.log("err=", err)
+    )
+}
+
+function getAndShowTableResults() {
+    div1.innerHTML = ' <h2>Загрузка результатов...</h2>';
+    let paths = location.search.slice(3).split('/');
+    firebase.database().ref('poll').child(paths[0]).child(paths[1]).limitToLast(100)
+        .on('value', answer => {
+            let list = '<br><div class="thruth-answer" style="color: white"><br>Результаты:</div>';
+            list += '<table style="background: #124c12; color: white; width: 100%;">';
+            let arr = answer.val();
+            Object.keys(arr).forEach(el => {
+                list += '<tr><td>' + el;
+                if (window.user && crc16(window.user.email) == paths[0]) list += `<td> ${arr[el].email || ''}</td>`;
+                list += ' </td><td> ' + arr[el].result + ' </td>';
+                if (window.user) list += '<td title="Число повторений">' + arr[el].counter + '</td>';
+                list += '</tr>';
+            });
+            list += '</table>';
+            list += `<span style="color: white">Ваш результат записан под именем <strong>${nameClient}</strong></span>`;
+            if (!window.user) list += `<a href="javascript: nameSelection()">${window.user ? '' : '✎'}</a>`;
+            div1.innerHTML = list;
+        });
 }
 
 function chosen(el, id) {
@@ -107,7 +181,7 @@ function check() {
     result.count++;
     if (selected == +curentTask.hash.toString().slice(3) - 1) {
         divTruth.style.bottom = 0;
-        result.right++;
+        result.correct++;
     } else {
         divError.style.bottom = 0;
         thruthAnswer.innerHTML = curentTask.answers[+curentTask.hash.toString().slice(3) - 1].name;
