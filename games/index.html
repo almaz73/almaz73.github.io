@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @media (min-width: 1000px) {
+            .content {
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+        }
+        
         body {
             background: darkslategray;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -13,36 +20,59 @@
             font-size: 1.5em;
         }
         
-        a {
+        a.names {
             color: wheat
         }
         
-        a:visited {
+        a.names:visited {
             color: orange
+        }
+        
+        .codeLink {
+            color: #ba82d6;
+            font-size: 0.8em;
+        }
+        
+        .codeLink:visited {
+            color: darkred
         }
         
         li {
             margin: 20px 0;
+        }
+        
+        h1 {
+            color: darksalmon;
+            text-shadow: 2px 2px 3px black;
         }
     </style>
 
 </head>
 
 <body>
-    <h1>
-        Игры
-    </h1>
-    <ul>
-        <li>
-            <a href="trolly">Тролли</a>
-        </li>
-        <li>
-            <a href="counter">Счетчик</a>
-        </li>
-        <li>
-            <a href="cubicZaitseva">Кубики Зайцева</a>
-        </li>
-    </ul>
+
+    <div class="content">
+        <h1>
+            Игры
+        </h1>
+
+        <a class="names" href="trolly">Тролли</a>
+        <a class="codeLink" href="https://github.com/almaz73/--game--Trollyworld-DEMO">(code)</a>
+        <br><br>
+        <a class="names" href="counter">Маленький математик</a>
+        <a class="codeLink" href="https://github.com/almaz73/--game--AddCount-DEMO">(code)</a>
+        <br><br>
+        <a class="names" href="cubicZaitseva">Кубики Зайцева</a>
+        <a class="codeLink" href="https://github.com/almaz73/--game--Kubiki_Zaytceva-DEMO">(code)</a>
+
+        <br><br>
+        <a class="names" href="guessTheAnimal">Угадай животное</a>
+        <a class="codeLink" href="https://github.com/almaz73/--game--guessTheAnimal-DEMO">(code)</a>
+
+
+
+
+    </div>
 
 </body>
 
