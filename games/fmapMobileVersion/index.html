@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+
+    <link rel="stylesheet" href="assets/www/js/jquery/jquery.mobile-1.4.0.min.css" />
+    <script src="assets/www/js/jquery/jquery-1.9.1.min.js"></script>
+    <script src="assets/www/js/jquery/jquery.mobile-1.4.0.min.js"></script>
+
+
+
+    <!--LEAFLET-->
+    <link rel="stylesheet" href="assets/www/map/libs/leaflet/leaflet.css" />
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/www/map/libs/leaflet/leaflet.ie.css"/>
+    <![endif]-->
+
+    <script src="assets/www/map/libs/leaflet/leaflet.js"></script>
+
+    <style type="text/css">
+        #map { min-height: 320px; height: 100%; margin: -15px;}
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div data-role="page" class="jqm-demos ui-responsive-panel" id="panel-responsive-page1"  data-title="Panel responsive page">
+
+    <div data-role="header" style="padding:0px" >
+        <h1 style="font-family:Calibri; font-size: 16px">КАЗАНЬ fmap.ru<br>(12.01.2014)</h1>
+        <a href="#nav-panel" data-icon="bars" data-iconpos="notext" style=" padding: 3px; top:15px; left:15px ">Остановки</a>
+        <a href="#add-form" data-icon="grid" data-iconpos="notext" style=" padding: 3px; top:15px; right:15px "> Маршруты</a>
+
+
+
+    </div><!-- /header -->
+
+    <div data-role="content">
+
+        <div id="map"></div>
+
+
+    </div><!-- /content -->
+
+    <div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+
+        <ul data-role="listview" >
+            <li data-icon="delete"><a href="#" data-rel="close">Закрыть меню</a></li>
+        </ul><br>
+
+        <div id="searchBus"></div>
+
+        <div id="id_leftList" style="  background-color: #777; padding: 3px 5px ; margin:0px -15px; overflow-y: scroll">
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="поиск остановки..." data-inset="true" id="listStopBus">
+            </ul>
+        </div>
+
+
+    </div><!-- /panel -->
+
+
+
+
+
+    <div data-role="panel" data-position="right" data-display="push" data-theme="b" id="add-form">
+        <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Закрыть меню</a></li>
+        </ul>
+        <br>
+
+
+        <div style=" max-height: 350px;  background-color: #666666; padding: 3px 5px ; margin:0px -15px; overflow-y: scroll">
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="поиск остановки..." data-inset="true" id="listLines">
+            </ul>
+        </div>
+
+        <form>
+            <input type="checkbox" name="" id="checkbox-mini-0" data-mini="true">
+            <label for="checkbox-mini-0">Показать остановки линий</label>
+        </form>
+
+        <style>
+            pre{
+                font-family: Verdana;
+                margin:0px;
+                text-align: right;
+                font-size: 15px;
+                padding: 3px;
+                padding-right: 18px;
+            }
+        </style>
+
+        <div  style=" background-color: #666666; padding: 3px 5px ; margin:0px -15px;">
+            <div  id="id_m" style="background-color: #000;">метро</div>
+            <div  id="id_t" style="background-color: #090;">трамваи</div>
+            <div  id="id_r" style="background-color: #009;">троллейбусы</div>
+            <div  id="id_a" style="background-color: #f00;">автобусы</div>
+
+        </div>
+
+        <div class="ui-grid-a ui-responsive">
+            <a href="#" id="id_sbros" class="ui-btn ui-shadow ui-corner-all">Сбросить выборку</a>
+        </div>
+
+
+
+
+
+    </div><!-- /panel -->
+
+</div><!-- /page -->
+
+<script src="assets/www/js/allButtons.js"></script>
+<!--<script src="assets/www/js/joint.js"></script>-->
+<script src="assets/www/js/datas.js"></script>
+
+<script src="assets/www/js/mapView.js"></script>
+<script src="assets/www/js/listLeft.js"></script>
+<script src="assets/www/js/listRight.js"></script>
+
+
+
+
+</body>
+</html>

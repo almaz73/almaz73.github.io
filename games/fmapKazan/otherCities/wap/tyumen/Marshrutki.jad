@@ -1,0 +1,10 @@
+MIDlet-1: Marshrutki, Marshrutki.png, Almaz
+MIDlet-Description: fmap.ru сервис поиска маршруток
+MIDlet-Icon: Icon.png
+MIDlet-Jar-Size: 18222
+MIDlet-Jar-URL: Мarshrutki.jar
+MIDlet-Name: Мarshrutki
+MIDlet-Vendor: www.fmap.ru
+MIDlet-Version: 2.0
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-2.0

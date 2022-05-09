@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Игра крестики-нолики</title>
+    <meta charset = "UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<audio id="sound" preload="auto">
+    <source src="audio/BHUMP.WAV" type="audio/wav">
+</audio>
+
+
+<div id="game" style="">
+    <div id="app">
+        <h1>Игра крестики-нолики.</h1><br>
+        <div id="pole">
+            <div id="a1"></div>
+            <div id="a2"></div>
+            <div id="a3"></div>
+
+            <div id="a4"></div>
+            <div id="a5"></div>
+            <div id="a6"></div>
+
+            <div id="a7"></div>
+            <div id="a8"></div>
+            <div id="a9"></div>
+        </div>
+
+        <div id="div_history">
+            <h4 style="margin: 10px" onclick="document.getElementById('div_history').style.display='none'">Записи игр</h4>
+            <span id="close" onclick="document.getElementById('div_history').style.display='none'" >x</span>
+            <div id="historyList"></div>
+            <span id="clearHistory" >Очистить историю </span>
+        </div>
+
+        <button id="start">Начать игру!</button><br>
+        <button id="buttonHistory">
+            <table style="width:170px">
+                <tr>
+                    <td><img src="img/man.png" alt="man"></td>
+                    <td><span id="count" style="font-size: 28px">0:0</span><br>
+                        <span style="font-size: 10px">история</span></td>
+                    <td><img src="img/comp.png" alt="computer"></td>
+                </tr>
+            </table>
+        </button>
+
+    </div>
+</div>
+
+<script data-main="js/main" src="js/require.js"></script>
+</body>
+</html>

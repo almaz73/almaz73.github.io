@@ -1,0 +1,15 @@
+DirectoryIndex index.wml 
+AddType application/x-httpd-php .php .wml 
+AddType text/vnd.wap.wml wml 
+AddType application/vnd.wap.wmlc wmlc 
+AddType text/vnd.wap.wmlscript wmls 
+AddType application/vnd.wap.wmlscriptc wmlsc 
+AddType image/gif gif 
+AddType image/jpeg jpeg jpg jpe 
+AddType image/png png 
+AddType image/vnd.wap.wbmp wbmp 
+AddType application/x-pmd pmd 
+AddType text/vnd.sun.j2me.app-descriptor jad 
+AddType application/java-archive jar 
+AddType audio/mid midi 
+AddType application/vnd.smaf mmf

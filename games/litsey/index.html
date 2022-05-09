@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>PROFESSIONAL ENGLISH FOR STUDENTS OF LOGISTICS</title>
+<link href="templatemo_style.css" rel="stylesheet" type="text/css" />
+<script src="js/js.js"></script>
+<script src="js/myApp.js"></script>
+<script src="js/DragManager.js"></script>   
+</head>
+<body onload = "changeMenu(0)">
+<div id="templatmeo_container">
+	<div id="templatemo_site_title_bar">
+        <div id="site_title"><br>
+        	<h1><a href="javascript:changeMenu(0)">
+                    <span>Professional English </span>
+                    <span>for Students of Logistics</span>            
+                </a></h1>
+        </div>
+    
+    </div> <!-- templatemo_site_title_bar -->
+    
+    <div id="templatemo_menu">
+        <ul id="templatemo_left_menu">
+            <li><a href="javascript:changeMenu(0)" class="current"><span></span>Home</a></li>
+            <li><a href="javascript:changeMenu(1)"><span></span>Unit 1</a></li>
+            <li><a href="javascript:changeMenu(2)"><span></span>Unit 2</a></li>
+            <li><a href="javascript:changeMenu(3)"><span></span>Unit 3</a></li>
+            <li><a href="javascript:changeMenu(4)"><span></span>Unit 4</a></li>
+        </ul>        
+        
+		<script src="units/m0.html"></script>        
+		<script src="units/m1.html"></script>
+        <script src="units/m2.html"></script>
+        <script src="units/m3.html"></script>
+        <script src="units/m4.html"></script>
+        <script src="units/m5.html"></script>
+		<script>
+			function changeMenu(val){
+				var 
+                    area = document.getElementById('templatemo_banner'),
+                    menus= document.getElementById("templatemo_left_menu").getElementsByTagName('a');
+				for(var i=0; i<5; i++) menus[i].className='';				
+				if(val!==5) menus[val].className='current';
+				
+				switch(val){
+					case 0: 
+						area.innerHTML = m0;	
+                        area.style.backgroundImage="url(images/tp0.png)";
+						break;
+					case 1: 
+						area.innerHTML = m1;
+                        area.style.backgroundImage="url(images/tp1.png)";
+                        js0_2_root();
+						break;
+                    case 2: 
+                        area.innerHTML = m2;
+                        area.style.backgroundImage="url(images/tp2.png)";
+                        js2_3_root();
+                        break;
+                    case 3: 
+                        area.innerHTML = m3;
+                        area.style.backgroundImage="url(images/tp3.png)";
+                        js3_2_root();
+                        break;
+                    case 4: 
+                        area.innerHTML = m4;
+                        area.style.backgroundImage="url(images/tp4.png)";
+                        js4_5_root();
+                        break;
+                    case 5: 
+                        area.innerHTML = m5;
+                        area.style.backgroundImage="url(images/tp5.png)";
+                        break;
+
+				}
+
+			
+			
+			}
+
+			
+			
+		</script>
+        
+		<ul id="templatemo_right_menu">
+            <li><a href="javascript:changeMenu(5)" class="first">Bibliography</a></li>
+        </ul>
+    </div> <!-- end of menu -->
+    
+    <div id="templatemo_banner">
+    	<div id="banner_left_section">
+
+            
+        </div>
+        
+        <div id="login_section">                  
+        </div>
+        
+        <div class="cleaner"></div>
+    </div> <!-- end of banner -->
+    
+	<div id="templatemo_footer">
+    	
+        <ul class="footer_menu">
+        	<li><a href="javascript:changeMenu(0)" class="first"><span></span>Home</a></li>
+            <li><a href="javascript:changeMenu(1)"><span></span>Unit 1</a></li>
+            <li><a href="javascript:changeMenu(2)"><span></span>Unit 2</a></li>
+            <li><a href="javascript:changeMenu(3)"><span></span>Unit 3</a></li>
+            <li><a href="javascript:changeMenu(4)"><span></span>Unit 4</a></li>
+        </ul>
+        
+        Россия Казань, 2017
+	</div> <!-- end of footer -->
+</div> <!-- end of tempatemo_container -->
+</body>
+</html>
