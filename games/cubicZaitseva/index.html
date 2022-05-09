@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Угадай кубик</title>
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.js"></script>
+    <style>
+        body {
+            background: gray;
+
+        }
+
+        .rootDiv {
+            background: #3aa88c;
+            text-align: center;
+            font-family: "Courier New";
+            width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            height: 640px;
+        }
+
+        .cubic {
+            display: inline-block;
+            width: 120px;
+            height: 100px;
+            border: 5px solid #41c7c2;
+            border-radius: 30px;
+            background: #beecea;
+            font-weight: 700;
+            font-size: 85px;
+            margin: 0 10px;
+            cursor: pointer;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 1);
+        }
+
+        .cubic div {
+            padding-top: 20px;
+        }
+
+        .cubic:hover {
+            background: #7B8585;
+
+        }
+
+        .containerUp {
+            margin: 30px;
+        }
+
+        .containerDown {
+            padding: 10px;
+            padding-bottom: 95px;
+            margin: 0 auto;
+            display: inline-block;
+            height: 30px;
+            border: 3px solid #ffa963;
+            border-radius: 20px;
+            text-align: center;
+            background: #116407;
+            margin: 20px;
+        }
+
+        .winBoard {
+            position: absolute;
+            height: 50px;
+            width: 300px;
+            padding-top: 10px;
+            top: 373px;
+            left: 50%;
+            margin-left: -155px;
+            border-radius: 10px;
+            font-size: 40px;
+            background: #f14a4a;
+            border: 5px solid palegreen;
+            cursor: pointer;
+        }
+
+        .picArea {
+            border: 5px solid #532;
+            border-radius: 20px;
+            width: 250px;
+            height: 180px;
+            overflow: hidden;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+
+        #root {
+            margin-top: 20px;
+        }
+
+        .titulDiv {
+            position: absolute;
+            top: 10px;
+            text-align: center;
+            width: 900px;
+            font-family: cursive;
+            font-size: 35px;
+            color: crimson;
+            font-weight: bold;
+            text-shadow: 10px 10px 15px #000;
+        }
+
+        .titulDiv h1:hover {
+            color: orange;
+        }
+
+        .titulDiv button {
+            width: 150px;
+            height: 60px;
+            border-radius: 20px;
+            background: #f2ed52;
+            border: 8px outset rgb(140, 120, 24);
+            border-style: dotted;
+            font-size: 25px;
+            color: red;
+            font-weight: bold;
+            font-family: cursive;
+        }
+
+        .titulDiv button:hover {
+            background: red;
+            color: yellow;
+            cursor: pointer;
+        }
+
+        .titulDiv button.finish {
+            top: 290px;
+            position: absolute;
+            left: 150px;
+            width: 200px;
+            height: 100px;
+        }
+
+        .footerDiv {
+            width: 100%;
+            text-align: center;
+            margin-top: -55px;
+        }
+
+        .footerDiv a {
+            text-decoration: none;
+            padding-top: 55px;
+            font-size: 25px;
+            color: #242
+        }
+
+        .footerDiv a:hover {
+            color: #884
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="root"></div>
+<div class="footerDiv">
+    <a href='http://fmap.ru/games'>&#9773; www.Fmap.ru/games &#9776;</a>
+</div>
+
+<script type="text/babel" src="js/app.js"></script>
+</body>
+</html>

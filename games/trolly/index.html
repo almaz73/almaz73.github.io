@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TrollyWorld</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <link rel="stylesheet" href="css.css">
+</head>
+
+<body>
+    <h2 class="titl">Привет Друг! Это игра Троллий Мир. Сможешь ли победить в честной гонке?</h2>
+    <div id="gameDiv">
+
+        <div id="bone" @click="onBone('player')" :class="myThrow">
+            <div v-if="defaultBone==0">&#9825;</div>
+            <div v-if="defaultBone==1">&#9856;</div>
+            <div v-if="defaultBone==2">&#9857;</div>
+            <div v-if="defaultBone==3">&#9858;</div>
+            <div v-if="defaultBone==4">&#9859;</div>
+            <div v-if="defaultBone==5">&#9860;</div>
+            <div v-if="defaultBone==6">&#9861;</div>
+        </div>
+
+        <div id="playerPic" v-bind:style="{top: hPlayer, left:wPlayer}">
+            <img v-bind:src="defaultPlayer | getPathImg">
+        </div>
+        <div id="computerPic" v-bind:style="{top: hComp, left:wComp}">
+            <img v-bind:src="defaultComputer | getPathImg">
+        </div>
+
+        <div id="messagesDiv">
+            {{message}}
+            <input v-if="questionMind" type="text" />
+        </div>
+
+
+        <div id="startWindow" v-if="start">
+            <h2>Троллий мир</h2>
+            <h4>Выбери игрока</h4>
+            <span v-for="troll in allTrolles">
+            <div>
+                {{markHero(troll.name)?markHero(troll.name):"&nbsp;"}}
+            </div>
+            <div>{{markHero(troll.name)?troll.name:'&nbsp;'}}</div>
+            <br>
+            <div>
+            <img
+                    v-bind:name="troll.name"
+                    v-bind:src="troll.name | getPathImg"
+                    v-on:click="onChoiceHero($event)"
+                    v-bind:class="getClassChosenHero(troll.name)">
+            </div>
+        </span>
+            <br><br>
+            <button @click="onStart()">НАЧАТЬ</button>
+        </div>
+
+        <div id="startWindow" v-if="finish">
+            <br><br><br><br>
+            <span><h2>Победитель {{winner}} !!!</h2></span><br><br><br>
+            <button @click="onRepeatGame()">Играть еще раз</button>
+        </div>
+
+    </div>
+
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
