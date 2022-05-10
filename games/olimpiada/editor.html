@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактор</title>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        body {
+            background: #8c8c8c;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .edgePanel-left, .edgePanel-right {
+            background: #444;
+            min-width: 250px;
+            height: 100vh;
+        }
+
+        @media (max-width: 600px) {
+            .edgePanel-left, .edgePanel-right {
+                display: none;
+            }
+        }
+
+        .content {
+            padding: 0 16px;
+            flex: 1;
+        }
+
+        .del-btn {
+            background: #eee;
+            padding: 2px 3px;
+            border-radius: 4px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .content textarea {
+            width: 92%;
+            resize: vertical;
+            font-size: 18px;
+            background: #2d6987;
+            border-radius: 10px;
+            padding: 5px 10px;
+        }
+
+        .content button {
+            border-radius: 6px;
+            padding: 3px 10px;
+            background: #b1b1b1;
+            margin: 2px 0;
+        }
+
+        .content .radio {
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .content .radio .input {
+            pointer-events: none
+        }
+
+        .content input {
+            width: 95%;
+            background: #2d6987;
+            padding: 5px;
+            border-radius: 6px;
+            font-size: 18px;
+            border: 2px double #555;
+        }
+        .a_edit{
+            color: #2d6987;
+            text-decoration: none;
+        }
+        .a_group{
+            font-size: 25px;
+            position: absolute;
+            right: 10px;
+            top: 0;
+        }
+        .group{
+            border: 1px dotted black;
+            border-radius: 10px;
+            border-left: none;
+            border-right: none;
+            margin: 2px -8px;
+            padding: 8px;
+            background: #a6a6a6;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+<div class="edgePanel-left"></div>
+<div class="content">
+    <h1>Редактор</h1>
+    <div id="vue-edit">
+        <div v-if="compilation">
+            <h2 v-if="!isEditTpoic" style="color: darkgreen">{{compilation.topic}}
+                <a class="a_edit" href="javascript:void(0)" @click="isEditTpoic=true">✎</a>
+            </h2>
+            <input v-model="compilation.topic" v-if="isEditTpoic">
+            <button :disabled="!isDirty" @click="save()">Cохранить</button>
+            <span v-if="!isDirty" style="color: green"> Сохранен </span>
+            <button v-if="!isDirty" @click="openTask()">Смотреть</button>
+            <span v-if="isDirty" style="color:darkred"> Опросник не сохранен </span>
+
+            <div v-for="(element, place) in compilation.tasks" class="group">
+                <a v-if="!element.edit" class="a_edit a_group" href="javascript:void(0)" @click="toEdit(element)">✎</a>
+                <br><small>Вопрос:</small>
+                    <textarea v-if="element.edit" @change="isDirty=true" v-model="element.question"></textarea>
+                    <strong v-if="!element.edit">{{element.question}}</strong>
+                <br><small>Варианты ответов:</small>
+                <table width="100%">
+                    <tr v-for="(item, ind) in element.answers">
+                        <td class="radio" @click="changeRadio(element, ind)"  v-if="element.edit">
+                            <input :value="ind" @change="isDirty=true" type="radio" v-model.number="element.tmp">
+                        </td>
+                        <td>
+                            <textarea v-if="element.edit" v-model="item.name" @change="isDirty=true"> </textarea>
+                            <strong v-if="!element.edit"> <li> {{item.name}}</li></strong>
+                        </td>
+                        <td style="width:40px; text-align: right"  v-if="element.edit">
+                            <span class="del-btn" @click="deleteAnswer(place, item.name)">✖</span>
+                        </td>
+                    </tr>
+                </table>
+                <br><span v-show="element.tmp>=element.answers.length" style="color: darkred">*правильный ответ нужно выделить</span>
+                <button v-if="element.edit" @click="addAnswer(place)"> Добавить вариант ответа</button>
+                <button v-if="element.edit" @click="deleteQuestion(element)">Удалить вопрос со всеми ответами</button>
+
+            </div>
+            <button @click="addQuestion()"> Добавить новый вопрос</button>
+        </div>
+    </div>
+</div>
+<div class="edgePanel-right"></div>
+<script src="js/firebase.js"></script>
+<script src="js/hash.js"></script>
+<script src="js/editor.js"></script>
+</body>
+</html>

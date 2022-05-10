@@ -1,0 +1,163 @@
+#pages {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+}
+
+.page-frame {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background: #444;
+    visibility: hidden;
+}
+
+#firstDiv, #secondDiv {
+    width: 100vw;
+    height: calc(100% - 80px);
+    top: 80px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    transition: left 0.4s, right 0.4s;
+    text-align: center;
+    background: darkgreen;
+}
+
+#firstDiv, #secondDiv {
+    left: 100vw;
+}
+
+#firstDiv h2, #secondDiv h2 {
+    color: wheat;
+}
+
+.simple-btn {
+    border-radius: 7px;
+    font-size: 18px;
+    margin: 7px;
+    background: orange;
+    padding: 2px 16px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 0 5px black;
+}
+
+.simple-btn:active {
+    margin-bottom: 6px;
+    margin-top: 8px;
+}
+
+.check-btn {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    border-radius: 7px;
+    font-size: 18px;
+    position: absolute;
+    bottom: 32px;
+    width: 200px;
+    outline: none;
+    margin: 20px 0;
+    left: calc(50vw - 100px);
+}
+
+.check-btn:active {
+    margin-bottom: 19px;
+    margin-top: 21px;
+}
+
+#error, #truth {
+    background: pink;
+    width: 100vw;
+    position: absolute;
+    bottom: -170px;
+    height: 170px;
+    transition: bottom 0.2s;
+    text-align: center;
+}
+
+#truth {
+    background: #5cb85c;
+}
+
+.thruth-answer {
+    font-family: 'Oswald', sans-serif;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 25px;
+    overflow: hidden;
+    margin-top: -24px;
+}
+
+.finish {
+    bottom: calc(25% + 40px);
+}
+
+.finish2 {
+    bottom: calc(25% + 100px);
+}
+
+.lines {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    margin-top: 65px
+}
+
+.line {
+    height: 1px;
+    display: inline-block;
+    transition: width 0.5s;
+}
+
+.line_left {
+    background: yellowgreen;
+}
+
+.line_right {
+    background: green;
+}
+
+#hide-fon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: none;
+}
+
+.alert {
+    position: absolute;
+    width: 90%;
+    min-height: 60px;
+    background: #5cb85c;
+    border: 2px solid darkslategrey;
+    border-radius: 5px;
+    box-shadow: 0 0 10px black;
+    left: calc(50% - 45%);
+    top: 45%;
+    z-index: 11;
+    text-align: center;
+    display: none;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.alert input {
+    text-align: center;
+    width: 90%;
+}
+
+/*#results {*/
+/*position: absolute;*/
+/*top: 40px;*/
+/*color: white;*/
+/*left: calc(50% - 50px);*/
+/*}*/
+
+/*.numberTask, .resolve {*/
+/*padding: 10px;*/
+/*font-weight: bold;*/
+/*}*/
