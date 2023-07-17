@@ -1,0 +1,50 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat',Arial,sans-serif;
+}
+.menu{
+    background-color: rgba(255,255,255,1);
+    height: 50px;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.10);
+
+    font-size: 16px;
+    font-weight: 500;
+}
+.content{
+    padding-top: 70px ;
+    padding: 90px 0px 0;
+}
+/** Меню **/
+.maincontainer {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    height: 50px;
+    font-size: 16px;
+
+    font-weight: 500;
+    padding: 0 30px
+}
+
+.block {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    white-space: nowrap;
+
+}
+.block.left{
+    text-transform: uppercase;
+}
+.block.right{
+    justify-content: flex-end;
+}
+.block span {
+    padding: 0 20px;
+}
+.logo img{
+    height: 50px;
+}
+
+/** контент **/
