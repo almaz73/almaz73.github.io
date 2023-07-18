@@ -48,3 +48,60 @@ body{
 }
 
 /** контент **/
+
+.main_info{
+    background: #1e8a16;
+    max-width: 1200px;
+    display: flex;
+    margin: 0 auto;;
+}
+.main_info {
+}
+.main_info .text{
+    padding: 20px 40px;
+    color: white;
+    font-weight: 100;
+    max-width: 500px;
+}
+.main_info .text p:first-child{
+    font-size: 32px;
+}
+.main_info .text p{
+    font-size: 20px;
+    font-family: 'Montserrat',Arial,sans-serif;
+    line-height: 1.55;
+}
+.deviz{
+    color: #1e8a16;
+    font-size: 52px;
+    line-height: 1.3;
+    font-weight: 400;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+    line-height: 81px;
+    text-align: center;
+    width: 100%;
+}
+.line{
+    /*display: table-cell;*/
+    width: 1200px;
+    height: 1px;
+    margin: 0 auto;
+    /*background: -webkit-linear-gradient(right, #1e8a16, rgba(30,138,22,0)), -webkit-linear-gradient(left, #1e8a16, rgba(30,138,22,0));;*/
+
+    background: radial-gradient(circle 700px, darkgreen, transparent);
+}
+footer{
+    text-align: center;
+    background: #1e8a16;
+    color: white;
+    font-size: 24px;
+    line-height: 1.5;
+    padding: 50px 0;
+}
+
+footer span{
+    font-size: 18px;
+    line-height: 1.55;
+}

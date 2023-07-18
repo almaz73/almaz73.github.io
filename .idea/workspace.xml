@@ -4,45 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="">
+    <list default="true" id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="4">
+      <change afterPath="$PROJECT_DIR$/doctorem/cod.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doctorem/vitrin_element.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/css2" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/css2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/hammer.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/hammer.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/lazyload-1.3.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/lazyload-1.3.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-animation-2.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-animation-2.0.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-animation-2.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-animation-2.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-blocks-page33632830.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-blocks-page33632830.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-blocks-page33632830.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-blocks-page33632830.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-cart-1.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-cart-1.0.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-cart-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-cart-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-catalog-1.1.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-catalog-1.1.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-catalog-1.1.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-catalog-1.1.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-events-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-events-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-fallback-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-fallback-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-forms-1.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-forms-1.0.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-forms-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-forms-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-forms-custommask-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-forms-custommask-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-forms-payments-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-forms-payments-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-grid-3.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-grid-3.0.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-menu-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-menu-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-menusub-1.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-menusub-1.0.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-menusub-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-menusub-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-performance-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-performance-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-phone-mask-1.1.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-phone-mask-1.1.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-popup-1.1.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-popup-1.1.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-products-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-products-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-scripts-3.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-scripts-3.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-skiplink-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-skiplink-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-slds-1.4.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-slds-1.4.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-slds-1.4.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-slds-1.4.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-stat-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-stat-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-zero-1.1.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-zero-1.1.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-zero-scale-1.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-zero-scale-1.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-zoom-2.0.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-zoom-2.0.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tilda-zoom-2.0.min.js.Без названия" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tilda-zoom-2.0.min.js.Без названия" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/doctorem - трансдермальные пластыри в России_files/tildacopy.png" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/doctorem/tildacopy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctorem/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctorem/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,9 +38,17 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="2Sj2U0IVYJZopgTgxSO5vpPSgWv" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -84,16 +59,32 @@
       <pane id="Scope" />
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/project/almaz73.github.io/doctorem/img",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\project\almaz73.github.io\doctorem\img" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\project\almaz73.github.io\doctorem" />
     </key>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -105,7 +96,30 @@
       <option name="presentableId" value="Default" />
       <updated>1581422971318</updated>
       <workItem from="1581422972860" duration="857000" />
+      <workItem from="1689645704487" duration="5940000" />
     </task>
+    <task id="LOCAL-00001" summary="doctorem_example2">
+      <created>1689588755880</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689588755880</updated>
+    </task>
+    <task id="LOCAL-00002" summary="3">
+      <created>1689610159008</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689610159008</updated>
+    </task>
+    <task id="LOCAL-00003" summary="4">
+      <created>1689610426505</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689610426505</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -143,5 +157,14 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="doctorem_example2" />
+    <MESSAGE value="3" />
+    <MESSAGE value="4" />
+    <option name="LAST_COMMIT_MESSAGE" value="4" />
   </component>
 </project>
