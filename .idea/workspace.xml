@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="6">
-      <change afterPath="$PROJECT_DIR$/doctorem/basket.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/img/doctorem_vitaplus___ (1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctorem/basket.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/basket.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doctorem/cod.js" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/cod.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/doctorem/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +67,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/project/almaz73.github.io/doctorem/img",
+    "last_opened_file_path": "C:/project/doctorem",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,6 +96,7 @@
       <updated>1581422971318</updated>
       <workItem from="1581422972860" duration="857000" />
       <workItem from="1689645704487" duration="8398000" />
+      <workItem from="1689738325776" duration="5040000" />
     </task>
     <task id="LOCAL-00001" summary="doctorem_example2">
       <created>1689588755880</created>
