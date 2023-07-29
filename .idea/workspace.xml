@@ -5,145 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="7">
-      <change afterPath="$PROJECT_DIR$/doctorem/BodyPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/EpifizPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/GinPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/ManPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/OmegaPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/ThinPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/VitaPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/WomanPlus.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/company.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/css/advantage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/css/basket.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/css/menu-select.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/css/mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/css/products.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/b12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/b6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/b9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/body_plus_slider.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/chest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/fish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/flower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/leaf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/leaf2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/niacin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/orange.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/people.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/body/run.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/chairs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/ashvaganda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/cat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/epifiz_slider.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/girl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/head.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/lavanda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/lutik.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/pillow.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/rose.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/sport.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/epifiz/woman.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/finger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/aloe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/family.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/gin_slipper.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/imbir.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/kallogen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/kamfora.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/koritsa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/kurkuma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/woman3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gin/woman4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/girl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/gtt.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/laboratory.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/arginin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/man.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/muscular-man-celebra.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/opium.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/palma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/tribulus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/man/vitania.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/noroot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/noroot2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/noroot3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/noroot4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/caregiver-measuring-.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/crayfish.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/fishes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/grape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/head.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/omega_slider.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/q10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/omega/z.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/plastyr.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/props.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s13.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s15.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/sertificates/s9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/cofein.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/fucus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/garcinia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/kamelia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/ketihin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/legs.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/len.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/pepper.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/sheluha.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/soffor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/tea.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/thin_plus_slider.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/woman2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/thin/zink.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/turkey.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/berrires.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/concentrated-young-s.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/face.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/germanii.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/powder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/root.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/silver.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/vita/vitaPlusPage.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/blood.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/body.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/clever.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/hmel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/kohosh.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/lobata.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/stomach.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/wemen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/img/woman/woman_slider.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/plastyr.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/props.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/sertificate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doctorem/successfulorder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/basket.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/cod.js" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/cod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doctorem/vitrin_element.css" beforeDir="false" afterPath="$PROJECT_DIR$/doctorem/css/vitrin_element.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,6 +95,7 @@
       <workItem from="1689645704487" duration="8398000" />
       <workItem from="1689738325776" duration="5317000" />
       <workItem from="1690460724960" duration="379000" />
+      <workItem from="1690610149535" duration="305000" />
     </task>
     <task id="LOCAL-00001" summary="doctorem_example2">
       <created>1689588755880</created>
@@ -276,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689746165157</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="7">
+      <created>1690610380792</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690610380792</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
