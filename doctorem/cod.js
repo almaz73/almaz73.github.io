@@ -1,13 +1,112 @@
-let basket, basket_count
+let basket, basket_count, modal_shop
 let tovar
-function onLoad(){
+let fio, email, index, address, tel, products, sum
+let goToTop
+const enumImg = {
+    'Body plus': 'doctorem_body_plus__.png',
+    'Omega Plus': 'doctorem_omega_plus_.png',
+    'Epifiz Plus': 'doctorem_epifizplus_.png',
+    'Thin Plus': 'doctorem_thinplus___.png',
+    'Gin Plus': 'doctorem_gin.png',
+    'Man Plus': 'doctorem_manplus____.png',
+    'Woman Plus': 'doctorem_womanplus__.png',
+    'Vita plus': 'doctorem_vitaplus___.png'
+}
+
+function onLoad() {
     basket = basket || document.querySelector('.basket')
     basket_count = basket_count || document.querySelector('.basket-count')
+    modal_shop = modal_shop || document.querySelector('.modal-shop')
+    products = products || document.querySelector('#products')
+    sum = sum || document.querySelector('#sum')
+    goToTop = goToTop || document.querySelector('#go-to-top')
+
+
+    fio = fio || document.querySelector('#fio')
+    email = email || document.querySelector('#email')
+    index = index || document.querySelector('#index')
+    address = address || document.querySelector('#address')
+    tel = tel || document.querySelector('#tel')
+
+
+    addEventListener("scroll", () => {
+        goToTop.style.display = (window.scrollY > 500) ? 'block' : 'none'
+    });
+
+
     tovar = localStorage.getItem('TOVAR')
     tovar = JSON.parse(tovar)
 
-    let sum = tovar.reduce((previousValue, el)=> previousValue.count + el.count)
-    showBasketCount(sum)
+    let summa = 0
+    tovar && tovar.forEach(el => summa += el.count)
+    showBasketCount(summa)
+}
+
+function closeShop() {
+    modal_shop.style.opacity = '0'
+    setTimeout(() => modal_shop.style.display = 'none', 500)
+}
+
+function openShop() {
+    modal_shop.style.display = 'block'
+    setTimeout(() => modal_shop.style.opacity = '1')
+    let template = '';
+    let summa = 0
+    tovar.forEach(el => {
+        template +=
+            `<div class="product">
+                <div class="quard">
+                    <img src="img/${enumImg[el.name]}" alt="">
+                </div>
+                <b>${el.name}</b>
+                <span>
+                    <div class="minus" onclick="deletePartElement('${el.name}')">−</div>
+                    ${el.count}
+                    <div class="plus" onclick="addPartElement('${el.name}')">+</div>
+                </span>
+                <span>
+                    ${el.count * el.price} р.
+                </span>
+                <span>
+                    <div class="crest" onclick="deleteElement('${el.name}')">⨉</div>
+                </span>
+            </div>`
+        summa += el.count * el.price
+    })
+
+
+    products.innerHTML = template
+    sum.innerHTML = `Сумма: ${summa} р.`
+
+
+    if (!tovar.length) modal_shop.style.display = 'none'
+}
+
+function deletePartElement(val) {
+    let element = tovar.findIndex(el => el.name === val)
+    if (tovar[element].count > 1) {
+        tovar[element].count = tovar[element].count - 1
+        localStorage.setItem('TOVAR', JSON.stringify(tovar))
+    } else return deleteElement(val)
+
+    onLoad()
+    openShop()
+}
+
+function addPartElement(val) {
+    let element = tovar.findIndex(el => el.name === val)
+    tovar[element].count = tovar[element].count + 1
+    localStorage.setItem('TOVAR', JSON.stringify(tovar))
+    onLoad()
+    openShop()
+}
+
+function deleteElement(val) {
+    tovar = tovar.filter(el => el.name !== val)
+
+    localStorage.setItem('TOVAR', JSON.stringify(tovar))
+    onLoad()
+    openShop()
 }
 
 function toBasket(val, price) {
@@ -24,16 +123,51 @@ function toBasket(val, price) {
 }
 
 
-
-
-function showBasketCount(count=0) {
-
-    if(!count) return basket.style.display='none'
-    basket.style.display='block'
-    basket_count.innerText=count
+function showBasketCount(count = 0) {
+    if (!count) return basket.style.display = 'none'
+    basket.style.display = 'block'
+    basket_count.innerText = count
 }
 
+function submit() {
+    console.log("fio.value", fio.value)
+    console.log("email.value", email.value)
+    console.log("address.value", address.value)
+    console.log("tel.value", tel.value)
+    console.log("index.value", index.value)
 
-function toDetail() {
-    console.log("toDetail",)
+    if (!fio.value) return alert("Поле ФИО обязательна для заполнения")
+    if (!(tel.value || email.value)) {
+        if (!tel.value) return alert("Поле телефон обязательна для заполнения")
+        if (!email.value) return alert("Поле email обязательна для заполнения")
+    }
+
+    let textForTelegram = 'fio:' + fio.value
+    if (email.value) textForTelegram += '&email:' + email.value
+    if (tel.value) textForTelegram += '&tel:' + tel.value
+    if (address.value) textForTelegram += '&address:' + address.value
+    if (index.value) textForTelegram += '&index:' + index.value
+
+    console.log("textForTelegram", textForTelegram)
+
+    //https://xn----7sbbaqhlkm9ah9aiq.net/news-new/nastroyka-telegram-bota-dlya-otpravki-soobshcheniy.html
+
+    //6398447204:AAE2eF5tLeBWy8l-sgsDV-74KgEw66P7zr8
+
+    // location.href = 'successfulorder.html'
 }
+
+/**
+ *  буду слушать сообщения от iframe
+ */
+window.addEventListener('message', function (event) {
+
+
+    if (typeof event.data === 'string') {
+        // перенаправляет на нужную страницу по команде из iframe menu
+        document.location = event.data
+    } else if (event.data.height) {
+        // высота для мобильного меню
+        document.querySelector('#ifr').style.height = event.data.height
+    }
+});
