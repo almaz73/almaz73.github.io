@@ -12,35 +12,45 @@
                 margin: 0 auto;
             }
         }
-        
+
         body {
             background: darkslategray;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             color: white;
             font-size: 1.5em;
         }
-        
+
+        .root {
+            display: flex;
+        }
+
+        .left, .right {
+            border: 1px solid black;
+            padding: 16px;
+            width: 100%;
+        }
+
         a.names {
             color: wheat
         }
-        
+
         a.names:visited {
             color: orange
         }
-        
+
         .codeLink {
             color: #ba82d6;
             font-size: 0.8em;
         }
-        
+
         .codeLink:visited {
             color: darkred
         }
-        
+
         li {
             margin: 20px 0;
         }
-        
+
         h1 {
             color: darksalmon;
             text-shadow: 2px 2px 3px black;
@@ -50,53 +60,59 @@
 </head>
 
 <body>
+<div class="root">
+    <div class="left">
+        <div class="content">
+            <h2>
+                Игры
+            </h2>
 
-    <div class="content">
+
+            <a class="names" href="krestikiNoliki">Крестики нолики</a>
+            <br><br>
+
+            <a class="names" href="trolly">Тролли</a>
+            <a class="codeLink" href="https://github.com/almaz73/--game--Trollyworld-DEMO">(code)</a>
+            <br><br>
+            <a class="names" href="counter">Маленький математик</a>
+            <a class="codeLink" href="https://github.com/almaz73/--game--AddCount-DEMO">(code)</a>
+            <br><br>
+            <a class="names" href="cubicZaitseva">Кубики Зайцева</a>
+            <a class="codeLink" href="https://github.com/almaz73/--game--Kubiki_Zaytceva-DEMO">(code)</a>
+
+            <br><br>
+            <a class="names" href="guessTheAnimal">Угадай животное</a>
+            <a class="codeLink" href="https://github.com/almaz73/--game--guessTheAnimal-DEMO">(code)</a>
+
+            <h2>Разное</h2>
+
+            <h4>Образовательный сайт <a href="litsey">пример</a></h4>
+            <h4>Карта Казани на flash: <a href="fmapKazan/kazan07.03.2016.zip">архив</a></h4>
+            <h4>Карта Казани на JS: <a href="fmapMobileVersion">сайт</a></h4>
+            <h4>Пример работы с canvas, редактор мебели: <a href="mebel">сайт</a></h4>
+
+            <h4>Пример сайта для мобилки, желательно смотреть через смартфон:
+                <a href="mobileSite">сайт</a>
+                <a class="codeLink" href="https://github.com/almaz73/stroy_vertstka">(code)</a></h4>
+
+
+            <h4>Создание опросов используя FireDase от Google:
+                <a href="olimpiada">сайт</a>
+                <a class="codeLink" href="https://github.com/almaz73/olimpiada">(code)</a></h4>
+
+
+        </div>
+    </div>
+    <div class="right">
         <h2>
-            Игры
+            Примеры
         </h2>
 
-
-        <a class="names" href="krestikiNoliki">Крестики нолики</a>
+        <a class="names" href="combo">Комбо</a>
+        <a class="codeLink" href="https://github.com/almaz73/examples/tree/main/src/examples/combo">(code)</a>
         <br><br>
-
-        <a class="names" href="trolly">Тролли</a>
-        <a class="codeLink" href="https://github.com/almaz73/--game--Trollyworld-DEMO">(code)</a>
-        <br><br>
-        <a class="names" href="counter">Маленький математик</a>
-        <a class="codeLink" href="https://github.com/almaz73/--game--AddCount-DEMO">(code)</a>
-        <br><br>
-        <a class="names" href="cubicZaitseva">Кубики Зайцева</a>
-        <a class="codeLink" href="https://github.com/almaz73/--game--Kubiki_Zaytceva-DEMO">(code)</a>
-
-        <br><br>
-        <a class="names" href="guessTheAnimal">Угадай животное</a>
-        <a class="codeLink" href="https://github.com/almaz73/--game--guessTheAnimal-DEMO">(code)</a>
-
-        <h2>Разное</h2>
-
-        <h4>Образовательный сайт <a href="litsey">пример</a></h4>
-        <h4>Карта Казани на flash: <a href="fmapKazan/kazan07.03.2016.zip">архив</a></h4>
-        <h4>Карта Казани на JS: <a href="fmapMobileVersion">сайт</a></h4>
-        <h4>Пример работы с canvas, редактор мебели: <a href="mebel">сайт</a></h4>
-
-        <h4>Пример сайта для мобилки, желательно смотреть через смартфон:
-            <a href="mobileSite">сайт</a>
-            <a class="codeLink" href="https://github.com/almaz73/stroy_vertstka">(code)</a></h4>
-
-
-
-        <h4>Создание опросов используя FireDase от Google:
-            <a href="olimpiada">сайт</a>
-            <a class="codeLink" href="https://github.com/almaz73/olimpiada">(code)</a></h4>
-
-
-
-
-
-
     </div>
-
+</div>
 </body>
 
 </html>
