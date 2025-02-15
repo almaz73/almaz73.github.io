@@ -5,16 +5,20 @@
   createApp({
     setup() {
       const message = ref('Hello vue!')
-      const WebAppVUE  = ref('$$$$$$$$$$')
+      const userName  = ref('$$$$$$$$$$')
 
 
         onMounted(() => {
           // Проверяем, доступен ли объект Telegram.WebApp
           if (window.Telegram && window.Telegram.WebApp) {
+            // обьект телеграм бота
             const webApp = window.Telegram.WebApp;
+            
 
             // Получаем данные пользователя
-            WebAppVUE.value = webApp.initDataUnsafe.user?.id || 'Unknown';
+            userName.value = webApp.initDataUnsafe.user?.id || 'Unknown';
+            
+            WebApp.showAlert(`Добро пожаловать, ${userName.value}`);
 
             // Разворачиваем приложение на весь экран
             webApp.expand();
@@ -29,6 +33,6 @@
         //message.value = val.text
       }
 
-       return {message, setMessage, WebAppVUE}
+       return {message, setMessage, userName}
     }
   }).mount('#app')
