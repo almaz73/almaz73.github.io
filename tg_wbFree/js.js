@@ -2,7 +2,7 @@ const {createApp, ref, onMounted} = Vue
 
 createApp({
     setup() {
-        const message = ref('Hello vue!')
+        const message = ref('Hello!')
         const userName = ref('$$$$$$$$$$')
         let webApp = {}
 
@@ -32,7 +32,7 @@ createApp({
             //message.value = val.text
             webApp.sendData(JSON.stringify(message.value));
 
-            webApp.showAlert(`Добро пожаловать, ${userName.value}`);
+            webApp.showAlert(`Добро пожаловать, ${userName.value} ${message.value}`);
         }
 
         return {message, setMessage, userName}
