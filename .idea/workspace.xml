@@ -6,6 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/kamil.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Ауфф.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Валим.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Держи удар.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Джип.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Дядя Билли.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/За 105 двор.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Мама вылечи.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Мент на меня газует.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Нурминский.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Райдер.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/kamil/Уйду с мыслями.mp3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +57,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "almaz73"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/almaz73/almaz73.github.io.git",
+    "accountId": "450bc1fb-0d83-4b07-9d92-da516ea6938c"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="2Sj2U0IVYJZopgTgxSO5vpPSgWv" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -59,19 +87,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/project/doctorem&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/PROJECTS_Python/almaz73.github.io",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\project\almaz73.github.io\doctorem\img" />
@@ -79,6 +110,13 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\project\almaz73.github.io\doctorem" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
