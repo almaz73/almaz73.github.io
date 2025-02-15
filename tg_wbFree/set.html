@@ -24,6 +24,7 @@
 
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="tf.js"></script>
 <script src="js.js"></script>
 <script>
     var WebApp = window.Telegram.WebApp;
@@ -64,13 +65,16 @@
         }
 
     try{
-        t_qq = WebApp.WebAppUser.username
+        t_qq = WebApp.initDataUnsafe.user.username
         qq = document.querySelector('#zzzzz')
         qq.innerHTML = ':::::::'+JSON.stringify(t_qq)
         WebApp.showAlert(`Добро пожаловать, t_qq.`);
     } catch (err) {
         console.log('err=',err)
     }
+
+
+
 
 </script>
 </body>
