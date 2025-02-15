@@ -31,6 +31,8 @@
       function setMessage(){
         console.log('val=',message.value )
         //message.value = val.text
+          window.Telegram.WebApp.sendData(JSON.stringify(message.value));
+
       }
 
        return {message, setMessage, userName}
