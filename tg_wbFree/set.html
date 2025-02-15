@@ -12,10 +12,14 @@
 
 <div id="app">
     <input type="text" v-model="message"  @input="setMessage" />
-    <p style="background:pink">{{message}}</p>
+    <p style="background:green">{{message}}</p>
+    <p style="background:yellow">{{WebAppVUE}}</p>
 </div>
 
 <div id="qqq"> NNNNNN
+</div>
+
+<div id="zzzzz" style="background:red"> NNNNNN
 </div>
 
 
@@ -36,6 +40,7 @@
                 });
                 WebApp.onEvent('mainButtonClicked', function() {
                   /* also */
+                    WebApp.showAlert("Главная кнопка нажата!");
                 });
 
                 BackButton.onClick(function() {
@@ -44,6 +49,8 @@
                   BackButton.hide();
                 });
                 WebApp.onEvent('backButtonClicked', function() {
+
+                 WebApp.showAlert("Нет !!! backButtonClicked!");
                   /* also */
                 });
 
@@ -57,10 +64,13 @@
         }
 
     try{
-        WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
+        t_qq = WebApp.WebAppUser.username
+        qq = document.querySelector('#zzzzz')
+        qq.innerHTML = ':::::::'+JSON.stringify(t_qq)
+        WebApp.showAlert(`Добро пожаловать, t_qq.`);
     } catch (err) {
-            console.log('err=',err)
-        }
+        console.log('err=',err)
+    }
 
 </script>
 </body>
