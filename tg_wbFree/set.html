@@ -6,26 +6,25 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Настройки</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
 <div id="app">
     <input type="text" v-model="message"  @input="setMessage" />
-    <p>{{message}}</p>
+    <p style="background:pink">{{message}}</p>
 </div>
 
-<div id="qqq">
+<div id="qqq"> NNNNNN
 </div>
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="js.js"></script>
 <script>
     var WebApp = window.Telegram.WebApp;
-
+    console.log('WebApp=',WebApp)
         try {
-
-
                 var MainButton = WebApp.MainButton;
                 var BackButton = WebApp.BackButton;
 
@@ -48,7 +47,7 @@
                   /* also */
                 });
 
-                 WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
+
 
                  zzz = document.querySelector('#qqq')
                  zzz.innerHTML = JSON.stringify(WebApp)
@@ -56,6 +55,13 @@
         } catch (err) {
             console.log('err=',err)
         }
+
+    try{
+        WebApp.showAlert(`Добро пожаловать, @${WebApp.WebAppUser.username}.`);
+    } catch (err) {
+            console.log('err=',err)
+        }
+
 </script>
 </body>
 </html>
