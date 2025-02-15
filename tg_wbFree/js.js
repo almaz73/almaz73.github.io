@@ -16,12 +16,12 @@
             
 
             // Получаем данные пользователя
-            userName.value = webApp.initDataUnsafe.user?.id || 'Unknown';
+            userName.value = webApp.initDataUnsafe.user?.username || 'Unknown';
             
-            WebApp.showAlert(`Добро пожаловать, ${userName.value}`);
+            webApp.showAlert(`Добро пожаловать, ${userName.value}`);
 
             // Разворачиваем приложение на весь экран
-            webApp.expand();
+//            webApp.expand();
           } else {
             console.error('Telegram WebApp SDK не загружен');
           }
