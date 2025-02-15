@@ -32,7 +32,8 @@ createApp({
             //message.value = val.text
             webApp.sendData(JSON.stringify(message.value));
 
-            webApp.showAlert(`Добро пожаловать, ${userName.value} ${message.value}`);
+            webApp.showAlert(`Добро пожаловать!!!, ${userName.value} 
+            ${message.value}`);
         }
 
         return {message, setMessage, userName}
