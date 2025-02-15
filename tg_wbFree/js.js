@@ -3,6 +3,7 @@
   createApp({
     setup() {
       const message = ref('Hello vue!')
+      const WebAppVUE  = ref('')
 
         try{
             if(WebApp) WebAppVUE.VALUE = WebApp
