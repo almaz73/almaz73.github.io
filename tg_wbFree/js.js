@@ -13,6 +13,7 @@ createApp({
                 // обьект телеграм бота
                 webApp = window.Telegram.WebApp;
 
+                console.log('webApp',webApp)
 
                 // Получаем данные пользователя
                 userName.value = webApp.initDataUnsafe.user?.username || 'Unknown';
@@ -24,18 +25,19 @@ createApp({
             } else {
                 console.error('Telegram WebApp SDK не загружен');
             }
+
         });
 
 
         function setMessage() {
             console.log('val=', message.value)
-            //message.value = val.text
-            webApp.sendData(JSON.stringify(message.value));
-
-            webApp.showAlert(`Добро пожаловать!!!, ${userName.value} 
-            ${message.value}`);
+           webApp.showAlert(webApp.initData());
         }
 
-        return {message, setMessage, userName}
+        function save(){
+            webApp.sendData('#######'+JSON.stringify(message.value));
+        }
+
+        return {message, setMessage, userName, save}
     }
 }).mount('#app')

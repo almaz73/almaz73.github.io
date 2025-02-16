@@ -14,61 +14,15 @@
     <input type="text" v-model="message"  @input="setMessage" />
     <p style="background:green">{{message}}</p>
     <p style="background:yellow">{{userName}}</p>
-</div>
 
-<div id="qqq"  style="background:yellow"> NNNNNN
-</div>
-
-<div id="zzzzz" style="background:red"> NNNNNN
+    <button @click="save()">
+        Отправить
+    </button>
 </div>
 
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script src="tf.js"></script>
 <script src="js.js"></script>
-<script>
-    var WebApp = window.Telegram.WebApp;
-    console.log('WebApp=',WebApp)
-        try {
-                var MainButton = WebApp.MainButton;
-                var BackButton = WebApp.BackButton;
-
-                MainButton.show();
-                BackButton.show();
-
-                MainButton.onClick(function() {
-                  WebApp.showAlert("Хорошо, ты нажал на главную кнопку.");
-                });
-                WebApp.onEvent('mainButtonClicked', function() {
-                  /* also */
-                    WebApp.showAlert("Главная кнопка нажата!");
-                });
-
-                BackButton.onClick(function() {
-                  WebApp.showAlert("Нет пути назад!");
-
-                  BackButton.hide();
-                });
-                WebApp.onEvent('backButtonClicked', function() {
-
-                 WebApp.showAlert("Нет !!! backButtonClicked!");
-                  /* also */
-                });
-
-
-
-                 zzz = document.querySelector('#qqq')
-                 zzz.innerHTML = JSON.stringify(WebApp)
-
-        } catch (err) {
-            console.log('err=',err)
-        }
-
-
-
-
-
-</script>
 </body>
 </html>
 
