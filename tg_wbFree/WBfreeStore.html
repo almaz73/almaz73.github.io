@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <input type="text" v-model="message"  @input="setMessage" />
+    <p style="background:green">{{message}}</p>
+    <p style="background:red"> Пользователь {{userName}}</p>
+    <p style="background:blue" v-if="tgparams"> Данные: {{tgparams}}</p>
+    <p style="background:orange"> initData {{initData}}</p>
+    <p style="background:orange"> localstorage {{ls}}</p>
+
+
+    <button @click="save()">
+        Сохранить
+    </button>
+</div>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="js.js"></script>
+</body>
+</html>
+
