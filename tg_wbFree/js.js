@@ -4,7 +4,7 @@ createApp({
     setup() {
         const message = ref('Hello!')
         const userName = ref('$$$$$$$$$$')
-        const tg_params = ref('--')
+        const tgparams = ref('$$')
         const initData = ref('')
         let webApp = {}
 
@@ -15,21 +15,32 @@ createApp({
 
             userName.value = webApp.initDataUnsafe.user?.username || 'Unknown';
 //            webApp.showAlert(`Добро пожаловать, ${userName.value}`);
-            tg_params.value = location.search
+                console.log('location.search=', location.search)
+            tgparams.value = '777' +location.search || '888'
 
-            initData.value = webApp.initData()
+            try{
+                initData.value = webApp.initData()
+            }catch (e){
+                initData.value = e
+            }
         });
 
 
         function setMessage() {
             console.log('val=', message.value)
            webApp.showAlert(webApp.initData());
+
+           try{
+                initData.value = webApp.initData()
+            }catch (e){
+                initData.value = e
+            }
         }
 
         function save(){
             webApp.sendData('#######'+JSON.stringify(message.value));
         }
 
-        return {message, setMessage, userName, save}
+        return {message, setMessage, userName, save, tgparams, initData}
     }
 }).mount('#app')

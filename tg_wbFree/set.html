@@ -14,8 +14,8 @@
     <input type="text" v-model="message"  @input="setMessage" />
     <p style="background:green">{{message}}</p>
     <p style="background:red"> Пользователь {{userName}}</p>
-    <p style="background:blue"> Данные {{tg_params}}</p>
-    <p style="background:gray"> initData {{initData}}</p>
+    <p style="background:blue" v-if="tgparams"> Данные: {{tgparams}}</p>
+    <p style="background:pink"> initData {{initData}}</p>
 
 
     <button @click="save()">
