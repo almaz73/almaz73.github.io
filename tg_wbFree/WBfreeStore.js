@@ -6,33 +6,32 @@ createApp({
         const userName = ref('$$$$$$$$$$')
         const tgparams = ref('$$')
         const initData = ref('')
+        const link = ref('')
         const ls = ref('')
-        let webApp = {}
+        let webApp = ref{}
 
 
         onMounted(() => {
-             ls.value = localStorage.getItem('tgparams');
+             ls.value = localStorage.getItem('WBfreeStore');
              console.log('localstorage ', ls.value)
 
-            webApp = window.Telegram?.WebApp;
-            console.log('webApp', webApp)
+            webApp.value = window.Telegram?.WebApp;
+            console.log('webApp', webApp.value)
 
-            userName.value = webApp.initDataUnsafe.user?.username;
-//            webApp.showAlert(`Добро пожаловать, ${userName.value}`);
+            userName.value = webApp.value.initDataUnsafe.user?.username;
+//            webApp.value.showAlert(`Добро пожаловать, ${userName.value}`);
             console.log('location.search=', location.search)
             tgparams.value = location.search
 
-            const initData = new URLSearchParams(window.location.search);
-            console.log('===',initData.get('_ijt'))
+           link.value = new URLSearchParams(window.location.search);
 
-            webApp.ready();
+            webApp.value.ready();
              // Получаем initData
-               initData.value = webApp.initData;
+            initData.value = webApp.value.initData || webApp.value.initDataUnsafe;
 
             console.log('  initData.value=',  initData.value)
 
-//tgparams.value=333
-//            if(tgparams.value) localStorage.setItem('tgparams', tgparams.value);
+//            if(tgparams.value) localStorage.setItem('WBfreeStore', tgparams.value);
 
         });
 
@@ -40,16 +39,16 @@ createApp({
         function setMessage() {
            console.log('val=', message.value)
 
-            webApp.postEvent('web_app_data_send', { data: 'your_data' });
+            webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
         }
 
         function saveClose(){
-            webApp.postEvent('web_app_data_send', { data: 'your_data' });
-            webApp.close()
+            webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
+            webApp.value.close()
         }
 
         function save(){
-            webApp.sendData('#######'+JSON.stringify(message.value));
+            webApp.value.sendData('#######'+JSON.stringify(message.value));
         }
 
         return {
@@ -60,6 +59,7 @@ createApp({
             saveClose,
             tgparams,
             initData,
+            link
             ls
         }
     }
