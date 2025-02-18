@@ -17,7 +17,7 @@ createApp({
             webApp = window.Telegram?.WebApp;
             console.log('webApp', webApp)
 
-            userName.value = webApp.initDataUnsafe.user?.username || 'Unknown';
+            userName.value = webApp.initDataUnsafe.user?.username;
 //            webApp.showAlert(`Добро пожаловать, ${userName.value}`);
             console.log('location.search=', location.search)
             tgparams.value = location.search
@@ -43,10 +43,24 @@ createApp({
             webApp.postEvent('web_app_data_send', { data: 'your_data' });
         }
 
+        function saveClose(){
+            webApp.postEvent('web_app_data_send', { data: 'your_data' });
+            webApp.close()
+        }
+
         function save(){
             webApp.sendData('#######'+JSON.stringify(message.value));
         }
 
-        return {message, setMessage, userName, save, tgparams, initData, ls}
+        return {
+            message,
+            setMessage,
+            userName,
+            save,
+            saveClose,
+            tgparams,
+            initData,
+            ls
+        }
     }
 }).mount('#app')
