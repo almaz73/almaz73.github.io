@@ -31,13 +31,19 @@ createApp({
 
             console.log('  initData.value=',  initData.value)
 
+
+
 //            if(tgparams.value) localStorage.setItem('WBfreeStore', tgparams.value);
+
+            webApp.value.MainButton.setText('_ТЕКСТ__11_')
+            webApp.value.MainButton.show()
 
         });
 
 
         function setMessage() {
            console.log('val=', message.value)
+            webApp.value.showConfirm('99292929292929292', message.value)
 
             webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
         }
