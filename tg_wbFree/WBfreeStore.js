@@ -41,8 +41,9 @@ createApp({
 
 
         function save(){
+            console.log('cod=', cod)
             // Тут отпарвить данные боту
-            webApp.value.sendData("#ЖЖЖЖЖ###### some string that we need to send="+cod);
+            webApp.value.sendData("? ? ? ? ? ? ?  some string that we need to send="+cod);
         }
 
         return {
