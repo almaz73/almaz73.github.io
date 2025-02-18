@@ -49,12 +49,16 @@ createApp({
         }
 
         function saveClose(){
-            webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
+            try{
+                webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
+            } catch (e){
+                console.log(':::e:::', e)
+            }
             webApp.value.close()
         }
 
         function save(){
-            webApp.value.sendData('#######'+JSON.stringify(message.value));
+            webApp.value.sendData('#ЖЖЖЖЖ######'+JSON.stringify(message.value));
         }
 
         return {
