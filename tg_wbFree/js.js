@@ -4,28 +4,20 @@ createApp({
     setup() {
         const message = ref('Hello!')
         const userName = ref('$$$$$$$$$$')
+        const tg_params = ref('--')
+        const initData = ref('')
         let webApp = {}
 
 
         onMounted(() => {
-            // Проверяем, доступен ли объект Telegram.WebApp
-            if (window.Telegram && window.Telegram.WebApp) {
-                // обьект телеграм бота
-                webApp = window.Telegram.WebApp;
+            webApp = window.Telegram?.WebApp;
+            console.log('webApp', webApp)
 
-                console.log('webApp',webApp)
+            userName.value = webApp.initDataUnsafe.user?.username || 'Unknown';
+//            webApp.showAlert(`Добро пожаловать, ${userName.value}`);
+            tg_params.value = location.search
 
-                // Получаем данные пользователя
-                userName.value = webApp.initDataUnsafe.user?.username || 'Unknown';
-
-                webApp.showAlert(`Добро пожаловать, ${userName.value}`);
-
-                // Разворачиваем приложение на весь экран
-//            webApp.expand();
-            } else {
-                console.error('Telegram WebApp SDK не загружен');
-            }
-
+            initData.value = webApp.initData()
         });
 
 

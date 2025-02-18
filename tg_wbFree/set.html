@@ -13,10 +13,13 @@
 <div id="app">
     <input type="text" v-model="message"  @input="setMessage" />
     <p style="background:green">{{message}}</p>
-    <p style="background:yellow">{{userName}}</p>
+    <p style="background:red"> Пользователь {{userName}}</p>
+    <p style="background:blue"> Данные {{tg_params}}</p>
+    <p style="background:gray"> initData {{initData}}</p>
+
 
     <button @click="save()">
-        Отправить
+        Сохранить
     </button>
 </div>
 
