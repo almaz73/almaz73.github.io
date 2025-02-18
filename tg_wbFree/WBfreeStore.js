@@ -6,9 +6,10 @@ createApp({
         const userName = ref('$$$$$$$$$$')
         const tgparams = ref('$$')
         const initData = ref('')
-        const link = ref('')
         const ls = ref('')
         let webApp = ref{}
+
+        let cod = "eyJhb3ciOiJFUzI1NiIsImtpZCI6IjIwMjQxMjE3djEiLCJ03XAiOiJKV1QifQ.eyJlbnQiOjEsImV4cCI6MTc1MjQzMjI2MCwiaWQiOiIwMTk0NTk0MS1hMDkwLTdjYTgtYjQxMC0wYWI2M2JjNWVhYzEiLCJpaWQiOjM3ODAyMDk2LCJvaWQiOjgyNjk0NSwicyI6MTA4OCwic2lkIjoiMjc3ZTFmYWItMjI5Ny00NDY0LWJlMmYtNWJkYzAwMTY5YWIyIiwidCI6Z3Fsc2UsInVpZCI6Mzc4MDIwOTZ9.DRqlTtm5vkveWnC3jOhyA2CAdB_-p1XOuZADzDPkcbFMfmyyaMR1pca94FKEC1Jcgp3hqcOjP45QiuPZaIsXdw'"
 
 
         onMounted(() => {
@@ -19,21 +20,14 @@ createApp({
             console.log('webApp', webApp.value)
 
             userName.value = webApp.value.initDataUnsafe.user?.username;
-//            webApp.value.showAlert(`Добро пожаловать, ${userName.value}`);
             console.log('location.search=', location.search)
             tgparams.value = location.search
 
-           link.value = new URLSearchParams(window.location.search);
 
             webApp.value.ready();
              // Получаем initData
-            initData.value = webApp.value.initData || webApp.value.initDataUnsafe;
-
-            console.log('  initData.value=',  initData.value)
-
-
-
-//            if(tgparams.value) localStorage.setItem('WBfreeStore', tgparams.value);
+            console.log(' webApp.value.=',webApp.value.initData)
+            console.log( 'webApp.value.initDataUnsafe = ', webApp.value.initDataUnsafe);
 
             webApp.value.MainButton.setText('_ТЕКСТ__11_')
             webApp.value.MainButton.show()
@@ -43,33 +37,19 @@ createApp({
 
         function setMessage() {
            console.log('val=', message.value)
-            webApp.value.showConfirm('99292929292929292', message.value)
-
-            webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
         }
 
-        function saveClose(){
-            try{
-                webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
-            } catch (e){
-                console.log(':::e:::', e)
-            }
-            webApp.value.close()
-        }
 
         function save(){
-            webApp.value.sendData('#ЖЖЖЖЖ######'+JSON.stringify(message.value));
+            // Тут отпарвить данные боту
+            webApp.value.sendData("#ЖЖЖЖЖ###### some string that we need to send="+cod);
         }
 
         return {
             message,
             setMessage,
-            userName,
             save,
-            saveClose,
             tgparams,
-            initData,
-            link
             ls
         }
     }

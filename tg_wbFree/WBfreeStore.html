@@ -12,21 +12,15 @@
 <div id="app">
     <input type="text" v-model="message"  @input="setMessage" />
     <p style="background:green">{{message}}</p>
-    <p style="background:pink"> Пользователь ::{{userName}}::</p>
     <p style="background:blue" v-if="tgparams"> Данные: {{tgparams}}</p>
-    <p style="background:orange"> link {{link}}</p>
-    <p style="background:pink"> initData {{initData}}</p>
     <p style="background:pink"> localstorage {{ls}}</p>
 
-    <button v-if="userName">userName---{{userName}}</button>
 
     <button @click="save()" style="background: green">
         Сохранить
     </button>
 
-    <button @click="saveClose()"  style="background: yellow">
-        Сохранить и закрыть
-    </button>
+
 </div>
 
 
