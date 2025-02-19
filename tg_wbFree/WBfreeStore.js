@@ -53,7 +53,7 @@ createApp({
                 is_visible: true
             })
 
-            MainButton && MainButton.onclick(prepareDeata());
+            MainButton && MainButton.onclick(save());
             // MainButton.show()
             // MainButton.enable()
 
@@ -85,7 +85,7 @@ createApp({
             })
             if (exist) {
                 link = ''
-                webApp.value.showConfirm('Магазин без названия - удаление данных')
+                webApp.value.showConfirm('Магазин без названия - удаление')
             }
             return link
         }
