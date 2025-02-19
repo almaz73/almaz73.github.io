@@ -47,13 +47,13 @@ createApp({
 
 
 
-            // MainButton.setParams({
-            //     text: 'Close ZZZ',
-            //     has_shine_effect: true,
-            //     is_visible: true
-            // })
-            MainButton.show()
-            MainButton.enable()
+            MainButton && MainButton.setParams({
+                text: 'Close ZZZ',
+                has_shine_effect: true,
+                is_visible: true
+            }).onClick(prepareDeata());
+            // MainButton.show()
+            // MainButton.enable()
 
             // MainButton && MainButton.setParams({is_visible: true, is_active: true, is_progress_visible: true, text: 'Join', color: '#2481cc'})
                 // .onClick(prepareDeata());
