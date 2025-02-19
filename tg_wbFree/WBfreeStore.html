@@ -33,7 +33,7 @@
 
 <div id="app">
     <div v-for="(l, ind) in list"
-         style="background: green; margin-bottom: 12px">
+         style="background: orange; margin-bottom: 12px">
         <br>
         <input placeholder="Введите название магазина WB" style="width: 73%" v-model="l.name"/>
 
@@ -52,8 +52,8 @@
         <br><br>
     </div>
 
-    <p style="background:pink" v-if="tgparams"> Данные: {{tgparams}}</p>
-    <p style="background:pink"> localstorage {{ls}}</p>
+<!--    <p style="background:pink" v-if="tgparams"> Данные: {{tgparams}}</p>-->
+<!--    <p style="background:pink"> localstorage {{ls}}</p>-->
 
     <button @click="save()">
         Сохранить и закрыть

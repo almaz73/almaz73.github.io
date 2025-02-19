@@ -48,10 +48,12 @@ createApp({
 
 
             MainButton && MainButton.setParams({
-                text: 'Close ZZZ',
+                text: 'Сохранить и закрыть',
                 has_shine_effect: true,
                 is_visible: true
-            }).onClick(prepareDeata());
+            })
+
+            MainButton && MainButton.onclick(prepareDeata());
             // MainButton.show()
             // MainButton.enable()
 
@@ -76,12 +78,12 @@ createApp({
 
         function prepareDeata(){
             let link = ''
-            let exist = 1
+            let exist = false
             list.value.forEach((el)=>{
-                if (!el.name) exist -= 1
+                if (!el.name) exist = true
                 link+=`${el.name}🌞${el.art}🌞${el.token}🐷`
             })
-            if (exist==0) {
+            if (exist) {
                 link = ''
                 webApp.value.showConfirm('Магазин без названия - удаление данных')
             }
