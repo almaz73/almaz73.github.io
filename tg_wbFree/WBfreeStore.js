@@ -21,6 +21,7 @@ createApp({
              console.log('localstorage ', ls.value)
 
             webApp.value = window.Telegram?.WebApp;
+            let MainButton = window.Telegram?.WebApp?.MainButton
             console.log('webApp', webApp.value)
 
             userName.value = webApp.value.initDataUnsafe.user?.username;
@@ -29,12 +30,12 @@ createApp({
 
             // z = "Магазин1🌞123,222,333,444🌞1🐷Маг2🌞12,2,🌞🐷"
 
-            tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
+            // tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
 
             list.value = []
             tgparams.value && decodeURIComponent(tgparams.value).slice(3).split('🐷').forEach(el=>{
                 arrEl = el.split('🌞')
-                arrEl[0].length>2 && list.value.push({name:arrEl[0], art:arrEl[1], token:!!arrEl[2]})
+                arrEl[0].length>2 && list.value.push({name:arrEl[0], art:arrEl[1], token:arrEl[2]?'exist':''})
             })
             
             console.log('list.value.length = ',list.value.length)
@@ -47,7 +48,7 @@ createApp({
             console.log( 'webApp.value.initDataUnsafe = ', webApp.value.initDataUnsafe);
 
 
-            let MainButton = webApp.value.MainButton
+
             // MainButton.setParams({
             //     text: 'Close ZZZ',
             //     has_shine_effect: true,
@@ -56,7 +57,7 @@ createApp({
             // MainButton.show()
             // MainButton.enable()
 
-            MainButton.setParams({is_visible: true, is_active: true, is_progress_visible: true, text: 'Join', color: '#2481cc'})
+            MainButton && MainButton.setParams({is_visible: true, is_active: true, is_progress_visible: true, text: 'Join', color: '#2481cc'})
                 // .onClick(prepareDeata());
 
             // document.querySelector('a.tgme_channel_join_telegram').click()
