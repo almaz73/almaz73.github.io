@@ -2,14 +2,19 @@ const {createApp, ref, onMounted} = Vue
 
 createApp({
     setup() {
-        const message = ref('Hello!')
+        let cod = "eyJhb3ciOiJFUzI1NiIsImtpZCI6IjIwMjQxMjE3djEiLCJ03XAiOiJKV1QifQ.eyJlbnQiOjEsImV4cCI6MTc1MjQzMjI2MCwiaWQiOiIwMTk0NTk0MS1hMDkwLTdjYTgtYjQxMC0wYWI2M2JjNWVhYzEiLCJpaWQiOjM3ODAyMDk2LCJvaWQiOjgyNjk0NSwicyI6MTA4OCwic2lkIjoiMjc3ZTFmYWItMjI5Ny00NDY0LWJlMmYtNWJkYzAwMTY5YWIyIiwidCI6Z3Fsc2UsInVpZCI6Mzc4MDIwOTZ9.DRqlTtm5vkveWnC3jOhyA2CAdB_-p1XOuZADzDPkcbFMfmyyaMR1pca94FKEC1Jcgp3hqcOjP45QiuPZaIsXdw'"
+//        const name = ref('Hello!')
+//        const token = ref(cod)
+//        const art = ref('')
+        const list = ref([{name:'11',token:cod, art:'' }])
+
         const userName = ref('$$$$$$$$$$')
         const tgparams = ref('$$')
         const initData = ref('')
         const ls = ref('')
         let webApp = ref({})
 
-        let cod = "eyJhb3ciOiJFUzI1NiIsImtpZCI6IjIwMjQxMjE3djEiLCJ03XAiOiJKV1QifQ.eyJlbnQiOjEsImV4cCI6MTc1MjQzMjI2MCwiaWQiOiIwMTk0NTk0MS1hMDkwLTdjYTgtYjQxMC0wYWI2M2JjNWVhYzEiLCJpaWQiOjM3ODAyMDk2LCJvaWQiOjgyNjk0NSwicyI6MTA4OCwic2lkIjoiMjc3ZTFmYWItMjI5Ny00NDY0LWJlMmYtNWJkYzAwMTY5YWIyIiwidCI6Z3Fsc2UsInVpZCI6Mzc4MDIwOTZ9.DRqlTtm5vkveWnC3jOhyA2CAdB_-p1XOuZADzDPkcbFMfmyyaMR1pca94FKEC1Jcgp3hqcOjP45QiuPZaIsXdw'"
+
 
 
         onMounted(() => {
@@ -38,15 +43,9 @@ createApp({
 
         });
 
-
-        function setMessage() {
-           console.log('val=', message.value)
-           webApp.value.showConfirm('99292929292929292', message.value)
-
-           webApp.value.postEvent('web_app_data_send', { data: 'your_data' });
-            webApp.value.close()
+        function addStore(){
+            list.value.push({name:'',token:'', art:'' })
         }
-
 
         function save(){
             console.log('___=', cod)
@@ -55,11 +54,11 @@ createApp({
         }
 
         return {
-            message,
-            setMessage,
+            list,
+            addStore,
             save,
             tgparams,
-            ls
+            ls,
         }
     }
 }).mount('#app')
