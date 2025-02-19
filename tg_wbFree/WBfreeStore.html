@@ -7,47 +7,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body{
+        body {
             font-size: larger;
-            text-align: center
+            text-align: center;
+            font-family:Verdana
         }
-        input, textarea{
+
+        input, textarea {
             width: 95%;
             font-size: larger;
-            text-align: center
+            text-align: center;
+            resize: vertical;
         }
+
+        button {
+            padding: 8px;
+            font-size: larger
+        }
+
+
 
     </style>
 </head>
 <body>
 
 <div id="app">
-    <div v-for="l in list"
-         style="background: linear-gradient(to bottom right, lightblue, lightpink); margin-bottom: 12px" >
+    <div v-for="(l, ind) in list"
+         style="background: linear-gradient(to bottom right, lightblue, lightpink); margin-bottom: 12px">
         <br>
-        <input placeholder="Введите название магазина WB" style="width: 60%" v-model="l.name"/>
+        <input placeholder="Введите название магазина WB" style="width: 73%" v-model="l.name"/>
 
-        <br><br>
-        <textarea v-if="!l.token" placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
-                  v-model="l.token"  rows="4" ></textarea>
+        <br>
+        <textarea v-if="!l.token"
+                  placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
+                  v-model="l.token" rows="4"></textarea>
 
         <h4> Мониторинг остатков</h4>
         <textarea placeholder="Введите артикулы товаров через запятую" v-model="l.art"></textarea>
 
-
-        <br><br>
-        <button @click="addStore()" v-if="l.name"> Добавить еще один магазин </button>
+        <div class="addBt" v-if="l.name && list.length-1==ind">
+          <br><br>
+            <button @click="addStore()" > + магазин</button>
+        </div>
         <br><br>
     </div>
 
     <p style="background:pink" v-if="tgparams"> Данные: {{tgparams}}</p>
     <p style="background:pink"> localstorage {{ls}}</p>
 
-    <section id="top_sect" class="second">
-        <button @click="save()" >
-            Сохранить и закрыть
-        </button>
-    </section>
+    <button @click="save()">
+        Сохранить и закрыть
+    </button>
 
 
 </div>
