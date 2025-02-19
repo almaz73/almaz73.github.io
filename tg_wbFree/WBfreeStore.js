@@ -6,9 +6,9 @@ createApp({
 //        const name = ref('Hello!')
 //        const token = ref(cod)
 //        const art = ref('')
-        const list = ref([{name:'',token:'', art:'' }])
+        const list = ref([])
 
-        const userName = ref('$$$$$$$$$$')
+        // const userName = ref('$$$$$$$$$$')
         const tgparams = ref('$$')
         const ls = ref('')
         let webApp = ref({})
@@ -24,11 +24,9 @@ createApp({
             let MainButton = window.Telegram?.WebApp?.MainButton
             console.log('webApp', webApp.value)
 
-            userName.value = webApp.value.initDataUnsafe.user?.username;
+            // userName.value = webApp.value.initDataUnsafe.user?.username;
             console.log('location.search=', location.search)
             tgparams.value = location.search
-
-            // z = "Магазин1🌞123,222,333,444🌞1🐷Маг2🌞12,2,🌞🐷"
 
             // tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
 
@@ -54,10 +52,10 @@ createApp({
             //     has_shine_effect: true,
             //     is_visible: true
             // })
-            // MainButton.show()
-            // MainButton.enable()
+            MainButton.show()
+            MainButton.enable()
 
-            MainButton && MainButton.setParams({is_visible: true, is_active: true, is_progress_visible: true, text: 'Join', color: '#2481cc'})
+            // MainButton && MainButton.setParams({is_visible: true, is_active: true, is_progress_visible: true, text: 'Join', color: '#2481cc'})
                 // .onClick(prepareDeata());
 
             // document.querySelector('a.tgme_channel_join_telegram').click()
