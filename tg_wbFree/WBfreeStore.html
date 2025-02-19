@@ -23,12 +23,12 @@
 
 <div id="app">
     <div v-for="l in list"
-         style="background: linear-gradient(to bottom right, blue, pink); margin-bottom: 8px" >
+         style="background: linear-gradient(to bottom right, lightblue, lightpink); margin-bottom: 12px" >
         <br>
         <input placeholder="Введите название магазина WB" style="width: 60%" v-model="l.name"/>
 
         <br><br>
-        <textarea placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
+        <textarea v-if="!l.token" placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
                   v-model="l.token"  rows="4" ></textarea>
 
         <h4> Мониторинг остатков</h4>
@@ -36,7 +36,7 @@
 
 
         <br><br>
-        <button @click="addStore()"> Добавить магазин </button>
+        <button @click="addStore()" v-if="l.name"> Добавить еще один магазин </button>
         <br><br>
     </div>
 

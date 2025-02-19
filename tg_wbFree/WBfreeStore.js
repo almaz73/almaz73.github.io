@@ -27,12 +27,16 @@ createApp({
             console.log('location.search=', location.search)
             tgparams.value = location.search
 
-            z = "Магазин1🌞123,222,333,444🌞1🐷Маг2🌞12,2,🌞🐷"
+            // z = "Магазин1🌞123,222,333,444🌞1🐷Маг2🌞12,2,🌞🐷"
 
-            tgparams.value && tgparams.value.forEach(el=>{
+            list.value = []
+            tgparams.value && decodeURIComponent(tgparams.value).split('🐷').forEach(el=>{
                 arrEl = el.split('🌞')
                 arrEl[0] && list.value.push({name:arrEl[0], art:arrEl[1], token:!!arrEl[2]})
             })
+            
+            console.log('list.value.length = ',list.value.length)
+            console.log('list.value = ',list.value)
 
 
             // webApp.value.ready();
@@ -42,11 +46,11 @@ createApp({
 
 
             let MainButton = webApp.value.MainButton
-            MainButton.setParams({
-                text: 'Close ZZZ',
-                has_shine_effect: true,
-                is_visible: true
-            })
+            // MainButton.setParams({
+            //     text: 'Close ZZZ',
+            //     has_shine_effect: true,
+            //     is_visible: true
+            // })
             MainButton.show()
             MainButton.enable()
                 // .onClick(prepareDeata());
