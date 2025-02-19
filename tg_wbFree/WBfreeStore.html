@@ -6,21 +6,36 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body{
+            font-size: larger;
+            text-align: center
+        }
+        input, textarea{
+            width: 95%;
+            font-size: larger;
+            text-align: center
+        }
+
+    </style>
 </head>
 <body>
 
 <div id="app">
     <div v-for="l in list"
-         style="border: 4px double wheat; border-radius: 15px; text-align:center" >
-        <h4>Введите название магазина WB</h4>
-        <input v-model="l.name"/>
+         style="background: linear-gradient(to bottom right, blue, pink);" >
+        <br>
+        <input placeholder="Введите название магазина WB" style="width: 60%" v-model="l.name"/>
 
-        <h4>Cкопируйте токен "Аналитика" из настроек продавца (доступ к API). Только для чтения </h4>
-        <textarea v-model="l.token"  rows="6"  class="form-control"></textarea>
+        <br><br>
+        <textarea placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
+                  v-model="l.token"  rows="6" ></textarea>
 
-        <h4>Введите артикулы товаров, через запятую, остатки которых хотите мониторить</h4>
-        <textarea v-model="l.art"   class="form-control"></textarea>
-            <br><br>
+        <h4> Мониторинг остатков</h4>
+        <textarea placeholder="Введите артикулы товаров через запятую" v-model="l.art"></textarea>
+
+
+        <br><br>
         <button @click="addStore()"> Добавить магазин </button>
         <br><br>
     </div>

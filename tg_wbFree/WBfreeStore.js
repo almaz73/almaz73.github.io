@@ -36,10 +36,18 @@ createApp({
 
 
             webApp.value.MainButton.text = "Сохранить и закрыть";
-            tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
+            webApp.value.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
 //            webApp.value.MainButton.setText('_ТЕКСТ__11_')
-            webApp.value.MainButton.show()
+//            webApp.value.MainButton.show()
             webApp.value.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
+            webApp.value.MainButton.enable() //показываем
+
+            if (webApp.value.MainButton.isVisible){ //если кнопка показана
+                webApp.value.MainButton.hide() //скрываем кнопку
+            }
+            else{ //иначе
+               webApp.value.MainButton.show() //показываем
+            }
 
         });
 
@@ -47,10 +55,21 @@ createApp({
             list.value.push({name:'',token:'', art:'' })
         }
 
+        function prepareDeata(){
+            let link = ''
+            let exist = false
+            list.value.forEach((el)=>{
+                if (!el.name) exist = true
+                link+=`${el.name}&${el.art}&${el.token}###`
+            })
+            if (true) webApp.value.showConfirm('Магазин без названия - будут удалены все остальные настройки ', message.value)
+            return link
+        }
         function save(){
+            let link = prepareDeata()
             console.log('___=', cod)
             // Тут отпарвить данные боту
-            webApp.value.sendData("? ? ? ? ? ? ?  some string that we need to send="+cod);
+            webApp.value.sendData(link);
         }
 
         return {
