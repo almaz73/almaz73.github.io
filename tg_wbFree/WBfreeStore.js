@@ -41,13 +41,7 @@ createApp({
 //            webApp.value.MainButton.show()
             webApp.value.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
             webApp.value.MainButton.enable() //показываем
-
-            if (webApp.value.MainButton.isVisible){ //если кнопка показана
-                webApp.value.MainButton.hide() //скрываем кнопку
-            }
-            else{ //иначе
-               webApp.value.MainButton.show() //показываем
-            }
+            webApp.value.MainButton.show() //показываем
 
         });
 
@@ -60,15 +54,15 @@ createApp({
             let exist = false
             list.value.forEach((el)=>{
                 if (!el.name) exist = true
-                link+=`${el.name}&${el.art}&${el.token}###`
+                link+=`${el.name}🌞${el.art}🌞${el.token}🐷`
             })
-            if (true) webApp.value.showConfirm('Магазин без названия - будут удалены все остальные настройки ', message.value)
+            if (exist) webApp.value.showConfirm('Магазин без названия - удаление данных')
             return link
         }
         function save(){
             let link = prepareDeata()
-            console.log('___=', cod)
-            // Тут отпарвить данные боту
+            console.log('___link=', link)
+            // данные боту
             webApp.value.sendData(link);
         }
 
