@@ -27,6 +27,13 @@ createApp({
             console.log('location.search=', location.search)
             tgparams.value = location.search
 
+            z = "Магазин1🌞123,222,333,444🌞1🐷Маг2🌞12,2,🌞🐷"
+
+            tgparams.value && tgparams.value.forEach(el=>{
+                arrEl = el.split('🌞')
+                arrEl[0] && list.value.push({name:arrEl[0], art:arrEl[1], token:!!arrEl[2]})
+            })
+
 
             // webApp.value.ready();
              // Получаем initData
@@ -39,7 +46,10 @@ createApp({
                 text: 'Close ZZZ',
                 has_shine_effect: true,
                 is_visible: true
-            }).onClick(prepareDeata());
+            })
+            MainButton.show()
+            MainButton.enable()
+                // .onClick(prepareDeata());
 
 //             webApp.value.MainButton.text = "Сохранить и закрыть";
 //             // webApp.value.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
@@ -62,7 +72,10 @@ createApp({
                 if (!el.name) exist -= 1
                 link+=`${el.name}🌞${el.art}🌞${el.token}🐷`
             })
-            if (exist==0) return webApp.value.showConfirm('Магазин без названия - удаление данных')
+            if (exist==0) {
+                link = ''
+                webApp.value.showConfirm('Магазин без названия - удаление данных')
+            }
             return link
         }
         function save(){

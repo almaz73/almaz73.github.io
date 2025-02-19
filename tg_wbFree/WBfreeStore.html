@@ -23,13 +23,13 @@
 
 <div id="app">
     <div v-for="l in list"
-         style="background: linear-gradient(to bottom right, blue, pink);" >
+         style="background: linear-gradient(to bottom right, blue, pink); margin-bottom: 8px" >
         <br>
         <input placeholder="Введите название магазина WB" style="width: 60%" v-model="l.name"/>
 
         <br><br>
         <textarea placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
-                  v-model="l.token"  rows="6" ></textarea>
+                  v-model="l.token"  rows="4" ></textarea>
 
         <h4> Мониторинг остатков</h4>
         <textarea placeholder="Введите артикулы товаров через запятую" v-model="l.art"></textarea>
@@ -40,13 +40,14 @@
         <br><br>
     </div>
 
-    <p style="background:orange" v-if="tgparams"> Данные: {{tgparams}}</p>
+    <p style="background:pink" v-if="tgparams"> Данные: {{tgparams}}</p>
     <p style="background:pink"> localstorage {{ls}}</p>
 
-
-    <button @click="save()" style="font-size: larger; padding: 8px">
-        Сохранить и закрыть
-    </button>
+    <section id="top_sect" class="second">
+        <button @click="save()" >
+            Сохранить и закрыть
+        </button>
+    </section>
 
 
 </div>
