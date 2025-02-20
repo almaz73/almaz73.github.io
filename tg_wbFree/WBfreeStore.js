@@ -2,15 +2,8 @@ const {createApp, ref, onMounted} = Vue
 
 createApp({
     setup() {
-        // let cod = "eyJhb3ciOiJFUzI1NiIsImtpZCI6IjIwMjQxMjE3djEiLCJ03XAiOiJKV1QifQ.eyJlbnQiOjEsImV4cCI6MTc1MjQzMjI2MCwiaWQiOiIwMTk0NTk0MS1hMDkwLTdjYTgtYjQxMC0wYWI2M2JjNWVhYzEiLCJpaWQiOjM3ODAyMDk2LCJvaWQiOjgyNjk0NSwicyI6MTA4OCwic2lkIjoiMjc3ZTFmYWItMjI5Ny00NDY0LWJlMmYtNWJkYzAwMTY5YWIyIiwidCI6Z3Fsc2UsInVpZCI6Mzc4MDIwOTZ9.DRqlTtm5vkveWnC3jOhyA2CAdB_-p1XOuZADzDPkcbFMfmyyaMR1pca94FKEC1Jcgp3hqcOjP45QiuPZaIsXdw'"
-//        const name = ref('Hello!')
-//        const token = ref(cod)
-//        const art = ref('')
+        const tgparams = ref('') // приходящие данные
         const list = ref([])
-
-        // const userName = ref('$$$$$$$$$$')
-        const tgparams = ref('$$')
-        const ls = ref('')
         let webApp = ref({})
         let  isForce = ref(false)
 
@@ -18,8 +11,7 @@ createApp({
 
 
         onMounted(() => {
-             ls.value = localStorage.getItem('WBfreeStore');
-             console.log('localstorage ', ls.value)
+
 
             webApp.value = window.Telegram?.WebApp;
             // let MainButton = window.Telegram?.WebApp?.MainButton
@@ -55,7 +47,7 @@ createApp({
             // })
             //
             // // так и не заработал
-            // MainButton && MainButton.onclick && MainButton.onclick(forceSave());  
+            // MainButton && MainButton.onclick && MainButton.onclick(forceSave());
             // MainButton.show()
             // MainButton.enable()
 
@@ -97,13 +89,11 @@ createApp({
         function save(){
             let link = prepareDeata()
             console.log('___link=', link)
-            // данные боту
-            link && webApp.value.sendData(link);
+            link && webApp.value.sendData(link); // данные возвращаются боту
         }
         function forceSave() {
-            webApp.value.showConfirm('Магазин ')
             let link = prepareDeata(true)
-            link && webApp.value.sendData(link);
+            link && webApp.value.sendData(link); // данные возвращаются боту
             !link && webApp.value.showConfirm('Нет данных')
         }
 
@@ -113,7 +103,6 @@ createApp({
             forceSave,
             save,
             tgparams,
-            ls,
             isForce
         }
     }
