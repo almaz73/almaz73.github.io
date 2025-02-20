@@ -33,7 +33,7 @@
 
 <div id="app">
     <div v-for="(l, ind) in list"
-         style="background: orange; margin-bottom: 12px">
+         style="background: pink; margin-bottom: 12px">
         <br>
         <input placeholder="Введите название магазина WB" style="width: 73%" v-model="l.name"/>
 
@@ -55,6 +55,9 @@
 <!--    <p style="background:pink" v-if="tgparams"> Данные: {{tgparams}}</p>-->
 <!--    <p style="background:pink"> localstorage {{ls}}</p>-->
 
+    <button @click="toColor()">
+        Перекрасить
+    </button>
     <button @click="save()">
         Сохранить и закрыть
     </button>
