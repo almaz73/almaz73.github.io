@@ -53,7 +53,7 @@ createApp({
                 is_visible: true
             })
 
-            MainButton && MainButton.onclick(save());
+            MainButton && MainButton.onclick(prepareDeata());
             // MainButton.show()
             // MainButton.enable()
 
