@@ -12,6 +12,7 @@ createApp({
         const tgparams = ref('$$')
         const ls = ref('')
         let webApp = ref({})
+        let  isForce = ref(false)
 
 
 
@@ -21,14 +22,14 @@ createApp({
              console.log('localstorage ', ls.value)
 
             webApp.value = window.Telegram?.WebApp;
-            let MainButton = window.Telegram?.WebApp?.MainButton
+            // let MainButton = window.Telegram?.WebApp?.MainButton
             console.log('webApp', webApp.value)
 
             // userName.value = webApp.value.initDataUnsafe.user?.username;
             console.log('location.search=', location.search)
             tgparams.value = location.search
 
-            tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
+            // tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
 
             list.value = []
             tgparams.value && decodeURIComponent(tgparams.value).slice(3).split('🐷').forEach(el=>{
@@ -47,13 +48,14 @@ createApp({
 
 
 
-            MainButton && MainButton.setParams({
-                text: 'Сохранить и закрыть',
-                has_shine_effect: true,
-                is_visible: true
-            })
-
-            MainButton && MainButton.onclick && MainButton.onclick(toColor());
+            // MainButton && MainButton.setParams({
+            //     text: 'Сохранить и закрыть',
+            //     has_shine_effect: true,
+            //     is_visible: true
+            // })
+            //
+            // // так и не заработал
+            // MainButton && MainButton.onclick && MainButton.onclick(forceSave());  
             // MainButton.show()
             // MainButton.enable()
 
@@ -72,22 +74,21 @@ createApp({
 //             webApp.value.MainButton.enable() //показываем
         });
 
-        function toColor() {
-            webApp.value.showConfirm('Магазин ')
-        }
+
 
         function addStore(){
             list.value.push({name:'',token:'', art:'' })
         }
 
-        function prepareDeata(){
+        function prepareDeata(force){
             let link = ''
             let exist = false
             list.value.forEach((el)=>{
                 if (!el.name) exist = true
                 link+=`${el.name}🌞${el.art}🌞${el.token}🐷`
             })
-            if (exist) {
+            isForce.value = exist
+            if (exist && !force) {
                 link = ''
                 webApp.value.showConfirm('Магазин без названия - удаление')
             }
@@ -99,14 +100,21 @@ createApp({
             // данные боту
             link && webApp.value.sendData(link);
         }
+        function forceSave() {
+            webApp.value.showConfirm('Магазин ')
+            let link = prepareDeata(true)
+            link && webApp.value.sendData(link);
+            !link && webApp.value.showConfirm('Нет данных')
+        }
 
         return {
             list,
             addStore,
-            toColor,
+            forceSave,
             save,
             tgparams,
             ls,
+            isForce
         }
     }
 }).mount('#app')

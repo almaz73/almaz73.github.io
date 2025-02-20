@@ -25,7 +25,9 @@
             font-size: larger
         }
 
-
+        button, input, textarea{
+            border-radius: 10px;
+        }
 
     </style>
 </head>
@@ -55,18 +57,19 @@
 <!--    <p style="background:pink" v-if="tgparams"> Данные: {{tgparams}}</p>-->
 <!--    <p style="background:pink"> localstorage {{ls}}</p>-->
 
-    <button @click="toColor()">
-        Перекрасить
-    </button>
+
     <button @click="save()">
         Сохранить и закрыть
+    </button>
+    <button @click="forceSave()" v-if="isForce">
+        Сохранить с удалением
     </button>
 
 
 </div>
 
 
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><br><br>
 <script src="WBfreeStore.js"></script>
 </body>
 </html>
