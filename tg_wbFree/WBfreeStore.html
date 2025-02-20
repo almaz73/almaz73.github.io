@@ -10,7 +10,8 @@
         body {
             font-size: larger;
             text-align: center;
-            font-family:Verdana
+            font-family:Verdana;
+            background: #17212B;
         }
 
         input, textarea {
@@ -22,11 +23,14 @@
 
         button {
             padding: 8px;
-            font-size: larger
+            font-size: large;
+            background: #5288C1;
+            color: white;
+            border: none;
         }
 
         button, input, textarea{
-            border-radius: 10px;
+            border-radius: 4px;
         }
 
     </style>
@@ -58,7 +62,7 @@
     <button @click="save()">
         Сохранить и закрыть
     </button>
-    ={{isForce}}=
+    <br><br>
     <button @click="forceSave()" v-if="isForce">
         Сохранить с удалением
     </button>
