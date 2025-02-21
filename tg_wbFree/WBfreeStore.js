@@ -15,28 +15,37 @@ createApp({
 
             webApp.value = window.Telegram?.WebApp;
             // let MainButton = window.Telegram?.WebApp?.MainButton
-            console.log('webApp', webApp.value)
+            // console.log('webApp', webApp.value)
 
             // userName.value = webApp.value.initDataUnsafe.user?.username;
             console.log('location.search=', location.search)
             tgparams.value = location.search
 
+
             // tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
 
             list.value = []
-            tgparams.value && decodeURIComponent(tgparams.value).slice(3).split('🐷').forEach(el=>{
-                arrEl = el.split('🌞')
-                arrEl[0].length>2 && list.value.push({name:arrEl[0], art:arrEl[1], token:arrEl[2]?'exist':''})
-            })
+            if(tgparams.value) {
+                decodeURIComponent(tgparams.value).slice(3).split('🐷').forEach(el => {
+                    arrEl = el.split('🌞')
+                    arrEl[0].length > 2 && list.value.push({
+                        name: arrEl[0],
+                        art: arrEl[1],
+                        token: arrEl[2] ? 'exist' : ''
+                    })
+                })
+            } else{
+                list.value = [{name:'', art:'', token:''}]
+            }
             
-            console.log('list.value.length = ',list.value.length)
-            console.log('list.value = ',list.value)
-
-
-            // webApp.value.ready();
-             // Получаем initData
-            console.log(' webApp.value.=',webApp.value.initData)
-            console.log( 'webApp.value.initDataUnsafe = ', webApp.value.initDataUnsafe);
+            // console.log('list.value.length = ',list.value.length)
+            // console.log('list.value = ',list.value)
+            //
+            //
+            // // webApp.value.ready();
+            //  // Получаем initData
+            // console.log(' webApp.value.=',webApp.value.initData)
+            // console.log( 'webApp.value.initDataUnsafe = ', webApp.value.initDataUnsafe);
 
 
 
