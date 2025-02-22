@@ -4,29 +4,40 @@ createApp({
     setup() {
         const tgparams = ref('') // приходящие данные
         const list = ref([])
+        const ls = ref('')
         let webApp = ref({})
-        let  isForce = ref(false)
-
-
+        let isForce = ref(false)
 
 
         onMounted(() => {
-
+            ls.value = localStorage.getItem('WBfreeStore');
+            console.log('localstorage ', ls.value)
 
             webApp.value = window.Telegram?.WebApp;
             // let MainButton = window.Telegram?.WebApp?.MainButton
             // console.log('webApp', webApp.value)
 
-            // userName.value = webApp.value.initDataUnsafe.user?.username;
-            console.log('location.search=', location.search)
-            tgparams.value = location.search
+            // данные приходят по ссылке
+            tgparams.value = decodeURIComponent(location.search).slice(3)
+
+            if (!tgparams.value) tgparams.value = ls.value
+            else {
+                localStorage.setItem('WBfreeStore', tgparams.value);
+                try {
+                    webApp.value.showConfirm('Данные получены. Можно панель закрыть и зайти в настройки')
+                    webApp.value.close()
+                }catch (e) {
+
+                }
+
+            }
 
 
             // tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
 
             list.value = []
-            if(tgparams.value) {
-                decodeURIComponent(tgparams.value).slice(3).split('🐷').forEach(el => {
+            if (tgparams.value) {
+                tgparams.value.split('🐷').forEach(el => {
                     arrEl = el.split('🌞')
                     arrEl[0].length > 2 && list.value.push({
                         name: arrEl[0],
@@ -34,10 +45,10 @@ createApp({
                         token: arrEl[2] ? 'exist' : ''
                     })
                 })
-            } else{
-                list.value = [{name:'', art:'', token:''}]
+            } else {
+                list.value = [{name: '', art: '', token: ''}]
             }
-            
+
             // console.log('list.value.length = ',list.value.length)
             // console.log('list.value = ',list.value)
             //
@@ -46,7 +57,6 @@ createApp({
             //  // Получаем initData
             // console.log(' webApp.value.=',webApp.value.initData)
             // console.log( 'webApp.value.initDataUnsafe = ', webApp.value.initDataUnsafe);
-
 
 
             // MainButton && MainButton.setParams({
@@ -61,7 +71,7 @@ createApp({
             // MainButton.enable()
 
             // MainButton && MainButton.setParams({is_visible: true, is_active: true, is_progress_visible: true, text: 'Join', color: '#2481cc'})
-                // .onClick(prepareDeata());
+            // .onClick(prepareDeata());
 
             // document.querySelector('a.tgme_channel_join_telegram').click()
 
@@ -76,34 +86,40 @@ createApp({
         });
 
 
-
-        function addStore(){
-            list.value.push({name:'',token:'', art:'' })
+        function addStore() {
+            list.value.push({name: '', token: '', art: ''})
         }
 
-        function prepareDeata(force){
+        function prepareDeata(force) {
             let link = ''
             let exist = false
-            list.value.forEach((el)=>{
+            list.value.forEach((el) => {
                 if (!el.name) exist = true
-                link+=`${el.name}🌞${el.art}🌞${el.token}🐷`
+                link += `${el.name}🌞${el.art}🌞${el.token}🐷`
             })
             isForce.value = exist
             if (exist && !force) {
                 link = ''
-                webApp.value.showConfirm('Магазин без названия - удаление')
+                webApp.value.showConfirm('Магазин без названия - означает удаление')
             }
             return link
         }
-        function save(){
+
+        function save() {
             let link = prepareDeata()
             console.log('___link=', link)
-            link && webApp.value.sendData(link); // данные возвращаются боту
+            if (link) {
+                webApp.value.sendData(link); // данные возвращаются боту
+                localStorage.setItem('WBfreeStore', link);
+            }
         }
+
         function forceSave() {
             let link = prepareDeata(true)
-            link && webApp.value.sendData(link); // данные возвращаются боту
-            !link && webApp.value.showConfirm('Нет данных')
+            if (link) {
+                webApp.value.sendData(link); // данные возвращаются боту
+                localStorage.setItem('WBfreeStore', link);
+            } else webApp.value.showConfirm('Нет данных')
         }
 
         return {
