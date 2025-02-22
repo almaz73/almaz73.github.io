@@ -25,7 +25,7 @@ createApp({
 
             if (!tgparams.value) tgparams.value = ls.value
             else {
-                localStorage.setItem('WBfreeStore', tgparams.value);
+                // localStorage.setItem('WBfreeStore', tgparams.value);
                 try {
                     webApp.value.showConfirm('Данные получены. Можно панель закрыть и зайти в настройки')
                     webApp.value.close()
