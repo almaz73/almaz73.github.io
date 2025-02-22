@@ -29,7 +29,7 @@ createApp({
                 try {
                     webApp.value.showConfirm('Данные получены. Можно панель закрыть и зайти в настройки')
                     webApp.value.close()
-                }catch (e) {
+                } catch (e) {
 
                 }
 
@@ -42,7 +42,7 @@ createApp({
 
 
             list.value = []
-            if (tgparams.value && tgparams.value.includes('🐷')) {
+            if (tgparams.value) {
                 tgparams.value.split('🐷').forEach(el => {
                     arrEl = el.split('🌞')
                     arrEl[0].length && list.value.push({
@@ -51,9 +51,10 @@ createApp({
                         token: arrEl[2] ? 'exist' : ''
                     })
                 })
-            } else {
-                list.value = [{name: '', art: '', token: ''}]
             }
+
+            if (!list.value[0]) list.value = [{name: '', art: '', token: ''}]
+
 
             // console.log('list.value.length = ',list.value.length)
             // console.log('list.value = ',list.value)
