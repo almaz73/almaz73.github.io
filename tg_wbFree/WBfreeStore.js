@@ -20,6 +20,7 @@ createApp({
             // данные приходят по ссылке
             tgparams.value = decodeURIComponent(location.search).slice(3)
 
+
             if (!tgparams.value) tgparams.value = ls.value
             else {
                 localStorage.setItem('WBfreeStore', tgparams.value);
@@ -39,7 +40,7 @@ createApp({
             if (tgparams.value) {
                 tgparams.value.split('🐷').forEach(el => {
                     arrEl = el.split('🌞')
-                    arrEl[0].length > 2 && list.value.push({
+                    arrEl[0].length && list.value.push({
                         name: arrEl[0],
                         art: arrEl[1],
                         token: arrEl[2] ? 'exist' : ''
