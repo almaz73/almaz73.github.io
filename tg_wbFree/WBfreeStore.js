@@ -48,12 +48,12 @@ createApp({
                     arrEl[0].length && list.value.push({
                         name: arrEl[0],
                         art: arrEl[1],
-                        token: arrEl[2] ? 'exist' : ''
+                        tokenUUID: arrEl[2]
                     })
                 })
             }
 
-            if (!list.value[0]) list.value = [{name: '', art: '', token: ''}]
+            if (!list.value[0]) list.value = [{name: '', art: '', tokenUUID: ''}]
 
 
             // console.log('list.value.length = ',list.value.length)
@@ -94,7 +94,7 @@ createApp({
 
 
         function addStore() {
-            list.value.push({name: '', token: '', art: ''})
+            list.value.push({name: '', tokenUUID: '', art: ''})
         }
 
         function prepareDeata(force) {
@@ -102,7 +102,7 @@ createApp({
             let exist = false
             list.value.forEach((el) => {
                 if (!el.name) exist = true
-                link += `${el.name}🌞${el.art}🌞${el.token}🐷`
+                link += `${el.name}🌞${el.art}🌞${el.tokenUUID}🐷`
             })
             isForce.value = exist
             if (exist && !force) {

@@ -49,15 +49,15 @@
         <br>
         <input placeholder="Введите название магазина WB" style="width: 73%" v-model="l.name"/>
 
-        <textarea v-if="l.token!='exist'"
+        <textarea v-if="!l.tokenUUID"
                   style="margin-top: 8px"
                   placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
-                  v-model="l.token" rows="4"></textarea>
+                  v-model="l.tokenUUID" rows="4"></textarea>
 
         <p>Наблюдение за остатками</p>
         <textarea placeholder="Введите артикулы товаров через запятую" v-model="l.art"></textarea>
 
-        <div class="addBt" v-if="l.token && list.length-1==ind">
+        <div class="addBt" v-if="l.tokenUUID && list.length-1==ind">
           <br><br>
             <button @click="addStore()" > + магазин</button>
         </div>
