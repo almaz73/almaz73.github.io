@@ -20,6 +20,8 @@ createApp({
             // данные приходят по ссылке
             tgparams.value = decodeURIComponent(location.search).slice(3)
 
+// // tgparams.value = '🌞🌞🐷'
+// tgparams.value = ''
 
             if (!tgparams.value) tgparams.value = ls.value
             else {
@@ -36,8 +38,11 @@ createApp({
 
             // tgparams.value = "'d=%D0%9C%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD1%F0%9F%8C%9E123,222,333,444%F0%9F%8C%9E1%F0%9F%90%B7%D0%9C%D0%B0%D0%B32%F0%9F%8C%9E12,2,%F0%9F%8C%9E%F0%9F%90%B7'"
 
+            // console.log('tgparams.value', tgparams.value)
+
+
             list.value = []
-            if (tgparams.value) {
+            if (tgparams.value && tgparams.value.includes('🐷')) {
                 tgparams.value.split('🐷').forEach(el => {
                     arrEl = el.split('🌞')
                     arrEl[0].length && list.value.push({

@@ -32,7 +32,7 @@
         }
 
         button, input, textarea{
-            border-radius: 4px;
+            border-radius: 10px;
         }
 
         p{
@@ -53,7 +53,7 @@
                   placeholder="Cкопируйте сюда токен 'Аналитика' из настроек продавца (доступ к API). Только для чтения"
                   v-model="l.token" rows="4"></textarea>
 
-        <p> Мониторинг остатков</p>
+        <p>Наблюдение за остатками</p>
         <textarea placeholder="Введите артикулы товаров через запятую" v-model="l.art"></textarea>
 
         <div class="addBt" v-if="l.token && list.length-1==ind">
