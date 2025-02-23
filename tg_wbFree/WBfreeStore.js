@@ -5,6 +5,7 @@ createApp({
         const tgparams = ref('') // приходящие данные
         const list = ref([])
         const ls = ref('')
+        const isDevelop = ref(false)
         let webApp = ref({})
         let isForce = ref(false)
 
@@ -25,8 +26,9 @@ createApp({
 
             if (!tgparams.value) tgparams.value = ls.value
             else {
-                // localStorage.setItem('WBfreeStore', tgparams.value);
+                localStorage.setItem('WBfreeStore', tgparams.value);
                 try {
+                    localStorage.setItem('WBfreeStore', tgparams.value);
                     webApp.value.showConfirm('Данные получены. Можно панель закрыть и зайти в настройки')
                     webApp.value.close()
                 } catch (e) {
@@ -137,6 +139,7 @@ createApp({
             tgparams,
             isForce,
             tgparams,
+            isDevelop
             ls
 
         }
