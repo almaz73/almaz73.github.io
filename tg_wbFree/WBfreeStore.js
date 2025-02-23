@@ -135,7 +135,10 @@ createApp({
             forceSave,
             save,
             tgparams,
-            isForce
+            isForce,
+            tgparams,
+            ls
+
         }
     }
 }).mount('#app')
