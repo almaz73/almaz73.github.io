@@ -139,9 +139,8 @@ createApp({
             tgparams,
             isForce,
             tgparams,
-            isDevelop
+            isDevelop,
             ls
-
         }
     }
 }).mount('#app')
