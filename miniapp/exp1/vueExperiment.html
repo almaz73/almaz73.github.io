@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Настройки</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body{
+            font-size: larger;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js'
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase-firestore.js'
+
+    import { ref as R, set , get } from 'https://www.gstatic.com/firebasejs/11.4.0/firebase/database.js';
+
+
+    console.log('initializeApp', initializeApp)
+    console.log('getFirestore', getFirestore)
+    console.log('set', set)
+    readySite()
+</script>
+
+<div id="app">
+    <p style="background:green">id: {{userId}}</p>
+    <p style="background:red"> Пользователь {{userName}}</p>
+    <p style="background:orange"> initData {{initData}}</p>
+    <p style="background:orange"> localstorage {{ls}}</p>
+
+    <div style="border: 3px solid pink; color: white">
+        {{txtArea}}
+    </div>
+
+    <div style="border: 3px solid green; color: yellow">
+        {{txtArea2}}
+    </div>
+
+</div>
+
+<h1>Запишем данные и прочитаем</h1>
+<input v-model="someText">
+<button @click="saveTxt()"> Сохранить </button>
+
+<h3>{{readText}}</h3>
+<button @click="readTxt()"> Читать </button>
+
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="js.js"></script>
+</body>
+</html>
+
