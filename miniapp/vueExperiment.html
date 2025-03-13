@@ -8,16 +8,13 @@
     <title>Настройки</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
-<style>
-    body{
-        font-size: larger;
-    }
-</style>
 <body>
 
 <div id="app">
+    <input type="text" v-model="message"  @input="setMessage" />
+    <p style="background:green">{{message}}</p>
     <p style="background:red"> Пользователь {{userName}}</p>
-    <p style="background:blue" > Данные: {{tgparams}}</p>
+    <p style="background:blue" v-if="tgparams"> Данные: {{tgparams}}</p>
     <p style="background:orange"> initData {{initData}}</p>
     <p style="background:orange"> localstorage {{ls}}</p>
 
