@@ -1,71 +1,63 @@
 <template>
-  <div class="about">
-    <h2>Пишем/Читаем</h2>
-  </div>
-  <input v-model="someText">
-  <button @click="saveTxt()"> Сохранить</button>
-  <span> {{ result }} </span>
+  <component :is="game"></component>
+
+  игры
+  <button @click="setGame(1)">1</button>
+  <button @click="setGame(2)">2</button>
 
 
-  <h3>{{ readText }}</h3>
-  <button @click="readTxt()"> Читать</button>
+  <br><br>
+  <hr>
+  <h2 style="text-align: center"> Админка</h2>
+  <h4> Чтение (Админка)</h4>
+  Поле: <input v-model="field"/><button @click="getField()"> Получить  </button><br>
+  <textarea rows="7" v-model="result" style="width: 98%"/>
+  <hr>
+  <h4> Сохранение </h4>
+  <textarea rows="2" v-model="saveTxt"  placeholder="текст для сохранения" style="width: 98%"/>
+  <button @click="setField()"> Сохранить  </button><br>
 
-  <div style="font-size: 18px; background: orange; margin: 16px; padding: 5px">{{ listenValue }}</div>
 </template>
 
-<style>
-body {
-  background: pink;
-  font-size: larger;
-}
-</style>
 
 <script setup>
-import {ref} from 'vue'
-import {database} from './assets/firebase.ts';
-import {ref as R, set, get} from "firebase/database";
-import {onValue} from "firebase/database";
+import {shallowRef, ref} from 'vue'
+import FireBaseCheck from "@/components/FireBaseCheck.vue";
+import KrestikiNoliki from "@/components/KrestikiNoliki.vue";
+import {usefbStore} from "@/pinia/fbStore.js";
 
-const someText = ref('')
-const readText = ref('')
-const userRef = R(database, 'guest');
-const result = ref()
-const listenValue = ref('')
+const fbStore=usefbStore()
+const field = ref('g1')
+const saveTxt = ref('')
+const result = ref('')
+const resultSave = ref('')
+let game = shallowRef(null)
 
-function writeUserData(text) {
-  set(userRef, {text: text}).then(() => {
-    console.log("Данные успешно записаны!");
-    result.value = 'Записано!'
-  }).catch((error) => {
-    console.error("Ошибка записи данных: ", error);
-    result.value = 'Ошибка'
-  });
+function setGame(val) {
+  switch (val){
+    case 1: game.value = FireBaseCheck; break
+    case 2: game.value = KrestikiNoliki; break
+  }
 }
 
-onValue(userRef, (snapshot) => {
-  listenValue.value = snapshot.val();
-  console.log("Данные пользователя обновлены:", listenValue.value);
-});
-
-// Пример использования
-function saveTxt() {
-  // writeUserData('123', 'АЛМАЗЗ', 'asasa@ti.to');
-  writeUserData(someText.value);
-
+let games = localStorage.getItem('games')
+if (games) {
+  // продалжаем начатую игру
+} else{
+  // обращаемся к fb за списком readyToPlay
+  // Если нет желающих играть эту игру, сами нажимаем ищу соперника
 }
 
-function readTxt() {
-  get(userRef).then((snapshot) => {
-    if (snapshot.exists()) {
-      const userData = snapshot.val();
-      readText.value = userData
-      console.log("Данные пользователя:", userData);
-    } else {
-      console.log("Данные не найдены");
-    }
-  }).catch((error) => {
-    console.error("Ошибка чтения данных: ", error);
-  });
+function getField() {
+  fbStore.getField(field.value||'guest').then(res=>{
+    result.value = JSON.stringify(res)
+  })
+}
+
+function setField() {
+  fbStore.setField(field.value,saveTxt.value ).then(res=>{
+    resultSave.value = JSON.stringify(res)
+  })
 }
 
 
