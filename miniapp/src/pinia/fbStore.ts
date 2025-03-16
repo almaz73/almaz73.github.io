@@ -6,7 +6,7 @@ import {onValue} from "firebase/database";
 
 export const usefbStore = defineStore("fbStore", {
     state: () => ({
-        list: []
+        userId: 0
     }),
     actions: {
         async getField(field: string) {
