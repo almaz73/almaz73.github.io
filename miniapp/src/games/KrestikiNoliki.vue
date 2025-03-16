@@ -8,7 +8,7 @@
 
 <script setup>
 import {ref} from 'vue'
-import {usefbStore} from "@/pinia/fbStore.js";
+import {usefbStore} from "@/pinia/fbStore.ts";
 const fbStore = usefbStore()
 const result= ref('')
 

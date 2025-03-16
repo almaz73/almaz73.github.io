@@ -4,61 +4,36 @@
   игры
   <button @click="setGame(1)">1</button>
   <button @click="setGame(2)">2</button>
+  <button @click="setGame(3)">3</button>
 
 
-  <br><br>
-  <hr>
-  <h2 style="text-align: center"> Админка</h2>
-  <h4> Чтение (Админка)</h4>
-  Поле: <input v-model="field"/><button @click="getField()"> Получить  </button><br>
-  <textarea rows="7" v-model="result" style="width: 98%"/>
-  <hr>
-  <h4> Сохранение </h4>
-  <textarea rows="2" v-model="saveTxt"  placeholder="текст для сохранения" style="width: 98%"/>
-  <button @click="setField()"> Сохранить  </button><br>
+<DevelopPart/>
 
 </template>
 
 
 <script setup>
-import {shallowRef, ref} from 'vue'
+import {shallowRef} from 'vue'
 import FireBaseCheck from "@/components/FireBaseCheck.vue";
-import KrestikiNoliki from "@/components/KrestikiNoliki.vue";
+import KrestikiNoliki from "@/games/KrestikiNoliki.vue";
+import RockPaperSScissors from "@/games/RockPaperSScissors.vue";
 import {usefbStore} from "@/pinia/fbStore.js";
+import DevelopPart from "@/components/DevelopPart.vue";
 
 const fbStore=usefbStore()
-const field = ref('g1')
-const saveTxt = ref('')
-const result = ref('')
-const resultSave = ref('')
-let game = shallowRef(null)
+let game = shallowRef(RockPaperSScissors)
 
 function setGame(val) {
   switch (val){
     case 1: game.value = FireBaseCheck; break
     case 2: game.value = KrestikiNoliki; break
+    case 3: game.value = RockPaperSScissors; break
   }
 }
 
-let games = localStorage.getItem('games')
-if (games) {
-  // продалжаем начатую игру
-} else{
-  // обращаемся к fb за списком readyToPlay
-  // Если нет желающих играть эту игру, сами нажимаем ищу соперника
-}
 
-function getField() {
-  fbStore.getField(field.value||'guest').then(res=>{
-    result.value = JSON.stringify(res)
-  })
-}
 
-function setField() {
-  fbStore.setField(field.value,saveTxt.value ).then(res=>{
-    resultSave.value = JSON.stringify(res)
-  })
-}
+
 
 
 </script>
