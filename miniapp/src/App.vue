@@ -13,8 +13,8 @@
 
 
 <script setup>
-import {shallowRef} from 'vue'
-import FireBaseCheck from "@/components/FireBaseCheck.vue";
+import {onMounted, shallowRef} from 'vue'
+import FireBaseCheck from "@/components/old/FireBaseCheck.vue";
 import KrestikiNoliki from "@/games/KrestikiNoliki.vue";
 import RockPaperSScissors from "@/games/RockPaperSScissors.vue";
 import {usefbStore} from "@/pinia/fbStore.js";
@@ -31,8 +31,14 @@ function setGame(val) {
   }
 }
 
-
-
+onMounted(() => {
+  let webApp = window.Telegram?.WebApp;
+  if (webApp) {
+    // console.log('webApp=',webApp)
+    fbStore.userId = webApp.initDataUnsafe.user?.id || '-'
+    fbStore.userName = webApp.initDataUnsafe.user?.username || '-'
+  }
+})
 
 
 

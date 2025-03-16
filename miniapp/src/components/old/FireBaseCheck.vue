@@ -24,7 +24,7 @@
 
 <script setup>
 import {ref} from 'vue'
-import {database} from '../assets/firebase.ts';
+import {database} from '../../assets/firebase.ts';
 import {ref as R, set, get} from "firebase/database";
 import {onValue} from "firebase/database";
 

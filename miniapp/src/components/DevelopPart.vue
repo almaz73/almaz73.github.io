@@ -1,9 +1,7 @@
 <template>
-
-
-  <br><br>
-  <hr>
-  <h1>userId : {{fbStore.userId}}</h1>
+  <hr><hr><hr>
+  <h3>userId : {{fbStore.userId}} </h3>
+  <h3>userName : {{fbStore.userName}}</h3>
   <h2 style="text-align: center" @click="isFB=!isFB"> Админка FB ▼</h2>
   <div v-if="isFB">
     <h4> Чтение (Админка)</h4>
@@ -20,14 +18,14 @@
 
   <h2 style="text-align: center" @click="isTelegram=!isTelegram"> Админка Телеграмм ▼</h2>
   <div v-if="isTelegram">
-    userName: {{ userName }}<br>
-    userId: {{ userId }}
-
+    userName: {{ fbStore.userName }}<br>
+    userId: {{ fbStore.userId }}
+    <p>
+      <button @click="toClipboard()">Скопировать </button>
+      txtArea: {{txtArea}}<br>
+    </p>
   </div>
-  <p>
-    txtArea: {{txtArea}}<br>
-    txtArea2: {{txtArea2}}
-  </p>
+
 
 </template>
 
@@ -41,20 +39,12 @@ const saveTxt = ref('')
 const result = ref('')
 const resultSave = ref('')
 const isFB = ref(false)
-const isTelegram = ref(true)
-const userId = ref('')
-const userName = ref('')
+const isTelegram = ref(false)
 const txtArea = ref('')
-const txtArea2 = ref('')
 
 
-let games = localStorage.getItem('games')
-if (games) {
-  // продалжаем начатую игру
-} else {
-  // обращаемся к fb за списком readyToPlay
-  // Если нет желающих играть эту игру, сами нажимаем ищу соперника
-}
+
+
 
 function getField() {
   fbStore.getField(field.value || 'guest').then(res => {
@@ -68,29 +58,20 @@ function setField() {
   })
 }
 
+function toClipboard() {
+  navigator.clipboard.writeText(txtArea.value).then(function() {
+    console.log('Текст успешно скопирован в буфер обмена');
+  }, function(err) {
+    console.error('Произошла ошибка при копировании текста: ', err);
+  });
+}
+
 onMounted(() => {
-
   let webApp = window.Telegram?.WebApp;
-  console.log('webApp', webApp)
-
-  userName.value = webApp.initDataUnsafe.user?.username || 'Unknown';
-  userId.value = webApp.initDataUnsafe.user?.id || '-'
-
-  fbStore.userId = userId.value
-//            webApp.showAlert(`Добро пожаловать, ${userName.value}`);
-  console.log('location.search=', location.search)
-
-  const initData = new URLSearchParams(window.location.search);
-  console.log('===', initData.get('_ijt'))
-
-  webApp.ready();
-  // Получаем initData
-  initData.value = webApp.initData;
-
+  if( webApp) {
+    fbStore.userName = webApp.initDataUnsafe.user?.username || '-';
+    fbStore.userId = webApp.initDataUnsafe.user?.id || '-'
+  }
   txtArea.value = JSON.stringify(webApp)
-  txtArea2.value = JSON.stringify(webApp.initData)
-
-  console.log('  initData.value=', initData.value)
-
 });
 </script>
