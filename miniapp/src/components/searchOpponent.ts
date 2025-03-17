@@ -33,18 +33,18 @@ function searchOpponent() {
 function getActiveList(){
     usefbStore().getField('readyToPlay').then(res=>{
         console.log('READY TO PLAY res=', res)
-        // if(!res) setActive()
-        setActive()
+        // if(!res) setReadyToPlay()
+        setReadyToPlay()
     })
 }
 
-function setActive(){
+function setReadyToPlay(){
     // {'id1':{name},'id2':{iname}}
-    let link = `{${usefbStore().userId}: ${usefbStore().userName}}`
+    let link = `{id:${usefbStore().userId}, name:${usefbStore().userName}}`
 
-    link = {129121831921:'Маша'}
+    // link = {id:8383838383,name:'Figaro'}
     console.log(link)
-    usefbStore().setActive(link).then(res=>{
+    usefbStore().setReadyToPlay(link).then(res=>{
         console.log('active res=', res)
     })
 

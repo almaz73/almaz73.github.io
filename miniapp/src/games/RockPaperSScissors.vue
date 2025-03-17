@@ -4,7 +4,7 @@
     <h2>
       Камень Ножницы Бумага
     </h2>
-    <div v-if="stage==1">
+    <div v-if="stage===1">
       <p>
         Привет, {{ fbStore.nickname || fbStore.userName }} !
       </p>
@@ -17,6 +17,8 @@
       <button @click="searchOpp()">
         Искать соперника!
       </button>
+      <br>
+      <SearchOpponent/>
       <br><br>
     </div>
 
@@ -56,6 +58,7 @@
 import {ref} from 'vue'
 import {usefbStore} from "@/pinia/fbStore.js";
 import {searchOpponent} from "@/components/searchOpponent.js";
+import SearchOpponent from "@/components/SearchOpponent.vue";
 
 const fbStore = usefbStore()
 const stage = ref(0)
