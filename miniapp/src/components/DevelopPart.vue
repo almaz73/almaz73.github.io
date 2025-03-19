@@ -31,9 +31,9 @@
 
 <script setup>
 import {ref, onMounted} from "vue";
-import {usefbStore} from "@/pinia/fbStore.js";
+import {UsefbStore} from "@/pinia/fbStore.js";
 
-const fbStore = usefbStore()
+const fbStore = UsefbStore()
 const field = ref('g1')
 const saveTxt = ref('')
 const result = ref('')

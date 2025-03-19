@@ -1,13 +1,13 @@
 <template>
   <component :is="game"></component>
 
-  игры
-  <button @click="setGame(1)">1</button>
-  <button @click="setGame(2)">2</button>
-  <button @click="setGame(3)">3</button>
+<!--  игры-->
+<!--  <button @click="setGame(1)">1</button>-->
+<!--  <button @click="setGame(2)">2</button>-->
+<!--  <button @click="setGame(3)">3</button>-->
 
 
-<DevelopPart/>
+<!--<DevelopPart/>-->
 
 </template>
 
@@ -17,10 +17,10 @@ import {onMounted, shallowRef} from 'vue'
 import FireBaseCheck from "@/components/old/FireBaseCheck.vue";
 import KrestikiNoliki from "@/games/KrestikiNoliki.vue";
 import RockPaperSScissors from "@/games/RockPaperSScissors.vue";
-import {usefbStore} from "@/pinia/fbStore.js";
+import {UsefbStore} from "@/pinia/fbStore.js";
 import DevelopPart from "@/components/DevelopPart.vue";
 
-const fbStore=usefbStore()
+const fbStore=UsefbStore()
 let game = shallowRef(RockPaperSScissors)
 
 function setGame(val) {

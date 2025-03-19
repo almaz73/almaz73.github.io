@@ -11,12 +11,12 @@ todo
   // (оба соперника получают сообщение - игра началась)
  */
 
-import {usefbStore} from "@/pinia/fbStore.ts";
+import {UsefbStore} from "@/pinia/fbStore.ts";
 
 
 function searchOpponent() {
     console.log('searchOpp searchOpp searchOpp searchOpp')
-    usefbStore().getField(usefbStore().gameId).then(res=>{
+    UsefbStore().getField(UsefbStore().gameId).then(res=>{
         console.log('res=', res)
         let games = ''
         try{
@@ -31,7 +31,7 @@ function searchOpponent() {
 }
 
 function getActiveList(){
-    usefbStore().getField('readyToPlay').then(res=>{
+    UsefbStore().getField('readyToPlay').then(res=>{
         console.log('READY TO PLAY res=', res)
         // if(!res) setReadyToPlay()
         setReadyToPlay()
@@ -40,11 +40,11 @@ function getActiveList(){
 
 function setReadyToPlay(){
     // {'id1':{name},'id2':{iname}}
-    let link = `{id:${usefbStore().userId}, name:${usefbStore().userName}}`
+    let link = `{id:${UsefbStore().userId}, name:${UsefbStore().userName}}`
 
     // link = {id:8383838383,name:'Figaro'}
     console.log(link)
-    usefbStore().setReadyToPlay(link).then(res=>{
+    UsefbStore().setReadyToPlay(link).then(res=>{
         console.log('active res=', res)
     })
 

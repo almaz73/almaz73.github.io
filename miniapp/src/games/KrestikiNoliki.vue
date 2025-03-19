@@ -8,8 +8,8 @@
 
 <script setup>
 import {ref} from 'vue'
-import {usefbStore} from "@/pinia/fbStore.ts";
-const fbStore = usefbStore()
+import {UsefbStore} from "@/pinia/fbStore.ts";
+const fbStore = UsefbStore()
 const result= ref('')
 
 fbStore.updateValue('guest').then(res=>{

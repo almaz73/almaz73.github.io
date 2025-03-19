@@ -1,32 +1,26 @@
 import {defineStore} from "pinia";
 import {database} from '../assets/firebase.ts';
-import {ref, set, get} from "firebase/database";
-import {onValue} from "firebase/database";
+import {ref, set, get, onValue} from "firebase/database";
 
 
-export const usefbStore = defineStore("fbStore", {
+export const UsefbStore = defineStore("fbStore", {
     state: () => ({
         userId: '',
         userName: '',
         nickname: '',
-        oppponentId: '',
+        opponentId: '',
         opponentName: '',
         gameId: ''
     }),
-    // getters: {
-    //   getMyId(state){
-    //       return state.userId
-    //   }
-    // },
     actions: {
         async getField(field: string) {
             // {'id1::id2':{id1:name1:id2:name2},'id1::id2':{id1:name1:id2:name2}}  // 'game
-            // {'id1':{name},'id2':{iname}}                                         // 'readToPlay
-            const userRef: DatabaseReference = ref(database, field);
-            return get(userRef).then((snapshot: string): any => {
+            // {'id1':{name},'id2':{name}}                                         // 'readToPlay
+            const userRef = ref(database, field);
+            return get(userRef).then((snapshot): any => {
                 if (snapshot.exists()) {
                     const userData = snapshot.val();
-                    log(">>> Данные пользователя:", userData);
+                    log(">>> Данные пользователя:" + userData);
                     return userData
                 } else {
                     log(field + " : данные не найдены");
@@ -34,27 +28,18 @@ export const usefbStore = defineStore("fbStore", {
             })
         },
         async setField(field: string, text: string) {
-            const userRef: DatabaseReference = ref(database, field);
+            const userRef = ref(database, field);
             return set(userRef, {text: text}).then(() => {
                 log("Данные успешно записаны!");
             }).catch((error) => {
                 console.error("Ошибка записи данных: ", error);
             });
         },
-        async setReadyToPlay(link) {
-            logTo('this.gameId = '+ this.gameId)
-            const userRef: DatabaseReference = ref(database, 'readyToPlay/' + this.gameId);
-            logTo(JSON.stringify(link))
-            set(userRef, {id: this.userId, name: this.nickname | this.userName}).then(() => {
-                log("Данные астива успешно записаны!");
-            }).catch((error) => {
-                console.error("2222Ошибка записи данных: ", error);
-            });
-        },
         async updateValue(field: string) {
-            const userRef: DatabaseReference = ref(database, field);
-            return new Promise((resolve): string => {
-                onValue(userRef, (snapshot: string) => {
+            logTo('updateValue '+field)
+            const userRef = ref(database, field);
+            return new Promise((resolve): void => {
+                onValue(userRef, (snapshot) => {
                     log(`Данные ${field} получены`);
                     resolve(snapshot.val())
                 });
@@ -73,15 +58,25 @@ export const usefbStore = defineStore("fbStore", {
                 return {name: opp[1], id: opp[0]}
             } else return null
         },
-        setGame(game: string, id1: string, id2: string) {
-            let games = localStorage.getItem('games')
-            if (games) {
-                let el = JSON.parse(games)
-                log(el)
-                el[game] = [id1, id2]
-                localStorage.setItem('games', JSON.stringify(el))
-            }
+        async setReadyToPlay(link: any) {
+            logTo('this.gameId = ' + this.gameId)
+            const userRef = ref(database, 'readyToPlay/' + this.gameId+'/'+this.userId);
+            logTo(JSON.stringify(link))
+            set(userRef, { name: (this.nickname || this.userName)}).then(() => {
+                log("Игрок активировался!");
+            }).catch((error) => {
+                console.error("Ошибка активирования: ", error);
+            });
         },
+        // setGame(game: string, id1: string, id2: string) {
+        //     let games = localStorage.getItem('games')
+        //     if (games) {
+        //         let el = JSON.parse(games)
+        //         log(el)
+        //         el[game] = [id1, id2]
+        //         localStorage.setItem('games', JSON.stringify(el))
+        //     }
+        // },
         // deleteGame(game: string, id1: string, id2: string) {
         //     let games: string = localStorage.getItem('games')
         //     if (games) {
@@ -93,11 +88,7 @@ export const usefbStore = defineStore("fbStore", {
     }
 })
 
-function log(val): void {
-    // цветное логирование
-    console.log("%c " + val, "color: green");
-}
-function logTo(val): void {
-    // цветное логирование
-    console.log("%c " + val, "color: pink");
-}
+
+const log = (val: any) => console.log("%c " + val, "color: green") // цветное логирование
+const logTo = (val: any) => console.log("%c " + val, "color: pink")// цветное логирование
+
