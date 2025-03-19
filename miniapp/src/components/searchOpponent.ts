@@ -15,16 +15,15 @@ import {UsefbStore} from "@/pinia/fbStore.ts";
 
 
 function searchOpponent() {
-    console.log('searchOpp searchOpp searchOpp searchOpp')
+    // по кнопке Искать соперника
     UsefbStore().getField(UsefbStore().gameId).then(res=>{
-        console.log('res=', res)
         let games = ''
         try{
             games = JSON.parse(res.text)
         }catch (err){
             // console.error(err)
         }
-        console.log('games', games)
+        console.log('найденные игры', games)
         if(!games) getActiveList()
 
     })

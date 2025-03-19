@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import {database} from '../assets/firebase.ts';
-import {ref, set, get, onValue} from "firebase/database";
+import {get, onValue, ref, set} from "firebase/database";
 
 
 export const UsefbStore = defineStore("fbStore", {
@@ -36,7 +36,6 @@ export const UsefbStore = defineStore("fbStore", {
             });
         },
         async updateValue(field: string) {
-            logTo('updateValue '+field)
             const userRef = ref(database, field);
             return new Promise((resolve): void => {
                 onValue(userRef, (snapshot) => {
@@ -58,15 +57,28 @@ export const UsefbStore = defineStore("fbStore", {
                 return {name: opp[1], id: opp[0]}
             } else return null
         },
-        async setReadyToPlay(link: any) {
-            logTo('this.gameId = ' + this.gameId)
-            const userRef = ref(database, 'readyToPlay/' + this.gameId+'/'+this.userId);
-            logTo(JSON.stringify(link))
-            set(userRef, { name: (this.nickname || this.userName)}).then(() => {
+        async setReadyToPlay() {
+            const userRef = ref(database, 'readyToPlay/' + this.gameId + '/' + this.userId);
+            set(userRef, {name: (this.nickname || this.userName)}).then(() => {
                 log("Игрок активировался!");
             }).catch((error) => {
                 console.error("Ошибка активирования: ", error);
             });
+        },
+        setGame(opponent: any) {
+            // if (!this.userId) this.userId = '333555'
+            // if (!this.userName) this.userName = 'ШАБАДАНА'
+
+            let firstPlayerId = this.userId > opponent.id ? this.userId : opponent.id
+            let secondPlayerId = this.userId <= opponent.id ? this.userId : opponent.id
+
+            const userRef = ref(database, this.gameId + '/' + firstPlayerId + '::' + secondPlayerId);
+            return new Promise((resolve) => {
+                set(userRef, {start: [opponent.id + '::' + opponent.name, this.userId + '::' + this.userName]}).then(() => {
+                    log("Игра началась!");
+                    resolve('start')
+                })
+            })
         },
         // setGame(game: string, id1: string, id2: string) {
         //     let games = localStorage.getItem('games')

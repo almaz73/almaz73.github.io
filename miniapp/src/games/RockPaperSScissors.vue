@@ -1,8 +1,9 @@
 <template>
-  <div class="game" :style="{background:stage===2?'orange':stage===1?'pink':''}">
+  <div class="game" :style="{background:stage===2?'orange':stage===1?'#3c3c3c':''}">
     <h1>♕</h1>
     <h2>
-      Камень Ножницы Бумага
+
+<!--      название игры -->
     </h2>
     <div v-if="stage===1">
       <SearchOpponent/>

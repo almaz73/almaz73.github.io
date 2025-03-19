@@ -17,7 +17,7 @@
 
 <style>
 .fb-check {
-  background: pink;
+  //background: pink;
   font-size: larger;
 }
 </style>

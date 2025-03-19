@@ -1,6 +1,7 @@
 
 #app {
-  margin: 0 auto;
+  margin: 0 !important;
+  padding: 0;
 }
 button{
   margin: 0 8px;

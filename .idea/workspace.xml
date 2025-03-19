@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="set site">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tg_wbFree/js.js" beforeDir="false" afterPath="$PROJECT_DIR$/tg_wbFree/js.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/PROJECTS_Python/almaz73.github.io",
+    "last_opened_file_path": "D:/PROJECTS/almaz73.github.io/miniapp",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -125,6 +124,7 @@
       <workItem from="1690610149535" duration="305000" />
       <workItem from="1690621714739" duration="919000" />
       <workItem from="1690633281882" duration="53000" />
+      <workItem from="1742188033467" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="doctorem_example2">
       <created>1689588755880</created>
