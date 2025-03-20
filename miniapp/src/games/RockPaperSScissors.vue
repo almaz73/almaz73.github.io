@@ -43,7 +43,7 @@
 <script setup>
 import {ref} from 'vue'
 import {UsefbStore} from "@/pinia/fbStore.js";
-import {searchOpponent} from "@/components/searchOpponent.js";
+import {searchOpponent} from "@/components/old/searchOpponent.ts";
 import SearchOpponent from "@/components/SearchOpponent.vue";
 
 const fbStore = UsefbStore()

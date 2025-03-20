@@ -1,6 +1,6 @@
 import {defineStore} from "pinia";
 import {database} from '../assets/firebase.ts';
-import {get, onValue, ref, set} from "firebase/database";
+import {get, onValue, ref, set, remove} from "firebase/database";
 
 
 export const UsefbStore = defineStore("fbStore", {
@@ -35,11 +35,19 @@ export const UsefbStore = defineStore("fbStore", {
                 console.error("Ошибка записи данных: ", error);
             });
         },
+        async removeField(field: string) {
+            console.log(field)
+            const userRef = ref(database, field);
+            remove(userRef).then(() => {
+                log(`Данные ${field} удалены!`);
+            })
+        },
         async updateValue(field: string) {
             const userRef = ref(database, field);
             return new Promise((resolve): void => {
                 onValue(userRef, (snapshot) => {
-                    log(`Данные ${field} получены`);
+                    log(`Данные ${field} на прослушке`);
+                    console.log(`${field}=`, snapshot.val())
                     resolve(snapshot.val())
                 });
             })
@@ -58,6 +66,9 @@ export const UsefbStore = defineStore("fbStore", {
             } else return null
         },
         async setReadyToPlay() {
+            this.userName = this.userName || 'Аллигатор'
+            this.userId = this.userId || '88776655'
+
             const userRef = ref(database, 'readyToPlay/' + this.gameId + '/' + this.userId);
             set(userRef, {name: (this.nickname || this.userName)}).then(() => {
                 log("Игрок активировался!");
@@ -65,17 +76,19 @@ export const UsefbStore = defineStore("fbStore", {
                 console.error("Ошибка активирования: ", error);
             });
         },
-        setGame(opponent: any) {
-            // if (!this.userId) this.userId = '333555'
-            // if (!this.userName) this.userName = 'ШАБАДАНА'
+        acceptInvitation(opponent: any) {
+            this.userName = this.userName || 'Аллигатор222'
+            this.userId = this.userId || '112233'
 
             let firstPlayerId = this.userId > opponent.id ? this.userId : opponent.id
             let secondPlayerId = this.userId <= opponent.id ? this.userId : opponent.id
 
             const userRef = ref(database, this.gameId + '/' + firstPlayerId + '::' + secondPlayerId);
             return new Promise((resolve) => {
-                set(userRef, {start: [opponent.id + '::' + opponent.name, this.userId + '::' + this.userName]}).then(() => {
-                    log("Игра началась!");
+                set(userRef, {
+                    start: [opponent.id + '::' + opponent.name, this.userId + '::' + this.userName],
+                    ask: this.userId}).then(() => {
+                    log("Предложено играть");
                     resolve('start')
                 })
             })
@@ -102,5 +115,5 @@ export const UsefbStore = defineStore("fbStore", {
 
 
 const log = (val: any) => console.log("%c " + val, "color: green") // цветное логирование
-const logTo = (val: any) => console.log("%c " + val, "color: pink")// цветное логирование
+
 
