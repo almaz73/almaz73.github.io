@@ -14,7 +14,6 @@
 
 <script setup>
 import {onMounted, shallowRef} from 'vue'
-import FireBaseCheck from "@/components/old/FireBaseCheck.vue";
 import KrestikiNoliki from "@/games/KrestikiNoliki.vue";
 import RockPaperSScissors from "@/games/RockPaperSScissors.vue";
 import {UsefbStore} from "@/pinia/fbStore.js";

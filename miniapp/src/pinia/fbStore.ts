@@ -1,5 +1,5 @@
 import {defineStore} from "pinia";
-import {database} from '../assets/firebase.ts';
+import {database} from '../assets/fb.ts';
 import {get, onValue, ref, set, remove} from "firebase/database";
 
 
