@@ -43,8 +43,9 @@ const ANALIZ = function (res: any) {
       exist = true
       fbStore.stage = 2 // уже в списке
       if (res[el].id2) {
-        opponent.value = {id: res[el].id2, name: res[el].name2} // меня выбрали
         fbStore.stage = 4
+        let opp = localStorage.getItem('Opponent')
+        if (opp) opponent.value = JSON.parse(opp)
       }
     }
     if (res[el].id2 == fbStore.myId) {
@@ -60,7 +61,7 @@ const ANALIZ = function (res: any) {
 
     if (res[el].accept) gotoStartGame()
 
-    if(el && res[el]) pretendents.value.push({id: el, name: res[el].name})
+    if (el && res[el]) pretendents.value.push({id: el, name: res[el].name})
   })
 }
 
@@ -86,7 +87,11 @@ function makeCouple(val: any) {
     setTimeout(() => isMySelf.value = false, 1500)
     return false
   }
-  fbStore.setField('g1/look/' + val.id, {name: val.name, id2: fbStore.myId, name2: fbStore.myName}).then(res => {
+  fbStore.setField('g1/look/' + val.id, {
+    name: val.name,
+    id2: fbStore.myId,
+    name2: fbStore.nickName || fbStore.myName
+  }).then(res => {
     console.log('res', res)
     opponent.value = {id: val.id, name: val.name}
     fbStore.stage = 3
@@ -104,7 +109,15 @@ function toAccept(bool: boolean) {
           accept: true
         })
         .then(res => {
+          let opp: any = {id: opponent.value.id, name: opponent.value.name}
+          localStorage.setItem('Opponent', JSON.stringify(opp))
           console.log('res', res)
+        })
+  }
+  if (!bool && opponent.value) {
+    fbStore.setField('g1/look/' + opponent.value.id, {name: opponent.value.name})
+        .then(() => {
+          fbStore.stage = 2
         })
   }
 }
@@ -194,9 +207,7 @@ function gotoStartGame() {
   </div>
 
   <div v-if="fbStore.stage === 3">
-    <p> Жду игрока <b>{{ opponent?.name }}</b>, поеп не откликнится </p>
-    <h3>Список желающих играть:</h3>
-    <!--    <button class="green-bt" v-for="el in pretendents" :key="el.id" @click="makeCouple(el)">{{ el.name }}</button>-->
+    <p> Жду игрока <br><b>{{ opponent?.name }}</b>, <br>пока не откликнится </p>
   </div>
 
   <div v-if="fbStore.stage === 4 && opponent?.id">
