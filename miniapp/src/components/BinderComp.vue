@@ -41,15 +41,22 @@ const ANALIZ = function (res: any) {
   res && Object.keys(res).forEach(el => {
     console.log('>>> ', el)
     console.log('==== res[el]',  res[el])
+
+    if (res[el].id2 && res[el].id2===fbStore.myId) {
+      opponent.value = {id: el, name: res[el].name2}
+
+      console.log('---- opponent.value', opponent.value)
+    }
+
     if (fbStore.stage > 3) return false
     if (el === String(fbStore.myId) && el) {
       exist = true
       if (fbStore.stage !== 3) fbStore.stage = 2 // уже в списке
       if (res[el].id2) {
         fbStore.stage = 4
-        let opp = localStorage.getItem('Opponent')
-        if (opp) opponent.value = JSON.parse(opp)
-        if (res[el].id2) opponent.value = {id: res[el].id2, name: res[el].name2}
+        // let opp = localStorage.getItem('Opponent')
+        // if (opp) opponent.value = JSON.parse(opp)
+
       }
     }
     if (res[el].id2 == fbStore.myId) {
@@ -105,15 +112,19 @@ function toAccept(bool: boolean) {
           name2: fbStore.myName,
           accept: true
         })
-        .then(res => {
-          let opp: any = {id: opponent.value.id, name: opponent.value.name}
-          localStorage.setItem('Opponent', JSON.stringify(opp))
-          console.log('res', res)
-        })
+        // .then(res => {
+        //   // let opp: any = {id: opponent.value.id, name: opponent.value.name}
+        //   // localStorage.setItem('Opponent', JSON.stringify(opp))
+        //   // console.log('res', res)
+        // })
   }
   if (!bool) {
     fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName}).then(() => fbStore.stage = 2)
   }
+}
+
+function toReject() { // не дождался отклика, отменяю
+  fbStore.setField('g1/look/' + opponent.value.id, {name: opponent.value.name}).then(() => fbStore.stage = 2)
 }
 
 function gotoStartGame() {
@@ -190,8 +201,7 @@ function gotoStartGame() {
   </div>
 
   <div v-if="fbStore.stage === 2">
-    <p>Добавился в список, жду</p>
-
+    <p>Нахожусь в списке, жду кто выберет</p>
     <div v-if="pretendents.length">
       <h3>Список желающих играть:</h3>
       <button class="green-bt" v-for="el in pretendents" :key="el.id" @click="makeCouple(el)">{{ el.name }}</button>
@@ -202,6 +212,7 @@ function gotoStartGame() {
 
   <div v-if="fbStore.stage === 3">
     <p> Выбрал  игрока <br><b>{{ opponent?.name }}</b> <br>жду пока не откликнится </p>
+    <button @click="toReject()">Нет ответа, отменяю выбор</button>
   </div>
 
   <div v-if="fbStore.stage === 4 && opponent?.id">
