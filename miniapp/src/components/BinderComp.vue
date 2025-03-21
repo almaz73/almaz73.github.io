@@ -10,10 +10,10 @@ const opponent = ref<{ id: number | null, name: string | undefined }>()
 const isMySelf = ref<boolean>()
 const gameContent = ref('')
 const randPlayer = function () {
-  if (location.href.includes('localhost:')) {
-    fbStore.myId = fbStore.myId || parseInt(String(Math.random() * 1000))
-    fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя' + parseInt(String(Math.random() * 100))
-  }
+  // if (location.href.includes('localhost:')) {
+  //   fbStore.myId = fbStore.myId || parseInt(String(Math.random() * 1000))
+  //   fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя' + parseInt(String(Math.random() * 100))
+  // }
 }
 const setNikcname = function () {
   fbStore.nickName = nickName.value
