@@ -1,19 +1,19 @@
 <script setup lang="ts">
 import {onMounted, ref, watch} from 'vue'
-import {UsefbStore} from "@/pinia/fbStore2.ts";
+import {UsefbStore} from "@/pinia/fbStore.ts";
 
 const {game} = defineProps<{ game?: string }>()
 const fbStore = UsefbStore()
 const nickName = ref<string | null>(localStorage.getItem('myNickName'))
-const pretendents = ref([])
-const opponent = ref<{ id: number | null, name: string | undefined }>()
+const pretendents = ref<{ id: string; name: any; }[]>([])
+const opponent = ref<any>() //{ id: number | null, name: string | undefined }
 const isMySelf = ref<boolean>()
 const gameContent = ref('')
 const randPlayer = function () {
-  // if (location.href.includes('localhost:')) {
-  //   fbStore.myId = fbStore.myId || parseInt(String(Math.random() * 1000))
-  //   fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя' + parseInt(String(Math.random() * 100))
-  // }
+  if (location.href.includes('localhost:')) {
+    fbStore.myId = fbStore.myId || parseInt(String(Math.random() * 1000))
+    fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя' + parseInt(String(Math.random() * 100))
+  }
 }
 const setNikcname = function () {
   fbStore.nickName = nickName.value
@@ -70,7 +70,7 @@ const ANALIZ = function (res: any) {
 
     if (res[el].accept) gotoStartGame()
 
-    pretendents.value.push({id: el, name: res[el].name})
+    if(el && res[el]) pretendents.value.push({id: el, name: res[el].name})
   })
 }
 
@@ -90,7 +90,7 @@ function goToReadyToPlay() {
   fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.myName})
 }
 
-function makeCouple(val: { id: number, name: string }) {
+function makeCouple(val: any) {
   if (val.id == fbStore.myId) {
     isMySelf.value = true
     setTimeout(() => isMySelf.value = false, 1500)
@@ -184,7 +184,7 @@ onMounted(() => {
     </p>
     <div class="red-notice">* тут можно поменять ваш Никнейм</div>
 
-    <div v-if="pretendents.length">
+    <div v-if="pretendents && pretendents.length>1">
       <h3>Список желающих играть:</h3>
       <button class="green-bt" v-for="el in pretendents" :key="el.id" @click="makeCouple(el)">{{ el.name }}</button>
       <br><br>

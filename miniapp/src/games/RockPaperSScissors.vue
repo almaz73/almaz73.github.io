@@ -1,30 +1,14 @@
 <template>
-  <!--  <div class="game" :style="{background:stage===2?'orange':stage===1?'#3c3c3c':''}">-->
   <div class="game">
     <h1>♕</h1>
     <h2>
 
       <!--      название игры -->
     </h2>
-    <div v-if="stage===1">
-      <!--      <SearchOpponent/>-->
+    <div >
       <BinderComp :game="'g1'"/>
     </div>
-    <!--    <div v-if="stage===2">-->
-    <!--      <p> Против вас играет: <br>-->
-    <!--       <b style="font-size: larger"> {{ name2 || id2 }}</b>-->
-    <!--      </p>-->
-    <!--      <p> Выбери: </p>-->
-    <!--      <p>-->
-    <!--        <button>камень</button>-->
-    <!--        <button>ножницы</button>-->
-    <!--        <button>бумага</button>-->
-    <!--      </p>-->
-    <!--      <br>-->
-    <!--      <p>-->
-    <!--        <button> ИГРАТЬ</button>-->
-    <!--      </p>-->
-    <!--    </div>-->
+
   </div>
 </template>
 
@@ -43,35 +27,10 @@
 </style>
 
 <script setup>
-import {ref} from 'vue'
-import {UsefbStore} from "@/pinia/fbStore.js";
-// import SearchOpponent from "@/components/SearchOpponent.vue";
 import BinderComp from "@/components/BinderComp.vue";
 
-const fbStore = UsefbStore()
-const stage = ref(0)
-const nickName = ref('')
-const id2 = ref('')
-const name2 = ref('')
 
-fbStore.gameId = 'g1'
 
-let opponent = fbStore.getOpponent()
-console.log('opponent', opponent)
-if (!opponent) {
-  /////* ищем соперника */
-  setTimeout(() => {
-    stage.value = 1
-  }, 1000)
-} else {
-  /////* играем */
-  setTimeout(() => {
-    stage.value = 2
-  }, 100)
-
-  name2.value = opponent.name
-  id2.value = opponent.id
-}
 
 
 </script>

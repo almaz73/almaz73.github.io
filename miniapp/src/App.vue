@@ -16,8 +16,7 @@
 import {onMounted, shallowRef} from 'vue'
 import KrestikiNoliki from "@/games/KrestikiNoliki.vue";
 import RockPaperSScissors from "@/games/RockPaperSScissors.vue";
-import {UsefbStore} from "@/pinia/fbStore.js";
-import DevelopPart from "@/components/DevelopPart.vue";
+import {UsefbStore} from "@/pinia/fbStore.ts";
 
 const fbStore=UsefbStore()
 let game = shallowRef(RockPaperSScissors)
@@ -34,8 +33,8 @@ onMounted(() => {
   let webApp = window.Telegram?.WebApp;
   if (webApp) {
     // console.log('webApp=',webApp)
-    fbStore.userId = webApp.initDataUnsafe.user?.id || ''
-    fbStore.userName = webApp.initDataUnsafe.user?.username || ''
+    fbStore.myId = webApp.initDataUnsafe.user?.id || ''
+    fbStore.myName = webApp.initDataUnsafe.user?.username || ''
   }
 })
 

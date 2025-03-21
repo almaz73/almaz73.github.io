@@ -1,19 +1,4 @@
-
-
 <template>
-<h3>Крестики нолики!!!</h3>
-<textarea v-model="result" style="width: 100%;" placeholder="данные с сайта"/>
+  <h3>Крестики нолики!!!</h3>
   <br><br>
 </template>
-
-<script setup>
-import {ref} from 'vue'
-import {UsefbStore} from "@/pinia/fbStore.ts";
-const fbStore = UsefbStore()
-const result= ref('')
-
-fbStore.updateValue('guest').then(res=>{
-  result.value = JSON.stringify(res)
-})
-
-</script>
