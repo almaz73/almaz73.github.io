@@ -33,7 +33,7 @@ onMounted(() => {
   let webApp = window.Telegram?.WebApp;
   if (webApp) {
     // console.log('webApp=',webApp)
-    fbStore.myId = webApp.initDataUnsafe.user?.id || ''
+    fbStore.myId = webApp.initDataUnsafe.user?.id || 0
     fbStore.myName = webApp.initDataUnsafe.user?.username || ''
   }
 })

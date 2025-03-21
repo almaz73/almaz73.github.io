@@ -82,6 +82,7 @@ function onValue_Look() {
   })
 
   watch(() => fbStore.lookField, res => ANALIZ(res))
+  watch(() => fbStore.myId, () => getMyGame())
 }
 
 
