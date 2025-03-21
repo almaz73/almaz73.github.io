@@ -23,19 +23,15 @@ const setNikcname = function () {
 function getMyGame() {
   console.log('game = ', game)
   fbStore.getField(game + '/play/' + fbStore.myId).then(res => {
-    console.log('RES=', res)
     if (!res) {
       onValue_Look()
       fbStore.stage = 1
     } else {
-      opponent.value = {id: res.id, name: res.name}
+      opponent.value = {id: res.id, name: res.name + '::::' + res.id}
       fbStore.stage = 5
 
-      let link = game + '/game/' + res.game
-      console.log('link', link)
-
-      fbStore.getField(game + '/game/' + res.game).then(res => {
-        gameContent.value = res
+      fbStore.getField(game + '/game/' + res.game).then(context => {
+        gameContent.value = context
       })
     }
 
@@ -82,13 +78,13 @@ function onValue_Look() {
   })
 
   watch(() => fbStore.lookField, res => ANALIZ(res))
-  watch(() => fbStore.myId, () => getMyGame())
+  watch(() => fbStore.myId, () => setTimeout(getMyGame, 500))
 }
 
 
 function goToReadyToPlay() {
   randPlayer()
-  fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.myName})
+  fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName})
 }
 
 function makeCouple(val: any) {
