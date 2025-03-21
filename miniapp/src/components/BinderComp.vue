@@ -21,7 +21,7 @@ function getMyGame() {
       onValue_Look()
       fbStore.stage = 1
     } else {
-      opponent.value = {id: res.id, name: res.name + '::::' + res.id}
+      opponent.value = {id: res.id, name: res.name}
       fbStore.stage = 5
 
       fbStore.getField(game + '/game/' + res.game).then(context => {
@@ -39,14 +39,8 @@ const ANALIZ = function (res: any) {
   fbStore.stage = 1
   let exist = false
   res && Object.keys(res).forEach(el => {
-    console.log('>>> ', el)
-    console.log('==== res[el]',  res[el])
-
-    if (res[el].id2 && res[el].id2===fbStore.myId) {
-      opponent.value = {id: el, name: res[el].name2}
-
-      console.log('---- opponent.value', opponent.value)
-    }
+    if (res[el].id2 && res[el].id2 === fbStore.myId) opponent.value = {id: el, name: res[el].name}
+    if (el === String(fbStore.myId)) opponent.value = {id: res[el].id2, name: res[el].name2}
 
     if (fbStore.stage > 3) return false
     if (el === String(fbStore.myId) && el) {
@@ -54,9 +48,6 @@ const ANALIZ = function (res: any) {
       if (fbStore.stage !== 3) fbStore.stage = 2 // уже в списке
       if (res[el].id2) {
         fbStore.stage = 4
-        // let opp = localStorage.getItem('Opponent')
-        // if (opp) opponent.value = JSON.parse(opp)
-
       }
     }
     if (res[el].id2 == fbStore.myId) {
@@ -214,7 +205,6 @@ function gotoStartGame() {
     <p> Выбрал  игрока <br><b>{{ opponent?.name }}</b> <br>жду пока не откликнится </p>
     <button @click="toReject()">Нет ответа, отменяю выбор</button>
   </div>
-
   <div v-if="fbStore.stage === 4 && opponent?.id">
     Вас выбрал игрок: <br><br><b>{{ opponent.name }}</b>
     <br><br>
