@@ -35,6 +35,11 @@ onMounted(() => {
     // console.log('webApp=',webApp)
     fbStore.myId = webApp.initDataUnsafe.user?.id || 0
     fbStore.myName = webApp.initDataUnsafe.user?.username || ''
+
+    if(!fbStore.myId) setTimeout(()=>{
+      fbStore.myId = fbStore.myId || parseInt(String(Math.random() * 1000))
+      fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя_' + parseInt(String(Math.random() * 100))
+    }, 500)
   }
 })
 

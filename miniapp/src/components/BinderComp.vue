@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref, watch} from 'vue'
+import {ref, watch} from 'vue'
 import {UsefbStore} from "@/pinia/fbStore.ts";
 
 const {game} = defineProps<{ game?: string }>()
@@ -9,12 +9,6 @@ const pretendents = ref<{ id: string; name: any; }[]>([])
 const opponent = ref<any>() //{ id: number | null, name: string | undefined }
 const isMySelf = ref<boolean>()
 const gameContent = ref('')
-const randPlayer = function () {
-  if (location.href.includes('localhost:')) {
-    fbStore.myId = fbStore.myId || parseInt(String(Math.random() * 1000))
-    fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя' + parseInt(String(Math.random() * 100))
-  }
-}
 const setNikcname = function () {
   fbStore.nickName = nickName.value
   if (nickName.value) localStorage.setItem('myNickName', nickName.value)
@@ -70,6 +64,7 @@ const ANALIZ = function (res: any) {
   })
 }
 
+watch(() => fbStore.myId, res => res && setTimeout(getMyGame, 500))
 
 function onValue_Look() {
   fbStore.onValue('g1/look').then(res => {
@@ -78,12 +73,10 @@ function onValue_Look() {
   })
 
   watch(() => fbStore.lookField, res => ANALIZ(res))
-  watch(() => fbStore.myId, () => setTimeout(getMyGame, 500))
 }
 
 
 function goToReadyToPlay() {
-  randPlayer()
   fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName})
 }
 
@@ -93,7 +86,6 @@ function makeCouple(val: any) {
     setTimeout(() => isMySelf.value = false, 1500)
     return false
   }
-  randPlayer()
   fbStore.setField('g1/look/' + val.id, {name: val.name, id2: fbStore.myId, name2: fbStore.myName}).then(res => {
     console.log('res', res)
     opponent.value = {id: val.id, name: val.name}
@@ -103,7 +95,6 @@ function makeCouple(val: any) {
 
 
 function toAccept(bool: boolean) {
-  randPlayer()
   if (bool && opponent.value) {
     fbStore.setField('g1/look/' + opponent.value.id,
         {
@@ -151,10 +142,6 @@ function gotoStartGame() {
 
 }
 
-
-onMounted(() => {
-  getMyGame()
-})
 </script>
 
 
