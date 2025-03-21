@@ -3,20 +3,23 @@
     margin: 0 !important;
     padding: 0;
 }
+body{
+    font-family: Helvetica, Verdana, serif;
+}
 
 button {
     margin: 0 8px;
-    padding: 8px 12px;
+    padding: 12px 20px;
     min-width: 40px;
     border-radius: 7px;
     border: none;
+    box-shadow: 0 0 2px black;
 }
 
 .red-notice {
     color: darkred;
     margin: -18px 0 20px;
     font-size: smaller;
-    font-family: Arial
 }
 .red-bt{
     background: pink;

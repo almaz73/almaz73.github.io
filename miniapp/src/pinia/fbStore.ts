@@ -66,19 +66,28 @@ export const UsefbStore = defineStore("fbStore", {
             } else return null
         },
         async setReadyToPlay() {
-            this.userName = this.userName || 'Аллигатор'
-            this.userId = this.userId || '88776655'
+            if (location.href.includes('localhost:')) {
+                this.userName = this.userName || 'Ищущий_Игрок'
+                this.userId = this.userId || '1111111'
+
+                console.log('this.nickname = ', this.nickname)
+            }
+
 
             const userRef = ref(database, 'readyToPlay/' + this.gameId + '/' + this.userId);
             set(userRef, {name: (this.nickname || this.userName)}).then(() => {
-                log("Игрок активировался!");
+
+
+                log("Игрок активировался! удалился из ждущих");
             }).catch((error) => {
                 console.error("Ошибка активирования: ", error);
             });
         },
         acceptInvitation(opponent: any) {
-            this.userName = this.userName || 'Аллигатор222'
-            this.userId = this.userId || '112233'
+            if (location.href.includes('localhost:')) {
+                this.userName = this.userName || 'ПРИНИМАЮЩИЙ_ИГРОК'
+                this.userId = this.userId || '2222222'
+            }
 
             let firstPlayerId = this.userId > opponent.id ? this.userId : opponent.id
             let secondPlayerId = this.userId <= opponent.id ? this.userId : opponent.id
@@ -87,29 +96,26 @@ export const UsefbStore = defineStore("fbStore", {
             return new Promise((resolve) => {
                 set(userRef, {
                     start: [opponent.id + '::' + opponent.name, this.userId + '::' + this.userName],
-                    ask: this.userId}).then(() => {
+                    ask: this.userId
+                }).then(() => {
                     log("Предложено играть");
                     resolve('start')
                 })
             })
         },
-        // setGame(game: string, id1: string, id2: string) {
-        //     let games = localStorage.getItem('games')
-        //     if (games) {
-        //         let el = JSON.parse(games)
-        //         log(el)
-        //         el[game] = [id1, id2]
-        //         localStorage.setItem('games', JSON.stringify(el))
-        //     }
-        // },
-        // deleteGame(game: string, id1: string, id2: string) {
-        //     let games: string = localStorage.getItem('games')
-        //     if (games) {
-        //         let el = JSON.parse(games)
-        //         delete el[game]
-        //         localStorage.setItem('games', JSON.stringify(el))
-        //     }
-        // }
+        setGameStages(gameLink: string, gamers: any, stage: number) {
+            console.log('gameLink=',gameLink)
+            const userRef = ref(database, this.gameId + '/' + gameLink);
+            return new Promise((resolve) => {
+                set(userRef, {
+                    gamers: gamers,
+                    stage: stage
+                }).then(() => {
+                    if (stage) this.removeField(this.opponentId)
+                    resolve('игра')
+                })
+            })
+        },
     }
 })
 

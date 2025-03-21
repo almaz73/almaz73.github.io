@@ -1,5 +1,6 @@
 <template>
-  <div class="game" :style="{background:stage===2?'orange':stage===1?'#3c3c3c':''}">
+<!--  <div class="game" :style="{background:stage===2?'orange':stage===1?'#3c3c3c':''}">-->
+  <div class="game">
     <h1>♕</h1>
     <h2>
 

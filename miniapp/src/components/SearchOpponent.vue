@@ -1,6 +1,6 @@
 <template>
   <hr>
-  <i>SearchOpponent</i>
+  <i>::::::: Связывание :::::::</i>
   <hr>
 
   <!----------1---------->
@@ -24,19 +24,22 @@
 
   <!----------2---------->
   <div v-if="searchStage===2">
+    <h2>ИГРА {{ fbStore.gameId }}</h2>
     <h3>Список желающих играть:</h3>
     <button class="green-bt" v-for="el in opponents" :key="el.id" @click="makeCouple(el)">{{ el.name }}</button>
     {{ !opponents.length ? ' ... тут пока пусто, ждем ...' : '' }}
-
     <br><br>
-    <button @click="goToReadyToPlay()" class="red-bt">
-      Искать нового соперника!
-    </button>
+    Вы в списке желающих. Ждем отклика.
+    <br><br>
+    <!--    <button v-if="opponents.length" @click="goToReadyToPlay()" class="red-bt">-->
+    <!--      Искать нового соперника!-->
+    <!--    </button>-->
   </div>
 
   <!----------3---------->
   <div v-if="searchStage===3">
-    Вы пригласил играть <b>{{ fbStore.opponentName }}</b>. <br>Ждем пока примет приглашение
+    Вы пригласили играть. Ждем. <b>{{ fbStore.opponentName }}</b>. <br>
+    Соперник может принять приглашение или отказаться
     <br><br>
     <button @click="goToReadyToPlay()" class="red-bt">
       Отказаться от {{ fbStore.opponentName }}. Искать нового соперника
@@ -69,7 +72,7 @@ const searchStage = ref(1);
 // 4 - кто-то откликнулся и образовал пару - переходим на игру
 const opponents = ref([])
 let delayTimeChoiseOpponent = false
-let game
+let currentGame
 
 function setNikcname() {
   fbStore.nickname = nickName.value
@@ -78,16 +81,18 @@ function setNikcname() {
 
 function goToReadyToPlay() {
   fbStore.setReadyToPlay().then(res => {
-    if (res) searchStage.value = 2
+    console.log('99 99 99 ',res)
+    searchStage.value = 2
   })
 }
 
 function listenOpponents() {
   // получить список желающих
   fbStore.updateValue('readyToPlay/' + fbStore.gameId).then(res => {
+    console.log('CЛУШАЮ  READY ')
     if (res) {
       searchStage.value = 2
-      delete res[fbStore.userId]
+      // delete res[fbStore.userId]
       Object.keys(res).forEach(el => opponents.value.push({name: res[el].name, id: el}))
     }
   })
@@ -98,37 +103,48 @@ function listenGames() {
   // ищем в списке игр, нет ли своего, и подключаемся если есть
   fbStore.updateValue(fbStore.gameId).then(res => {
     console.log('res', res)
-    if (!res) {
-      listenOpponents()
-      return false
+
+    if (!res) return listenOpponents()
+
+    currentGame = res
+
+    let gameKey = Object.keys(res).find(el => el.includes(fbStore.userId))
+
+    console.log('!!! game', gameKey)
+
+    if(res[gameKey].start) {
+      if (gameKey && gameKey.ask !== fbStore.userId) {
+        let ind = res[gameKey].start.findIndex(el => el.includes(fbStore.userId))
+        if (ind > -1) {
+          let opponent = res[gameKey].start[ind === 0 ? 1 : 0].split('::')
+          fbStore.opponentId = opponent[0]
+          fbStore.opponentName = opponent[1]
+          searchStage.value = 4
+        }
+      } else searchStage.value = 3
     }
-
-    game = Object.keys(res).find(el => el.includes(fbStore.userId))
-    if (game) {
-      console.log('game = ', res[game])
-      // fbStore.userId = 261538035
-
-      let ind = res[game].start.findIndex(el => el.includes(fbStore.userId))
-
-      if (ind > -1) {
-        let opponent = res[game].start[ind === 0 ? 1 : 0].split('::')
-        fbStore.opponentId = opponent[0]
-        fbStore.opponentName = opponent[1]
-
-        console.log('opponent', opponent)
-
-        if (!opponent[0]) {
-          searchStage.value = 3
-        } else searchStage.value = 4
-      }
-    }
-
+    console.log('888')
   })
 }
 
 function toAccept(val) {
-  console.log('game = ', game)
+  console.log('currentGame = ', currentGame)
   if (val) {
+    // согласиться
+    let gamers = `{${ fbStore.opponentId}: ${fbStore.opponentName}, ${this.userId}: ${this.userName}}`
+    console.log(gamers)
+    fbStore.setGameStages(Object.keys(currentGame)[0],gamers, 1).then(res=>{
+      console.log(' ? // //  searchStage.value = 2 res', res)
+
+      if(res === 'игра') {
+        // сохраним c локалстораж игру
+
+        localStorage.setItem('GAME', )
+      }
+
+      searchStage.value = 4
+    })
+
 
   } else {
     fbStore.removeField(fbStore.gameId + '/' + game)

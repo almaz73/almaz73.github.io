@@ -18,8 +18,8 @@ export default defineConfig({
         controlFlowFlatteningThreshold: 0.75, // Вероятность применения усложнения
         // deadCodeInjection: true, // Внедряет "мёртвый" код
         deadCodeInjectionThreshold: 0.4, // Вероятность внедрения мёртвого кода
-        debugProtection: true, // Защита от отладки
-        disableConsoleOutput: true, // Отключает console.log
+        //  debugProtection: true, // Защита от отладки // вот это зверь
+        // disableConsoleOutput: true, // Отключает console.log // вот это зверь работат для девелопа
         identifierNamesGenerator: 'hexadecimal', // Генерация имен переменных в шестнадцатеричном формате
         rotateStringArray: true, // Перемешивает массив строк
         stringArray: true, // Шифрует строки
