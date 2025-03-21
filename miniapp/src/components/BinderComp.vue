@@ -33,16 +33,18 @@ function getMyGame() {
 }
 
 const ANALIZ = function (res: any) {
-  console.log('ANALIZ ', res)
+  console.log('>>>> ANALIZ ', res)
+
   pretendents.value = []
   fbStore.stage = 1
   let exist = false
   res && Object.keys(res).forEach(el => {
     console.log('>>> ', el)
+    console.log('==== res[el]',  res[el])
     if (fbStore.stage > 3) return false
     if (el === String(fbStore.myId) && el) {
       exist = true
-      fbStore.stage = 2 // уже в списке
+      if (fbStore.stage !== 3) fbStore.stage = 2 // уже в списке
       if (res[el].id2) {
         fbStore.stage = 4
         let opp = localStorage.getItem('Opponent')
@@ -55,11 +57,7 @@ const ANALIZ = function (res: any) {
       fbStore.stage = 3
     }
 
-    if (fbStore.stage > 2 && !exist) {
-      console.log('................ОБНОВИЛСЯ А Я ПРОПАЛ')
-      alert()
-      location.reload()
-    }
+    if (fbStore.stage > 2 && !exist) location.reload()
 
     if (res[el].accept) gotoStartGame()
 
@@ -70,11 +68,7 @@ const ANALIZ = function (res: any) {
 watch(() => fbStore.myId, res => res && setTimeout(getMyGame, 500))
 
 function onValue_Look() {
-  fbStore.onValue('g1/look').then(res => {
-    console.log('111', res)
-    ANALIZ(res)
-  })
-
+  fbStore.onValue('g1/look').then(res => ANALIZ(res))
   watch(() => fbStore.lookField, res => ANALIZ(res))
 }
 
@@ -118,7 +112,7 @@ function toAccept(bool: boolean) {
         })
   }
   if (!bool) {
-    fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.myName}).then(() => fbStore.stage = 2)
+    fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName}).then(() => fbStore.stage = 2)
   }
 }
 
@@ -207,7 +201,7 @@ function gotoStartGame() {
   </div>
 
   <div v-if="fbStore.stage === 3">
-    <p> Жду игрока <br><b>{{ opponent?.name }}</b>, <br>пока не откликнится </p>
+    <p> Выбрал  игрока <br><b>{{ opponent?.name }}</b> <br>жду пока не откликнится </p>
   </div>
 
   <div v-if="fbStore.stage === 4 && opponent?.id">
