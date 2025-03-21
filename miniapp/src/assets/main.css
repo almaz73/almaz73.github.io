@@ -6,6 +6,7 @@
 
 body {
     font-family: Helvetica, Verdana, serif;
+    background: white;
 }
 
 button {
@@ -15,6 +16,7 @@ button {
     border-radius: 7px;
     border: none;
     box-shadow: 0 0 2px black;
+    font-size: large;
 
 }
 
