@@ -38,6 +38,7 @@ const ANALIZ = function (res: any) {
   fbStore.stage = 1
   let exist = false
   res && Object.keys(res).forEach(el => {
+    console.log('>>> ', el)
     if (fbStore.stage > 3) return false
     if (el === String(fbStore.myId) && el) {
       exist = true
@@ -46,6 +47,7 @@ const ANALIZ = function (res: any) {
         fbStore.stage = 4
         let opp = localStorage.getItem('Opponent')
         if (opp) opponent.value = JSON.parse(opp)
+        if (res[el].id2) opponent.value = {id: res[el].id2, name: res[el].name2}
       }
     }
     if (res[el].id2 == fbStore.myId) {
@@ -101,6 +103,7 @@ function makeCouple(val: any) {
 
 function toAccept(bool: boolean) {
   if (bool && opponent.value) {
+    alert()
     fbStore.setField('g1/look/' + opponent.value.id,
         {
           name: opponent.value.name,
@@ -114,11 +117,8 @@ function toAccept(bool: boolean) {
           console.log('res', res)
         })
   }
-  if (!bool && opponent.value) {
-    fbStore.setField('g1/look/' + opponent.value.id, {name: opponent.value.name})
-        .then(() => {
-          fbStore.stage = 2
-        })
+  if (!bool) {
+    fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.myName}).then(() => fbStore.stage = 2)
   }
 }
 

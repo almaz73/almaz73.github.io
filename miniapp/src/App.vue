@@ -48,8 +48,8 @@ onMounted(() => {
 
       if (location.host.includes('localhost')) {
         // fbStore.myId =261538035
-        // fbStore.myId =953446309
-        fbStore.myId = 4444444
+        fbStore.myId =953446309
+        // fbStore.myId = 4444444
       }
     }, 500)
   }
