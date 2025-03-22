@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import {ref, watch} from 'vue'
 import {UsefbStore} from "@/pinia/fbStore.ts";
+import ListGames from "@/components/ListGames.vue";
 
 const {game} = defineProps<{ game?: string }>()
-const islocalhost = !location.host.includes('localhost')
+const islocalhost = location.host.includes('localhost')
 const fbStore = UsefbStore()
 const nickName = ref<string | null>(localStorage.getItem('myNickName'))
 const pretendents = ref<{ id: string; name: any; }[]>([])
@@ -18,10 +19,7 @@ const setNikcname = function () {
 function getMyGame() {
   console.log('game = ', game)
   fbStore.getField(game + '/play/' + fbStore.myId).then(res => {
-    if (!res) {
-      onValue_Look()
-      fbStore.stage = 1
-    } else {
+    if (res) {
       opponent.value = {id: res.id, name: res.name}
       fbStore.stage = 5
 
@@ -37,6 +35,7 @@ const ANALIZ = function (res: any) {
   console.log('>>>> ANALIZ ', res)
 
   pretendents.value = []
+  if (fbStore.stage === 0) return false
   fbStore.stage = 1
   let exist = false
   res && Object.keys(res).forEach(el => {
@@ -65,6 +64,11 @@ const ANALIZ = function (res: any) {
 }
 
 watch(() => fbStore.myId, res => res && setTimeout(getMyGame, 500))
+
+function gameChanged(){
+  onValue_Look()
+  fbStore.stage = 1
+}
 
 function onValue_Look() {
   fbStore.onValue('g1/look').then(res => ANALIZ(res))
@@ -173,16 +177,21 @@ function gotoStartGame() {
     stage:{{ fbStore.stage }}
     <hr>
   </div>
-  <!----------1---------->
-  <div style="position: absolute; right: 30px ;top: 35px;">
-    <button style="border-radius: 50%;font-size: larger"
-            @click="toExit()">
-      ❁
-    </button>
+
+  <div class="menuBt" v-if="fbStore.stage === 5">
+    <button @click="toExit()">❁</button>
   </div>
+
+  <!----------0---------->
+  <div v-if="fbStore.stage === 0">
+    <ListGames @gameChanged="gameChanged"/>
+  </div>
+
+  <!----------1---------->
+
   <div v-if="fbStore.stage === 1">
     <p>
-      Привет, {{ fbStore.nickName || fbStore.myName }} !
+      Привет!
     </p>
     <p>
       <input v-model="nickName"
@@ -191,7 +200,7 @@ function gotoStartGame() {
              @input="setNikcname()"
              placeholder="Сменить nickName">
     </p>
-    <div class="red-notice">* тут можно поменять ваш Никнейм</div>
+    <div class="red-notice">* можете поменять ваш Никнейм</div>
 
     <div v-if="pretendents && pretendents.length>1">
       <h3>Список желающих играть:</h3>
@@ -199,10 +208,10 @@ function gotoStartGame() {
       <br><br>
     </div>
 
-
     <button class="red-bt" @click="goToReadyToPlay()">
       Зарегистрироваться в поиске
     </button>
+
     <br>
     <br>
   </div>

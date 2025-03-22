@@ -6,7 +6,7 @@
 
 body {
     font-family: Helvetica, Verdana, serif;
-    background: green;
+    background: pink;
 }
 
 button {
@@ -34,4 +34,18 @@ button {
     background: green;
     color: white;
 }
+
+.menuBt {
+    position: absolute;
+    right: 30px;
+    top: 35px;
+
+    button {
+        border-radius: 50%;
+        font-size: 18px;
+        margin: 0;
+        padding: 5px;
+    }
+}
+
 
