@@ -2,7 +2,7 @@
   <div class="game">
     <h1>♕</h1>
     <div >
-      <BinderComp :game="'g1'"/>
+      <BinderComp/>
     </div>
   </div>
 </template>

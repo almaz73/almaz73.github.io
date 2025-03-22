@@ -23,14 +23,14 @@ function getMyGame() {
   fbStore.getField('/list/' + fbStore.myId).then(res => {
     if (res) {
       opponent.value = {id: res.id, name: res.name}
-      fbStore.stage = 5
 
-      fbStore.gameLink = res.gameLink
       fbStore.getField('/games/' + res.gameLink).then(context => {
         console.log('context', context)
         fbStore.gameId = context.gameId
         gameContent.value = context
 
+        fbStore.stage = 5
+        fbStore.gameLink = res.gameLink
         openGame()
       })
     }

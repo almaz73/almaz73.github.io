@@ -2,13 +2,29 @@
 import {onMounted, ref} from "vue";
 import {UsefbStore} from "@/pinia/fbStore.ts";
 
-const fbStore=UsefbStore()
-const element = ref(0)
+const fbStore = UsefbStore()
+const element = ref<number>(0)
+const contex = ref<string | void>()
 
-onMounted(()=>{
-  console.log(8888888888888)
-  fbStore.onValue(fbStore.gameId + '/games/'+fbStore.gameLink+'/game').then(res =>{
-    console.log('res = ', res)
+function sendChoise() {
+  fbStore.setField('/games/' + fbStore.gameLink + '/game/' + fbStore.myId, {q:element.value}).then(res => {
+    console.log('!!! res', res)
+  })
+}
+
+onMounted(() => {
+  fbStore.getField('/games/' + fbStore.gameLink + '/game').then(res => {
+    console.log('? 200? ? ?  ? ?res = ', res)
+
+    console.log(res)
+    contex.value = res
+  })
+  console.log('9999999999999')
+  fbStore.onValue('/games/' + fbStore.gameLink + '/game').then(res => {
+    console.log('? ? ? ?  ? ?res = ', res)
+
+    console.log(res)
+    contex.value = res
   })
 })
 
@@ -17,7 +33,7 @@ onMounted(()=>{
 
 <template>
   <div class="rama">
-<br>
+    <br>
     <h2>Камень ножницы бумага</h2>
     <br><br>
 
@@ -29,12 +45,15 @@ onMounted(()=>{
     <br><br>
     <button :class="{active:element===3}" @click="element=3">Бумага</button>
     <br><br><br><br><br><br>
-    <button class="green-bt">Свериться</button>
+    <button class="green-bt" @click="sendChoise()">Свериться</button>
+
+    <br> <br>
+    << {{ contex }} >>
   </div>
 </template>
 
 <style scoped>
-.rama{
+.rama {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -43,7 +62,7 @@ onMounted(()=>{
   text-align: center;
 }
 
-button.active{
+button.active {
   box-shadow: 0 0 10px;
   background: orange;
 }
