@@ -12,16 +12,17 @@ function toGame(val: number) {
 </script>
 <template>
   <div>
+    Начальная страница
     <h3>Выберите игру</h3>
-
+    <br>
     <button @click="toGame(1)">
       Камень ножницы бумага
     </button>
-    <br>
+    <br> <br>
     <button @click="toGame(2)">
       Крестики нолики
     </button>
-    <br>
+    <br> <br>
     <button @click="toGame(3)">
       Морской бой
     </button>
@@ -33,5 +34,7 @@ function toGame(val: number) {
     <!--    <button @click="toGame(5)">-->
     <!--     Шахматы-->
     <!--    </button>-->
+    <br> <br>
+    Это бот для игр с соперником.
   </div>
 </template>

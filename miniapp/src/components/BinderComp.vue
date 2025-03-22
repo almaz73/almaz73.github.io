@@ -11,6 +11,7 @@ const pretendents = ref<{ id: string; name: any; }[]>([])
 const opponent = ref<any>() //{ id: number | null, name: string | undefined }
 const isMySelf = ref<boolean>()
 const gameContent = ref('')
+const myText = ref('')
 const setNikcname = function () {
   fbStore.nickName = nickName.value
   if (nickName.value) localStorage.setItem('myNickName', nickName.value)
@@ -65,7 +66,7 @@ const ANALIZ = function (res: any) {
 
 watch(() => fbStore.myId, res => res && setTimeout(getMyGame, 500))
 
-function gameChanged(){
+function gameChanged() {
   onValue_Look()
   fbStore.stage = 1
 }
@@ -83,7 +84,7 @@ function goToReadyToPlay() {
 function makeCouple(val: any) {
   if (val.id == fbStore.myId) {
     isMySelf.value = true
-    setTimeout(() => isMySelf.value = false, 1500)
+    setTimeout(() => isMySelf.value = false, 2000)
     return false
   }
   fbStore.setField('g1/look/' + val.id, {
@@ -119,9 +120,6 @@ function toReject() { // не дождался отклика, отменяю
 }
 
 function toExit() {
-//  fbStore.setField('g1/look/' + opponent.value.id, {name: opponent.value.name}).then(() => fbStore.stage = 2)
-  console.log('opponent', JSON.stringify(opponent.value))
-
   let gameLink = String(opponent.value.id)
   if (opponent.value.id > fbStore.myId) gameLink += '::' + fbStore.myId
   else gameLink = fbStore.myId + '::' + gameLink
@@ -129,6 +127,8 @@ function toExit() {
   fbStore.removeField('g1/play/' + fbStore.myId)
   fbStore.removeField('g1/play/' + opponent.value?.id)
   fbStore.removeField('g1/game/' + gameLink)
+  myText.value = 'Хорошо бы сообщить сопернику, что вы ушли из игры'
+  setTimeout(location.reload, 3000)
 }
 
 function gotoStartGame() {
@@ -140,7 +140,6 @@ function gotoStartGame() {
   console.log('gameLink', gameLink)
 
 
-  console.log('> >> > >> gotoStartgane')
   // переводим в список play / удаляем из лок
   fbStore.setField('g1/play/' + fbStore.myId, {
     id: opponent.value?.id,
@@ -155,6 +154,7 @@ function gotoStartGame() {
     date
   })
   fbStore.setField('g1/game/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ'})
+
 
   setTimeout(() => {
     fbStore.removeField('g1/look/' + opponent.value?.id)
@@ -211,7 +211,8 @@ function gotoStartGame() {
     <button class="red-bt" @click="goToReadyToPlay()">
       Зарегистрироваться в поиске
     </button>
-
+    <br> <br>
+    <small>Нужно дать ссылку на бот другому игроку. И сообщить какую игру выбрать</small>
     <br>
     <br>
   </div>
@@ -242,6 +243,8 @@ function gotoStartGame() {
     с игроком <br><b>{{ opponent.name }}</b><br><br>
     Контекс игры:<br> {{ gameContent }}
     <br><br>
+
+    <div style="color: darkred; font-size: 20px"><b>myText</b></div>
   </div>
 
 
