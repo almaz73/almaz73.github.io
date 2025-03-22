@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 import {UsefbStore} from "@/pinia/fbStore.ts";
 
 const fbStore = UsefbStore()
 const element = ref<number>(0)
 const contex = ref<string | void>()
+
+watch(() => fbStore.lookField, res => ANALIZ(res))
+
+function ANALIZ(res: any){
+  console.log('res=', res)
+  contex.value = res
+}
 
 function sendChoise() {
   fbStore.setField('/games/' + fbStore.gameLink + '/game/' + fbStore.myId, {q:element.value}).then(res => {
@@ -13,19 +20,10 @@ function sendChoise() {
 }
 
 onMounted(() => {
-  fbStore.getField('/games/' + fbStore.gameLink + '/game').then(res => {
-    console.log('? 200? ? ?  ? ?res = ', res)
-
-    console.log(res)
-    contex.value = res
-  })
+  // fbStore.getField('/games/' + fbStore.gameLink + '/game').then(res => {
+  // })
   console.log('9999999999999')
-  fbStore.onValue('/games/' + fbStore.gameLink + '/game').then(res => {
-    console.log('? ? ? ?  ? ?res = ', res)
-
-    console.log(res)
-    contex.value = res
-  })
+  fbStore.onValue('/games/' + fbStore.gameLink + '/game')
 })
 
 
@@ -58,7 +56,7 @@ onMounted(() => {
   margin: 0;
   width: 100%;
   height: 100vh;
-  background: white;
+  background: aliceblue;
   text-align: center;
 }
 
