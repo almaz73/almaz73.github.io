@@ -72,13 +72,13 @@ function gameChanged() {
 }
 
 function onValue_Look() {
-  fbStore.onValue('g1/look').then(res => ANALIZ(res))
+  fbStore.onValue(fbStore.gameId+'/look').then(res => ANALIZ(res))
   watch(() => fbStore.lookField, res => ANALIZ(res))
 }
 
 
 function goToReadyToPlay() {
-  fbStore.setField('g1/look/' + fbStore.myId, {name: nickName.value || fbStore.myName})
+  fbStore.setField(fbStore.gameId+'/look/' + fbStore.myId, {name: nickName.value || fbStore.myName})
 }
 
 function makeCouple(val: any) {
@@ -87,7 +87,7 @@ function makeCouple(val: any) {
     setTimeout(() => isMySelf.value = false, 2000)
     return false
   }
-  fbStore.setField('g1/look/' + val.id, {
+  fbStore.setField(fbStore.gameId+'/look/' + val.id, {
     name: val.name,
     id2: fbStore.myId,
     name2: nickName.value || fbStore.myName
@@ -102,7 +102,7 @@ function makeCouple(val: any) {
 function toAccept(bool: boolean) {
   if (bool && opponent.value) {
     alert()
-    fbStore.setField('g1/look/' + opponent.value.id,
+    fbStore.setField(fbStore.gameId+'/look/' + opponent.value.id,
         {
           name: opponent.value.name,
           id2: fbStore.myId,
@@ -111,12 +111,12 @@ function toAccept(bool: boolean) {
         })
   }
   if (!bool) {
-    fbStore.setField('g1/look/' + fbStore.myId, {name: nickName.value || fbStore.myName}).then(() => fbStore.stage = 2)
+    fbStore.setField(fbStore.gameId+'/look/' + fbStore.myId, {name: nickName.value || fbStore.myName}).then(() => fbStore.stage = 2)
   }
 }
 
 function toReject() { // не дождался отклика, отменяю
-  fbStore.setField('g1/look/' + opponent.value.id, {name: opponent.value.name}).then(() => fbStore.stage = 2)
+  fbStore.setField(fbStore.gameId+'/look/' + opponent.value.id, {name: opponent.value.name}).then(() => fbStore.stage = 2)
 }
 
 function toExit() {
@@ -125,9 +125,9 @@ function toExit() {
   if (opponent.value.id > fbStore.myId) gameLink += '::' + fbStore.myId
   else gameLink = fbStore.myId + '::' + gameLink
 
-  fbStore.removeField('g1/play/' + fbStore.myId)
-  fbStore.removeField('g1/play/' + opponent.value?.id)
-  fbStore.removeField('g1/game/' + gameLink)
+  fbStore.removeField(fbStore.gameId+'/play/' + fbStore.myId)
+  fbStore.removeField(fbStore.gameId+'/play/' + opponent.value?.id)
+  fbStore.removeField(fbStore.gameId+'/game/' + gameLink)
 
   setTimeout(()=>location.reload(), 3000)
 }
@@ -142,24 +142,24 @@ function gotoStartGame() {
 
 
   // переводим в список play / удаляем из лок
-  fbStore.setField('g1/play/' + fbStore.myId, {
+  fbStore.setField(fbStore.gameId+'/play/' + fbStore.myId, {
     id: opponent.value?.id,
     name: opponent.value?.name,
     game: gameLink,
     date
   })
-  fbStore.setField('g1/play/' + opponent.value?.id, {
+  fbStore.setField(fbStore.gameId+'/play/' + opponent.value?.id, {
     id: fbStore.myId,
     name: fbStore.myName,
     game: gameLink,
     date
   })
-  fbStore.setField('g1/game/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ'})
+  fbStore.setField(fbStore.gameId+'/game/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ'})
 
 
   setTimeout(() => {
-    fbStore.removeField('g1/look/' + opponent.value?.id)
-    fbStore.removeField('g1/look/' + fbStore.myId)
+    fbStore.removeField(fbStore.gameId+'/look/' + opponent.value?.id)
+    fbStore.removeField(fbStore.gameId+'/look/' + fbStore.myId)
     location.reload()
   }, 2000) /// удаляем
 
@@ -193,7 +193,7 @@ function gotoStartGame() {
 
   <div v-if="fbStore.stage === 1">
     <p>
-      Привет!
+      Привет
     </p>
     <p>
       <input v-model="nickName"
@@ -203,6 +203,8 @@ function gotoStartGame() {
              placeholder="Сменить nickName">
     </p>
     <div class="red-notice">* можете поменять ваш Никнейм</div>
+
+
 
     <div v-if="pretendents && pretendents.length>1">
       <h3>Список желающих играть:</h3>
@@ -218,6 +220,8 @@ function gotoStartGame() {
     <br>
     <br>
   </div>
+
+
 
   <div v-if="fbStore.stage === 2">
     <p>Нахожусь в списке, жду кто выберет</p>
@@ -249,6 +253,12 @@ function gotoStartGame() {
     <div style="color: red; font-size: 20px"><b>{{myText}}</b></div>
   </div>
 
+  <div v-if="fbStore.stage && [1, 2,3,4].includes(fbStore.stage)">
+    <hr>
+    <br>
+    <div style="font-size: 30px; background: #ddd">{{fbStore.gameNames[fbStore.gameId]}}</div>
+    <br><br>
+  </div>
 
   <br><br>
 </template>

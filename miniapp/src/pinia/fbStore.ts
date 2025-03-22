@@ -5,6 +5,7 @@ import {get, set, onValue, ref, remove} from 'firebase/database'
 export const UsefbStore = defineStore('fbStore2', {
     state: () => ({
         gameId: '', // g1 - первая игра, g2 - вторая игра
+        gameNames:<any>{'g1':'Камень ножницы бумага','g2':'Крестики нолики', 'g3':'Морской бой'},
         myId: 0, // 261538035, //953446309,
         myName: '',
         opponentId: 0,
