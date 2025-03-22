@@ -3,6 +3,7 @@ import {ref, watch} from 'vue'
 import {UsefbStore} from "@/pinia/fbStore.ts";
 
 const {game} = defineProps<{ game?: string }>()
+const islocalhost = !location.host.includes('localhost')
 const fbStore = UsefbStore()
 const nickName = ref<string | null>(localStorage.getItem('myNickName'))
 const pretendents = ref<{ id: string; name: any; }[]>([])
@@ -103,11 +104,6 @@ function toAccept(bool: boolean) {
           name2: fbStore.myName,
           accept: true
         })
-        // .then(res => {
-        //   // let opp: any = {id: opponent.value.id, name: opponent.value.name}
-        //   // localStorage.setItem('Opponent', JSON.stringify(opp))
-        //   // console.log('res', res)
-        // })
   }
   if (!bool) {
     fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName}).then(() => fbStore.stage = 2)
@@ -116,6 +112,19 @@ function toAccept(bool: boolean) {
 
 function toReject() { // не дождался отклика, отменяю
   fbStore.setField('g1/look/' + opponent.value.id, {name: opponent.value.name}).then(() => fbStore.stage = 2)
+}
+
+function toExit() {
+//  fbStore.setField('g1/look/' + opponent.value.id, {name: opponent.value.name}).then(() => fbStore.stage = 2)
+  console.log('opponent', JSON.stringify(opponent.value))
+
+  let gameLink = String(opponent.value.id)
+  if (opponent.value.id > fbStore.myId) gameLink += '::' + fbStore.myId
+  else gameLink = fbStore.myId + '::' + gameLink
+
+  fbStore.removeField('g1/play/' + fbStore.myId)
+  fbStore.removeField('g1/play/' + opponent.value?.id)
+  fbStore.removeField('g1/game/' + gameLink)
 }
 
 function gotoStartGame() {
@@ -155,15 +164,22 @@ function gotoStartGame() {
 
 
 <template>
-  <hr>
-  <i>::::::: Связывание :::::::</i>
-  <br>
-  {{ fbStore.myId }} : {{ fbStore.myName }}
-  <br>
-  stage:{{ fbStore.stage }}
-  <hr>
-
+  <div v-if="islocalhost">
+    <hr>
+    <i>::::::: Связывание :::::::</i>
+    <br>
+    {{ fbStore.myId }} : {{ fbStore.myName }}
+    <br>
+    stage:{{ fbStore.stage }}
+    <hr>
+  </div>
   <!----------1---------->
+  <div style="position: absolute; right: 30px ;top: 35px;">
+    <button style="border-radius: 50%;font-size: larger"
+            @click="toExit()">
+      ❁
+    </button>
+  </div>
   <div v-if="fbStore.stage === 1">
     <p>
       Привет, {{ fbStore.nickName || fbStore.myName }} !
@@ -202,7 +218,7 @@ function gotoStartGame() {
   </div>
 
   <div v-if="fbStore.stage === 3">
-    <p> Выбрал  игрока <br><b>{{ opponent?.name }}</b> <br>жду пока не откликнится </p>
+    <p> Выбрал игрока <br><b>{{ opponent?.name }}</b> <br>жду пока не откликнится </p>
     <button @click="toReject()">Нет ответа, отменяю выбор</button>
   </div>
   <div v-if="fbStore.stage === 4 && opponent?.id">
