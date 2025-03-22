@@ -45,8 +45,8 @@ onMounted(() => {
     <br><br><br><br><br><br>
     <button class="green-bt" @click="sendChoise()">Свериться</button>
 
-    <br> <br>
-    << {{ contex }} >>
+    <br>
+    << <b style="font-size: 20px">{{ contex }} </b>>>
   </div>
 </template>
 
@@ -56,7 +56,7 @@ onMounted(() => {
   margin: 0;
   width: 100%;
   height: 100vh;
-  background: aliceblue;
+  background: pink;
   text-align: center;
 }
 
