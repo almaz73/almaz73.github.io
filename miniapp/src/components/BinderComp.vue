@@ -5,7 +5,7 @@ import ListGames from "@/components/ListGames.vue";
 import MenuButton from "@/components/MenuButton.vue";
 
 const {game} = defineProps<{ game?: string }>()
-const islocalhost = location.host.includes('localhost')
+const islocalhost = false//location.host.includes('localhost')
 const fbStore = UsefbStore()
 const nickName = ref<string | null>(localStorage.getItem('myNickName'))
 const pretendents = ref<{ id: string; name: any; }[]>([])
@@ -17,14 +17,18 @@ const setNikcname = function () {
   if (nickName.value) localStorage.setItem('myNickName', nickName.value)
 }
 
+
+
 function getMyGame() {
-  console.log('game = ', game)
-  fbStore.getField(game + '/play/' + fbStore.myId).then(res => {
+  if (!nickName.value) nickName.value = fbStore.myName
+  fbStore.getField( '/list/' + fbStore.myId).then(res => {
     if (res) {
       opponent.value = {id: res.id, name: res.name}
       fbStore.stage = 5
 
-      fbStore.getField(game + '/game/' + res.game).then(context => {
+      fbStore.getField( '/games/' + res.game).then(context => {
+        console.log('context', context)
+
         gameContent.value = context
       })
     }
@@ -78,7 +82,7 @@ function onValue_Look() {
 
 
 function goToReadyToPlay() {
-  fbStore.setField(fbStore.gameId+'/look/' + fbStore.myId, {name: nickName.value || fbStore.myName})
+  fbStore.setField(fbStore.gameId+'/look/' + fbStore.myId, {name: nickName.value})
 }
 
 function makeCouple(val: any) {
@@ -101,7 +105,6 @@ function makeCouple(val: any) {
 
 function toAccept(bool: boolean) {
   if (bool && opponent.value) {
-    alert()
     fbStore.setField(fbStore.gameId+'/look/' + opponent.value.id,
         {
           name: opponent.value.name,
@@ -118,16 +121,21 @@ function toAccept(bool: boolean) {
 function toReject() { // не дождался отклика, отменяю
   fbStore.setField(fbStore.gameId+'/look/' + opponent.value.id, {name: opponent.value.name}).then(() => fbStore.stage = 2)
 }
+function toRejectGame(){
+  // вернемся к странице с играми, никто не появляется среди желающих
+  fbStore.removeField(fbStore.gameId+'/look/' + fbStore.myId).then(() => fbStore.stage = 0)
+}
 
 function toExit() {
+  debugger
   myText.value = 'Хорошо бы сообщить сопернику, что вы ушли из игры'
   let gameLink = String(opponent.value.id)
   if (opponent.value.id > fbStore.myId) gameLink += '::' + fbStore.myId
   else gameLink = fbStore.myId + '::' + gameLink
 
-  fbStore.removeField(fbStore.gameId+'/play/' + fbStore.myId)
-  fbStore.removeField(fbStore.gameId+'/play/' + opponent.value?.id)
-  fbStore.removeField(fbStore.gameId+'/game/' + gameLink)
+  fbStore.removeField('/list/' + fbStore.myId)
+  fbStore.removeField('/list/' + opponent.value?.id)
+  fbStore.removeField('/games/' + gameLink)
 
   setTimeout(()=>location.reload(), 3000)
 }
@@ -141,20 +149,20 @@ function gotoStartGame() {
   console.log('gameLink', gameLink)
 
 
-  // переводим в список play / удаляем из лок
-  fbStore.setField(fbStore.gameId+'/play/' + fbStore.myId, {
+  // переводим в список list / удаляем из лок
+  fbStore.setField('/list/' + fbStore.myId, {
     id: opponent.value?.id,
     name: opponent.value?.name,
     game: gameLink,
     date
   })
-  fbStore.setField(fbStore.gameId+'/play/' + opponent.value?.id, {
+  fbStore.setField('/list/' + opponent.value?.id, {
     id: fbStore.myId,
     name: fbStore.myName,
     game: gameLink,
     date
   })
-  fbStore.setField(fbStore.gameId+'/game/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ'})
+  fbStore.setField('/games/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ', gameId: fbStore.gameId })
 
 
   setTimeout(() => {
@@ -212,6 +220,8 @@ function gotoStartGame() {
       <br><br>
     </div>
 
+
+
     <button class="red-bt" @click="goToReadyToPlay()">
       Зарегистрироваться в поиске
     </button>
@@ -219,18 +229,23 @@ function gotoStartGame() {
     <small>Нужно дать ссылку на бот другому игроку. И сообщить какую игру выбрать</small>
     <br>
     <br>
+
   </div>
 
 
 
   <div v-if="fbStore.stage === 2">
-    <p>Нахожусь в списке, жду кто выберет</p>
+    <p>Нахожусь в списке, жду соперника</p>
     <div v-if="pretendents.length">
       <h3>Список желающих играть:</h3>
       <button class="green-bt" v-for="el in pretendents" :key="el.id" @click="makeCouple(el)">{{ el.name }}</button>
       <br><br>
     </div>
     <div class="red-notice" v-if="isMySelf">* нельзя выбирать себя</div>
+
+    <br><br>
+    <button @click="toRejectGame()">Нет желающих, отменяю ожидание</button>
+    <br><br>
   </div>
 
   <div v-if="fbStore.stage === 3">
