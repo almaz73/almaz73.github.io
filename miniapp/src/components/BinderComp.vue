@@ -2,6 +2,7 @@
 import {ref, watch} from 'vue'
 import {UsefbStore} from "@/pinia/fbStore.ts";
 import ListGames from "@/components/ListGames.vue";
+import MenuButton from "@/components/MenuButton.vue";
 
 const {game} = defineProps<{ game?: string }>()
 const islocalhost = location.host.includes('localhost')
@@ -13,7 +14,6 @@ const isMySelf = ref<boolean>()
 const gameContent = ref('')
 const myText = ref('')
 const setNikcname = function () {
-  fbStore.nickName = nickName.value
   if (nickName.value) localStorage.setItem('myNickName', nickName.value)
 }
 
@@ -78,7 +78,7 @@ function onValue_Look() {
 
 
 function goToReadyToPlay() {
-  fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName})
+  fbStore.setField('g1/look/' + fbStore.myId, {name: nickName.value || fbStore.myName})
 }
 
 function makeCouple(val: any) {
@@ -90,7 +90,7 @@ function makeCouple(val: any) {
   fbStore.setField('g1/look/' + val.id, {
     name: val.name,
     id2: fbStore.myId,
-    name2: fbStore.nickName || fbStore.myName
+    name2: nickName.value || fbStore.myName
   }).then(res => {
     console.log('res', res)
     opponent.value = {id: val.id, name: val.name}
@@ -111,7 +111,7 @@ function toAccept(bool: boolean) {
         })
   }
   if (!bool) {
-    fbStore.setField('g1/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName}).then(() => fbStore.stage = 2)
+    fbStore.setField('g1/look/' + fbStore.myId, {name: nickName.value || fbStore.myName}).then(() => fbStore.stage = 2)
   }
 }
 
@@ -120,6 +120,7 @@ function toReject() { // не дождался отклика, отменяю
 }
 
 function toExit() {
+  myText.value = 'Хорошо бы сообщить сопернику, что вы ушли из игры'
   let gameLink = String(opponent.value.id)
   if (opponent.value.id > fbStore.myId) gameLink += '::' + fbStore.myId
   else gameLink = fbStore.myId + '::' + gameLink
@@ -127,8 +128,8 @@ function toExit() {
   fbStore.removeField('g1/play/' + fbStore.myId)
   fbStore.removeField('g1/play/' + opponent.value?.id)
   fbStore.removeField('g1/game/' + gameLink)
-  myText.value = 'Хорошо бы сообщить сопернику, что вы ушли из игры'
-  setTimeout(location.reload, 3000)
+
+  setTimeout(()=>location.reload(), 3000)
 }
 
 function gotoStartGame() {
@@ -172,14 +173,15 @@ function gotoStartGame() {
     <hr>
     <i>::::::: Связывание :::::::</i>
     <br>
-    {{ fbStore.myId }} : {{ fbStore.myName }}
+    {{ fbStore.myId }} : {{ nickName }}
     <br>
     stage:{{ fbStore.stage }}
     <hr>
   </div>
 
-  <div class="menuBt" v-if="fbStore.stage === 5">
-    <button @click="toExit()">❁</button>
+  <div v-if="fbStore.stage === 5">
+    <MenuButton @toExit="toExit()"/>
+
   </div>
 
   <!----------0---------->
@@ -244,7 +246,7 @@ function gotoStartGame() {
     Контекс игры:<br> {{ gameContent }}
     <br><br>
 
-    <div style="color: darkred; font-size: 20px"><b>myText</b></div>
+    <div style="color: red; font-size: 20px"><b>{{myText}}</b></div>
   </div>
 
 
