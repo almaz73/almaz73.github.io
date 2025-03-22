@@ -1,7 +1,18 @@
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {UsefbStore} from "@/pinia/fbStore.ts";
 
+const fbStore=UsefbStore()
 const element = ref(0)
+
+onMounted(()=>{
+  console.log(8888888888888)
+  fbStore.onValue(fbStore.gameId + '/games/'+fbStore.gameLink+'/game').then(res =>{
+    console.log('res = ', res)
+  })
+})
+
+
 </script>
 
 <template>

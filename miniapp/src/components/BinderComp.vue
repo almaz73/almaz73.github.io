@@ -25,10 +25,13 @@ function getMyGame() {
       opponent.value = {id: res.id, name: res.name}
       fbStore.stage = 5
 
-      fbStore.getField('/games/' + res.game).then(context => {
+      fbStore.gameLink = res.gameLink
+      fbStore.getField('/games/' + res.gameLink).then(context => {
         console.log('context', context)
         fbStore.gameId = context.gameId
         gameContent.value = context
+
+        openGame()
       })
     }
   })
@@ -125,6 +128,8 @@ function toRejectGame() {
   fbStore.removeField(fbStore.gameId + '/look/' + fbStore.myId).then(() => fbStore.stage = 0)
 }
 
+
+
 function toExit() {
   debugger
   myText.value = 'Хорошо бы сообщить сопернику, что вы ушли из игры'
@@ -152,13 +157,13 @@ function gotoStartGame() {
   fbStore.setField('/list/' + fbStore.myId, {
     id: opponent.value?.id,
     name: opponent.value?.name,
-    game: gameLink,
+    gameLink: gameLink,
     date
   })
   fbStore.setField('/list/' + opponent.value?.id, {
     id: fbStore.myId,
     name: nickName.value || fbStore.myName,
-    game: gameLink,
+    gameLink: gameLink,
     date
   })
   fbStore.setField('/games/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ', gameId: fbStore.gameId})

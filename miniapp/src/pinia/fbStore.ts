@@ -5,7 +5,7 @@ import {get, set, onValue, ref, remove} from 'firebase/database'
 export const UsefbStore = defineStore('fbStore2', {
     state: () => ({
         gameId: '', // g1 , g2
-        gameNames:<any>{'g1':'Камень ножницы бумага','g2':'Крестики нолики', 'g3':'Морской бой'},
+        gameNames: <any>{'g1': 'Камень ножницы бумага', 'g2': 'Крестики нолики', 'g3': 'Морской бой'},
         myId: 0,
         myName: '',
         opponentId: 0,
@@ -18,7 +18,8 @@ export const UsefbStore = defineStore('fbStore2', {
         // 5 - беру данные игры, если есть,
         // 6 - удалил игру,
         // 7 - выбираю между играми
-        playNumber: <number>0 // слушая его изменения, переключаемся на игру
+        playNumber: <number>0, // слушая его изменения, переключаемся на игру
+        gameLink: <string>''
     }),
 
     actions: {
@@ -51,14 +52,6 @@ export const UsefbStore = defineStore('fbStore2', {
                 this.lookField = snapshot.val()
             });
         },
-        // async onValue(field: string) {
-        //     const userRef =  ref(database, field);
-        //     onValue(userRef, (snapshot) => {
-        //         log(`########### ########## Данные ${field} на прослушке`);
-        //         console.log(`${field}=`, snapshot.val())
-        //         return await snapshot.val()
-        //     });
-        // },
         async removeField(field: string) {
             console.log(field)
             const userRef = ref(database, field);
