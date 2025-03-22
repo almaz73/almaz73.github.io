@@ -2,8 +2,8 @@
   <component :is="game"></component>
 
   <!--  игры-->
-  <!--  <button @click="setGame(1)">1</button>-->
-  <!--  <button @click="setGame(2)">2</button>-->
+<!--    <button @click="setGame(1)">1</button>-->
+<!--    <button @click="setGame(2)">2</button>-->
   <!--  <button @click="setGame(3)">3</button>-->
 
 
@@ -13,24 +13,33 @@
 
 
 <script setup>
-import {onMounted, shallowRef} from 'vue'
+import {onMounted, shallowRef, watch} from 'vue'
+import StartPage from "@/games/StartPage.vue";
+import StounScissorsPaper from "@/games/StounScissorsPaper.vue"
 import KrestikiNoliki from "@/games/KrestikiNoliki.vue";
-import RockPaperSScissors from "@/games/RockPaperSScissors.vue";
+import SeaWar from "@/games/SeaWar.vue"
 import {UsefbStore} from "@/pinia/fbStore.ts";
 
 const fbStore = UsefbStore()
-let game = shallowRef(RockPaperSScissors)
+let game = shallowRef(StartPage)
+watch(()=>fbStore.playNumber, res=>{
+  console.log('- - - - - - - res', res)
+  setGame (res)
+})
+
+
 
 function setGame(val) {
+  console.log(val)
   switch (val) {
     case 1:
-      game.value = FireBaseCheck;
+      game.value = StounScissorsPaper;
       break
     case 2:
       game.value = KrestikiNoliki;
       break
     case 3:
-      game.value = RockPaperSScissors;
+      game.value = SeaWar;
       break
   }
 }
@@ -47,8 +56,8 @@ onMounted(() => {
       fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя_' + parseInt(String(Math.random() * 100))
 
       if (location.host.includes('localhost')) {
-        fbStore.myId =261538035
-        // fbStore.myId =953446309
+        // fbStore.myId =261538035
+        fbStore.myId =953446309
         // fbStore.myId = 4444444
       }
     }, 500)

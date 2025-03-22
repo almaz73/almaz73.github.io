@@ -1,14 +1,9 @@
 <template>
   <div class="game">
     <h1>♕</h1>
-    <h2>
-
-      <!--      название игры -->
-    </h2>
     <div >
       <BinderComp :game="'g1'"/>
     </div>
-
   </div>
 </template>
 
@@ -28,9 +23,4 @@
 
 <script setup>
 import BinderComp from "@/components/BinderComp.vue";
-
-
-
-
-
 </script>

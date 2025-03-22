@@ -35,6 +35,10 @@ function toGame(val: number) {
     <!--     Шахматы-->
     <!--    </button>-->
     <br> <br>
-    Это бот для игр с соперником.
+    Необходимо будет попросить другого участника найти этот miniapp по имени:
+    <br> <br>
+    <b>iAmWaitingForYou</b>
+    <br> <br>
+    и договориться о выборе игры
   </div>
 </template>
