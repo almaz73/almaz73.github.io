@@ -115,13 +115,14 @@ function makeCouple(val: any) {
 
 function toAccept(bool: boolean) {
   if (bool && opponent.value) {
+
     fbStore.setField(fbStore.gameId + '/look/' + opponent.value.id,
         {
           name: opponent.value.name,
           id2: fbStore.myId,
           name2: nickName.value || fbStore.myName,
           accept: true
-        })
+        }).then(()=> fbStore.stage=-1)
   }
   if (!bool) {
     fbStore.setField(fbStore.gameId + '/look/' + fbStore.myId, {name: nickName.value || fbStore.myName}).then(() => fbStore.stage = 2)
@@ -281,8 +282,8 @@ function openGame() {
   <div v-if="fbStore.stage === 4 && opponent?.id">
     Вас выбрал игрок: <br><br><b>{{ opponent.name }}</b>
     <br><br>
-    <button class="green-bt" @click="toAccept(false)">Отказаться</button>
-    <button class="green-bt" @click="toAccept(true)">Согласиться</button>
+    <button class="red-bt" @click="toAccept(false)">Отказаться</button>
+    <button class="red-bt" @click="toAccept(true)">Согласиться</button>
   </div>
 
   <div v-if="fbStore.stage === 5 && opponent">

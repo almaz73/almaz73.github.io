@@ -22,5 +22,5 @@
 </style>
 
 <script setup>
-import BinderComp from "@/components/BinderComp.vue";
+import BinderComp from "@/components/__BinderComp.vue";
 </script>
