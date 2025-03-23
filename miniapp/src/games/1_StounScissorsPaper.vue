@@ -7,7 +7,9 @@ const element = ref<number>(0)
 const contex = ref<string | void>()
 const stage = ref<number>(1)
 const win = ref<number>(-1) // 0 : проигрыш / 1 : выигрыш / 2 : ничья
-
+const Thing = ['Камень', 'Ножницы', 'Бумага']
+let oppNumber: number
+let myNumber: number
 
 watch(() => fbStore.lookField, res => ANALIZ(res))
 
@@ -18,20 +20,20 @@ function ANALIZ(res: any) {
   contex.value = res
 
   if (len === 2) {
-    let oppNumber = res[fbStore.opponentId]
-    let myNumber = res[fbStore.myId]
+    oppNumber = +res[fbStore.opponentId]
+    myNumber = +res[fbStore.myId]
 
     let together = myNumber + '' + oppNumber
 
     switch (together) {
-      case '12':
-      case '23':
-      case '31':
-        win.value = 0;
-        break
       case '21':
       case '32':
       case '13':
+        win.value = 0;
+        break
+      case '12':
+      case '23':
+      case '31':
         win.value = 1;
         break
       case '22':
@@ -112,6 +114,12 @@ onMounted(() => {
         <br><br>
       </div>
 
+
+      <div>
+        Вы выбрали {{ Thing[myNumber] }}<br>
+        Соперник {{ Thing[oppNumber] }}
+      </div>
+
       <br><br>
       <br><br>
       <button @click="save()"> Еще играть</button>
@@ -120,11 +128,15 @@ onMounted(() => {
     <br><br>
     <h2>Общий счет за все время</h2>
     <div class="scoreTable">
-      <div>{{ fbStore.opponentName }}
+      <div>
+        <small> Соперник </small><br>
+        {{ fbStore.opponentName }}
         <br>
         {{ fbStore.scoreOpp }}
       </div>
-      <div>{{ fbStore.myName }}
+      <div>
+        <small>Вы</small> <br>
+        {{ fbStore.myName }}
         <br>
         {{ fbStore.scoreMy }}
       </div>
@@ -136,7 +148,7 @@ onMounted(() => {
 <style scoped>
 .rama {
   height: 100vh;
-  background: pink;
+  background: white;
   text-align: center;
 }
 

@@ -21,8 +21,8 @@ export const UsefbStore = defineStore('fbStore2', {
         playNumber: <number>0, // слушая его изменения, переключаемся на игру
         gameLink: <string>'',
         myPlaceInLine: <number>-1, // -1 не определен, 0 на первом месте, 1 на втором месте
-        scoreMy: <number>0,
-        scoreOpp: <number>0,
+        scoreMy: <number>-100,
+        scoreOpp: <number>-100,
     }),
 
     actions: {
@@ -60,12 +60,12 @@ export const UsefbStore = defineStore('fbStore2', {
                 if (typeof ans === 'string') {
                     let scores = ans.split('::')
                     if (this.myPlaceInLine == 0) {
-                        this.scoreMy = scores[0]
-                        this.scoreOpp = scores[1]
+                        this.scoreMy = +scores[0]
+                        this.scoreOpp = +scores[1]
                     }
                     if (this.myPlaceInLine == 1) {
-                        this.scoreMy = scores[1]
-                        this.scoreOpp = scores[0]
+                        this.scoreMy = +scores[1]
+                        this.scoreOpp = +scores[0]
                     }
                 } else {
                     this.lookField = snapshot.val()
