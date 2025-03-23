@@ -20,21 +20,22 @@ const setNikcname = function () {
 
 function getMyGame() {
   if (!nickName.value) nickName.value = fbStore.myName
-  console.log(2323)
   fbStore.getField('/list/' + fbStore.myId).then(res => {
     if (res) {
+      fbStore.opponentName = res.name
+      fbStore.opponentId = res.id
       if (res === 'empty') {
         fbStore.stage = 0
-                            // fbStore.stage = 5
-                            // fbStore.gameId = 'g1'
-                            // openGame()
+        // fbStore.stage = 5
+        // fbStore.gameId = 'g1'
+        // openGame()
         return false
       }
 
       opponent.value = {id: res.id, name: res.name}
+      fbStore.myPlaceInLine = fbStore.myId > opponent.value.id ? 0 : 1
 
       fbStore.getField('/games/' + res.gameLink).then(context => {
-        console.log('context', context)
         fbStore.gameId = context.gameId
         gameContent.value = context
 
@@ -56,16 +57,15 @@ const ANALIZ = function (res: any) {
 
   let exist = false
   res && Object.keys(res).forEach(el => {
+    if (res[el].id2 && res[el].id2 === fbStore.myId) opponent.value = {id: el, name: res[el].name}
+    if (el === String(fbStore.myId) && res[el].id2) opponent.value = {id: res[el].id2, name: res[el].name2}
+
     if (res[el].accept) {
       fbStore.stage = -1
       gotoStartGame()
       return false
     }
 
-    console.log(' $$$$$$ res', res)
-
-    if (res[el].id2 && res[el].id2 === fbStore.myId) opponent.value = {id: el, name: res[el].name}
-    if (el === String(fbStore.myId)) opponent.value = {id: res[el].id2, name: res[el].name2}
     if (fbStore.stage > 3) return false
     if (el === String(fbStore.myId) && el) {
       exist = true
@@ -77,10 +77,6 @@ const ANALIZ = function (res: any) {
     if (res[el].id2 == fbStore.myId) {
       exist = true
       fbStore.stage = 3
-    }
-    if (fbStore.stage > 2 && !exist) {
-      // location.reload()
-      console.log('RELOAD')
     }
 
     if (el && res[el]) pretendents.value.push({id: el, name: res[el].name})
@@ -118,8 +114,7 @@ function makeCouple(val: any) {
     name: val.name,
     id2: fbStore.myId,
     name2: nickName.value || fbStore.myName
-  }).then(res => {
-    console.log('res', res)
+  }).then(() => {
     opponent.value = {id: val.id, name: val.name}
     fbStore.stage = 3
   })
@@ -135,7 +130,7 @@ function toAccept(bool: boolean) {
           id2: fbStore.myId,
           name2: nickName.value || fbStore.myName,
           accept: true
-        }).then(()=> fbStore.stage=-1)
+        }).then(() => fbStore.stage = -1)
   }
   if (!bool) {
     fbStore.setField(fbStore.gameId + '/look/' + fbStore.myId, {name: nickName.value || fbStore.myName}).then(() => fbStore.stage = 2)
@@ -150,7 +145,6 @@ function toRejectGame() {
   // вернемся к странице с играми, никто не появляется среди желающих
   fbStore.removeField(fbStore.gameId + '/look/' + fbStore.myId).then(() => fbStore.stage = 0)
 }
-
 
 
 function toExit() {
@@ -168,26 +162,20 @@ function toExit() {
 }
 
 function gotoStartGame() {
-  let date = Date.now()
   let gameLink = String(opponent.value.id)
   if (opponent.value.id > fbStore.myId) gameLink += '::' + fbStore.myId
   else gameLink = fbStore.myId + '::' + gameLink
-
-  console.log('gameLink', gameLink)
-
 
   // переводим в список list / удаляем из лок
   fbStore.setField('/list/' + fbStore.myId, {
     id: opponent.value?.id,
     name: opponent.value?.name,
     gameLink: gameLink,
-    date
   })
   fbStore.setField('/list/' + opponent.value?.id, {
     id: fbStore.myId,
     name: nickName.value || fbStore.myName,
     gameLink: gameLink,
-    date
   })
   fbStore.setField('/games/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ', gameId: fbStore.gameId})
 
@@ -231,7 +219,6 @@ function openGame() {
     <img alt="...загрузка" src="@/assets/waiter.gif">
     <br><br>
     <br><br>
-<!--    <button @click="fbStore.stage=0">Вперед</button>-->
     <br><br>
   </div>
   <!----------0---------->
@@ -289,8 +276,14 @@ function openGame() {
   </div>
 
   <div v-if="fbStore.stage === 3">
-    <p> Выбрал игрока <br><b>{{ opponent?.name }}</b> <br>жду пока не откликнится </p>
-    <button @click="toReject()">Нет ответа, отменяю выбор</button>
+    <p> Выбрал игрока </p>
+    <div style="font-size: 30px">
+      <b>{{ opponent?.name }}</b>
+    </div>
+    <br>жду его согласия
+    <br><br><br><br>
+
+    <button @click="toReject()">Нет согласия, отменяю выбор</button>
   </div>
   <div v-if="fbStore.stage === 4 && opponent?.id">
     Вас выбрал игрок: <br><br><b>{{ opponent.name }}</b>

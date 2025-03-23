@@ -27,7 +27,6 @@ watch(()=>fbStore.playNumber, res=>setGame (res))
 
 
 function setGame(val) {
-  console.log(val)
   switch (val) {
     case 1:
       game.value = StounScissorsPaper;

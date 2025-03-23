@@ -19,7 +19,10 @@ export const UsefbStore = defineStore('fbStore2', {
         // 6 - удалил игру,
         // 7 - выбираю между играми
         playNumber: <number>0, // слушая его изменения, переключаемся на игру
-        gameLink: <string>''
+        gameLink: <string>'',
+        myPlaceInLine: <number>-1, // -1 не определен, 0 на первом месте, 1 на втором месте
+        scoreMy: <number>0,
+        scoreOpp: <number>0,
     }),
 
     actions: {
@@ -38,7 +41,7 @@ export const UsefbStore = defineStore('fbStore2', {
                 }
             })
         },
-        async setField(field: string, obj: object) {
+        async setField(field: string, obj: object | number | string) {
             const userRef = ref(database, field);
             return set(userRef, obj).then(() => {
                 log(field + " -  данные записаны");
@@ -50,7 +53,23 @@ export const UsefbStore = defineStore('fbStore2', {
             const userRef = ref(database, field);
             onValue(userRef, (snapshot) => {
                 log(`########### ########## Данные ${field} на прослушке`);
-                this.lookField = snapshot.val()
+                // console.log('??? snapshot.val()', snapshot.val())
+
+                let ans = snapshot.val()
+
+                if (typeof ans === 'string') {
+                    let scores = ans.split('::')
+                    if (this.myPlaceInLine == 0) {
+                        this.scoreMy = scores[0]
+                        this.scoreOpp = scores[1]
+                    }
+                    if (this.myPlaceInLine == 1) {
+                        this.scoreMy = scores[1]
+                        this.scoreOpp = scores[0]
+                    }
+                } else {
+                    this.lookField = snapshot.val()
+                }
             });
         },
         async removeField(field: string) {
