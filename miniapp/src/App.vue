@@ -15,17 +15,14 @@
 <script setup>
 import {onMounted, shallowRef, watch} from 'vue'
 import StartPage from "@/games/StartPage.vue";
-import StounScissorsPaper from "@/games/StounScissorsPaper.vue"
-import KrestikiNoliki from "@/games/KrestikiNoliki.vue";
-import SeaWar from "@/games/SeaWar.vue"
+import StounScissorsPaper from "@/games/1_StounScissorsPaper.vue"
+import KrestikiNoliki from "@/games/2_KrestikiNoliki.vue";
+import SeaWar from "@/games/3_SeaWar.vue"
 import {UsefbStore} from "@/pinia/fbStore.ts";
 
 const fbStore = UsefbStore()
 let game = shallowRef(StartPage)
-watch(()=>fbStore.playNumber, res=>{
-  console.log('- - - - - - - res', res)
-  setGame (res)
-})
+watch(()=>fbStore.playNumber, res=>setGame (res))
 
 
 

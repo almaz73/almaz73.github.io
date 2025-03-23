@@ -52,9 +52,6 @@ onMounted(() => {
 
 <style scoped>
 .rama {
-  padding: 0;
-  margin: 0;
-  width: 100%;
   height: 100vh;
   background: pink;
   text-align: center;

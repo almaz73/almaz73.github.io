@@ -20,8 +20,17 @@ const setNikcname = function () {
 
 function getMyGame() {
   if (!nickName.value) nickName.value = fbStore.myName
+  console.log(2323)
   fbStore.getField('/list/' + fbStore.myId).then(res => {
     if (res) {
+      if (res === 'empty') {
+        fbStore.stage = 0
+                            // fbStore.stage = 5
+                            // fbStore.gameId = 'g1'
+                            // openGame()
+        return false
+      }
+
       opponent.value = {id: res.id, name: res.name}
 
       fbStore.getField('/games/' + res.gameLink).then(context => {
@@ -205,9 +214,10 @@ function openGame() {
     <br><br>
     <br><br>
     ИГРАЙТЕ ВДВОЕМ
+    <img alt="...загрузка" src="@/assets/waiter.gif">
     <br><br>
     <br><br>
-    <button @click="fbStore.stage=0">Вперед</button>
+<!--    <button @click="fbStore.stage=0">Вперед</button>-->
     <br><br>
   </div>
   <!----------0---------->

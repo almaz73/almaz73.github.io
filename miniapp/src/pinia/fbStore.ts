@@ -34,6 +34,7 @@ export const UsefbStore = defineStore('fbStore2', {
                     return data
                 } else {
                     log(field + " : данные не найдены");
+                    return 'empty'
                 }
             })
         },
