@@ -51,9 +51,19 @@ const ANALIZ = function (res: any) {
 
   pretendents.value = []
   if (fbStore.stage === 0) return false
-  fbStore.stage = 1
+
+  if (res) fbStore.stage = 1
+
   let exist = false
   res && Object.keys(res).forEach(el => {
+    if (res[el].accept) {
+      fbStore.stage = -1
+      gotoStartGame()
+      return false
+    }
+
+    console.log(' $$$$$$ res', res)
+
     if (res[el].id2 && res[el].id2 === fbStore.myId) opponent.value = {id: el, name: res[el].name}
     if (el === String(fbStore.myId)) opponent.value = {id: res[el].id2, name: res[el].name2}
     if (fbStore.stage > 3) return false
@@ -68,8 +78,11 @@ const ANALIZ = function (res: any) {
       exist = true
       fbStore.stage = 3
     }
-    if (fbStore.stage > 2 && !exist) location.reload()
-    if (res[el].accept) gotoStartGame()
+    if (fbStore.stage > 2 && !exist) {
+      // location.reload()
+      console.log('RELOAD')
+    }
+
     if (el && res[el]) pretendents.value.push({id: el, name: res[el].name})
   })
 }
