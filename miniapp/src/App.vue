@@ -52,8 +52,8 @@ onMounted(() => {
       fbStore.myName = fbStore.nickName || fbStore.myName || 'Имя_' + parseInt(String(Math.random() * 100))
 
       if (location.host.includes('localhost')) {
-        // fbStore.myId =261538035
-        fbStore.myId =953446309
+        fbStore.myId =261538035
+        // fbStore.myId =953446309
         // fbStore.myId = 4444444
       }
     }, 500)

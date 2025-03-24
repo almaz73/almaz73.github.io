@@ -16,11 +16,21 @@ const alertTx = ref('* можете поменять ваш Никнейм')
 const setNikcname = function () {
   if (nickName.value) localStorage.setItem('myNickName', nickName.value)
 }
+const isleftOpp = ref<string>('')
 
 
 function getMyGame() {
   if (!nickName.value) nickName.value = fbStore.myName
   fbStore.getField('/list/' + fbStore.myId).then(res => {
+    console.log('res', res)
+
+    if (res.left) {
+      fbStore.stage = 4
+      isleftOpp.value = res.left
+      return false
+    }
+
+
     if (res) {
       fbStore.opponentName = res.name
       fbStore.opponentId = res.id
@@ -36,6 +46,8 @@ function getMyGame() {
       fbStore.myPlaceInLine = fbStore.myId > opponent.value.id ? 0 : 1
 
       fbStore.getField('/games/' + res.gameLink).then(context => {
+
+
         fbStore.gameId = context.gameId
         gameContent.value = context
 
@@ -189,7 +201,13 @@ function gotoStartGame() {
 
 }
 
+function exitToo() {
+  fbStore.removeField('/list/' + fbStore.myId)
+  setTimeout(() => location.reload(), 1000)
+}
+
 function openGame() {
+
   fbStore.playNumber = +fbStore.gameId.slice(1)
 }
 
@@ -296,8 +314,6 @@ function openGame() {
     <h3>Играем</h3>
     с игроком <br><br>
     <div style="font-size: 30px"><b>{{ opponent.name }}</b></div>
-    <!--      <br><br>-->
-    <!--    Контекс игры:<br> {{ gameContent }}-->
     <br><br>
 
     <div style="color: red; font-size: 20px"><b>{{ myText }}</b></div>
@@ -310,8 +326,13 @@ function openGame() {
     <br><br>
   </div>
 
-  <div v-if="fbStore.stage === 5">
+  <div v-if="fbStore.stage === 5 && !isleftOpp">
     <button @click="openGame()">Играть</button>
+  </div>
+  <div v-if="isleftOpp">
+    Ваш соперник <br><b>{{ isleftOpp }} </b><br>покинул игру.
+    <br><br>
+    <button @click="exitToo()">Ок</button>
   </div>
 
   <br><br>

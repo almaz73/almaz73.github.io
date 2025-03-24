@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {onMounted, ref, watch} from "vue";
 import {UsefbStore} from "@/pinia/fbStore.ts";
+import {toExit} from '@/components/globalFunctions.ts'
 
 const fbStore = UsefbStore()
 const element = ref<number>(0)
@@ -11,6 +12,7 @@ const Thing = ['','Камень', 'Ножницы', 'Бумага']
 let oppNumber: number
 let myNumber: number
 let isReady = ref<boolean>(false)
+const isExit = ref<boolean>(false)
 
 watch(() => fbStore.lookField, res => ANALIZ(res))
 
@@ -122,7 +124,6 @@ onMounted(() => {
         <br><br>
       </div>
 
-
       <div>
         <br>
         Вы выбрали  - {{ Thing[myNumber] }}<br>
@@ -149,6 +150,13 @@ onMounted(() => {
         <div style="font-size: 25px">{{ fbStore.scoreMy }}</div>
       </div>
     </div>
+
+
+    <br><br>
+    <a @click="isExit=!isExit"> выйти </a>
+    <button v-if="isExit" @click="toExit()">
+      Подтвердите, если действительно хотите уйти из игры
+    </button>
 
   </div>
 </template>
