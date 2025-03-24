@@ -7,14 +7,17 @@ const element = ref<number>(0)
 const contex = ref<string | void>()
 const stage = ref<number>(1)
 const win = ref<number>(-1) // 0 : проигрыш / 1 : выигрыш / 2 : ничья
-const Thing = ['Камень', 'Ножницы', 'Бумага']
+const Thing = ['','Камень', 'Ножницы', 'Бумага']
 let oppNumber: number
 let myNumber: number
+let isReady = ref<boolean>(false)
 
 watch(() => fbStore.lookField, res => ANALIZ(res))
 
 function ANALIZ(res: any) {
-  console.log('--- res', res)
+  console.log('-=-- res', res)
+
+  if (!res)  clear()
 
   let len = res && Object.keys(res).length
   contex.value = res
@@ -46,13 +49,14 @@ function ANALIZ(res: any) {
   }
 }
 
-function sendChoise() {
+function save() {
   fbStore.setField('/games/' + fbStore.gameLink + '/game/' + fbStore.myId, element.value).then(res => {
     console.log('!!! res', res)
+    isReady.value = true
   })
 }
 
-function save() {
+function next() {
   if (win.value === 0) fbStore.scoreOpp++
   if (win.value === 1) fbStore.scoreMy++
 
@@ -63,8 +67,12 @@ function save() {
     fbStore.setField('/scores/' + fbStore.gameLink, result)
   }
   fbStore.removeField('/games/' + fbStore.gameLink + '/game')
+  clear()
+}
+function clear() {
   stage.value = 1
   element.value = 0
+  isReady.value = false
 }
 
 onMounted(() => {
@@ -82,27 +90,27 @@ onMounted(() => {
     <br><br>
 
     <div v-if="stage === 1">
-      Выбери:
-      <br><br><br>
+      <br>
       <button :class="{active:element===1}" @click="element=1">Камень</button>
       <br><br>
       <button :class="{active:element===2}" @click="element=2">Ножницы</button>
       <br><br>
       <button :class="{active:element===3}" @click="element=3">Бумага</button>
-      <br><br><br><br><br><br>
-      <button class="green-bt" :disabled="!element" @click="sendChoise()">Сохранить</button>
-
-      <br>
+      <br><br><br><br>
+      <button class="green-bt" :disabled="!element || isReady" @click="save()">
+        {{ isReady ? 'Выбор сделан' : 'Сохранить' }}
+      </button> <br>
+        {{ isReady ? 'ждем ход соперника' : ''}}
     </div>
     <div v-if="stage === 2">
-      <div v-if="win===0" style="background: #fdd">
+      <div v-if="win===0" style="background: #fdd; border-radius: 100px; border: 3px solid red">
         <br><br>
         <h3>Выиграл соперник:</h3>
         <p style="font-size: 30px">{{ fbStore.opponentName }}</p>
         <br><br>
       </div>
 
-      <div v-if="win===1" style="background: #dfd">
+      <div v-if="win===1" style="background: #dfd; border-radius: 100px; border: 3px solid green" >
         <br><br>
         <h1>Вы выиграли !!!</h1>
         <br><br>
@@ -116,29 +124,29 @@ onMounted(() => {
 
 
       <div>
-        Вы выбрали {{ Thing[myNumber] }}<br>
-        Соперник {{ Thing[oppNumber] }}
+        <br>
+        Вы выбрали  - {{ Thing[myNumber] }}<br>
+        Соперник  - {{ Thing[oppNumber] }}
       </div>
 
       <br><br>
       <br><br>
-      <button @click="save()"> Еще играть</button>
+      <button @click="next()"> Еще играть</button>
     </div>
 
     <br><br>
-    <h2>Общий счет за все время</h2>
     <div class="scoreTable">
       <div>
         <small> Соперник </small><br>
-        {{ fbStore.opponentName }}
+       <b> {{ fbStore.opponentName }}</b>
         <br>
-        {{ fbStore.scoreOpp }}
+        <div style="font-size: 25px">{{ fbStore.scoreOpp }}</div>
       </div>
       <div>
         <small>Вы</small> <br>
-        {{ fbStore.myName }}
+        <b>{{ fbStore.myName }}</b>
         <br>
-        {{ fbStore.scoreMy }}
+        <div style="font-size: 25px">{{ fbStore.scoreMy }}</div>
       </div>
     </div>
 
@@ -158,14 +166,13 @@ button.active {
 }
 
 .scoreTable {
-  border: 8px double #999;
+  border: 8px double #ddd;
   display: flex;
-  font-size: 18px;
   justify-content: space-around;
-  padding: 12px;
+  border-radius: 60px;
 
   div {
-    margin: 12px 0;
+    margin: 4px 0;
     line-height: 32px;
   }
 }
