@@ -4,252 +4,74 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="set site">
+    <list default="true" id="cbb58f4f-3633-47d0-a051-f6033237350e" name="Changes" comment="berries">
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniapp/src/components/__BinderComp.vue" beforeDir="false" afterPath="$PROJECT_DIR$/miniapp/src/components/__BinderComp.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniapp/src/components/globalFunctions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/miniapp/src/components/globalFunctions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniapp/src/pinia/fbStore.ts" beforeDir="false" afterPath="$PROJECT_DIR$/miniapp/src/pinia/fbStore.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/voting/js.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/voting/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="8" lean-forward="true" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;almaz73&quot;
-  }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/almaz73/almaz73.github.io.git&quot;,
-    &quot;accountId&quot;: &quot;450bc1fb-0d83-4b07-9d92-da516ea6938c&quot;
-  }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2Sj2U0IVYJZopgTgxSO5vpPSgWv" />
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
-  </component>
+  <component name="ProjectId" id="2vkrhYOMBlyWVHbewrDcQFvsvl2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/PROJECTS/almaz73.github.io/miniapp",
-    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "C:\\PROJECTS\\almaz73.github.io\\miniapp\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\project\almaz73.github.io\doctorem\img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\project\almaz73.github.io\doctorem" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-python-sdk-a5bc9544c897-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.23654.177" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="19eaaaf6-c48f-4af8-a645-905cb0a18d3a" name="Default Changelist" comment="" />
-      <created>1581422971318</created>
+      <changelist id="cbb58f4f-3633-47d0-a051-f6033237350e" name="Changes" comment="" />
+      <created>1744700032565</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1581422971318</updated>
-      <workItem from="1581422972860" duration="857000" />
-      <workItem from="1689645704487" duration="8398000" />
-      <workItem from="1689738325776" duration="5317000" />
-      <workItem from="1690460724960" duration="379000" />
-      <workItem from="1690610149535" duration="305000" />
-      <workItem from="1690621714739" duration="919000" />
-      <workItem from="1690633281882" duration="53000" />
-      <workItem from="1742188033467" duration="65000" />
+      <updated>1744700032565</updated>
+      <workItem from="1744700033648" duration="1593000" />
     </task>
-    <task id="LOCAL-00001" summary="doctorem_example2">
-      <created>1689588755880</created>
+    <task id="LOCAL-00001" summary="berries">
+      <created>1744700289055</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1689588755880</updated>
+      <updated>1744700289055</updated>
     </task>
-    <task id="LOCAL-00002" summary="3">
-      <created>1689610159008</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1689610159008</updated>
-    </task>
-    <task id="LOCAL-00003" summary="4">
-      <created>1689610426505</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1689610426505</updated>
-    </task>
-    <task id="LOCAL-00004" summary="5">
-      <created>1689651805075</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1689651805075</updated>
-    </task>
-    <task id="LOCAL-00005" summary="6">
-      <created>1689651872752</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1689651872752</updated>
-    </task>
-    <task id="LOCAL-00006" summary="7">
-      <created>1689746165157</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1689746165157</updated>
-    </task>
-    <task id="LOCAL-00007" summary="7">
-      <created>1690610380792</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1690610380792</updated>
-    </task>
-    <task id="LOCAL-00008" summary="8">
-      <created>1690621957615</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1690621957615</updated>
-    </task>
-    <task id="LOCAL-00009" summary="clean">
-      <option name="closed" value="true" />
-      <created>1739599040935</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1739599040935</updated>
-    </task>
-    <task id="LOCAL-00010" summary="set site">
-      <option name="closed" value="true" />
-      <created>1739603524625</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1739603524625</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19509594" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="doctorem_example2" />
-    <MESSAGE value="3" />
-    <MESSAGE value="4" />
-    <MESSAGE value="5" />
-    <MESSAGE value="6" />
-    <MESSAGE value="7" />
-    <MESSAGE value="8" />
-    <MESSAGE value="clean" />
-    <MESSAGE value="set site" />
-    <option name="LAST_COMMIT_MESSAGE" value="set site" />
+    <MESSAGE value="berries" />
+    <option name="LAST_COMMIT_MESSAGE" value="berries" />
   </component>
 </project>

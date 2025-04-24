@@ -61,3 +61,15 @@ function saveTextToDatabase(page) {
         })
         .catch((error) => console.error('Ошибка при сохранении: ', error));
 }
+
+
+function sound(){
+    let text = document.querySelector('h2').textContent
+
+    const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
+    utterance.lang = "ru";           // аббревиатура языка
+    utterance.volume = 1;          // громкость
+    utterance.rate = 2;            // скорость
+    utterance.pitch = 5;           // высота
+    window.speechSynthesis.speak(utterance);
+}

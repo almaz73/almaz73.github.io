@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>brownie</title>
+	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+	<script src="script.js"></script>
     <style>
         body {
             background:rgb(183, 142, 107) ;
@@ -49,6 +52,7 @@
         <br>
         сливочное масло
 	</h2>
+	<a title="прочитать вслух" onclick="sound()" style="cursor: pointer">📣</a>&nbsp;
 	<br>
 	<h1>цена: 25 dreamcoins</h1>
 	<br>
@@ -61,18 +65,6 @@
 		вернуться на главную
 	</a>
 	<br><br>
-	<script>
-		function sound(){
-			let text = document.querySelector('h2').textContent
-	
-			const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
-			utterance.lang = "ru";           // аббревиатура языка
-			utterance.volume = 1;          // громкость
-			utterance.rate = 1;            // скорость
-			utterance.pitch = 3;           // высота
-			window.speechSynthesis.speak(utterance);
-		}
-	</script>
 	 
 </body>
 </html>

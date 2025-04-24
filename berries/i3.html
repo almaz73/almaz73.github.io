@@ -46,6 +46,7 @@
     <br>
     клубничный сироп
 </h2>
+<a title="прочитать вслух" onclick="sound()" style="cursor: pointer">📣</a>&nbsp;
 <br>
 <h1>цена: 120 dreamcoins</h1>
 <br>
@@ -65,18 +66,7 @@
 <br>
 <button onclick="saveTextToDatabase('i3')" style="padding: 8px; background: yellow; border-radius: 7px">Сохранить</button>
 <br><br>
-<script>
-	function sound(){
-		let text = document.querySelector('h2').textContent
 
-		const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
-		utterance.lang = "ru";           // аббревиатура языка
-		utterance.volume = 1;          // громкость
-		utterance.rate = 1;            // скорость
-		utterance.pitch = 3;           // высота
-		window.speechSynthesis.speak(utterance);
-	}
-</script>
  
 
 </body>

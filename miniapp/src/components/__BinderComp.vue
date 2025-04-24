@@ -6,7 +6,6 @@ import MenuButton from "@/components/MenuButton.vue";
 
 const islocalhost = false//location.host.includes('localhost')
 const fbStore = UsefbStore()
-const nickName = ref<string>(localStorage.getItem('myNickName') || 'nick')
 const pretendents = ref<{ id: string; name: any; }[]>([])
 const opponent = ref<any>() //{ id: number | null, name: string | undefined }
 const isMySelf = ref<boolean>()
@@ -14,13 +13,14 @@ const gameContent = ref('')
 const myText = ref('')
 const alertTx = ref('* можете поменять ваш Никнейм')
 const setNikcname = function () {
-  if (nickName.value) localStorage.setItem('myNickName', nickName.value)
+  if (fbStore.nickName) localStorage.setItem('myNickName', fbStore.nickName)
 }
 const isleftOpp = ref<string>('')
 
+fbStore.nickName = localStorage.getItem('myNickName') || 'nick'
 
 function getMyGame() {
-  if (!nickName.value) nickName.value = fbStore.myName
+  if (!fbStore.nickName) fbStore.nickName = fbStore.myName
   fbStore.getField('/list/' + fbStore.myId).then(res => {
     console.log('res', res)
 
@@ -109,11 +109,11 @@ function onValue_Look() {
 
 
 function goToReadyToPlay() {
-  if (nickName.value.length < 2) {
+  if (fbStore.nickName.length < 2) {
     alertTx.value = '* nickname не может быть меньше 2 букв'
     return false
   }
-  fbStore.setField(fbStore.gameId + '/look/' + fbStore.myId, {name: nickName.value})
+  fbStore.setField(fbStore.gameId + '/look/' + fbStore.myId, {name: fbStore.nickName})
 }
 
 function makeCouple(val: any) {
@@ -125,7 +125,7 @@ function makeCouple(val: any) {
   fbStore.setField(fbStore.gameId + '/look/' + val.id, {
     name: val.name,
     id2: fbStore.myId,
-    name2: nickName.value || fbStore.myName
+    name2: fbStore.nickName || fbStore.myName
   }).then(() => {
     opponent.value = {id: val.id, name: val.name}
     fbStore.stage = 3
@@ -140,12 +140,12 @@ function toAccept(bool: boolean) {
         {
           name: opponent.value.name,
           id2: fbStore.myId,
-          name2: nickName.value || fbStore.myName,
+          name2: fbStore.nickName || fbStore.myName,
           accept: true
         }).then(() => fbStore.stage = -1)
   }
   if (!bool) {
-    fbStore.setField(fbStore.gameId + '/look/' + fbStore.myId, {name: nickName.value || fbStore.myName}).then(() => fbStore.stage = 2)
+    fbStore.setField(fbStore.gameId + '/look/' + fbStore.myId, {name: fbStore.nickName || fbStore.myName}).then(() => fbStore.stage = 2)
   }
 }
 
@@ -186,7 +186,7 @@ function gotoStartGame() {
   })
   fbStore.setField('/list/' + opponent.value?.id, {
     id: fbStore.myId,
-    name: nickName.value || fbStore.myName,
+    name: fbStore.nickName || fbStore.myName,
     gameLink: gameLink,
   })
   fbStore.setField('/games/' + gameLink, {game: 'ВСЕ НАСТРОЙКИ ИГРЫ', gameId: fbStore.gameId})
@@ -251,7 +251,7 @@ function openGame() {
       Привет
     </p>
     <p>
-      <input v-model="nickName"
+      <input v-model="fbStore.nickName"
              maxlength="16"
              minlength="3"
              style="font-size: larger; padding: 4px; text-align: center"
@@ -314,7 +314,7 @@ function openGame() {
     <h3>Играем</h3>
     с игроком <br><br>
     <div style="font-size: 30px"><b>{{ opponent.name }}</b></div>
-    <br><br>
+     <br><br>
 
     <div style="color: red; font-size: 20px"><b>{{ myText }}</b></div>
   </div>

@@ -6,6 +6,9 @@
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>berry</title>
+	 <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+	 <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+	 <script src="script.js"></script>
      <style>
          body {
             background:rgb(183, 142, 107) ;
@@ -57,18 +60,5 @@
 	</a>
 	<br><br>
  </body>
-
-<script>
-	function sound(){
-		let text = document.querySelector('h2').textContent
-
-		const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
-		utterance.lang = "ru";           // аббревиатура языка
-		utterance.volume = 1;          // громкость
-		utterance.rate = 1;            // скорость
-		utterance.pitch = 3;           // высота
-		window.speechSynthesis.speak(utterance);
-	}
-</script>
  
  </html>
