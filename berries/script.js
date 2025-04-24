@@ -20,39 +20,41 @@ const database = firebase.database();
 
 
 function readTextsFromDatabase(page) {
+    let admin = location.search.includes('admin') // секретное слово
+
     const textRef = database.ref('berry/'+page); // создаем ссылку для подключения к БД
-
     let forMessages =  document.querySelector('#forMessages')
-    console.log('forMessages = ',forMessages)
-
 
     textRef.on('value', (snapshot) => {
         const texts = snapshot.val();
-        console.log('Все сохраненные тексты:', texts);
         if(forMessages) forMessages.innerHTML = ''
         // Можно обработать и отобразить тексты на странице
         for (const key in texts) {
             if (texts.hasOwnProperty(key)) {
-                forMessages.innerHTML+='<div style="border:1px solid white; padding: 4px; margin: 4px; color:white">'+
-                    texts[key].text+
-                    '</div>'
-
-                //console.log(`Текст: ${texts[key].text}, Время: ${new Date(texts[key].timestamp).toLocaleString()}`);
+                let tx ='<div style="border:1px solid white; border-radius:7px; padding: 4px; margin: 4px; color:white">'+ texts[key].text
+                if(admin)tx+=`<a onclick="deleteMessage('${key}', '${page}')" style="float: right; text-decoration: none">❌</a>`
+                tx+='</div>'
+                forMessages.innerHTML+= tx
             }
         }
     });
+}
+
+function deleteMessage(key, page) {
+    const textRef = database.ref('berry/'+page+'/'+key); // Создаем ссылку на место в базе данных, куда будем сохранять
+    textRef.remove();
 }
 
 function saveTextToDatabase(page) {
     const textRef = database.ref('berry/'+page); // Создаем ссылку на место в базе данных, куда будем сохранять
 
     // Получаем текст из input или textarea
-    const textToSave = document.querySelector('#textInput').value;
+    const textToSave = document.querySelector('#textInput');
     // Проверяем, что текст не пустой
-    if (textToSave.trim() === '') return alert('Пожалуйста, введите текст');
+    if (textToSave.value.trim() === '') return alert('Пожалуйста, введите текст');
 
     // Сохраняем текст
-    textRef.push().set({text: textToSave,timestamp: firebase.database.ServerValue.TIMESTAMP})
+    textRef.push().set({text: textToSave.value,timestamp: firebase.database.ServerValue.TIMESTAMP})
         .then(() => {
             textToSave.value=''
             console.log('Текст успешно сохранен!')
