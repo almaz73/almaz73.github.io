@@ -16,43 +16,38 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 
-
-
-
 function readTextsFromDatabase(page) {
     let admin = location.search.includes('admin') // секретное слово
 
-    const textRef = database.ref('berry/'+page); // создаем ссылку для подключения к БД
+    const textRef = database.ref('berry/' + page); // создаем ссылку для подключения к БД
 
     console.log()
-    let forMessages =  document.querySelector(`#forMessages${page}`)
+    let forMessages = document.querySelector(`#forMessages`)
 
     console.log('forMessages', forMessages)
 
     textRef.on('value', (snapshot) => {
         const texts = snapshot.val();
-        if(forMessages) forMessages.innerHTML = ''
+        if (forMessages) forMessages.innerHTML = ''
         // Можно обработать и отобразить тексты на странице
         for (const key in texts) {
             if (texts.hasOwnProperty(key)) {
-                let tx ='<div style="border:1px solid white; border-radius:7px; padding: 4px; margin: 4px; color:white">'+ texts[key].text
-                if(admin)tx+=`<a onclick="deleteMessage('${key}', '${page}')" style="float: right; text-decoration: none">❌</a>`
-                tx+='</div>'
-                forMessages.innerHTML+= tx
+                let tx = '<div style="border:1px solid white; border-radius:7px; padding: 4px; margin: 4px; color:white">' + texts[key].text
+                if (admin) tx += `<a onclick="deleteMessage('${key}', '${page}')" style="float: right; text-decoration: none">❌</a>`
+                tx += '</div>'
+                forMessages.innerHTML += tx
             }
         }
     });
 }
 
 function deleteMessage(key, page) {
-    const textRef = database.ref('berry/'+page+'/'+key); // Создаем ссылку на место в базе данных, куда будем сохранять
+    const textRef = database.ref('berry/' + page + '/' + key); // Создаем ссылку на место в базе данных, куда будем сохранять
     textRef.remove();
 }
 
 function saveTextToDatabase(page) {
-    const textRef = database.ref('berry/'+page); // Создаем ссылку на место в базе данных, куда будем сохранять
-
-console.log('textRef=', textRef)
+    const textRef = database.ref('berry/' + page); // Создаем ссылку на место в базе данных, куда будем сохранять
 
     // Получаем текст из input или textarea
     const textToSave = document.querySelector('#textInput');
@@ -60,10 +55,23 @@ console.log('textRef=', textRef)
     if (textToSave.value.trim() === '') return alert('Пожалуйста, введите текст');
 
     // Сохраняем текст
-    textRef.push().set({text: textToSave.value,timestamp: firebase.database.ServerValue.TIMESTAMP})
+    textRef.push().set({text: textToSave.value, timestamp: firebase.database.ServerValue.TIMESTAMP})
         .then(() => {
-            textToSave.value=''
+            textToSave.value = ''
             console.log('Текст успешно сохранен!')
         })
         .catch((error) => console.error('Ошибка при сохранении: ', error));
 }
+
+
+function sound() {
+    let text = document.querySelector('h2').textContent
+
+    const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
+    utterance.lang = "ru";           // аббревиатура языка
+    utterance.volume = 1;          // громкость
+    utterance.rate = 1;            // скорость
+    utterance.pitch = 3;           // высота
+    window.speechSynthesis.speak(utterance);
+}
+

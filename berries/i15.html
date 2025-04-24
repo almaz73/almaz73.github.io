@@ -58,6 +58,7 @@
         <br>
         сахарная пудра
 	</h2>
+	<a title="прочитать вслух" onclick="sound()" style="cursor: pointer">📣</a>&nbsp;
 	<br>
 	<h1>цена: 20 dreamcoins</h1>
 	<br>
@@ -66,32 +67,22 @@
 	<a class="bubble2" href="https://t.me/bubble_blisss">
 		по поводу онлайн заказа писать сюда</a>
 	<br><br><br><br><br>
-	<a style="color: black;" href="index.html" > 
-		вернуться на главную
+	<a style="color: black;" href="index.html" >
+		ВЕРНУТЬСЯ НА ГЛАВНУЮ
 	</a>
-	<hr style="height: 12px; border: none; background:rgb(183, 142, 107)">
+	<br><br>
+	<!----гостевая----->
+	<hr style="height: 12px; border: none; background: yellow">
 
 	<div id="forMessages"></div>
 	<textarea id="textInput" style="width: 93%" placeholder=" Введите отзыв"></textarea>
 	<br>
 
 	<button onclick="saveTextToDatabase('i15')"
-			style="padding: 8px; background:rgb(191, 139, 80); border-radius: 7px">
+			style="padding: 8px; background: yellow; border-radius: 7px">
 		Сохранить
 	</button>
-	<br><br>
-	<script>
-		function sound(){
-			let text = document.querySelector('h2').textContent
-	
-			const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
-			utterance.lang = "ru";           // аббревиатура языка
-			utterance.volume = 1;          // громкость
-			utterance.rate = 1;            // скорость
-			utterance.pitch = 3;           // высота
-			window.speechSynthesis.speak(utterance);
-		}
-    </script>
-	 
+	<!----end гостевая----->
+
 </body>
 </html>
