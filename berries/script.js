@@ -23,7 +23,11 @@ function readTextsFromDatabase(page) {
     let admin = location.search.includes('admin') // секретное слово
 
     const textRef = database.ref('berry/'+page); // создаем ссылку для подключения к БД
-    let forMessages =  document.querySelector('#forMessages')
+
+    console.log()
+    let forMessages =  document.querySelector(`#forMessages${page}`)
+
+    console.log('forMessages', forMessages)
 
     textRef.on('value', (snapshot) => {
         const texts = snapshot.val();
@@ -48,6 +52,8 @@ function deleteMessage(key, page) {
 function saveTextToDatabase(page) {
     const textRef = database.ref('berry/'+page); // Создаем ссылку на место в базе данных, куда будем сохранять
 
+console.log('textRef=', textRef)
+
     // Получаем текст из input или textarea
     const textToSave = document.querySelector('#textInput');
     // Проверяем, что текст не пустой
@@ -60,16 +66,4 @@ function saveTextToDatabase(page) {
             console.log('Текст успешно сохранен!')
         })
         .catch((error) => console.error('Ошибка при сохранении: ', error));
-}
-
-
-function sound(){
-    let text = document.querySelector('h2').textContent
-
-    const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
-    utterance.lang = "ru";           // аббревиатура языка
-    utterance.volume = 1;          // громкость
-    utterance.rate = 2;            // скорость
-    utterance.pitch = 5;           // высота
-    window.speechSynthesis.speak(utterance);
 }

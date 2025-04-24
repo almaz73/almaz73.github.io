@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cookiee</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>berry</title>
 	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
 	<script src="script.js"></script>
+    <title>cookiee</title>
     <style>
         body {
             background:rgb(183, 142, 107) ;
@@ -30,7 +32,7 @@
          
     </style>
 </head>
-<body>
+<body onload="readTextsFromDatabase('i15')">
     <h1 class="bubble">BUBBLE BLISS</h1>
 	<br><br><br>
 	<h2 class="bubble3">
@@ -56,7 +58,6 @@
         <br>
         сахарная пудра
 	</h2>
-	<a title="прочитать вслух" onclick="sound()" style="cursor: pointer">📣</a>&nbsp;
 	<br>
 	<h1>цена: 20 dreamcoins</h1>
 	<br>
@@ -68,7 +69,29 @@
 	<a style="color: black;" href="index.html" > 
 		вернуться на главную
 	</a>
+	<hr style="height: 12px; border: none; background:rgb(183, 142, 107)">
+
+	<div id="forMessages"></div>
+	<textarea id="textInput" style="width: 93%" placeholder=" Введите отзыв"></textarea>
+	<br>
+
+	<button onclick="saveTextToDatabase('i15')"
+			style="padding: 8px; background:rgb(191, 139, 80); border-radius: 7px">
+		Сохранить
+	</button>
 	<br><br>
+	<script>
+		function sound(){
+			let text = document.querySelector('h2').textContent
+	
+			const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
+			utterance.lang = "ru";           // аббревиатура языка
+			utterance.volume = 1;          // громкость
+			utterance.rate = 1;            // скорость
+			utterance.pitch = 3;           // высота
+			window.speechSynthesis.speak(utterance);
+		}
+    </script>
 	 
 </body>
 </html>
