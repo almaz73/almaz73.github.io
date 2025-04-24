@@ -43,6 +43,7 @@
 		<br>
 		малиновый сироп
 	</h2>
+	<a title="прочитать вслух" onclick="sound()" style="cursor: pointer">📣</a>&nbsp;
 	<br>
 	<h1>цена: 120 dreamcoins</h1>
 	<br>
@@ -56,5 +57,18 @@
 	</a>
 	<br><br>
  </body>
+
+<script>
+	function sound(){
+		let text = document.querySelector('h2').textContent
+
+		const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
+		utterance.lang = "ru";           // аббревиатура языка
+		utterance.volume = 1;          // громкость
+		utterance.rate = 5;            // скорость
+		utterance.pitch = 5;           // высота
+		window.speechSynthesis.speak(utterance);
+	}
+</script>
  
  </html>
