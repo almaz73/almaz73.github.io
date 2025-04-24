@@ -65,5 +65,18 @@
 		вернуться на главную
 	</a>
 	<br><br>
+	<script>
+		function sound(){
+			let text = document.querySelector('h2').textContent
+	
+			const utterance = new SpeechSynthesisUtterance(' Внимание : ' + text)
+			utterance.lang = "ru";           // аббревиатура языка
+			utterance.volume = 1;          // громкость
+			utterance.rate = 1;            // скорость
+			utterance.pitch = 3;           // высота
+			window.speechSynthesis.speak(utterance);
+		}
+	</script>
+	 
 </body>
 </html>
