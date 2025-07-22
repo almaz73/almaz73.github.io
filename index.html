@@ -1,38 +1,500 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игровая Планета - Лучшие бесплатные игры онлайн</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4, #556270);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+            margin: 1rem 0;
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+            }
+            to {
+                text-shadow: 0 0 25px rgba(255, 107, 107, 0.8), 0 0 35px rgba(78, 205, 196, 0.6);
+            }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            flex: 1;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 0 1rem;
+        }
+
+        .intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #e0e0e0;
+        }
+
+        .columns {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .column {
+            flex: 1;
+            background: rgba(30, 30, 50, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .column:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .column h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .game-list {
+            list-style: none;
+        }
+
+        .game-item {
+            margin-bottom: 1.2rem;
+            padding: 1rem;
+            background: rgba(40, 40, 65, 0.6);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .game-item:hover {
+            background: rgba(60, 60, 90, 0.8);
+            transform: translateX(5px);
+        }
+
+        .game-item a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .game-item a:hover {
+            color: #4ecdc4;
+        }
+
+        .game-item i {
+            color: #ff6b6b;
+            font-size: 1.4rem;
+        }
+
+        .game-description {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-top: 0.3rem;
+            padding-left: 2.2rem;
+        }
+
+        .featured {
+            text-align: center;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+
+        .featured h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+        }
+
+        .featured-game {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(40, 40, 65, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .featured-content {
+            flex: 1;
+        }
+
+        .featured-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .featured-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #4ecdc4;
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 900px) {
+            .columns {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .column {
+                padding: 1.5rem;
+            }
+
+            .featured-game {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .intro h2 {
+                font-size: 1.8rem;
+            }
+
+            .column h3 {
+                font-size: 1.5rem;
+            }
+
+            .game-item a {
+                font-size: 1rem;
+            }
+
+            .featured-image {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
-<style>
-    body{
-        background: #2d6987;
-        height: calc(100vh - 30px);
-    }
-</style>
 <body>
+<header>
+    <div class="logo">ИГРЫ</div>
+    <p class="tagline">Погрузись в мир захватывающих приключений и безграничных возможностей!</p>
+</header>
 
-<h1>Игры</h1>
+<div class="container">
+    <section class="intro">
+        <h2>Добро пожаловать в мир игр!</h2>
+        <p>Откройте для себя лучшие бесплатные онлайн-игры. Выберите из нашей коллекции увлекательные приключения, головоломки и экшн-игры. Все игры доступны прямо в браузере без скачивания!</p>
+    </section>
 
-<a class="names" href="krestikiNoliki">Крестики нолики</a>
-<br><br>
+<!--    <section class="columns">-->
+<!--        <div class="column">-->
+<!--            <h3><i class="fas fa-dice"></i> Казуальные</h3>-->
+<!--            <ul class="game-list">-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://poki.com" target="_blank">-->
+<!--                        <i class="fas fa-puzzle-piece"></i> 2048-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Классическая головоломка с числами, собери плитку 2048!</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://www.crazygames.com" target="_blank">-->
+<!--                        <i class="fas fa-chess"></i> Шахматы Онлайн-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Сразитесь с игроками со всего мира в классической игре</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://www.miniclip.com" target="_blank">-->
+<!--                        <i class="fas fa-basketball-ball"></i> Баскетбол-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Забрось мяч в корзину и установи новый рекорд!</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://www.agame.com" target="_blank">-->
+<!--                        <i class="fas fa-car"></i> Гонки на выживание-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Безумные гонки по разрушенному городу</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
-<a class="names" href="trolly">Тролли</a>
-<br><br>
-<a class="names" href="counter">Маленький математик</a>
-<br><br>
-<a class="names" href="cubicZaitseva">Кубики Зайцева</a>
+<!--        <div class="column">-->
+<!--            <h3><i class="fas fa-crosshairs"></i> Экшн</h3>-->
+<!--            <ul class="game-list">-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://krunker.io" target="_blank">-->
+<!--                        <i class="fas fa-running"></i> Krunker.io-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Динамичный шутер от первого лица в браузере</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://surviv.io" target="_blank">-->
+<!--                        <i class="fas fa-skull"></i> Surviv.io-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Королевская битва на выживание в изометрическом стиле</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://www.crazygames.com/game/slitherio" target="_blank">-->
+<!--                        <i class="fas fa-worm"></i> Slither.io-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Стань самой большой змеёй на игровом поле</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://poki.com/g/super-hero-fighting-club" target="_blank">-->
+<!--                        <i class="fas fa-fist-raised"></i> Битва Супергероев-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Сражения любимых персонажей комиксов</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
-<br><br>
-<a class="names" href="guessTheAnimal">Угадай животное</a>
+<!--        <div class="column">-->
+<!--            <h3><i class="fas fa-hat-wizard"></i> Приключения</h3>-->
+<!--            <ul class="game-list">-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://diep.io" target="_blank">-->
+<!--                        <i class="fas fa-tank"></i> Diep.io-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Управляйте танком и развивайте его в бесконечном мире</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://www.miniclip.com/games/agar.io" target="_blank">-->
+<!--                        <i class="fas fa-circle"></i> Agar.io-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Поглощайте меньшие клетки и избегайте больших</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://poki.com/g/minecraft-classic" target="_blank">-->
+<!--                        <i class="fas fa-cube"></i> Minecraft Classic-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Браузерная версия культовой песочницы</p>-->
+<!--                </li>-->
+<!--                <li class="game-item">-->
+<!--                    <a href="https://www.crazygames.com/game/treasure-hunt" target="_blank">-->
+<!--                        <i class="fas fa-treasure-chest"></i> Охота за Сокровищами-->
+<!--                    </a>-->
+<!--                    <p class="game-description">Исследуйте остров в поисках древних артефактов</p>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </section>-->
+
+    <section class="columns">
+        <div class="column">
+            <h3><i class="fas fa-crosshairs"></i> Домашние</h3>
+            <ul class="game-list">
+                <li class="game-item">
+                    <a href="games/krestikiNoliki" target="_blank">
+                        <i class="fas fa-running"></i>Крестики нолики
+                    </a>
+                    <p class="game-description">Спокойная и простая игра</p>
+                </li>
+                <li class="game-item">
+                    <a href="games/trolly" target="_blank">
+                        <i class="fas fa-skull"></i> Тролли
+                    </a>
+                    <p class="game-description">Пройти с приключению маршрут с троллями</p>
+                </li>
+                <li class="game-item">
+                    <a href="games/counter" target="_blank">
+                        <i class="fas fa-worm"></i> Маленький математик
+                    </a>
+                    <p class="game-description">Учимся считать, для маленьких</p>
+                </li>
+                <li class="game-item">
+                    <a href="games/cubicZaitseva" target="_blank">
+                        <i class="fas fa-fist-raised"></i> Кубики зайцева
+                    </a>
+                    <p class="game-description">Элкктронная версия лучшей игры для обучения чтению</p>
+                </li>
+                <li class="game-item">
+                    <a href="games/guessTheAnimal" target="_blank">
+                        <i class="fas fa-fist-raised"></i> Угадай животное
+                    </a>
+                    <p class="game-description">Самообучающася програма, через вопросы запоминает что загадали раньше</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h3><i class="fas fa-crosshairs"></i> Придуманные</h3>
+            <ul class="game-list">
+                <li class="game-item">
+                    <a href="games/random/ind2.html" target="_blank">
+                        <i class="fas fa-running"></i>Написал дипсик
+                    </a>
+                    <p class="game-description">Спокойная и простая игра</p>
+                </li>
+                <li class="game-item">
+                    <a href="games/random/ind3.html" target="_blank">
+                        <i class="fas fa-skull"></i> Перенажми2
+                    </a>
+                    <p class="game-description">написал квен</p>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <section class="featured">
+        <h2>Игра недели</h2>
+        <div class="featured-game">
+            <div class="featured-image">
+                <i class="fas fa-dragon"></i>
+            </div>
+            <div class="featured-content">
+                <h3>Dragon's Quest</h3>
+                <p>Отправьтесь в эпическое приключение в фэнтезийном мире, полном драконов, магии и древних тайн. Собирайте команду героев, исследуйте подземелья и сражайтесь с могущественными боссами.</p>
+                <p>Более 1 миллиона игроков по всему миру!</p>
+                <a href="#" class="btn">Играть бесплатно</a>
+            </div>
 
 
+        </div>
+        <br>
+        Разное <a href="index3.html"> >>> </a>
+    </section>
+</div>
 
-<br><br><br><br>
-Разное <a href="index2.html"> >>> </a>
-
+<footer>
+    <div class="footer-content">
+        <div class="social-links">
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+        <p class="copyright">© 2023 Игровая Планета. Все права защищены. Бесплатные онлайн-игры для всех возрастов.</p>
+    </div>
+</footer>
 </body>
 </html>
