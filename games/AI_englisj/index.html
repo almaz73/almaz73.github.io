@@ -1,0 +1,626 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изучение английских слов по программированию</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2387CEEB;stop-opacity:1" /><stop offset="100%" style="stop-color:%23E0F6FF;stop-opacity:1" /></linearGradient><linearGradient id="water" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%234A90E2;stop-opacity:0.8" /><stop offset="100%" style="stop-color:%232C5AA0;stop-opacity:0.9" /></linearGradient></defs><rect width="800" height="600" fill="url(%23sky)" /><rect y="450" width="800" height="150" fill="url(%23water)" /><rect x="100" y="400" width="600" height="50" fill="%238B4513" /><rect x="150" y="300" width="50" height="100" fill="%23A0522D" /><rect x="200" y="250" width="100" height="50" fill="%23A0522D" /><rect x="350" y="300" width="50" height="100" fill="%23A0522D" /><rect x="400" y="250" width="100" height="50" fill="%23A0522D" /><rect x="550" y="300" width="50" height="100" fill="%23A0522D" /><rect x="600" y="250" width="100" height="50" fill="%23A0522D" /><circle cx="100" cy="100" r="30" fill="%23FFD700" opacity="0.8" /><circle cx="200" cy="80" r="20" fill="%23FFFFFF" opacity="0.6" /><circle cx="300" cy="120" r="25" fill="%23FFFFFF" opacity="0.6" /><circle cx="500" cy="90" r="15" fill="%23FFFFFF" opacity="0.6" /><circle cx="600" cy="110" r="20" fill="%23FFFFFF" opacity="0.6" /><circle cx="700" cy="70" r="18" fill="%23FFFFFF" opacity="0.6" /><rect x="50" y="350" width="30" height="100" fill="%23708090" /><rect x="50" y="300" width="30" height="50" fill="%23696969" /><rect x="40" y="280" width="50" height="20" fill="%23696969" /></svg>');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .stat-item {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .stat-value {
+            color: #667eea;
+            font-size: 1.2rem;
+        }
+
+        .game-area {
+            margin: 30px 0;
+        }
+
+        .buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .word-button {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            word-break: break-word;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .word-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+
+        .word-button:active {
+            transform: translateY(0);
+        }
+
+        .word-button.selected {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            transform: scale(0.95);
+        }
+
+        .word-button.matched {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+            cursor: not-allowed;
+        }
+
+        .word-button.mismatched {
+            background: #dc3545;
+            color: white;
+            border-color: #dc3545;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .controls {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            min-width: 180px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn.clear-storage {
+            background: linear-gradient(45deg, #dc3545, #c82333);
+        }
+
+        .message {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 5px;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .buttons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .buttons-grid {
+                gap: 10px;
+            }
+
+            .word-button {
+                padding: 10px;
+                font-size: 0.9rem;
+                min-height: 60px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>🧠 Изучение Английских Слов</h1>
+    <p class="subtitle">Сопоставьте английские слова с их переводом на русский язык</p>
+
+    <div class="stats">
+        <div class="stat-item">
+            Раунд: <span id="round" class="stat-value">0</span>/5
+        </div>
+        <div class="stat-item">
+            Попытки: <span id="attempts" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            Правильно: <span id="correct" class="stat-value">0</span>
+        </div>
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+    </div>
+
+    <div class="game-area">
+        <div class="buttons-grid" id="buttons-container">
+            <!-- Кнопки будут добавлены здесь динамически -->
+        </div>
+    </div>
+
+    <div class="message" id="message"></div>
+
+    <div class="controls">
+        <button class="btn" id="start-btn">🚀 Начать Игру</button>
+        <button class="btn clear-storage" id="clear-storage-btn">🗑️ Очистить Прогресс</button>
+    </div>
+</div>
+
+<script>
+    // Массив из 40 пар английских слов с переводом по программированию
+    const wordPairs = [
+        { english: "Algorithm", russian: "Алгоритм" },
+        { english: "Variable", russian: "Переменная" },
+        { english: "Function", russian: "Функция" },
+        { english: "Loop", russian: "Цикл" },
+        { english: "Array", russian: "Массив" },
+        { english: "Object", russian: "Объект" },
+        { english: "Class", russian: "Класс" },
+        { english: "Method", russian: "Метод" },
+        { english: "Property", russian: "Свойство" },
+        { english: "Inheritance", russian: "Наследование" },
+        { english: "Interface", russian: "Интерфейс" },
+        { english: "Database", russian: "База данных" },
+        { english: "Server", russian: "Сервер" },
+        { english: "Client", russian: "Клиент" },
+        { english: "API", russian: "API" },
+        { english: "Framework", russian: "Фреймворк" },
+        { english: "Library", russian: "Библиотека" },
+        { english: "Compiler", russian: "Компилятор" },
+        { english: "Interpreter", russian: "Интерпретатор" },
+        { english: "Debugging", russian: "Отладка" },
+        { english: "Bug", russian: "Ошибка" },
+        { english: "Version", russian: "Версия" },
+        { english: "Repository", russian: "Репозиторий" },
+        { english: "Branch", russian: "Ветка" },
+        { english: "Commit", russian: "Коммит" },
+        { english: "Merge", russian: "Слияние" },
+        { english: "Syntax", russian: "Синтаксис" },
+        { english: "Semantics", russian: "Семантика" },
+        { english: "Constant", russian: "Константа" },
+        { english: "Boolean", russian: "Булевый" },
+        { english: "String", russian: "Строка" },
+        { english: "Integer", russian: "Целое число" },
+        { english: "Float", russian: "Число с плавающей точкой" },
+        { english: "Null", russian: "Пустое значение" },
+        { english: "Undefined", russian: "Неопределено" },
+        { english: "Parameter", russian: "Параметр" },
+        { english: "Argument", russian: "Аргумент" },
+        { english: "Return", russian: "Возврат" },
+        { english: "Callback", russian: "Обратный вызов" },
+        { english: "Promise", russian: "Промис" }
+    ];
+
+    // Игровые переменные
+    let currentRound = 0;
+    let totalRounds = 5;
+    let attempts = 0;
+    let correctMatches = 0;
+    let selectedButtons = [];
+    let currentPairs = [];
+    let gameStarted = false;
+    let learnedWords = JSON.parse(localStorage.getItem('learnedWords')) || [];
+
+    // DOM элементы
+    const buttonsContainer = document.getElementById('buttons-container');
+    const startBtn = document.getElementById('start-btn');
+    const clearStorageBtn = document.getElementById('clear-storage-btn');
+    const roundElement = document.getElementById('round');
+    const attemptsElement = document.getElementById('attempts');
+    const correctElement = document.getElementById('correct');
+    const messageElement = document.getElementById('message');
+    const progressElement = document.getElementById('progress');
+
+    // Функция для обновления статистики
+    function updateStats() {
+        roundElement.textContent = currentRound;
+        attemptsElement.textContent = attempts;
+        correctElement.textContent = correctMatches;
+        progressElement.style.width = `${(currentRound / totalRounds) * 100}%`;
+    }
+
+    // Функция для показа сообщения
+    function showMessage(text, type = 'info') {
+        messageElement.textContent = text;
+        messageElement.className = `message ${type} show`;
+        setTimeout(() => {
+            messageElement.classList.remove('show');
+        }, 3000);
+    }
+
+    // Функция для перемешивания массива
+    function shuffleArray(array) {
+        const newArray = [...array];
+        for (let i = newArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+        }
+        return newArray;
+    }
+
+    // Функция для получения доступных пар слов (исключая выученные)
+    function getAvailablePairs() {
+        return wordPairs.filter(pair =>
+            !learnedWords.includes(`${pair.english}|${pair.russian}`)
+        );
+    }
+
+    // Функция для получения случайных пар слов
+    function getRandomPairs(count) {
+        const availablePairs = getAvailablePairs();
+
+        if (availablePairs.length === 0) {
+            return [];
+        }
+
+        const shuffled = shuffleArray(availablePairs);
+        return shuffled.slice(0, Math.min(count, availablePairs.length));
+    }
+
+    // Функция для создания игровых кнопок
+    function createGameButtons() {
+        buttonsContainer.innerHTML = '';
+        selectedButtons = [];
+
+        // Создаем массив всех слов (английские и русские)
+        const allWords = [];
+        currentPairs.forEach(pair => {
+            allWords.push({ word: pair.english, type: 'english', original: pair });
+            allWords.push({ word: pair.russian, type: 'russian', original: pair });
+        });
+
+        // Перемешиваем слова
+        const shuffledWords = shuffleArray(allWords);
+
+        // Создаем кнопки
+        shuffledWords.forEach((wordObj, index) => {
+            const button = document.createElement('button');
+            button.className = 'word-button';
+            button.textContent = wordObj.word;
+            button.dataset.index = index;
+            button.dataset.type = wordObj.type;
+            button.dataset.english = wordObj.original.english;
+            button.dataset.russian = wordObj.original.russian;
+
+            button.addEventListener('click', () => handleButtonClick(button));
+            buttonsContainer.appendChild(button);
+        });
+    }
+
+    // Функция обработки клика по кнопке
+    function handleButtonClick(button) {
+        // Игнорируем клики по уже сопоставленным кнопкам
+        if (button.classList.contains('matched')) return;
+
+        // Добавляем/удаляем выделение
+        if (button.classList.contains('selected')) {
+            button.classList.remove('selected');
+            selectedButtons = selectedButtons.filter(btn => btn !== button);
+        } else {
+            // Ограничиваем выбор двумя кнопками
+            if (selectedButtons.length >= 2) return;
+
+            button.classList.add('selected');
+            selectedButtons.push(button);
+        }
+
+        // Проверяем совпадение, если выбраны две кнопки
+        if (selectedButtons.length === 2) {
+            attempts++;
+            updateStats();
+
+            const [btn1, btn2] = selectedButtons;
+            const isMatch = (btn1.dataset.english === btn2.dataset.english &&
+                btn1.dataset.russian === btn2.dataset.russian);
+
+            if (isMatch) {
+                // Правильное совпадение
+                setTimeout(() => {
+                    btn1.classList.add('matched');
+                    btn2.classList.add('matched');
+                    btn1.classList.remove('selected');
+                    btn2.classList.remove('selected');
+                    selectedButtons = [];
+
+                    correctMatches++;
+                    updateStats();
+
+                    // Сохраняем выученное слово
+                    const wordKey = `${btn1.dataset.english}|${btn1.dataset.russian}`;
+                    if (!learnedWords.includes(wordKey)) {
+                        learnedWords.push(wordKey);
+                        localStorage.setItem('learnedWords', JSON.stringify(learnedWords));
+                    }
+
+                    showMessage('✅ Отлично! Правильное совпадение!', 'success');
+
+                    // Проверяем завершение раунда
+                    checkRoundCompletion();
+                }, 500);
+            } else {
+                // Неправильное совпадение
+                setTimeout(() => {
+                    btn1.classList.add('mismatched');
+                    btn2.classList.add('mismatched');
+
+                    setTimeout(() => {
+                        btn1.classList.remove('selected', 'mismatched');
+                        btn2.classList.remove('selected', 'mismatched');
+                        selectedButtons = [];
+                    }, 1000);
+                }, 500);
+            }
+        }
+    }
+
+    // Функция проверки завершения раунда
+    function checkRoundCompletion() {
+        const matchedButtons = document.querySelectorAll('.word-button.matched');
+        const totalButtons = document.querySelectorAll('.word-button');
+
+        if (matchedButtons.length === totalButtons.length) {
+            currentRound++;
+            updateStats();
+
+            if (currentRound < totalRounds) {
+                showMessage(`🎉 Раунд ${currentRound} завершен! Начинаем следующий раунд...`, 'success');
+                setTimeout(startRound, 2000);
+            } else {
+                showMessage('🎊 Поздравляем! Вы завершили все раунды!', 'success');
+                startBtn.disabled = false;
+                startBtn.textContent = '🔄 Играть Снова';
+                gameStarted = false;
+            }
+        }
+    }
+
+    // Функция начала раунда
+    function startRound() {
+        const availablePairs = getAvailablePairs();
+
+        if (availablePairs.length === 0) {
+            showMessage('🏆 Курс освоен! Все слова выучены.', 'success');
+            startBtn.disabled = false;
+            startBtn.textContent = '🔄 Играть Снова';
+            gameStarted = false;
+            return;
+        }
+
+        currentPairs = getRandomPairs(4);
+
+        if (currentPairs.length === 0) {
+            showMessage('🏆 Курс освоен! Все слова выучены.', 'success');
+            startBtn.disabled = false;
+            startBtn.textContent = '🔄 Играть Снова';
+            gameStarted = false;
+            return;
+        }
+
+        createGameButtons();
+        correctMatches = 0;
+        updateStats();
+    }
+
+    // Функция начала игры
+    function startGame() {
+        if (gameStarted) return;
+
+        gameStarted = true;
+        currentRound = 0;
+        attempts = 0;
+        correctMatches = 0;
+        startBtn.disabled = true;
+        startBtn.textContent = '🎮 Игра идет...';
+
+        const availablePairs = getAvailablePairs();
+        if (availablePairs.length === 0) {
+            showMessage('🏆 Курс освоен! Все слова выучены.', 'success');
+            startBtn.disabled = false;
+            startBtn.textContent = '🔄 Играть Снова';
+            gameStarted = false;
+            return;
+        }
+
+        showMessage('🚀 Игра началась! Сопоставьте английские слова с переводом', 'info');
+        startRound();
+    }
+
+    // Функция очистки localStorage
+    function clearStorage() {
+        localStorage.removeItem('learnedWords');
+        learnedWords = [];
+        showMessage('🗑️ Прогресс очищен! Все слова снова доступны.', 'info');
+    }
+
+    // Обработчики событий
+    startBtn.addEventListener('click', startGame);
+    clearStorageBtn.addEventListener('click', clearStorage);
+
+    // Инициализация статистики
+    updateStats();
+</script>
+</body>
+</html>
+```
