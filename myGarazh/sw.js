@@ -3,9 +3,9 @@ const urlsToCache = [
 	'/',
 	'/myGarazh/index.html',
 	'/myGarazh/about.html',
-	'/myGarazh/assets/style.css',
-	'/myGarazh/assets/icons/icon-192x192.png',
-	'/myGarazh/assets/icons/icon-512x512.png',
+	'//myGarazh/assets/style.css',
+	'//myGarazh/assets/icons/icon-192x192.png',
+	'//myGarazh/assets/icons/icon-512x512.png',
 ]
 
 self.addEventListener('install', function (event) {
