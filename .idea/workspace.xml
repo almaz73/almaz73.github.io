@@ -4,30 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb58f4f-3633-47d0-a051-f6033237350e" name="Changes" comment="GAMES">
-      <change afterPath="$PROJECT_DIR$/myGarazh/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-128x128.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-144x144.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-152x152.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-192x192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-256x256.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-384x384.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-48x48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-72x72.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/icons/icon-96x96.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/pic/camry.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/pic/honda.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/pic/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/pic/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/assets/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myGarazh/sw.js" afterDir="false" />
+    <list default="true" id="cbb58f4f-3633-47d0-a051-f6033237350e" name="Changes" comment="myGarazh">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/games/AI_englisj/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/games/AI_englisj/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myGarazh/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myGarazh/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myGarazh/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myGarazh/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/sw.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +86,7 @@
       <workItem from="1744700033648" duration="1593000" />
       <workItem from="1755666687407" duration="9000" />
       <workItem from="1755871976697" duration="2000" />
-      <workItem from="1756893934681" duration="177000" />
+      <workItem from="1756893934681" duration="1470000" />
     </task>
     <task id="LOCAL-00001" summary="berries">
       <created>1744700289055</created>
@@ -121,7 +103,14 @@
       <option name="project" value="LOCAL" />
       <updated>1753630155898</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="myGarazh">
+      <created>1756894187113</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1756894187113</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +119,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="berries" />
     <MESSAGE value="GAMES" />
-    <option name="LAST_COMMIT_MESSAGE" value="GAMES" />
+    <MESSAGE value="myGarazh" />
+    <option name="LAST_COMMIT_MESSAGE" value="myGarazh" />
   </component>
 </project>
