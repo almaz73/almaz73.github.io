@@ -1,11 +1,11 @@
-const CACHE_NAME = 'my-garage-v1'
+const CACHE_NAME = 'my-garage-v2'
 const urlsToCache = [
 	'/',
-	'/index.html',
-	'/about.html',
-	'/assets/style.css',
-	'/assets/icons/icon-192x192.png',
-	'/assets/icons/icon-512x512.png',
+	'/myGarazh/index.html',
+	'/myGarazh/about.html',
+	'/myGarazh/assets/style.css',
+	'/myGarazh/assets/icons/icon-192x192.png',
+	'/myGarazh/assets/icons/icon-512x512.png',
 ]
 
 self.addEventListener('install', function (event) {

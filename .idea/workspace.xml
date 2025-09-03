@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbb58f4f-3633-47d0-a051-f6033237350e" name="Changes" comment="myGarazh">
+    <list default="true" id="cbb58f4f-3633-47d0-a051-f6033237350e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myGarazh/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myGarazh/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myGarazh/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myGarazh/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/myGarazh/sw.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,7 +85,7 @@
       <workItem from="1744700033648" duration="1593000" />
       <workItem from="1755666687407" duration="9000" />
       <workItem from="1755871976697" duration="2000" />
-      <workItem from="1756893934681" duration="1470000" />
+      <workItem from="1756893934681" duration="2656000" />
     </task>
     <task id="LOCAL-00001" summary="berries">
       <created>1744700289055</created>
@@ -110,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1756894187113</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="myGarazh">
+      <created>1756895676320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1756895676320</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
