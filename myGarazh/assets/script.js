@@ -1,27 +1,3 @@
-// Навигация между страницами
-/*document.querySelectorAll('.nav-link').forEach(link => {
-	link.addEventListener('click', function (e) {
-		e.preventDefault()
-
-		// Убираем активный класс у всех ссылок
-		document
-			.querySelectorAll('.nav-link')
-			.forEach(l => l.classList.remove('active'))
-		// Добавляем активный класс текущей ссылке
-		this.classList.add('active')
-
-		// Скрываем все страницы
-		document
-			.querySelectorAll('.page')
-			.forEach(page => page.classList.remove('active'))
-
-		// Показываем нужную страницу
-		const pageId = this.getAttribute('href').substring(1) + '-page'
-    console.log('pageId', pageId)
-		document.getElementById(pageId).classList.add('active')
-	})
-})*/
-
 // Service Worker регистрация
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', function () {
@@ -43,7 +19,7 @@ const installBtn = document.getElementById('installBtn')
 window.addEventListener('beforeinstallprompt', e => {
 	e.preventDefault()
 	deferredPrompt = e
-	installBtn.style.display = 'block'
+	installBtn.style.opacity = 1
 
 	installBtn.addEventListener('click', () => {
 		installBtn.style.display = 'none'
@@ -58,3 +34,34 @@ window.addEventListener('beforeinstallprompt', e => {
 		})
 	})
 })
+
+// --- Управление статусом онлайн/офлайн ---
+const offlineBanner = document.getElementById('offline-text');
+
+/**
+ * Обновляет UI в зависимости от статуса сети.
+ */
+function updateOnlineStatus() {
+	const isOnline = navigator.onLine;
+	if (offlineBanner) {
+		offlineBanner.style.opacity = isOnline ? 1 : 0;
+	}
+}
+
+// Проверяем статус при загрузке страницы
+window.addEventListener('load', updateOnlineStatus);
+
+// Слушаем нативные события браузера для быстрого реагирования
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+
+// Слушаем сообщения от сервис-воркера для более надежного определения офлайна
+navigator.serviceWorker.addEventListener('message', event => {
+	// Проверяем, что сообщение от нашего SW и касается статуса сети
+	if (event.data && event.data.type === 'STATUS_UPDATE' && !event.data.payload.online) {
+		console.log('Сообщение от SW: офлайн-режим подтвержден.');
+		if (offlineBanner) offlineBanner.style.opacity = 1;
+		
+		console.log('offlineBanner.style = ',offlineBanner.style)
+	}
+});

@@ -1,29 +1,67 @@
-const CACHE_NAME = 'my-garage-v2'
+const CACHE_NAME = 'my-garage-v9'; // При обновлении приложения измените эту версию, например, на 'my-garage-v4'
 const urlsToCache = [
-	'/myGarazh',
+	'/myGarazh', // Кэшируем корневой путь
 	'/myGarazh/index.html',
 	'/myGarazh/about.html',
 	'/myGarazh/assets/style.css',
 	'/myGarazh/assets/icons/icon-192x192.png',
 	'/myGarazh/assets/icons/icon-512x512.png',
-]
+];
 
-self.addEventListener('install', function (event) {
+// Установка сервис-воркера и кэширование основных ресурсов
+self.addEventListener('install', event => {
 	event.waitUntil(
-		caches.open(CACHE_NAME).then(function (cache) {
-			console.log('urlsToCache', urlsToCache)
-			return cache.addAll(urlsToCache)
+		caches.open(CACHE_NAME).then(cache => {
+			console.log('Кэш открыт, кэшируем файлы...');
+			return cache.addAll(urlsToCache);
 		})
-	)
-})
-
-self.addEventListener('fetch', function (event) {
+	);
+});
+// Активация сервис-воркера и удаление старых кэшей
+self.addEventListener('activate', event => {
+	event.waitUntil(
+		caches.keys().then(cacheNames => {
+			return Promise.all(
+				cacheNames.map(cacheName => {
+					// Если имя кэша не совпадает с текущим, удаляем его
+					if (cacheName !== CACHE_NAME) {
+						console.log('Удаление старого кэша:', cacheName);
+						return caches.delete(cacheName);
+					}
+				})
+			);
+		})
+	);
+});
+// Обработка запросов (стратегия "Cache first")
+self.addEventListener('fetch', event => {
 	event.respondWith(
-		caches.match(event.request).then(function (response) {
-			if (response) {
-				return response
+		caches.match(event.request).then(cachedResponse => {
+			// Если ресурс есть в кэше, возвращаем его
+			if (cachedResponse) {
+				return cachedResponse;
 			}
-			return fetch(event.request)
+
+			// Если ресурса нет в кэше, делаем запрос к сети
+			return fetch(event.request).catch(error => {
+				// Запрос к сети не удался, скорее всего, из-за отсутствия подключения.
+				console.log('Не удалось получить; отправка автономного сообщения клиенту.', error);
+
+				// Отправляем сообщение всем клиентам (открытым вкладкам)
+				self.clients.matchAll().then(clients => {
+					clients.forEach(client => {
+						client.postMessage({ type: 'STATUS_UPDATE', payload: { online: false } });
+					});
+				});
+
+				// Важно: после отправки сообщения нужно что-то вернуть.
+				// Пробрасываем ошибку дальше, чтобы запрос завершился неудачей,
+				// как и ожидается при отсутствии сети.
+				throw error;
+			});
 		})
-	)
-})
+	);
+});
+			
+
+			
