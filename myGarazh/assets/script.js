@@ -44,7 +44,7 @@ const offlineBanner = document.getElementById('offline-text');
 function updateOnlineStatus() {
 	const isOnline = navigator.onLine;
 	if (offlineBanner) {
-		offlineBanner.style.opacity = isOnline ? 1 : 0;
+		offlineBanner.style.opacity = isOnline ? 0 : 1;
 	}
 }
 
@@ -60,7 +60,7 @@ navigator.serviceWorker.addEventListener('message', event => {
 	// Проверяем, что сообщение от нашего SW и касается статуса сети
 	if (event.data && event.data.type === 'STATUS_UPDATE' && !event.data.payload.online) {
 		console.log('Сообщение от SW: офлайн-режим подтвержден.');
-		if (offlineBanner) offlineBanner.style.opacity = 1;
+		if (offlineBanner) offlineBanner.style.opacity = 0;
 		
 		console.log('offlineBanner.style = ',offlineBanner.style)
 	}
