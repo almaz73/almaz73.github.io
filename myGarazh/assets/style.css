@@ -183,6 +183,8 @@ h2 {
 
 .install-btn:hover {
     background-color: #f57c00;
+    display: none; /* Hidden by default, shown by JS if PWA is installable */
+	margin-left: 1rem;
 }
 
 footer {
