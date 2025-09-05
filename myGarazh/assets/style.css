@@ -23,11 +23,12 @@ header {
 
 #offline-text {
     opacity: 0;
-	position: absolute;
-	bottom: 0;
-	background: #999;
-	width: 100%;
-	text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding: 8px;
+    background: #999;
+    width: 100%;
+    text-align: center;
 }
 
 nav {
@@ -184,7 +185,7 @@ h2 {
 .install-btn:hover {
     background-color: #f57c00;
     display: none; /* Hidden by default, shown by JS if PWA is installable */
-	margin-left: 1rem;
+    margin-left: 1rem;
 }
 
 footer {
