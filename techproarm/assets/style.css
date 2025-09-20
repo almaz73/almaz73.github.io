@@ -84,12 +84,8 @@ article.top {
 .slogan2, .slogan3, .slogan4 {
     color: #ffffff;
     font-size: 16px;
-    font-family: 'Montserrat', Arial, sans-serif;
     line-height: 1.75;
     font-weight: 600;
-    background-position: center center;
-    border-color: transparent;
-    border-style: solid;
     max-width: 660px;
     min-width: 660px;
     text-align: left;
@@ -292,10 +288,6 @@ article.middle {
     }
 }
 
-article.top, article.middle {
-    /*display: none;*/
-}
-
 /*-------artiсle bottom-----------------*/
 article.tasks {
     background: none;
@@ -346,4 +338,70 @@ article.tasks {
         margin: 8px auto;
         min-width: calc(100% - 40px);
     }
+}
+
+
+article.top, article.middle, article.tasks {
+    /*display: none;*/
+}
+
+/*-------artiсle tarif-----------------*/
+article.tarif {
+    background: none;
+    max-width: 1200px;
+    margin: 70px auto 0;
+
+
+}
+.tbl{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tbl th, .tbl td {
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+.tbl td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.tbl tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.tbl tr:hover {
+    background-color: #f0f7ff;
+}
+
+.tbl .price {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.tbl-red {
+    background: #e22427;
+    color: white;
+}
+
+.tbl .checkmark {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.tbl .cross {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.tbl-notice {
+    margin: 30px;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 500;
+    display: flex;
+    gap: 10px;
 }
