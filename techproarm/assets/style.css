@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    /*background: #0c5460;*/
 }
 
 header {
@@ -55,7 +56,7 @@ article.top {
 }
 
 
-.move-left{
+.move-left {
     padding-top: 220px;
     max-width: 1600px;
     display: flex;
@@ -109,7 +110,7 @@ article.top {
     animation-delay: 1.8s;
 }
 
-@media (max-width: 1000px) {
+@media (width < 1000px) and (width > 500px) {
     .slogan {
         font-size: 35px;
         text-align: center;
@@ -119,16 +120,16 @@ article.top {
         text-align: center;
         max-width: 600px;
         min-width: 600px;
+        background: pink;
     }
 }
 
-@media (max-width: 400px) {
-    .move-left{
-        padding-top: 120px;
-    }
+@media (width < 500px) {
+
     .slogan {
         font-size: 24px;
         text-align: center;
+        margin-bottom: 50px;
     }
 
     .slogan2, .slogan3, .slogan4 {
@@ -138,6 +139,11 @@ article.top {
         min-width: 320px;
         padding-right: inherit;
     }
+
+    .move-left {
+        padding-top: 120px;
+    }
+
 }
 
 @keyframes slideIn {
@@ -189,7 +195,7 @@ footer {
     text-transform: uppercase;
 }
 
-.atom2 :not(:first-child){
+.atom2 :not(:first-child) {
     display: flex;
     gap: 12px;
     align-items: flex-start;
@@ -209,22 +215,79 @@ footer {
     justify-content: flex-start;
 }
 
-@media (max-width: 400px){
+@media (width < 500px) {
     .atom3 {
         /*width: 250px;*/
         display: flex;
         gap: 30px;
     }
+
     .atom4 {
         min-width: 250px !important;
         justify-content: space-between;
     }
 }
-/*-------artikle nmiddde-----------------*/
-article.middle{
-    background: pink;
-    max-width: 1600px;
+
+/*-------artiсle nmiddde-----------------*/
+article.middle {
+    background: none;
+    max-width: 1200px;
     min-height: 710px;
-    margin: 0 auto;
-    background-image: url('photo.webp');
+    margin: 70px auto 0;
+    position: relative;
+}
+
+.fly {
+    background: white;
+    position: absolute;
+    top: 170px;
+    right: 0;
+    width: 630px;
+    height: 470px;
+    padding: 70px 0 0 50px;
+}
+
+
+.fly-head {
+    width: 600px;
+    font-size: 22px;
+    line-height: 1.45;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.fly-text1, .fly-text2 {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.fly-photo {
+    width: 100%;
+    max-width: 909px;
+}
+
+
+@media (width < 700px) {
+    .fly {
+        position: inherit;
+        top: 0;
+        right: inherit;
+        width: calc(100% - 25px);
+        height: auto;
+        padding: 20px;
+    }
+
+    .fly-head {
+        font-size: 20px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .fly-text1, .fly-text2 {
+        width: calc(100% - 25px);
+        margin-top: 20px;
+        font-size: 16px;
+    }
 }
