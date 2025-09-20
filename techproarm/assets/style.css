@@ -1,0 +1,230 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    max-width: 1300px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+
+header img {
+    margin-left: 40px;
+}
+
+nav {
+    margin-right: 40px;
+}
+
+nav .foot {
+    max-width: 40px;
+}
+
+nav a {
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    outline: none;
+    margin: 10px;
+}
+
+@media (max-width: 1000px) {
+    header nav {
+        display: none;
+        background: red;
+    }
+}
+
+article.top {
+    height: 720px;
+    background-image: url('Home_Hero.webp');
+    background-color: black;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+
+}
+
+
+.move-left{
+    padding-top: 220px;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.slogan {
+    color: #ffffff;
+    font-size: 54px;
+    line-height: 1.15;
+    font-weight: 600;
+    max-width: 1300px;
+    max-width: 870px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateX(-100%);
+    animation: slideIn 1.5s ease forwards;
+    animation-delay: 0.3s;
+}
+
+
+.slogan2, .slogan3, .slogan4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    line-height: 1.75;
+    font-weight: 600;
+    background-position: center center;
+    border-color: transparent;
+    border-style: solid;
+    max-width: 660px;
+    min-width: 660px;
+    text-align: left;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateX(-5%);
+    animation: slideIn 1.5s ease forwards;
+    animation-delay: 0.8s;
+    padding-right: 202px;
+    /*border: 1px solid red;*/
+}
+
+.slogan3 {
+    animation-delay: 1.3s;
+}
+
+.slogan4 {
+    animation-delay: 1.8s;
+}
+
+@media (max-width: 1000px) {
+    .slogan {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .slogan2, .slogan3, .slogan4 {
+        text-align: center;
+        max-width: 600px;
+        min-width: 600px;
+    }
+}
+
+@media (max-width: 400px) {
+    .move-left{
+        padding-top: 120px;
+    }
+    .slogan {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .slogan2, .slogan3, .slogan4 {
+        font-size: 14px;
+        text-align: center;
+        max-width: 320px;
+        min-width: 320px;
+        padding-right: inherit;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(5%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*-------footer-----------------*/
+
+footer {
+    max-width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    min-height: 80px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.atom1 {
+    align-self: flex-start
+}
+
+.atom2 {
+    align-self: flex-start;
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 500;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.atom2-h4 {
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.atom2 :not(:first-child){
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.atom3 {
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 500;
+}
+
+.atom4 {
+    align-self: flex-start;
+    max-width: 140px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+@media (max-width: 400px){
+    .atom3 {
+        /*width: 250px;*/
+        display: flex;
+        gap: 30px;
+    }
+    .atom4 {
+        min-width: 250px !important;
+        justify-content: space-between;
+    }
+}
+/*-------artikle nmiddde-----------------*/
+article.middle{
+    background: pink;
+    max-width: 1600px;
+    min-height: 710px;
+    margin: 0 auto;
+    background-image: url('photo.webp');
+}
