@@ -35,6 +35,7 @@ nav a {
     font-weight: 500;
     outline: none;
     margin: 10px;
+    color: inherit;
 }
 
 @media (max-width: 1000px) {
@@ -53,7 +54,8 @@ article.top {
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
-
+    height: 0;
+    transition: height 0.5s ease-in-out 0.1s;
 }
 
 
@@ -76,9 +78,7 @@ article.top {
     max-width: 870px;
     margin: 0 auto;
     opacity: 0;
-    transform: translateX(-100%);
     animation: slideIn 1.5s ease forwards;
-    animation-delay: 0.3s;
 }
 
 
