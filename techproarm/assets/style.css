@@ -271,7 +271,8 @@ article.middle {
 
 @media (width < 1000px) {
     .fly.bitrix {
-        right: 0%;
+        right: 0;
+        padding-right: 0;
     }
 }
 
