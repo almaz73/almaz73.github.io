@@ -29,13 +29,17 @@ nav .foot {
     max-width: 40px;
 }
 
-nav a {
+nav a, nav.foot a {
     font-size: 16px;
     text-decoration: none;
     font-weight: 500;
     outline: none;
     margin: 10px;
     color: inherit;
+}
+
+nav.foot a {
+    margin: 2px;
 }
 
 @media (max-width: 1000px) {
@@ -238,6 +242,12 @@ article.middle {
     padding: 70px 0 0 50px;
 }
 
+.fly.bitrix {
+    height: 360px;
+    right: 20%;
+    padding-right: 30px;
+}
+
 
 .fly-head {
     width: 600px;
@@ -257,6 +267,12 @@ article.middle {
 .fly-photo {
     width: 100%;
     max-width: 909px;
+}
+
+@media (width < 1000px) {
+    .fly.bitrix {
+        right: 0%;
+    }
 }
 
 @media (width < 700px) {
