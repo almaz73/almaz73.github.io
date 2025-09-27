@@ -1,6 +1,7 @@
-html{
+html {
     scroll-behavior: smooth;
 }
+
 body {
     margin: 0;
     padding: 0;
@@ -16,7 +17,6 @@ header {
     margin: auto;
 }
 
-
 header img {
     margin-left: 40px;
 }
@@ -29,13 +29,17 @@ nav .foot {
     max-width: 40px;
 }
 
-nav a {
+nav a, nav.foot a {
     font-size: 16px;
     text-decoration: none;
     font-weight: 500;
     outline: none;
     margin: 10px;
     color: inherit;
+}
+
+nav.foot a {
+    margin: 2px;
 }
 
 @media (max-width: 1000px) {
@@ -54,10 +58,8 @@ article.top {
     background-position: center center;
     background-attachment: scroll;
     background-size: cover;
-    height: 0;
     transition: height 0.5s ease-in-out 0.1s;
 }
-
 
 .move-left {
     padding-top: 220px;
@@ -80,7 +82,6 @@ article.top {
     opacity: 0;
     animation: slideIn 1.5s ease forwards;
 }
-
 
 .slogan2, .slogan3, .slogan4 {
     color: #ffffff;
@@ -122,7 +123,6 @@ article.top {
 }
 
 @media (width <= 500px) {
-
     .slogan {
         font-size: 24px;
         text-align: center;
@@ -140,7 +140,6 @@ article.top {
     .move-left {
         padding-top: 120px;
     }
-
 }
 
 @keyframes slideIn {
@@ -214,7 +213,6 @@ footer {
 
 @media (width < 500px) {
     .atom3 {
-        /*width: 250px;*/
         display: flex;
         gap: 30px;
     }
@@ -244,6 +242,12 @@ article.middle {
     padding: 70px 0 0 50px;
 }
 
+.fly.bitrix {
+    height: 360px;
+    right: 20%;
+    padding-right: 30px;
+}
+
 
 .fly-head {
     width: 600px;
@@ -265,6 +269,12 @@ article.middle {
     max-width: 909px;
 }
 
+@media (width < 1000px) {
+    .fly.bitrix {
+        right: 0;
+        padding-right: 0;
+    }
+}
 
 @media (width < 700px) {
     .fly {
@@ -306,7 +316,6 @@ article.tasks {
 .plash {
     display: flex;
     flex-wrap: wrap;
-    /*background: pink;*/
 }
 
 .tasks-plash {
@@ -328,7 +337,6 @@ article.tasks {
     .bottom-head {
         font-size: 24px;
         text-align: center;
-
     }
 
     .tasks-plash {
@@ -339,19 +347,14 @@ article.tasks {
 }
 
 
-article.top, article.middle, article.tasks {
-    /*display: none;*/
-}
-
 /*-------artiсle tarif-----------------*/
 article.tarif {
     background: none;
     max-width: 1200px;
     margin: 70px auto 0;
-
-
 }
-.tbl{
+
+.tbl {
     width: 100%;
     border-collapse: collapse;
     line-height: 1;
@@ -362,6 +365,7 @@ article.tarif {
     text-align: center;
     border: 1px solid #e0e0e0;
 }
+
 .tbl td:first-child {
     text-align: left;
     font-weight: 500;
@@ -405,8 +409,9 @@ article.tarif {
     gap: 10px;
 }
 
-.lin{
+.lin {
     width: 100%;
     height: 30px;
     background: #efefef;
+    margin-top: 60px;
 }
