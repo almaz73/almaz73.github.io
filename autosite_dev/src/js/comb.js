@@ -1,5 +1,8 @@
 let option_div = document.querySelector('.comb__items')
 let select_div = document.querySelector('.comb__selected')
+let comb_arrow = document.querySelector('.comb_field img')
+
+// console.log('comb_after = ',comb_after)
 
 let selectedCity = localStorage.getItem('selectedCity')
 select_div.innerHTML = selectedCity || 'Альметьевск'
@@ -11,10 +14,15 @@ function getCity(e) {
 }
 
 function openComb(e) {
-    option_div.style.display = option_div.style.display === 'block' ? 'none' : 'block'
+    openOptions(option_div.style.display !== 'block')
     e.stopPropagation()
 }
 
-document.addEventListener('click', () => option_div.style.display = 'none')
+function openOptions(isOpen) {
+    option_div.style.display = isOpen ? 'block' : 'none'
+    comb_arrow.style.rotate = isOpen ? '180deg' : '0deg'
+}
+
+document.addEventListener('click', () => openOptions(false))
 select_div.addEventListener('click', event => openComb(event))
 option_div.addEventListener('click', event => getCity(event))

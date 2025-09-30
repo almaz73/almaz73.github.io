@@ -37,6 +37,17 @@ nav .header__nav-link {
     font-weight: 600;
     font-size: 15px;
 }
+
+@media (width <500px) {
+    nav {
+        margin: 5px 0;
+    }
+
+    nav .header__nav-link {
+        font-size: 13px;
+        margin: 0 5px;
+    }
+}
 nav .header__nav-link:hover , nav .header__nav-link.active{
     color: #e32136;
 }

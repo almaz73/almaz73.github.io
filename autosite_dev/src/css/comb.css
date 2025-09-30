@@ -12,12 +12,24 @@
     background: url(/src/images/location.svg) center left no-repeat;
 }
 
+.comb_field {
+    display: flex;
+    margin-right: 8px;
+}
+
+.comb_field img {
+    opacity: 0.5;
+    margin-left: 8px;
+    width: 10px;
+    rotate: 0deg;
+    transition: rotate 0.2s;
+}
+
 .comb__items {
     display: none;
     position: absolute;
     top: calc(100% + 6px);
     z-index: 1000;
-    margin-left: 12px;
     text-align: center;
     padding: 8px 0;
     max-height: 240px;
@@ -30,10 +42,20 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
 }
 
+@media (width < 600px) {
+    .comb {
+        font-size: 14px;
+        width: 30px;
+    }
+
+    .comb__items {
+        right: 10px;
+    }
+}
+
 .comb__selected:focus .comb__items {
     background: red;
     border: 3px solid red;
-
 }
 
 .comb__item {
@@ -42,5 +64,4 @@
 
 .comb__item:hover {
     background: #f1f8fb;
-
 }
