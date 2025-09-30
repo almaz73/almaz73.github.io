@@ -49,7 +49,15 @@
     }
 
     .comb__items {
-        right: 10px;
+        left: -60px;
+    }
+
+    .comb__selected {
+        font-family: 'Gilroy-Bold', sans-serif;
+        white-space: nowrap;
+        /*text-overflow: ellipsis;*/
+        /*overflow: hidden;*/
+        /*width: 160px;*/
     }
 }
 

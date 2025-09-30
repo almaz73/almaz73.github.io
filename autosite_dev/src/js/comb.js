@@ -5,7 +5,7 @@ let comb_arrow = document.querySelector('.comb_field img')
 // console.log('comb_after = ',comb_after)
 
 let selectedCity = localStorage.getItem('selectedCity')
-select_div.innerHTML = selectedCity || 'Альметьевск'
+select_div.innerHTML = selectedCity || 'Россия'
 
 function getCity(e) {
     let val = e.target.innerText
