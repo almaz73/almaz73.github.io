@@ -5,10 +5,18 @@ let comb_arrow = document.querySelector('.comb_field img')
 // console.log('comb_after = ',comb_after)
 
 let selectedCity = localStorage.getItem('selectedCity')
-select_div.innerHTML = selectedCity || 'Россия'
+if (select_div) {
+    select_div.innerHTML = selectedCity || 'Россия'
+
+
+    document.addEventListener('click', () => openOptions(false))
+    select_div.addEventListener('click', event => openComb(event))
+    option_div.addEventListener('click', event => getCity(event))
+}
 
 function getCity(e) {
     let val = e.target.innerText
+    if (val.length > 30) return false
     select_div.innerHTML = val
     localStorage.setItem('selectedCity', val)
 }
@@ -22,7 +30,3 @@ function openOptions(isOpen) {
     option_div.style.display = isOpen ? 'block' : 'none'
     comb_arrow.style.rotate = isOpen ? '180deg' : '0deg'
 }
-
-document.addEventListener('click', () => openOptions(false))
-select_div.addEventListener('click', event => openComb(event))
-option_div.addEventListener('click', event => getCity(event))

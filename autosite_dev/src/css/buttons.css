@@ -1,0 +1,66 @@
+.butt{
+    display: flex;
+    align-items: center;
+    float: right;
+}
+.button_red {
+    display: inline-flex;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #e32136;
+    cursor: pointer;
+    margin-right: 8px;
+    align-items: center;
+}
+
+.button__call {
+    width: 40px;
+    background: url(@/images/call2.svg) center no-repeat;
+    background-color: #e32136;
+}
+
+.button__callback {
+    height: 40px;
+    padding: 0 26px;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 125%;
+    color: #ffffff;
+}
+.button__burger {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border-radius: 7px;
+    background: url(@/images/burger.svg) center no-repeat;
+    background-color: #000000;
+    cursor: pointer;
+    margin-left: 30px;
+}
+@media (width < 640px){
+    .butt{
+        margin: -23px 12px;
+    }
+    .button_red {
+        height: 36px;
+        margin-right: 10px;
+    }
+    .button__call {
+        min-width: 36px;
+        width: 36px;
+    }
+    .button__callback{
+        padding: 0;
+        width: 36px;
+        background: url(@/images/call.svg) center no-repeat;
+        background-color: #e32136;
+    }
+    .button__callback span{
+        display: none;
+    }
+    .button__burger {
+        height: 36px;
+        width: 36px;
+        margin: 0;
+    }
+}

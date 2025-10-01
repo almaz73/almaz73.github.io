@@ -1,20 +1,20 @@
 
 .header__nav-a {
-    margin: 0 10px;
+    margin: 0 25px;
     color: black;
     text-decoration: none;
     font-weight: 900;
     font-size: 15px;
 }
 
-@media (width <500px) {
+@media (width < 500px) {
     nav .header__nav-a {
         font-size: 13px;
         margin: 0 5px;
-        font-family: 'Gilroy-Bold', sans-serif;
     }
 }
-nav .header__nav-a:hover , nav .header__nav-a.active{
+
+nav .header__nav-a:hover {
     color: #e32136;
 }
 
@@ -23,15 +23,21 @@ nav .header__nav-a:hover , nav .header__nav-a.active{
     padding: 20px 0;
     border-bottom: 2px solid #0000000d;
 }
-.head_div{height: 0}
+
+.head_div {
+    height: 0
+}
+
 @media (max-width: 576px) {
     .header {
-        padding:0;
+        padding: 0;
         background: yellow;
     }
-    header{
+
+    header {
         margin-top: 150px;
     }
+
     .header__container {
         position: fixed;
         background-color: #fff;
@@ -39,27 +45,32 @@ nav .header__nav-a:hover , nav .header__nav-a.active{
         padding: 15px 0 9px;
         border-bottom: 2px solid #0000000d;
     }
-    .head_div{height: 84px}
+
+    .head_div {
+        height: 84px
+    }
 }
 
 .header__container {
-    max-width: 1240px;
+    max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-areas: "logo nav comb";
-    grid-template-columns: auto auto auto;
+    grid-template-areas: "logo nav comb buttons";
+    grid-template-columns: auto auto auto 300px;
     align-items: center;
 }
+
 .header__logo-image {
-    max-width: 223px;
+    max-height: 45px;
 }
 
 @media (max-width: 640px) {
     .header__container {
-        grid-template-columns: auto 35%;
+        grid-template-columns: auto auto;
         grid-template-areas:
-                "logo logo"
+                "logo buttons"
                 "nav comb";
+        grid-template-rows: 45px 28px;
         width: 100%;
     }
 
@@ -72,12 +83,16 @@ nav .header__nav-a:hover , nav .header__nav-a.active{
 .header__logo {
     grid-area: logo;
     margin-left: 12px;
+    max-height: 45px;
+}
+
+.header__buttons {
+    grid-area: buttons;
 }
 
 .header__nav {
     grid-area: nav;
     margin-left: 12px;
-    background: yellow;
 }
 
 .header__select {
