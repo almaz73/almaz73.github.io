@@ -15,10 +15,11 @@
 }
 
 nav .header__nav-a:hover {
-    color: #e32136;
+    color: var(--color-red);
 }
 
 .header {
+    position: relative;
     z-index: 100;
     padding: 20px 0;
     border-bottom: 2px solid #0000000d;

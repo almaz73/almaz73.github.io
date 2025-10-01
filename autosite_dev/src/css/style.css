@@ -1,8 +1,10 @@
 @import url('@/css/global.css');
-@import url('@/css/header.css');
-@import url('@/css/footer.css');
-@import url('@/css/comb.css');
-@import url('@/css/buttons.css');
+@import url('@/css/header/header.css');
+@import url('@/css/footer/footer.css');
+@import url('@/css/header/comb.css');
+@import url('@/css/header/buttons.css');
+
+@import url('@/css/bod.css');
 
 /*@import url('@/css/select_old.css');*/
 

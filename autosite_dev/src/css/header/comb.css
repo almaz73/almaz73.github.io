@@ -12,7 +12,7 @@
 
 .comb__selected {
     font-weight: 600;
-    color: #e32136;
+    color: var(--color-red);
     padding: 0;
     padding-left: 24px;
     background: url(@/images/location.svg) center left no-repeat;
