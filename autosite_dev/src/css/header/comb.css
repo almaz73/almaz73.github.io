@@ -54,9 +54,6 @@
         margin-top: 1px;
     }
 
-    .comb {
-        font-size: 13px;
-    }
 }
 
 .comb__selected:focus .comb__items {
