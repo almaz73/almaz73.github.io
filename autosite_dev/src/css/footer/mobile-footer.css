@@ -37,4 +37,20 @@
     display: block;
 }
 
+.main__page .div_img {
+    width: 20px;
+    height: 20px;
+}
+.main__page .div_img.zvezda{
+    background: url(/src/images/zvezda.svg) center no-repeat;
+}
+.main__page .div_img.car{
+    background: url(/src/images/car.svg) center no-repeat;
+}
+.main__page .div_img.comment{
+    background: url(/src/images/comment.svg) center no-repeat;
+}
+.main__page .div_img.adress{
+    background: url(/src/images/adress.svg) center no-repeat;
+}
 
