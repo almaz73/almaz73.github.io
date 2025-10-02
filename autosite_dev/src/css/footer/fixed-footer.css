@@ -1,10 +1,10 @@
 @media (min-width: 1020px) {
-    .main__page {
+    .fix__foot {
         display: none;
     }
 }
 
-.main__page {
+.fix__foot {
     position: fixed;
     left: 0;
     right: 0;
@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.main__page--box a {
+.fix__foot--box a {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,25 +32,25 @@
     gap: 10px;
 }
 
-.main__page img {
+.fix__foot img {
     width: 20px;
     display: block;
 }
 
-.main__page .div_img {
+.fix__foot .fix__foot_img {
     width: 20px;
     height: 20px;
 }
-.main__page .div_img.zvezda{
+.fix__foot .fix__foot_img.zvezda{
     background: url(/src/images/zvezda.svg) center no-repeat;
 }
-.main__page .div_img.car{
+.fix__foot .fix__foot_img.car{
     background: url(/src/images/car.svg) center no-repeat;
 }
-.main__page .div_img.comment{
+.fix__foot .fix__foot_img.comment{
     background: url(/src/images/comment.svg) center no-repeat;
 }
-.main__page .div_img.adress{
+.fix__foot .fix__foot_img.adress{
     background: url(/src/images/adress.svg) center no-repeat;
 }
 
