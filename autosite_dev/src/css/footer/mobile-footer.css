@@ -1,0 +1,40 @@
+@media (min-width: 1020px) {
+    .main__page {
+        display: none;
+    }
+}
+
+.main__page {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding-top: 0.875em;
+    padding-bottom: 0.75em;
+    box-shadow: 0 0 20px rgba(201, 201, 201, 0.9);
+    z-index: 10;
+}
+
+.page__flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.main__page--box a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 12px;
+    gap: 10px;
+}
+
+.main__page img {
+    width: 20px;
+    display: block;
+}
+
+
