@@ -40,6 +40,19 @@
     margin-left: 30px;
 }
 
+.button__vk {
+    height: 40px;
+    width: 40px;
+    background: url(@/images/vk.svg) center no-repeat;
+    cursor: pointer;
+}
+.button__youtube{
+    height: 40px;
+    width: 40px;
+    background: url(@/images/youtube.svg) center no-repeat;
+    cursor: pointer;
+}
+
 @media (width < 640px) {
     .butt {
         margin: -23px 12px;
@@ -166,24 +179,21 @@
 
 .main-nav__contacts {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 32px 20px;
     margin-top: 56px;
     border-top: 2px solid #eaeaea;
     border-bottom: 2px solid #eaeaea;
-
+    column-gap: 60px;
 }
 
 
 .main-nav__contacts-item {
     font-weight: 600;
     font-size: 20px;
-
     display: flex;
     align-items: center;
-    gap: 12px;
-
-
 }
 
 .main-nav__contacts-item a {
