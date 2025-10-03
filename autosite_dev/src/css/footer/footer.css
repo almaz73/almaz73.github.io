@@ -18,6 +18,7 @@
 .page__flex {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .footer__top .box_1 {
@@ -27,7 +28,6 @@
 }
 
 .footer__top .city {
-    font-weight: 500;
     font-weight: 600;
     color: vaR(--color-red);
     padding-left: 20px;
@@ -78,7 +78,7 @@
 .footer__top .box_2 {
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 24px;
 }
 
 @media (max-width: 860px) {
