@@ -16,7 +16,7 @@
     z-index: 10;
 }
 
-.page__flex {
+.fix__flex {
     display: flex;
     justify-content: space-around;
     align-items: center;

@@ -40,6 +40,14 @@
     margin-left: 30px;
 }
 
+.button__burger.close{
+    background: url(@/images/close.svg) center no-repeat;
+    background-color: #000000;
+}
+
+.footer__subscription .social{
+    display: flex;
+}
 .button__vk {
     height: 40px;
     width: 40px;

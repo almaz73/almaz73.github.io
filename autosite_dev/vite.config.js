@@ -26,6 +26,7 @@ export default defineConfig({
 				main: resolve(__dirname, 'index.html'),
 				about: resolve(__dirname, 'about.html'),
 				contacts: resolve(__dirname, 'contacts.html'),
+				papka: resolve(__dirname, './papka/index.html'),
 			},
 		},
 
