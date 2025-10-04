@@ -18,29 +18,29 @@
         🚗 БУ авто в автосалонах Автосеть.рф.
         Подробная информация по телефону: ☎ 8-800-500-11-56. Звоните!'>
   <link rel='stylesheet' href='/src/css/style.css' />
+
   <script type='module' src='/src/js/main.js'></script>
 </head>
-<body >
+<body>
 {{> 'header/header' }}
 <br>
+{{> swiper}}
 <br>
 <br>
 
-<!--<div class='filter-box'>-->
+<h1>Вариант</h1>
+{{> create-rooms }}
+<main>
+  <p>Это главная страница сайта.</p>
 
-  <h1>Вариант</h1>
-  {{> create-rooms }}
-  <main>
-    <p>Это главная страница сайта.</p>
+  <img src='/src/images/car.svg' style='width: 30px; color: red; '>
+  <img src='/src/images/close.svg' style='width: 30px;background: orangered'>
+  <img src='/src/images/fav.png' alt='Логотип сайта' />
+  пример <br>
+  nnn <br>
 
-    <img src='/src/images/car.svg' style='width: 30px; color: red; '>
-    <img src='/src/images/close.svg' style='width: 30px;background: orangered'>
-    <img src='/src/images/fav.png' alt='Логотип сайта' />
-    пример <br>
-    nnn <br>
-
-    nnn <br>
-  </main>
+  nnn <br>
+</main>
 
 <!--</div>-->
 <br>
@@ -52,5 +52,6 @@
 
 {{> 'footer/footer' }}
 
+<script src='swiper-bundle.min.js'></script>
 </body>
 </html>
