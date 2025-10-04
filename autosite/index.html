@@ -20,7 +20,7 @@
 
   <script type="module" crossorigin src="./assets/main-CJudw1iR.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/main-WeKmk6EY.css">
-  <link rel="stylesheet" crossorigin href="./assets/main-BUxVcfLC.css">
+  <link rel="stylesheet" crossorigin href="./assets/main-Abu-AW5A.css">
 </head>
 <body>
 <div class="header">
@@ -183,13 +183,14 @@
 <!--        <img class="ad-banners__slide-banner ad-banners__slide-banner_md" src="photo/1/585х200.webp" alt="Сделка через салон">-->
 <!--        <img class="ad-banners__slide-banner ad-banners__slide-banner_sm" src="photo/1/278х402_500.webp" alt="Сделка через салон">-->
 
-        <img src="photo/1/1200х501.webp" alt="Сделка через салон"
-             srcset="photo/1/1200х501.webp 1100w, photo/2/585х200.webp 585w, photo/1/278х402_500.webp 1400w"
+        <img src="photo/2/585х200.webp" alt="Сделка через салон"
+             srcset="photo/1/278х402.webp 278w, photo/1/585х200.webp 985w, photo/5/1200х501.webp 1200w"
 
              sizes="
-      (max-width: 320px) 1280px,
-      (max-width: 180px) 140px,
-      800px"
+              (max-width: 500px) 155px,
+              (max-width: 1100px) 600px,
+              (max-width: 1200px) 1000px,
+              100vw"
 
         >
       </a>
@@ -228,6 +229,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     var swiper = new Swiper('.mySwiper', {
       spaceBetween: 30,
+      autoHeight: true,
       centeredSlides: true,
       // autoplay: {
       //   delay: 5000,
