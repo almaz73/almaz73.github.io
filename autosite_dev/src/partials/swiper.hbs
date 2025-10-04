@@ -1,9 +1,40 @@
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
-      <img src='src/images/fav.png' alt=''>
+      <a class="ad-banners__slide" href="/promo/644340/">
+<!--        <img class="ad-banners__slide-banner ad-banners__slide-banner_lg" src="photo/1/1200х501.webp" alt="Сделка через салон">-->
+<!--        <img class="ad-banners__slide-banner ad-banners__slide-banner_md" src="photo/1/585х200.webp" alt="Сделка через салон">-->
+<!--        <img class="ad-banners__slide-banner ad-banners__slide-banner_sm" src="photo/1/278х402_500.webp" alt="Сделка через салон">-->
+
+        <img src="photo/1/1200х501.webp" alt="Сделка через салон"
+             srcset="
+               photo/1/1200х501.webp 1100w,
+             photo/2/585х200.webp 585w,
+             photo/1/278х402_500.webp 1400w"
+
+             sizes="
+      (max-width: 320px) 1280px,
+      (max-width: 180px) 140px,
+      800px"
+
+        >
+      </a>
     </div>
-    <div class="swiper-slide">Slide 2</div>
+    <div class="swiper-slide">
+
+      <img src="photo/2/1200х501.webp" alt="Сделка через салон"
+      srcset="
+      photo/2/1200х501.webp 1400w,
+      photo/2/585х200.webp 1100w,
+      photo/2/278х402.webp 600w"
+
+      sizes="
+      (max-width: 400px) 180px,
+      (max-width: 600px) 480px,
+      (max-width: 1200px) 160px,
+      100vw">
+
+    </div>
     <div class="swiper-slide">Slide 3</div>
     <div class="swiper-slide">Slide 4</div>
     <div class="swiper-slide">Slide 5</div>
@@ -28,10 +59,10 @@
     var swiper = new Swiper('.mySwiper', {
       spaceBetween: 30,
       centeredSlides: true,
-      autoplay: {
-        delay: 5000,
-        disableOnInteraction: false
-      },
+      // autoplay: {
+      //   delay: 5000,
+      //   disableOnInteraction: false
+      // },
       pagination: {
         el: '.swiper-pagination',
         clickable: true
