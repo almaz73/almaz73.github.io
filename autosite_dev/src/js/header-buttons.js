@@ -9,9 +9,17 @@ let isOpened;
 
 let cityInput = document.querySelector('.form__modal-place--group input');
 
-burger_menu.addEventListener('click', () => {
-  console.log('isOpened = ', isOpened);
+function hideMainScroll(hide) {
+  if (hide) {
+    document.body.style.overflow = 'hidden';
+    document.body.style.marginRight = '15px';
+  } else {
+    document.body.style.overflow = 'auto';
+    document.body.style.marginRight = '0';
+  }
+}
 
+burger_menu.addEventListener('click', () => {
   if (isOpened) {
     isOpened = false;
     cities.style.transform = 'translateX(150vw)';
@@ -20,8 +28,7 @@ burger_menu.addEventListener('click', () => {
   isOpened = panel.style.transform !== 'none';
 
   panel.style.transform = isOpened ? 'none' : 'translateX(150vw)';
-  document.body.style.overflow = isOpened ? 'hidden' : 'auto';
-  document.body.style.marginRight = isOpened ? '15px' : '0';
+  hideMainScroll(isOpened);
   if (isOpened) {
     buttonBurger.classList.add('close');
     isOpened = false;
@@ -34,9 +41,11 @@ cityButton.addEventListener('click', () => {
     cities.style.transform = 'none';
     cities.style.backgroundColor = 'white';
   }
+  hideMainScroll(isOpened);
 });
 cityClose.addEventListener('click', () => {
   cities.style.transform = 'translateX(150vw)';
+  hideMainScroll(false);
 });
 
 cityInput.addEventListener('input', res => {
