@@ -5,15 +5,26 @@
 .footer__top {
     padding-top: 4.375em;
     padding-bottom: 3.75em;
+
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 
 .page__wrap {
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1280px;
     position: relative;
     width: 100%;
+
+    /*padding: 0 40px;*/
 }
+
+/*@media (max-width: 1200px) {*/
+/*    .page__wrap {*/
+/*        max-width: 800px;*/
+/*    }*/
+/*}*/
 
 .page__flex {
     display: flex;

@@ -1,3 +1,4 @@
+import { fillCities } from '@/js/searchCities.js';
 let burger_menu = document.querySelector('.button__burger');
 let panel = document.querySelector('.main-nav.menu');
 let buttonBurger = document.querySelector('.button__burger');
@@ -7,7 +8,7 @@ let cityButton = document.querySelector('.city');
 let cityClose = document.querySelector('.modal-place__close');
 let isOpened;
 
-let cityInput = document.querySelector('.form__modal-place--group input');
+
 
 function hideMainScroll(hide) {
   if (hide) {
@@ -44,16 +45,12 @@ cityButton.addEventListener('click', () => {
     cities.style.backgroundColor = 'white';
   }
   hideMainScroll(isOpened);
+  fillCities()
 });
 cityClose.addEventListener('click', () => {
   cities.style.transform = 'translateX(150vw)';
   hideMainScroll(false);
 });
 
-cityInput.addEventListener('input', res => {
-  console.log('res = ', res);
 
-
-  // document.body.innerHTML = document.body.innerHTML.replace(/аза/gi, '<mark>$&</mark>');
-});
 
