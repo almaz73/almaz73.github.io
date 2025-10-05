@@ -47,6 +47,11 @@
     margin-top: -70px;
 }
 
+.mySwiper .swiper-button-next:active, .mySwiper .swiper-button-prev:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+
 .mySwiper .swiper-button-prev {
     left: -35px;
 }
