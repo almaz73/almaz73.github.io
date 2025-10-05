@@ -1,18 +1,31 @@
-.mySwiper {
+@media (width < 500px) {
+    .swiper a .img_lg, .swiper a .img_md {
+        display: none;
+    }
+}
+
+@media (width > 500px) and (width <1000px) {
+    .swiper a .img_lg, .swiper a .img_sm {
+        display: none;
+    }
+}
+
+@media (width > 1000px){
+    .swiper a .img_sm, .swiper a .img_md {
+        display: none;
+    }
+}
+
+
+.swiper {
+    width: 95%;
     z-index: 10;
-    background: pink;
-    min-width: 0;
     border-radius: 12px;
     max-width: 1180px;
     display: block;
 
 
-}
-
-.swiper {
-    display: block;
-    width: 95%;
-    z-index: 7;
+    background: pink;
 }
 
 .swiper-slide {
