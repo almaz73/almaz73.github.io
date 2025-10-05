@@ -4,13 +4,13 @@
     }
 }
 
-@media (width > 500px) and (width <1000px) {
+@media (width <= 1000px) and (width >= 500px) {
     .swiper a .img_lg, .swiper a .img_sm {
         display: none;
     }
 }
 
-@media (width > 1000px){
+@media (width > 1000px) {
     .swiper a .img_sm, .swiper a .img_md {
         display: none;
     }
@@ -23,18 +23,14 @@
     border-radius: 12px;
     max-width: 1180px;
     display: block;
-
-
-    background: pink;
 }
 
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
     background: #444;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 200px;
 }
 
 .swiper-slide img {
