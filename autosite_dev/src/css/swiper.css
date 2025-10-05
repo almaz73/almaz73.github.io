@@ -39,3 +39,29 @@
     height: 100%;
     object-fit: cover;
 }
+
+.swiper-button-next, .swiper-button-prev {
+    background: #00000000;
+    padding: 50px 40px;
+    right: -35px;
+    margin-top: -70px;
+}
+
+.swiper-button-prev {
+    left: -35px;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    width: 26px;
+    border-radius: 26px;
+    background-color: #e32136;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: inherit;
+    color: white;
+}
