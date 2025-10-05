@@ -40,18 +40,18 @@
     object-fit: cover;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
     background: #00000000;
     padding: 50px 40px;
     right: -35px;
     margin-top: -70px;
 }
 
-.swiper-button-prev {
+.mySwiper .swiper-button-prev {
     left: -35px;
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
+.mySwiper .swiper-button-next::after, .mySwiper .swiper-button-prev::after {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,7 +61,7 @@
     background-color: #e32136;
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
+.mySwiper .swiper-button-next:after, .mySwiper .swiper-button-prev:after {
     font-size: inherit;
     color: white;
 }
