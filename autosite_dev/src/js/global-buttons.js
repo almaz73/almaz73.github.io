@@ -12,10 +12,12 @@ let cityInput = document.querySelector('.form__modal-place--group input');
 function hideMainScroll(hide) {
   if (hide) {
     document.body.style.overflow = 'hidden';
-    document.body.style.marginRight = '15px';
+    if (document.body.clientWidth > 500) {
+      document.body.style.marginRight = '14px';
+    }
   } else {
     document.body.style.overflow = 'auto';
-    document.body.style.marginRight = '0';
+    if (document.body.clientWidth > 500) document.body.style.marginRight = '0';
   }
 }
 
