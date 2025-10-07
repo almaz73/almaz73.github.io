@@ -74,12 +74,18 @@
             },
             on: {
                 init() {
+                    let isUsed = false
+                    this.el.addEventListener('click', () => {
+                        this.autoplay.stop();
+                        isUsed = true
+                    });
+
                     this.el.addEventListener('mouseenter', () => {
                         this.autoplay.stop();
                     });
 
                     this.el.addEventListener('mouseleave', () => {
-                        this.autoplay.start();
+                        !isUsed && this.autoplay.start();
                     });
                 }
             },

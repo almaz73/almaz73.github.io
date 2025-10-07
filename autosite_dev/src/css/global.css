@@ -10,11 +10,11 @@
     font-weight: 400;
 }
 
-/*@font-face {*/
-/*    font-family: "Gilroy-Bold";*/
-/*    src: url("@/fonts/Gilroy-ExtraBold.otf");*/
-/*    font-weight: 400;*/
-/*}*/
+@font-face {
+    font-family: "Gilroy-Bold";
+    src: url("@/fonts/Gilroy-ExtraBold.otf");
+    font-weight: 400;
+}
 
 body {
     font-family: 'Gilroy', sans-serif;
@@ -23,6 +23,11 @@ body {
 }
 
 main {
-    padding: 20px;
-    border-radius: 5px;
+    max-width: 1200px;
+    margin: auto;
 }
+
+main .container h2{
+    font-family: "Gilroy-Bold";
+}
+

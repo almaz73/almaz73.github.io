@@ -40,6 +40,9 @@
     width: 0.8125em;
     height: 0.8125em;
     display: block;
+    border: 40px solid #00000000;
+    cursor: pointer;
+    margin-top: -40px;
 }
 
 .modal-place__container--top {
