@@ -31,3 +31,7 @@ main .container h2{
     font-family: "Gilroy-Bold";
 }
 
+#mainPhoto{
+    width: 100%; cursor: pointer
+}
+
