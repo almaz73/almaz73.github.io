@@ -28,6 +28,10 @@ main {
     margin: auto;
 }
 
+main .container {
+    margin: 0 20px;
+}
+
 main .container h2 {
     font-family: "Gilroy-Bold";
 }
@@ -42,10 +46,6 @@ main .container h2 {
 }
 
 @media (max-width: 500px) {
-    main .container {
-        margin: 0 20px;
-    }
-
     #mainPhoto {
         display: none;
     }

@@ -1,6 +1,6 @@
-const mainPhoto = document.getElementById('mainPhoto'); // Находим элемент изображения
+const mainPhoto = document.getElementById('mainPhoto');
 
-mainPhoto.addEventListener('dblclick', function() { // Добавляем обработчик двойного клика
+mainPhoto.addEventListener('dblclick', function() {
     if (mainPhoto.requestFullscreen) {
         mainPhoto.requestFullscreen(); // Запрашиваем полноэкранный режим
     } else if (mainPhoto.mozRequestFullScreen) { // Firefox

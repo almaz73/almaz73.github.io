@@ -30,7 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 200px;
+    min-height: 400px;
 }
 
 .swiper-slide img {
