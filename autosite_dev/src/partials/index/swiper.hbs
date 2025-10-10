@@ -1,4 +1,11 @@
-<section class="swiper mySwiper">
+<!--<section class="swiper mySwiper start">-->
+<!--    <div class="swiper-wrapper">-->
+<!--        <div class="swiper-slide">-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+<section class="swiper mySwiper" style="display: none">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <a href="/promo/644340/">
@@ -54,8 +61,24 @@
 
 
 <script>
+    // узнаем размер экрана, выбираем подходящий рисунок, и ждем когда он загурзится,
+    // и только поелс полной закгрузки запускаем swiper
+    const img = new Image(); // Или document.getElementById('myImage');
+
     document.addEventListener('DOMContentLoaded', () => {
-        var swiper = new Swiper('.mySwiper', {
+        let width = document.body.clientWidth
+        if (width < 500) img.src = 'photo/1/250x362.webp';
+        if (width >= 500 && width <= 1000) img.src = 'photo/1/585х200.webp';
+        if (width > 500) img.src = 'photo/1/1200х501.webp';
+    })
+
+    img.addEventListener('load', () => {
+        document.querySelector('.swiper').style.display = 'block'
+
+        console.log('999 = ', 999)
+        // return false
+        setTimeout(()=>{
+            new Swiper('.mySwiper', {
             spaceBetween: 30,
             loop: true,
             autoHeight: true,
@@ -90,6 +113,7 @@
                 }
             },
         });
-    });
+        }, 5000)
+    })
 
 </script>
