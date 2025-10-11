@@ -5,7 +5,7 @@
 <!--    </div>-->
 <!--</section>-->
 
-<section class="swiper mySwiper" style="display: none">
+<section class="swiper mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <a href="/promo/644340/">
@@ -73,10 +73,6 @@
     })
 
     img.addEventListener('load', () => {
-        document.querySelector('.swiper').style.display = 'block'
-
-        console.log('999 = ', 999)
-        // return false
         setTimeout(()=>{
             new Swiper('.mySwiper', {
             spaceBetween: 30,
@@ -113,7 +109,7 @@
                 }
             },
         });
-        }, 5000)
+        }, 7200)
     })
 
 </script>
