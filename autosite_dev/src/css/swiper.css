@@ -1,17 +1,3 @@
-.swiper a .img_sm{
-   aspect-ratio: 700 / 723; 
-    display: block;
-    width: 100%;
-    object-fit: cover;
-}
-.swiper a .img_md{
-   aspect-ratio: 585 / 200; 
-}
-.swiper a .img_lg{
-   aspect-ratio: 1200 / 501; 
-}
-
-
 @media (width < 500px) {
     .swiper a .img_lg, .swiper a .img_md {
         display: none;
@@ -46,12 +32,12 @@
     align-items: center;
 }
 
-/* .swiper-slide img {
+.swiper-slide img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-} */
+}
 
 .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
     background: #00000000;
