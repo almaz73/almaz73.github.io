@@ -6,9 +6,9 @@
     <title>Фотогалерея</title>
     <style>
         body {
-            /*padding: 20px;*/
-            /*display: flex;*/
-            /*justify-content: center;*/
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .gallery {
@@ -86,6 +86,18 @@
     areas.forEach((area, i) => {
         area.addEventListener('mouseenter', () => photo.src = images[i + 1]);
         gallery.addEventListener('mouseleave', () => photo.src = images[0]);
+    });
+
+    let offset1, offset2, i=0
+    gallery.addEventListener('touchstart', e=>offset1 = e.targetTouches[0].pageX - gallery.offsetLeft);
+    gallery.addEventListener('touchmove', e=>offset2 = e.targetTouches[0].pageX - gallery.offsetLeft);
+    gallery.addEventListener('touchend', ()=>{
+      console.log('raise = ',offset1>offset2)
+      if(offset1>offset2)i++
+      else i--;
+      if(i>5)i=5
+      if(i<0)i=0
+      photo.src = images[i]
     });
 </script>
 </body>
