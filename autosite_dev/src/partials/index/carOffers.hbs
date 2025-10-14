@@ -37,16 +37,7 @@
         grid-area: c_slide;
     }
 
-    @media (max-width: 575px) {
-        .cart {
-            background: orange;
-            grid-template-columns: 100%;
-            grid-template-areas: 'name' 'c_price'  'c_slide' ' c_info' 'c_box'
-        }
-        .cart__slide {
-            margin-right: 0;
-        }
-    }
+
 
     .cart__slide img {
         height: 100%;
@@ -112,6 +103,33 @@
         margin-right: 5px;
     }
 
+    @media (max-width: 575px) {
+      .cart {
+        margin: 0 -20px;
+        padding: 0 20px;
+        border-radius: 0;
+        grid-template-columns: auto auto;
+        grid-template-areas: 'name name' 'c_price c_price'  'c_slide c_slide' 'c_info c_box'
+      }
+      .cart__slide {
+        margin-right: 0;
+      }
+
+      .cart__slide img {
+        margin: 0 -20px;
+        width: calc(100% + 40px);
+        border-radius: 0;
+      }
+
+      .cart__info {
+        margin: 30px 0;
+        display: inline-block;
+      }
+      .cart__box--bottom{
+        margin: 30px 0;
+      }
+    }
+
     .cart__of {
         color: #E22427;
         font-size: 0.875em;
@@ -154,6 +172,17 @@
         bottom: 0;
     }
 
+    .cart__blank {
+      color: white;
+      font-size: small;
+      position: absolute;
+      left: 0.625em;
+      bottom: 1.25em;
+      padding: 7px 9px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
 </style>
 
 <div class='container'>
@@ -169,6 +198,7 @@
                 <div class="area a3"></div>
                 <div class="area a4"></div>
                 <div class="area a5"></div>
+                <div class="cart__blank">Набережные Челны, Мусы Джалиля 15</div>
                 <div class="field">
                     <div class='red'></div>
                 </div>
