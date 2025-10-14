@@ -136,7 +136,6 @@
         display: inline-block;
     }
 
-
     .cart__info {
         font-weight: 600;
         font-size: 0.8125em;
@@ -188,6 +187,8 @@
 <div class='container'>
     <h2>Специальные предложения по цене</h2>
     <br>
+  <div class='offer-fields' id="caroffers">
+  </div>
     <div class='offer-fields'>
         <div class="cart" id="galery_1">
             <div class="cart__slide">
@@ -246,12 +247,52 @@
 
 
         <script>
+          function createNode(item){
+            let txt=`<div class="cart" id="galery_1">
+            <div class="cart__slide">
+                <img class="photo" alt=''>
+                <div class="area a0"></div>
+                <div class="area a1"></div>
+                <div class="area a2"></div>
+                <div class="area a3"></div>
+                <div class="area a4"></div>
+                <div class="area a5"></div>
+                <div class="cart__blank">${item.address}</div>
+                <div class="field">
+                    <div class='red'></div>
+                </div>
+            </div>
+            <div class="name">
+                <br>
+                <a href="${item.href}"> ${item.name}</a>
+            </div>
+            <div class="cart__price">
+                <div class="total">${item.price} ₽</div>
+                <div class="cart__of"> от 8&nbsp;700&nbsp;₽/мес</div>
+            </div>
+            <div class="cart__info">
+                ${item.info}
+            </div>
+            <div class="cart__box--bottom">
+                <a href="/ajax/addtocompare.php/?action=ADD_TO_COMPARE_LIST&amp;id=649868&amp;iblockid=76">
+                    <img src="/src/images/compare_cars.svg" alt=''>
+                </a>
+                <a href="/ajax/addtofavorite.php/?action=ADD_TO_FAV_LIST&amp;id=649868&amp;iblockid=76">
+                    <img src="/src/images/penta.svg" alt=''>
+                </a>
+            </div>
+        </div>`
+
+            console.log('txt=', txt)
+
+            document.querySelector('#caroffers').innerHTML = txt
+            createGalery(1);
+          }
             function createGalery(id) {
                 const gallery = document.querySelector('#galery_' + id + ' .cart__slide');
                 const photo = gallery.querySelector('.photo');
                 const areas = gallery.querySelectorAll('.area');
                 const red = gallery.querySelector('.cart .red');
-                console.log('red = ', red);
                 const images = [
                     '../photo-offers/' + id + '/p1.jpg',
                     '../photo-offers/' + id + '/p2.jpg',
@@ -288,6 +329,24 @@
             createGalery(1);
             createGalery(2);
 
+            let cars=[
+              {
+                address: 'Набережные Челны, Мусы Джалиля 15',
+                name: 'Volkswagen Polo, 2014',
+                href:'/cars/polo/649868/',
+                price:'784 238',
+                fromPerMonth:'8 700',
+                info:'133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
+                photos:['../photo-offers/1/p1.jpg',
+                  '../photo-offers/1/p2.jpg',
+                  '../photo-offers/1/p3.jpg',
+                  '../photo-offers/1/p4.jpg',
+                  '../photo-offers/1/p5.jpg',
+                  '../photo-offers/1/p6.jpg']
+              }
+            ]
+
+            cars.forEach(el=>createNode(el))
         </script>
     </div>
 </div>
