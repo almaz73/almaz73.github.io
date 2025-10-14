@@ -1,13 +1,14 @@
 let option_div = document.querySelector('.comb__items');
+let comb_field = document.querySelector('.comb_field');
 let select_div = document.querySelector('.comb__selected');
 let comb_arrow = document.querySelector('.comb_field img');
 
 
 let selectedCity = localStorage.getItem('selectedCity');
-if (select_div) {
+if (comb_field) {
   select_div.innerHTML = selectedCity || 'Россия';
   document.addEventListener('click', () => openOptions(false));
-  select_div.addEventListener('click', event => openComb(event));
+  comb_field.addEventListener('click', event => openComb(event));
   option_div.addEventListener('click', event => getCity(event));
 }
 
