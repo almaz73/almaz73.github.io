@@ -15,23 +15,45 @@
     .cart {
         width: 100%;
         border-radius: 5px;
-        box-shadow: 0px 0px 35px 1px #0000001a;
+        box-shadow: 0 0 35px 1px #0000001a;
+        box-shadow: 0 0 35px 1px #0000001a;
         cursor: pointer;
-        display: flex;
+        transition: box-shadow 0.5s;
         min-height: 200px;
-        overflow: hidden;
+        font-weight: 600;
+        display: grid;
+        grid-template-columns: 47% auto;
+        grid-template-areas: 'c_slide name' 'c_slide c_price' 'c_slide c_info' 'c_slide  c_box'
+    }
+
+
+
+    .cart:hover {
+        box-shadow: 0 0 35px 1px #00000035;
     }
 
     .cart__slide {
-        max-width: 47%;
         position: relative;
+        margin-right: 0.9375em;
+        grid-area: c_slide;
+    }
+
+    @media (max-width: 575px) {
+        .cart {
+            background: orange;
+            grid-template-columns: 100%;
+            grid-template-areas: 'name' 'c_price'  'c_slide' ' c_info' 'c_box'
+        }
+        .cart__slide {
+            margin-right: 0;
+        }
     }
 
     .cart__slide img {
         height: 100%;
         width: 100%;
         object-fit: cover;
-
+        border-radius: 5px 0 0 5px;
     }
 
     .area {
@@ -66,20 +88,23 @@
         left: 83%;
     }
 
-    .cart__box {
-        padding: 1.5em 0.9375em;
-        font-weight: 600;
-        display: grid;
+
+    .cart .name {
+        grid-area: name;
     }
 
-
-    .cart__box .name a {
+    .cart .name a {
         text-decoration: none;
         color: #000;
     }
 
+    .cart .name a:hover {
+        color: var(--color-red);
+    }
+
     .cart__price {
         margin: 12px 0 24px 0;
+        grid-area: c_price;
     }
 
     .cart__price .total {
@@ -99,8 +124,12 @@
         font-weight: 600;
         font-size: 0.8125em;
         max-width: 170px;
+        grid-area: c_info;
     }
 
+    .cart__box--bottom {
+        grid-area: c_box;
+    }
 
     .cart__box--bottom a {
         display: inline-block;
@@ -113,7 +142,6 @@
     }
 
     .cart .field {
-        margin-top: -8px;
         width: 100%;
         position: absolute;
         bottom: 0;
@@ -135,7 +163,7 @@
     <div class='offer-fields'>
         <div class="cart" id="galery_1">
             <div class="cart__slide">
-                <img class="photo">
+                <img class="photo" alt=''>
                 <div class="area a0"></div>
                 <div class="area a1"></div>
                 <div class="area a2"></div>
@@ -146,33 +174,30 @@
                     <div class='red'></div>
                 </div>
             </div>
-            <div class="cart__box">
-                <div class="name">
-                    <a href="/cars/polo/649868/"> Volkswagen Polo, 2014 </a>
-                </div>
-                <div class="cart__price">
-                    <div class="total">784&nbsp;238&nbsp;₽</div>
-                    <div class="cart__of"> от 8&nbsp;700&nbsp;₽/мес
-                    </div>
-                </div>
-
-                <div class="cart__info">
-                    133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин
-                </div>
+            <div class="name">
                 <br>
-                <div class="cart__box--bottom">
-                    <a href="/ajax/addtocompare.php/?action=ADD_TO_COMPARE_LIST&amp;id=649868&amp;iblockid=76">
-                        <img src="/src/images/compare_cars.svg">
-                    </a>
-                    <a href="/ajax/addtofavorite.php/?action=ADD_TO_FAV_LIST&amp;id=649868&amp;iblockid=76">
-                        <img src="/src/images/penta.svg">
-                    </a>
-                </div>
+                <a href="/cars/polo/649868/"> Volkswagen Polo, 2014 </a>
+            </div>
+            <div class="cart__price">
+                <div class="total">784&nbsp;238&nbsp;₽</div>
+                <div class="cart__of"> от 8&nbsp;700&nbsp;₽/мес</div>
+            </div>
+            <div class="cart__info">
+                133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин
+            </div>
+            <div class="cart__box--bottom">
+                <a href="/ajax/addtocompare.php/?action=ADD_TO_COMPARE_LIST&amp;id=649868&amp;iblockid=76">
+                    <img src="/src/images/compare_cars.svg" alt=''>
+                </a>
+                <a href="/ajax/addtofavorite.php/?action=ADD_TO_FAV_LIST&amp;id=649868&amp;iblockid=76">
+                    <img src="/src/images/penta.svg" alt=''>
+                </a>
             </div>
         </div>
+
         <div class="cart" id="galery_2">
             <div class="cart__slide">
-                <img class="photo">
+                <img class="photo" alt=''>
                 <div class="area a0"></div>
                 <div class="area a1"></div>
                 <div class="area a2"></div>

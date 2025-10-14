@@ -144,7 +144,5 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>`
 
   document.querySelector('#brands_dynamic').innerHTML = txt
-
-  console.log('text', text)
 })
 
