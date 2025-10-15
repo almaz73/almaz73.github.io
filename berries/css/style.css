@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0}
+
+.header {
+    background-color: rgb(255, 255, 255);
+    width: 100vw;
+    height: 130px;
+    position: fixed;
+    border-bottom: 1px solid rgb(59, 47, 23);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.logo{
+    width: 180px;
+    margin: 10px;
+}
+.header-text{
+    font-size: 16px;
+    color: rgb(59, 47, 23);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+}
+
+.slide-container{
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+.slide-image-container{
+    display: none;
+}
+
+.slide-button{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: rgb(59, 47, 23);
+    font-weight: bold;
+}
+
