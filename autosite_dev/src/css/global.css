@@ -45,9 +45,14 @@ main .container h2 {
     display: none;
 }
 
+#mainPhoto{
+    aspect-ratio: 1200/500
+}
+
 @media (max-width: 500px) {
     #mainPhoto {
         display: none;
+        aspect-ratio: 483/534
     }
 
     .mainPhoto_little {

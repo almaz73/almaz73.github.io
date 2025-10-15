@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     txt += ` <div>
               <a href='${el.urlc}'>
                   <span class='icon'>
-                      <img src='${el.imgSrc}' alt='' class=' mw-100 d-block' loading='lazy'>
+                      <img src='${el.imgSrc}' alt='' class='d-block' loading='lazy'>
                   </span>
                   <span class='text'>${el.text}</span>
                   <span class='total'>${el.total}</span>

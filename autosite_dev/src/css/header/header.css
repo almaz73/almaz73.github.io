@@ -61,7 +61,8 @@ nav .header__nav-a:hover {
 }
 
 .header__logo-image {
-    max-height: 45px;
+    width: 227px;
+    height: 45px;
 }
 
 @media (max-width: 1120px) and (min-width: 800px) {
