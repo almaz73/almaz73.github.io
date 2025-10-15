@@ -21,12 +21,14 @@
 
     <script type="module" src="/src/js/main.js"></script>
     <script type="module" src="/src/js/index/brands-dynamic.js"></script>
+    <script type="module" src="/src/js/index/offers.js"></script>
     <link rel="stylesheet" href="/src/css/index/brands-dynamic.css" />
+    <link rel="stylesheet" href="/src/css/index/offers.css" />
 </head>
 <body>
 {{> "header/header" }}
 <br>
-<!--{{> "index/swiper"}}-->
+{{> "index/swiper"}}
 <br>
 <br>
 
@@ -43,15 +45,19 @@
 
 <main>
 
-    {{> 'index/carOffers'}}
-
 
     <div id='brands_dynamic'></div>
+    <br><br>
+
+    <div class='container'>
+        <h2>Специальные предложения по цене</h2>
+        <br>
+        <div class='offer-fields' id="caroffers" style="min-height: 660px"></div>
+    </div>
 
     <br><br><br><br>
     <div>
-        <img src='/src/images/bnr_geo_desc.webp' id='mainPhoto' alt='география присутствия' loading='lazy' width='1200'
-             height='501'>
+        <img src='/src/images/bnr_geo_desc.webp' id='mainPhoto' alt='география присутствия' loading='lazy'>
         <img src='/src/images/bnr_geo_mobile.webp' class='mainPhoto_little' alt='география присутствия' loading='lazy'
              width='483' height='534'>
     </div>

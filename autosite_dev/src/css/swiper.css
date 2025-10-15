@@ -1,3 +1,15 @@
+.swiper a .img_lg {
+    aspect-ratio: 12/5;
+}
+
+.swiper a .img_md {
+    aspect-ratio: 585/200;
+}
+
+.swiper a .img_sm {
+    aspect-ratio: 250/362;
+}
+
 @media (width < 500px) {
     .swiper a .img_lg, .swiper a .img_md {
         display: none;
