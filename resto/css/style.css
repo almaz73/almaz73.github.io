@@ -1,0 +1,114 @@
+:root {
+    --color-yellow: #d6c21a;
+    /*--color-gray: #f3f3f5*/
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("fonts/Gilroy-Light.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gilroy-Bold";
+    src: url("fonts/Gilroy-ExtraBold.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
+    font-family: 'Gilroy', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 100vh;
+    position: relative;
+}
+
+.fon{
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #2e3540;
+    background-image: url(../img/background.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.fon-fon {
+    top: 0;
+    position: absolute;
+    margin-top: 140px;
+    height: 680px;
+    z-index: 0;
+}
+
+.fon-house {
+    right: -500px;
+    position: absolute;
+    margin-top: 90px;
+    z-index: 0;
+}
+
+.header-section{
+    max-width: 1100px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.logo{
+    margin-top: 48px;
+    width: 255px;
+}
+
+.h1, .h3{
+    font-size: 65px;
+    color: var(--color-yellow);
+    margin: 8px 0 ;
+    letter-spacing: 0.6px;
+}
+.header h2{
+    font-size: 38px;
+    color: white;
+    margin: 0;
+}
+
+.h3{
+    /*font-family: 'Gilroy-Bold', sans-serif;*/
+    /*font-weight: 900;*/
+}
+
+.info {
+    max-width: 1200px;
+    font-size: 24px;
+}
+
+@media (max-width: 730px) {
+    .header-section{
+        text-align: center;
+    }
+    .fon-house{
+        position: relative;
+        right: inherit;
+        width: 100%;
+        top:273px
+    }
+    .on-fon{
+        display: none;
+    }
+    .h1{
+        font-size: 42px;
+        margin-top: 42px;
+    }
+    .header h2{
+        font-size: 25px;
+    }
+}
+
