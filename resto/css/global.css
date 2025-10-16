@@ -1,0 +1,31 @@
+:root {
+    --color-yellow: #d6c21a;
+    /*--color-gray: #f3f3f5*/
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("fonts/Gilroy-Light.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gilroy-Bold";
+    src: url("fonts/Gilroy-ExtraBold.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Regular.ttf);
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
+    font-family: 'Gilroy', sans-serif;
+    margin: 0;
+    padding: 0;
+}
