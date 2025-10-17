@@ -17,11 +17,11 @@
     <meta name="description" content="Купите автомобили с пробегом в Казани и других городах.
         🚗 БУ авто в автосалонах Автосеть.рф.
         Подробная информация по телефону: ☎ 8-800-500-11-56. Звоните!">
-
-  <script type="module" crossorigin src="./assets/main-D5Ol_z10.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/main-p1pU5qvF.js">
-  <link rel="stylesheet" crossorigin href="./assets/main-D0N7rrZR.css">
-  <link rel="stylesheet" crossorigin href="./assets/main-BWXC-Mck.css">
+
+  <script type="module" crossorigin src="./assets/main-B3NHOfu2.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/main-Pi-KUF6e.js">
+  <link rel="stylesheet" crossorigin href="./assets/main-CXXmWyW4.css">
+  <link rel="stylesheet" crossorigin href="./assets/main-Bf3qbL9w.css">
 </head>
 <body>
 <div class="header">
@@ -176,8 +176,7 @@
     </div>
   </div>
 </div>
-</div><br>
-<section class="swiper mySwiper">
+</div><section class="swiper mySwiper">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <a href="/promo/644340/">
@@ -227,14 +226,10 @@
     <div class="swiper-pagination"></div>
 </section>
 
-
 <link rel="stylesheet" href="swiper-bundle.min.css"/>
 
-
 <script>
-    // узнаем размер экрана, выбираем подходящий рисунок, и ждем когда он загурзится,
-    // и только поелс полной закгрузки запускаем swiper
-    const img = new Image(); // Или document.getElementById('myImage');
+    const img = new Image();
 
     document.addEventListener('DOMContentLoaded', () => {
         let width = document.body.clientWidth
@@ -244,8 +239,7 @@
     })
 
     img.addEventListener('load', () => {
-        setTimeout(()=>{
-            new Swiper('.mySwiper', {
+        new Swiper('.mySwiper', {
             spaceBetween: 30,
             loop: true,
             autoHeight: true,
@@ -268,42 +262,23 @@
                     this.el.addEventListener('click', () => {
                         this.autoplay.stop();
                         isUsed = true
-                    });
-
-                    this.el.addEventListener('mouseenter', () => {
-                        this.autoplay.stop();
-                    });
-
-                    this.el.addEventListener('mouseleave', () => {
-                        !isUsed && this.autoplay.start();
-                    });
+                    })
+                    this.el.addEventListener('mouseenter', () => this.autoplay.stop())
+                    this.el.addEventListener('mouseleave', () => !isUsed && this.autoplay.start())
                 }
-            },
-        });
-        }, 7300)
+            }
+        })
     })
 
 </script>
-<br>
-<br>
 
-<!--<section class="car-search">-->
-<!--    <div class="car-search__content">-->
-<!--        SEARCH-->
-<!--    </div>-->
-<!--</section>-->
 
-<!--<div style="max-width: 1200px; margin: 0 auto; padding: 30px">-->
-<!--    <h1>Главная страница</h1>-->
-<!--    <nav >
-   &nbsp;&nbsp;&nbsp;::::: <a href="index.html"> На главную</a>
-    | <a href="about.html">О нас</a>
-    | <a href="contacts.html">Контакты</a>
-  | <a href="papka/index.html">Подпапка</a>
-</nav>-->
-<!--</div>-->
 
 <main>
+
+
+
+
 
 
     <div id='brands_dynamic'></div>

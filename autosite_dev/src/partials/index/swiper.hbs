@@ -48,15 +48,11 @@
     <div class="swiper-pagination"></div>
 </section>
 
-
 <link rel="stylesheet" href="swiper-bundle.min.css"/>
 <link rel="stylesheet" href="/src/css/swiper.css"/>
 
-
 <script>
-    // узнаем размер экрана, выбираем подходящий рисунок, и ждем когда он загурзится,
-    // и только поелс полной закгрузки запускаем swiper
-    const img = new Image(); // Или document.getElementById('myImage');
+    const img = new Image();
 
     document.addEventListener('DOMContentLoaded', () => {
         let width = document.body.clientWidth
@@ -66,8 +62,7 @@
     })
 
     img.addEventListener('load', () => {
-        setTimeout(()=>{
-            new Swiper('.mySwiper', {
+        new Swiper('.mySwiper', {
             spaceBetween: 30,
             loop: true,
             autoHeight: true,
@@ -90,19 +85,12 @@
                     this.el.addEventListener('click', () => {
                         this.autoplay.stop();
                         isUsed = true
-                    });
-
-                    this.el.addEventListener('mouseenter', () => {
-                        this.autoplay.stop();
-                    });
-
-                    this.el.addEventListener('mouseleave', () => {
-                        !isUsed && this.autoplay.start();
-                    });
+                    })
+                    this.el.addEventListener('mouseenter', () => this.autoplay.stop())
+                    this.el.addEventListener('mouseleave', () => !isUsed && this.autoplay.start())
                 }
-            },
-        });
-        }, 7300)
+            }
+        })
     })
 
 </script>

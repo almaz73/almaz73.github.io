@@ -24,26 +24,19 @@
     <script type="module" src="/src/js/index/offers.js"></script>
     <link rel="stylesheet" href="/src/css/index/brands-dynamic.css" />
     <link rel="stylesheet" href="/src/css/index/offers.css" />
+    <link rel="stylesheet" href="/src/css/index/filter-box.css" />
 </head>
 <body>
 {{> "header/header" }}
-<br>
 {{> "index/swiper"}}
-<br>
-<br>
 
-<!--<section class="car-search">-->
-<!--    <div class="car-search__content">-->
-<!--        SEARCH-->
-<!--    </div>-->
-<!--</section>-->
 
-<!--<div style="max-width: 1200px; margin: 0 auto; padding: 30px">-->
-<!--    <h1>Главная страница</h1>-->
-<!--    {{> create-rooms }}-->
-<!--</div>-->
 
 <main>
+
+  {{> 'index/search'}}
+
+
 
 
     <div id='brands_dynamic'></div>

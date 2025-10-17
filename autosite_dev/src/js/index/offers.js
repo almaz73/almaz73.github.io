@@ -34,11 +34,13 @@ function createNode(item, N) {
             </div>
             </div>`
 
-    document.querySelector('#caroffers').innerHTML += txt
+    let caroffers = document.querySelector('#caroffers')
+    if (caroffers) caroffers.innerHTML += txt
 }
 
 function galeryEvents(id, images) {
     const gallery = document.querySelector('#galery_' + id + ' .cart__slide');
+    if(!gallery) return false
     const photo = gallery.querySelector('.photo');
     const areas = gallery.querySelectorAll('.area');
     const red = gallery.querySelector('.cart .red');

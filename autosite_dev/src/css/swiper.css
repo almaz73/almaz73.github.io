@@ -35,6 +35,8 @@
     border-radius: 12px;
     max-width: 1180px;
     display: block;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 .swiper-slide {
