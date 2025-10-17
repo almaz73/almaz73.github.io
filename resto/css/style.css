@@ -35,7 +35,7 @@ body {
     position: relative;
 }
 
-.fon{
+.fon {
     position: absolute;
     top: 0;
     height: 100vh;
@@ -64,24 +64,25 @@ body {
     z-index: 0;
 }
 
-.header-section{
+.header-section {
     max-width: 1100px;
     margin: 0 auto;
-    z-index: 10;
 }
 
-.logo{
+
+.logo {
     margin-top: 38px;
     width: 255px;
 }
 
-.h1, .h3{
+.h1, .h3 {
     font-size: 65px;
     color: var(--color-yellow);
-    margin: 6px 0 ;
+    margin: 6px 0;
     letter-spacing: 0.6px;
 }
-.header .h2{
+
+.header .h2 {
     font-size: 38px;
     color: white;
     margin: 0;
@@ -95,45 +96,80 @@ body {
 
 
 @media (max-width: 730px) {
-    .header-section{
+    .header-section {
         text-align: center;
     }
-    .fon-house{
+
+    .fon-house {
         position: relative;
         right: inherit;
         width: 100%;
-        top:273px
+        top: 273px
     }
-    .on-fon{
+
+    .on-fon {
         display: none;
     }
-    .h1{
+
+    .h1 {
         font-size: 42px;
         margin-top: 42px;
     }
-    .header .h2{
+
+    .header .h2 {
         font-size: 25px;
     }
 }
 
+.blocks {
+    border: 1px solid red;
+    width: 100%;
+    height: auto;
 
+    align-items: center;
+}
 
-.block_1{
+.block {
     border-radius: 3px;
     background-color: #ffffff77;
     backdrop-filter: blur(5px);
     width: 340px;
     text-align: center;
     padding: 20px;
+    margin-right: 20px;
 }
 
-.block_1 h2{
+@media (max-width: 730px) {
+    .header {
+        height: auto;
+    }
+    .blocks {
+        /*text-align: center;*/
+        border:1px solid red;
+        margin-top: 300px;
+        height: auto;
+    }
+
+    .block {
+        width: 80%;
+        margin-bottom: 20px !important;
+        display: inline-block;
+
+    }
+}
+
+.block_1 {
+    grid-area: block1;
+}
+
+.block_1 h2 {
     font-size: 1.8em;
     margin: 0;
     line-height: 1.5;
     font-weight: 700;
 }
-.block_1 p{
+
+.block_1 p {
     line-height: 1.5;
     margin: 10px;
 }
@@ -149,7 +185,8 @@ body {
     font-weight: 100;
     margin: 10px 0;
 }
-.t-button{
+
+.t-button {
     background: var(--color-yellow);
     border: 0;
     box-sizing: border-box;
@@ -160,7 +197,20 @@ body {
     width: 100%;
 }
 
-.block_1 span{
+.block_2 {
+    grid-area: block2;
+    font-size: small;
+    margin: 0;
+}
+
+.block_3 {
+    grid-area: block3;
+    font-size: small;
+    margin: 0;
+}
+
+.block_4 {
+    grid-area: block4;
     font-size: small;
     margin: 0;
 }

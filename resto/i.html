@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Title</title>
+    <style>
+        body {
+            background: #0c5460;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blocks {
+            background: #0f3460;
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 80vh;
+            /*display: flex;*/
+            /*flex-wrap: wrap;*/
+            /*flex-direction: row-reverse;*/
+
+            display: grid;
+            grid-template-columns: auto auto auto;
+            /*grid-template-rows: auto 1fr;*/
+            grid-template-areas: 'block_1 block_1 block_1 block_1'  'block_2 block_2 block_3 block_4'  'block_1 block_2 block_3 block_4' ;
+        }
+
+        .blocks >div{
+            margin: 0 20px 0 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+        }
+
+        .block {
+            background: #ffffff55;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .block_1 {
+            grid-area: block_1;
+            width: 240px;
+            order: 0 !important;
+        }
+
+        .block_2 {
+            grid-area: block_2;
+            width: 240px;
+        }
+
+        .block_3 {
+            grid-area: block_3;
+            width: 240px;
+        }
+
+        .block_4 {
+            grid-area: block_4;
+            width: 240px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class='blocks'>
+
+
+    <span class='block block_2'>
+        <h3>2222 Точечная помощь на предприятии</h3>
+        Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+    </span>
+
+    <span class='block block_3'>
+        <h3>333 Точечная помощь на предприятии</h3>
+        Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+    </span>
+
+    <span class='block block_4'>
+        <h3>4444 Точечная помощь на предприятии</h3>
+        Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+    </span>
+
+    <span class='block block_1'>
+        <h3>111 Точечная помощь на предприятии</h3>
+
+        Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+        <br><br>
+        Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+        <input>
+        <br><br>
+        Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+        <br><br>
+         Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+        <br><br>
+         Разработка меню, документации, найм и обучение сотрудников, получение лицензий, автоматизация – решим любые задачи общепита.
+        <br><br>
+    </span>
+
+
+
+</div>
+
+33<br>
+33<br>
+33<br>
+33<br>33<br>33<br>33<br>33<br>33<br>33<br>33<br>33<br>33<br>
+</body>
+</html>

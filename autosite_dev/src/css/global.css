@@ -45,7 +45,7 @@ main .container h2 {
     display: none;
 }
 
-#mainPhoto{
+#mainPhoto {
     aspect-ratio: 1200/500
 }
 
@@ -58,4 +58,13 @@ main .container h2 {
     .mainPhoto_little {
         display: block;
     }
+}
+.page_padding_20{
+    padding: 20px;
+}
+.page_padding_20 h2{
+    font-family: system-ui, Gilroy-Bold;
+}
+.page_padding_20 a{
+    text-decoration: none;
 }

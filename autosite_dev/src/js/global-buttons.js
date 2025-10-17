@@ -1,4 +1,5 @@
 import { fillCities } from '@/js/searchCities.js';
+
 let burger_menu = document.querySelector('.button__burger');
 let panel = document.querySelector('.main-nav.menu');
 let buttonBurger = document.querySelector('.button__burger');
@@ -7,7 +8,6 @@ let cities = document.querySelector('.main-nav.cities');
 let cityButton = document.querySelector('.city');
 let cityClose = document.querySelector('.modal-place__close');
 let isOpened;
-
 
 
 function hideMainScroll(hide) {
@@ -45,7 +45,7 @@ cityButton.addEventListener('click', () => {
     cities.style.backgroundColor = 'white';
   }
   hideMainScroll(isOpened);
-  fillCities()
+  fillCities();
 });
 cityClose.addEventListener('click', () => {
   cities.style.transform = 'translateX(150vw)';
@@ -53,4 +53,13 @@ cityClose.addEventListener('click', () => {
 });
 
 
+/* работа с cookie-banner */
+let cookieAccept = document.querySelector('#cookie-accept');
+let cookieBanner = document.querySelector('#cookie-banner');
+let isCoockieBannerShow = localStorage.getItem('isCoockieBannerShow');
+if (!isCoockieBannerShow) cookieBanner.classList.add('show');
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem('isCoockieBannerShow', new Date().toISOString());
+  cookieBanner.classList.remove('show');
+});
 
