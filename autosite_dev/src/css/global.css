@@ -68,3 +68,18 @@ main .container h2 {
 .page_padding_20 a{
     text-decoration: none;
 }
+
+.bread_cranbs{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: .7em;
+}
+
+.bread_cranbs a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+.bread_cranbs a:hover{
+    color: var(--color-red);
+}
