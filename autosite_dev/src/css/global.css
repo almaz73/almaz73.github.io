@@ -1,0 +1,85 @@
+:root {
+    --color-red: #e32136;
+    --color-gray: #f3f3f5;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("@/fonts/Gilroy-Light.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "Gilroy-Bold";
+    src: url("@/fonts/Gilroy-ExtraBold.otf");
+    font-style: normal;
+    font-weight: 400;
+}
+
+body {
+    font-family: 'Gilroy', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: auto;
+}
+
+main .container {
+    margin: 0 20px;
+}
+
+main .container h2 {
+    font-family: "Gilroy-Bold";
+}
+
+#mainPhoto, .mainPhoto_little {
+    width: 100%;
+    cursor: pointer;
+}
+
+.mainPhoto_little {
+    display: none;
+}
+
+#mainPhoto {
+    aspect-ratio: 1200/500
+}
+
+@media (max-width: 500px) {
+    #mainPhoto {
+        display: none;
+        aspect-ratio: 483/534
+    }
+
+    .mainPhoto_little {
+        display: block;
+    }
+}
+.page_padding_20{
+    padding: 20px;
+}
+.page_padding_20 h2{
+    font-family: system-ui, Gilroy-Bold;
+}
+.page_padding_20 a{
+    text-decoration: none;
+}
+
+.bread_cranbs{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    font-size: .7em;
+}
+
+.bread_cranbs a{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+.bread_cranbs a:hover{
+    color: var(--color-red);
+}

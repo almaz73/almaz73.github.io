@@ -1,0 +1,11 @@
+.car-search{
+    max-width: 1180px;
+    margin: 0 auto;
+
+}
+.car-search__content{
+    border-radius: 15px;
+    background: #f3f3f5;
+    width: 100%;
+    min-height: 60px;
+}

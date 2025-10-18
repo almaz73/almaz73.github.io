@@ -1,0 +1,417 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    max-width: 1300px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+header img {
+    margin-left: 40px;
+}
+
+nav {
+    margin-right: 40px;
+}
+
+nav .foot {
+    max-width: 40px;
+}
+
+nav a, nav.foot a {
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    outline: none;
+    margin: 10px;
+    color: inherit;
+}
+
+nav.foot a {
+    margin: 2px;
+}
+
+@media (max-width: 1000px) {
+    header nav {
+        display: none;
+        background: red;
+    }
+}
+
+article.top {
+    height: 720px;
+    background-image: url('Home_Hero.webp');
+    background-color: black;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+    transition: height 0.5s ease-in-out 0.1s;
+}
+
+.move-left {
+    padding-top: 220px;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    overflow: hidden;
+}
+
+.slogan {
+    color: #ffffff;
+    font-size: 54px;
+    line-height: 1.15;
+    font-weight: 600;
+    max-width: 1300px;
+    max-width: 870px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: slideIn 1.5s ease forwards;
+}
+
+.slogan2, .slogan3, .slogan4 {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.75;
+    font-weight: 600;
+    max-width: 660px;
+    min-width: 660px;
+    text-align: left;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateX(-5%);
+    animation: slideIn 1.5s ease forwards;
+    animation-delay: 0.8s;
+    padding-right: 202px;
+}
+
+.slogan3 {
+    animation-delay: 1.3s;
+}
+
+.slogan4 {
+    animation-delay: 1.8s;
+}
+
+@media (width < 1000px) and (width > 500px) {
+    .slogan {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .slogan2, .slogan3, .slogan4 {
+        text-align: center;
+        max-width: 600px;
+        min-width: 100%;
+        text-align: center;
+        padding-right: inherit;
+    }
+}
+
+@media (width <= 500px) {
+    .slogan {
+        font-size: 24px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .slogan2, .slogan3, .slogan4 {
+        font-size: 14px;
+        text-align: center;
+        max-width: 320px;
+        min-width: 320px;
+        padding-right: inherit;
+    }
+
+    .move-left {
+        padding-top: 120px;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(5%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/*-------footer-----------------*/
+
+footer {
+    max-width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    min-height: 80px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.atom1 {
+    align-self: flex-start
+}
+
+.atom2 {
+    align-self: flex-start;
+    color: #000000;
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 500;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.atom2-h4 {
+    color: #000000;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.atom2 :not(:first-child) {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.atom3 {
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 500;
+}
+
+.atom4 {
+    align-self: flex-start;
+    max-width: 140px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+@media (width < 500px) {
+    .atom3 {
+        display: flex;
+        gap: 30px;
+    }
+
+    .atom4 {
+        min-width: 250px !important;
+        justify-content: space-between;
+    }
+}
+
+/*-------artiсle nmiddde-----------------*/
+article.middle {
+    background: none;
+    max-width: 1200px;
+    min-height: 710px;
+    margin: 70px auto 0;
+    position: relative;
+}
+
+.fly {
+    background: white;
+    position: absolute;
+    top: 170px;
+    right: 0;
+    width: 630px;
+    height: 470px;
+    padding: 70px 0 0 50px;
+}
+
+.fly.bitrix {
+    height: 360px;
+    right: 20%;
+    padding-right: 30px;
+}
+
+
+.fly-head {
+    width: 600px;
+    font-size: 22px;
+    line-height: 1.45;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.fly-text1, .fly-text2 {
+    margin-top: 30px;
+    font-size: 18px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.fly-photo {
+    width: 100%;
+    max-width: 909px;
+}
+
+@media (width < 1000px) {
+    .fly.bitrix {
+        right: 0;
+        padding-right: 0;
+    }
+}
+
+@media (width < 700px) {
+    .fly {
+        position: inherit;
+        top: 0;
+        right: inherit;
+        width: calc(100% - 25px);
+        height: auto;
+        padding: 20px 0 0 20px;
+    }
+
+    .fly-head {
+        font-size: 20px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .fly-text1, .fly-text2 {
+        width: calc(100% - 25px);
+        margin-top: 20px;
+        font-size: 16px;
+    }
+}
+
+/*-------artiсle bottom-----------------*/
+article.tasks {
+    background: none;
+    max-width: 1260px;
+    margin: 70px auto 0;
+}
+
+.bottom-head {
+    font-size: 32px;
+    line-height: 1.35;
+    font-weight: 600;
+    max-width: 1000px;
+}
+
+.plash {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tasks-plash {
+    font-size: 18px;
+    font-weight: 500;
+    border-width: 2px;
+    border-radius: 6px;
+    border-color: #bcbcbc;
+    border-style: solid;
+    padding: 8px 20px;
+    margin: 15px 4px 0;
+}
+
+@media (width < 900px) {
+    article.tasks {
+        padding: 0 30px;
+    }
+
+    .bottom-head {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .tasks-plash {
+        font-size: 16px;
+        margin: 8px auto;
+        min-width: calc(100% - 40px);
+    }
+}
+
+
+/*-------artiсle tarif-----------------*/
+article.tarif {
+    background: none;
+    max-width: 1200px;
+    margin: 70px auto 0;
+}
+
+.tbl {
+    width: 100%;
+    border-collapse: collapse;
+    line-height: 1;
+}
+
+.tbl th, .tbl td {
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.tbl td:first-child {
+    text-align: left;
+    font-weight: 500;
+}
+
+.tbl tr:nth-child(even) {
+    background-color: #efefef;
+}
+
+.tbl tr:hover {
+    background-color: #f0f7ff;
+}
+
+.tbl .price {
+    font-weight: bold;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.tbl-red {
+    background: #e22427;
+    color: white;
+}
+
+.tbl .checkmark {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.tbl .cross {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.tbl-notice {
+    margin: 30px;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 500;
+    display: flex;
+    gap: 10px;
+}
+
+.lin {
+    width: 100%;
+    height: 30px;
+    background: #efefef;
+    margin-top: 60px;
+}
