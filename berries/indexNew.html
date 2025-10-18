@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B&B coffee</title>
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" async="" src="JavaScript/scriptNew.js"></script>
 </head>
+
 <body>
     <div class="header">
         <img class="logo" src="image/logo.jpg" alt="">
         <a class="header-text" href="#menu">Меню</a>
         <a class="header-text" href="#menu">Онлайн заказ</a>
     </div>
-    <div class="slide-container">
-        
+    <div class="rama">
 
-        <div class="slide-image-container">
-            <img class="slide-image" src="image/berry.jpg" alt="">
-        </div>
-        <div class="slide-image-container">
-            <img class="slide-image" src="image/chocolate.png" alt="">
-        </div>
-        <div class="slide-image-container">
-            <img class="slide-image" src="image/greentea1.jpg" alt="">
-        </div>
-        <div class="slide-image-container">
-            <img class="slide-image" src="image/brownie.jpg" alt="">
-        </div>
+        <a class="slide-button-prev" onclick='go(-1)'>
+            < </a>
+                <img class="image" src="image/berry.jpg" alt="">
 
-        <a class="slide-button" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="slide-button" onclick="plusSlides(1)">&#10095;</a>
+                <img class="image" src="image/chocolate.png" alt="">
+
+                <img class="image" src="image/greentea1.jpg" alt="">
+
+                <img class="image" src="image/brownie.jpg" alt="">
 
 
+
+                <a class="slide-button-next" onclick='go(1)'>></a>
 
 
     </div>
+
+
+
+
+
+
 </body>
+
 </html>
