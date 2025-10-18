@@ -28,38 +28,50 @@ body{
 
 
 
-.image {
-    width: 300px;
-    display: none;
+
+.carusel{
+    /*background: orange;*/
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    max-width: 400px;
+    margin: auto;
+    margin-top: 180px;
 }
 
-.rama{
+
+
+.view{
     width: 300px;
+    height: 300px;
     margin: auto;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: 180px;
+    /*background: pink;*/
+    position: relative;
+
+}
+
+.image {
+    width: 300px;
+    position: absolute;
+    /*display: none;*/
+    opacity: 1;
+    transition: opacity 0.5s;
 }
 
 
 .slide-button-prev,
 .slide-button-next{
     cursor: pointer;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: rgb(59, 47, 23);
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
+    /*background: pink;*/
+    padding: 16px 0;
+    height: 32px;
 }
-.slide-button-next{
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
+/*.slide-button-next{*/
+/*    right: 0;*/
+/*    border-radius: 3px 0 0 3px;*/
+/*}*/
 
 

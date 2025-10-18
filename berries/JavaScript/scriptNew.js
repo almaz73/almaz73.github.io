@@ -5,20 +5,19 @@
   images[0].style.display = 'block';
 
   function go(val) {
-    images[counter].style.display = 'none';
-    images[counter].style.display = 'none';
-    images[counter].style.display = 'none';
+    images[counter].style.opacity = '0';
+    images[counter].style.opacity = '0';
+    images[counter].style.opacity = '0';
 
 
     counter += val;
-    if (counter < 0) counter = 2;
-    if (counter > 2) counter = 0;
-    console.log('counter = ',counter)
+    if (counter < 0) counter = 3;
+    if (counter > 3) counter = 0;
 
-    images[counter].style.display = 'block';
-    
+    images[counter].style.opacity = '1';
+
     clearTimeout(timer)
-    timer = setTimeout(()=>go(val), 1000)
+    timer = setTimeout(()=>go(val), 2000)
 
   }
 
