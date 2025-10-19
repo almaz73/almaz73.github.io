@@ -1,36 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>B&B coffee</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" async="" src="JavaScript/scriptNew.js"></script>
+    <link type='text/css' rel='stylesheet' href='css/style.css'>
+
 </head>
 
 <body>
-    <div class="header">
-        <img class="logo" src="image/logo.jpg" alt="">
-        <a class="header-text" href="#menu">Меню</a>
-        <a class="header-text" href="#menu" >Онлайн заказ</a>
+<div class='header'>
+    <img class='logo' src='image/logo.jpg' alt=''>
+    <a class='header-text' href='#'>Онлайн заказ</a>
+</div>
+
+<div class='all'>
+    <img class='_50x50' onclick='chosen(0)' src='image/bean.png' alt='' />
+    <div class='_50x50' onclick='chosen(1)'></div>
+    <div class='_50x50' onclick='chosen(2)'></div>
+    <div class='_50x50' onclick='chosen(3)'></div>
+    <div class='_50x50'></div>
+    <div class='_50x50'></div>
+    <div class='_50x50'></div>
+    <div class='_50x50'></div>
+    <div class='_50x50'></div>
+    <div class='_50x50'></div>
+    <div class='_50x50'></div>
+</div>
+
+<div class='carusel'>
+    <a class='slide-button-prev' onclick='go(-1)'> ◀ </a>
+    <div class='view'>
+        <img class='image' src='image/berry.jpg' alt=''>
+        <img class='image' src='image/chocolate.png' alt=''>
+        <img class='image' src='image/greentea1.jpg' alt=''>
+        <img class='image' src='image/brownie.jpg' alt=''>
     </div>
+    <a class='slide-button-next' onclick='go(1)'>▶</a>
+</div>
+<div id='name_dish'></div>
 
-    <div class='carusel'>
-        <a class="slide-button-prev" onclick='go(-1)'>   👈  </a>
-            <div class='view'>
-                <img class="image" src="image/berry.jpg" alt="">
-                <img class="image" src="image/chocolate.png" alt="">
-                <img class="image" src="image/greentea1.jpg" alt="">
-                <img class="image" src="image/brownie.jpg" alt="">
-            </div>
-        <a class="slide-button-next" onclick='go(1)'>👉</a>
+<div class='button_order' onclick='preOrder()'>ЗАКАЗАТЬ</div>
+
+<div class='oredering_buttons'>
+    <p>Генерировать код для заказа?</p>
+    <div class='buttons'>
+        <button onclick='order()'>да</button>
+        <button onclick='noorder()'>нет</button>
     </div>
+</div>
 
 
+<div>
+
+    <div id='myOrders'></div>
+</div>
+
+<br><br><br>
 
 
-
+<script type='text/javascript' async='' src='JavaScript/scriptNew.js'></script>
+<script type='text/javascript' async='' src='JavaScript/order.js'></script>
 </body>
 
 </html>

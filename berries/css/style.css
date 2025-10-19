@@ -1,54 +1,53 @@
-body{
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: rgb(255, 255, 255);
     margin: 0;
-    padding: 0}
+    padding: 0;
+    text-align: center;
+}
 
 .header {
     background-color: rgb(255, 255, 255);
     width: 100vw;
     height: 130px;
-    top:0;
+    top: 0;
     position: fixed;
     border-bottom: 1px solid rgb(59, 47, 23);
     display: flex;
     align-items: center;
     gap: 12px;
 }
-.logo{
+
+.logo {
     width: 180px;
     margin: 10px;
 }
-.header-text{
-    font-size: 16px;
+
+.header-text {
+    font-size: 20px;
+    font-weight: bold;
     color: rgb(59, 47, 23);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-decoration: none;
 }
 
 
-
-
-
-.carusel{
-    /*background: orange;*/
+.carusel {
     display: flex;
-
     align-items: center;
     justify-content: center;
-    max-width: 400px;
+    max-width: 360px;
     margin: auto;
-    margin-top: 180px;
+    margin-top: 10px;
 }
 
 
-
-.view{
+.view {
     width: 300px;
     height: 300px;
     margin: auto;
     display: flex;
     align-items: center;
-    /*background: pink;*/
     position: relative;
 
 }
@@ -62,16 +61,67 @@ body{
 }
 
 
+
 .slide-button-prev,
-.slide-button-next{
+.slide-button-next {
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    /*background: pink;*/
-    padding: 16px 0;
+    padding: 32px 7px;
     height: 32px;
+    font-size: 20px;
+    opacity: 0.5;
 }
-/*.slide-button-next{*/
-/*    right: 0;*/
-/*    border-radius: 3px 0 0 3px;*/
-/*}*/
+
+.button_order {
+    margin: 30px auto;
+    width: 180px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, wheat, orange);
+    color: white;
+
+    font-size: 22px;
+    /*text-shadow: 0 0 12px gray;*/
+    cursor: pointer;
+}
+
+#name_dish {
+    width: 200px;
+    margin: 12px auto;
+    text-align: center;
+}
+
+.all {
+    width: 350px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.all ._50x50 {
+    width: 50px;
+    height: 50px;
+    background: orange;
+    cursor: pointer;
+}
 
 
+.buttons button{
+    padding: 5px 20px;
+}
+
+.order_number{
+    background: pink;
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+}
