@@ -12,8 +12,8 @@ function go(val) {
   // clear()
 
   counter += val;
-  if (counter < 0) counter = 3;
-  if (counter > 3) counter = 0;
+  if (counter < 0) counter = 13;
+  if (counter > 13) counter = 0;
 
   chosen(counter);
 
