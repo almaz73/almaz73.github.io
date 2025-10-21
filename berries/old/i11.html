@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>brownie</title>
+    <title>pancake</title>
 	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
-	<script src="script.js"></script>
+	<script src='../script.js'></script>
     <style>
         body {
             background:rgb(183, 142, 107) ;
@@ -30,38 +30,36 @@
          
     </style>
 </head>
-<body onload="readTextsFromDatabase('i13')">
+<body onload="readTextsFromDatabase('i11')">
     <h1 class="bubble">BUBBLE BLISS</h1>
 	<br><br><br>
 	<h2 class="bubble3">
-		состав: 
+		состав:
 		<br>
-	    мука
+	    молоко
 		<br>
-		яйца
+		яйцо
 		<br>
-		разрыхлитель
+		мука
 		<br>
 		сахар
         <br>
-        соль
-        <br>
         разрыхлитель
         <br>
-        шоколад
+        масло
         <br>
-        сливочное масло
+        соль
 	</h2>
 	<a title="прочитать вслух" onclick="sound()" style="cursor: pointer">📣</a>&nbsp;
 	<br>
 	<h1>цена: 25 dreamcoins</h1>
 	<br>
-	<img style="width: 200px;" src="image/brownie1.png"/>
+	<img style="width: 200px;" src="image/pancake1.png"/>
 	<br><br>	
 	<a class="bubble2" href="https://t.me/bubble_blisss">
 		по поводу онлайн заказа писать сюда</a>
 	<br><br><br><br><br>
-	<a style="color: black;" href="index.html" >
+	<a style="color: black;" href='index.html' >
 		ВЕРНУТЬСЯ НА ГЛАВНУЮ
 	</a>
 	<br><br>
@@ -72,8 +70,8 @@
 	<textarea id="textInput" style="width: 93%" placeholder=" Введите отзыв"></textarea>
 	<br>
 
-	<button onclick="saveTextToDatabase('i3')"
-			style="padding: 8px; background:rgb(211, 169, 132); border-radius: 7px">
+	<button onclick="saveTextToDatabase('i11')"
+			style="padding: 8px; background: rgb(211, 169, 132); border-radius: 7px">
 		Сохранить
 	</button>
 	<!----end гостевая----->

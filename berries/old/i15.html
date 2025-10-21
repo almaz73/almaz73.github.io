@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>black tea</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>berry</title>
 	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
-	<script src="script.js"></script>
+	<script src='../script.js'></script>
+    <title>cookiee</title>
     <style>
         body {
             background:rgb(183, 142, 107) ;
@@ -30,29 +32,42 @@
          
     </style>
 </head>
-<body onload="readTextsFromDatabase('i5')">
+<body onload="readTextsFromDatabase('i15')">
     <h1 class="bubble">BUBBLE BLISS</h1>
 	<br><br><br>
 	<h2 class="bubble3">
 		состав:
 		<br>
-		кипяченая вода
+	    сливочное масло
 		<br>
-		пакетик черного чая
+		яйца
+		<br>
+		мука
 		<br>
 		сахар
-		<br>
+        <br>
+        соль
+        <br>
+        разрыхлитель
+        <br>
+        шоколад
+        <br>
+        какао
+        <br>
+        молоко
+        <br>
+        сахарная пудра
 	</h2>
 	<a title="прочитать вслух" onclick="sound()" style="cursor: pointer">📣</a>&nbsp;
 	<br>
-	<h1>цена: 15 dreamcoins</h1>
+	<h1>цена: 20 dreamcoins</h1>
 	<br>
-	<img style="width: 200px;" src="image/bteapacket.png"/>
+	<img style="width: 200px;" src="image/cookiee1.png"/>
 	<br><br>	
 	<a class="bubble2" href="https://t.me/bubble_blisss">
 		по поводу онлайн заказа писать сюда</a>
 	<br><br><br><br><br>
-	<a style="color: black;" href="index.html" >
+	<a style="color: black;" href='index.html' >
 		ВЕРНУТЬСЯ НА ГЛАВНУЮ
 	</a>
 	<br><br>
@@ -63,8 +78,8 @@
 	<textarea id="textInput" style="width: 93%" placeholder=" Введите отзыв"></textarea>
 	<br>
 
-	<button onclick="saveTextToDatabase('i5')"
-			style="padding: 8px; background:rgb(211, 169, 132); border-radius: 7px">
+	<button onclick="saveTextToDatabase('i15')"
+			style="padding: 8px; background: rgb(211, 169, 132); border-radius: 7px">
 		Сохранить
 	</button>
 	<!----end гостевая----->

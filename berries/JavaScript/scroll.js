@@ -12,8 +12,8 @@ function go(val) {
   // clear()
 
   counter += val;
-  if (counter < 0) counter = 13;
-  if (counter > 13) counter = 0;
+  if (counter < 0) counter = 14;
+  if (counter > 14) counter = 0;
 
   chosen(counter);
 
@@ -23,13 +23,15 @@ function go(val) {
 }
 
 function clear() {
-  [0, 1, 2, 3].forEach(el => {
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].forEach(el => {
     images[el].style.opacity = '0';
     _50x50s[el].style.boxShadow = 'none';
   });
 }
 
 function chosen(id) {
+  console.log('id = ', id);
+
   clear();
   name.innerHTML = counterTitle[id];
   images[id].style.opacity = '1';
@@ -37,5 +39,5 @@ function chosen(id) {
 }
 
 
-go(1);
+setTimeout(() => go(0));
 document.addEventListener('click', () => clearTimeout(timer));
