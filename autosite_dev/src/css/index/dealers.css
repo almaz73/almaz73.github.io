@@ -1,0 +1,11 @@
+.dealers{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 2em;
+}
+
+.dealers__block{
+    height: 290px;
+    background: pink;
+    border-radius: 10px;
+}
