@@ -22,7 +22,7 @@ function hideMainScroll(hide) {
   }
 }
 
-burger_menu.addEventListener('click', () => {
+burger_menu && burger_menu.addEventListener('click', () => {
   if (isOpened) {
     isOpened = false;
     cities.style.transform = 'translateX(150vw)';
