@@ -1,5 +1,5 @@
 let counter = 0;
-let counterTitle = ['клубничный бабл ти', 'малиновый бабл ти', 'латте', 'тыквенно-пряный латте','какао', 'тыквенный какао', 'зелёный чай', 'чёрный чай','чай масала', 'маффин', 'синабон', 'вафли','брауни', 'печенье'];
+let counterTitle = ['клубничный бабл ти', 'малиновый бабл ти', 'латте', 'тыквенно-пряный латте', 'какао', 'тыквенный какао', 'зелёный чай', 'чёрный чай', 'чай масала', 'маффин', 'синабон', 'вафли', 'брауни', 'печенье'];
 let slideIndex = 0;
 let images = document.querySelectorAll('.image');
 let _50x50s = document.querySelectorAll('._50x50');
@@ -14,7 +14,7 @@ function go(val) {
   if (counter < 0) counter = 13;
   if (counter > 13) counter = 0;
 
-  chosen(counter);
+  chosen(counter, 'auto');
 
   clearTimeout(timer);
   timer = setTimeout(() => go(val), 2000);
@@ -28,18 +28,19 @@ function clear() {
   });
 }
 
-function chosen(id) {
-  console.log('counter id = ', id);
+function chosen(id, iaAuto) {
+  counter = id;
 
   clear();
   name.innerHTML = counterTitle[id];
   images[id].style.opacity = '1';
-  _50x50s[id].style.boxShadow = '0 0 8px red inset';
+  _50x50s[id].style.boxShadow = '0 0 15px orange';
+  if (!iaAuto) window.scroll({ top: 0, behavior: 'smooth' });
 }
 
 
 setTimeout(() => {
-  counter = -1
-  go(1)
+  counter = -1;
+  go(1);
 }, 2000);
 document.addEventListener('click', () => clearTimeout(timer));
