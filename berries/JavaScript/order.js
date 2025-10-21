@@ -21,7 +21,7 @@ function order() {
 
   let botId = 'bot7957374061:AAE3bSimGQu4rLXfOk9lsUp143r3m_Qefek';
   let chatId = '-4823194137';
-  let text = 'Заказ: ' + codeOrder + ' — ' + counterTitle[counter] + ' ';
+  let text = 'Заказ: ' + codeOrder + ' — ' + counterTitle[counter] + '  (https://fmap.ru/berries/indexNew.html) ';
   let linkTelega = `https://api.telegram.org/${botId}/sendMessage?chat_id=${chatId}&parse_mode=HTML&text=${text}`;
 
   fetch(linkTelega)
