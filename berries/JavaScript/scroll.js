@@ -3,7 +3,6 @@ let counterTitle = ['клубничный бабл ти', 'малиновый б
 let slideIndex = 0;
 let images = document.querySelectorAll('.image');
 let _50x50s = document.querySelectorAll('._50x50');
-console.log('_50x50s = ', _50x50s);
 let name = document.querySelector('#name_dish');
 let timer;
 images[0].style.display = 'block';
@@ -30,7 +29,7 @@ function clear() {
 }
 
 function chosen(id) {
-  console.log('id = ', id);
+  console.log('counter id = ', id);
 
   clear();
   name.innerHTML = counterTitle[id];
