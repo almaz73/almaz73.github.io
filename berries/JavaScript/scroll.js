@@ -39,5 +39,8 @@ function chosen(id) {
 }
 
 
-setTimeout(() => go(0));
+setTimeout(() => {
+  counter = -1
+  go(1)
+}, 2000);
 document.addEventListener('click', () => clearTimeout(timer));
