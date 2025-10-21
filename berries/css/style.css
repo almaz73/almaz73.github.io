@@ -80,7 +80,7 @@ body {
     text-align: center;
     padding: 10px;
     border-radius: 12px;
-    background: linear-gradient(180deg, wheat, orange);
+    background: linear-gradient(180deg, rgb(121, 105, 75), rgb(54, 37, 7));
     color: white;
 
     font-size: 22px;
@@ -117,7 +117,7 @@ body {
 }
 
 .order_number{
-    background: pink;
+    background: rgba(61, 34, 13, 0.562);
     padding: 8px;
     border-radius: 10px;
     display: flex;

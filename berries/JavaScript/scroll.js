@@ -1,5 +1,5 @@
 let counter = 0;
-let counterTitle = ['Халва', 'Шокалад', 'Блины', 'Пряники'];
+let counterTitle = ['клубничный бабл ти', 'малиновый бабл ти', 'латте', 'тыквенно-пряный латте','какао', 'тыквенный какао', 'зелёный чай', 'чёрный чай','чай масала', 'маффин', 'синабон', 'вафли','брауни', 'печенье'];
 let slideIndex = 0;
 let images = document.querySelectorAll('.image');
 let _50x50s = document.querySelectorAll('._50x50');
@@ -12,8 +12,8 @@ function go(val) {
   // clear()
 
   counter += val;
-  if (counter < 0) counter = 14;
-  if (counter > 14) counter = 0;
+  if (counter < 0) counter = 13;
+  if (counter > 13) counter = 0;
 
   chosen(counter);
 
@@ -23,7 +23,7 @@ function go(val) {
 }
 
 function clear() {
-  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].forEach(el => {
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].forEach(el => {
     images[el].style.opacity = '0';
     _50x50s[el].style.boxShadow = 'none';
   });
