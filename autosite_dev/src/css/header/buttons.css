@@ -16,7 +16,7 @@
 
 .button__call {
     width: 40px;
-    background: url(@/images/call2.svg) center no-repeat;
+    background: url(@/svg/call2.svg) center no-repeat;
     background-color: var(--color-red);
 }
 
@@ -34,14 +34,14 @@
     height: 40px;
     width: 40px;
     border-radius: 7px;
-    background: url(@/images/burger.svg) center no-repeat;
+    background: url(@/svg/burger.svg) center no-repeat;
     background-color: #000;
     cursor: pointer;
     margin-left: 30px;
 }
 
 .button__burger.close {
-    background: url(@/images/close.svg) center no-repeat;
+    background: url(@/svg/close.svg) center no-repeat;
     background-color: #000;
 }
 
@@ -52,14 +52,14 @@
 .button__vk {
     height: 40px;
     width: 40px;
-    background: url(@/images/vk.svg) center no-repeat;
+    background: url(@/svg/vk.svg) center no-repeat;
     cursor: pointer;
 }
 
 .button__youtube {
     height: 40px;
     width: 40px;
-    background: url(@/images/youtube.svg) center no-repeat;
+    background: url(@/svg/youtube.svg) center no-repeat;
     cursor: pointer;
 }
 
@@ -81,7 +81,7 @@
     .button__callback {
         padding: 0;
         width: 36px;
-        background: url(@/images/call.svg) center no-repeat;
+        background: url(@/svg/call.svg) center no-repeat;
         background-color: var(--color-red);
     }
 
@@ -258,7 +258,7 @@
 
 .button__mail {
     width: 32px;
-    background: url(@/images/mail.svg) center no-repeat;
+    background: url(@/svg/mail.svg) center no-repeat;
     background-color: var(--color-red);
 }
 

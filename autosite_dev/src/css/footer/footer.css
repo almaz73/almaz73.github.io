@@ -35,7 +35,7 @@
     font-weight: 600;
     color: vaR(--color-red);
     padding-left: 20px;
-    background: url(/src/images/city-icon.svg) left no-repeat;
+    background: url(/src/svg/city-icon.svg) left no-repeat;
 }
 
 .footer__top .phone {
@@ -58,7 +58,7 @@
     text-decoration: none;
     color: black;
     padding-left: 20px;
-    background: url(/src/images/point-icon.svg) left no-repeat;
+    background: url(/src/svg/point-icon.svg) left no-repeat;
 }
 
 .footer__subscription {
@@ -69,13 +69,13 @@
 .youtube2 {
     width: 40px;
     height: 30px;
-    background: url(/src/images/youtube-icon.svg) left no-repeat;
+    background: url(/src/svg/youtube-icon.svg) left no-repeat;
 }
 
 .vk2 {
     width: 40px;
     height: 30px;
-    background: url(/src/images/vk-icon.svg) left no-repeat;
+    background: url(/src/svg/vk-icon.svg) left no-repeat;
 }
 
 

@@ -2,7 +2,7 @@
 <html lang='ru'>
 <head>
     <meta charset='UTF-8' />
-    <link rel='icon' type='image/svg+xml' sizes='any' href='/src/images/Favicon_as.svg'>
+    <link rel='icon' type='image/svg+xml' sizes='any' href='/src/svg/Favicon_as.svg'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Автомобили с пробегом (бу) в автосалонах Казани и других городов России - Автосеть.РФ</title>
@@ -18,13 +18,11 @@
         🚗 БУ авто в автосалонах Автосеть.рф.
         Подробная информация по телефону: ☎ 8-800-500-11-56. Звоните!'>
     <link rel='stylesheet' href='/src/css/style.css' />
+    <link rel='stylesheet' href='/src/css/index/index.css' />
 
     <script type='module' src='/src/js/main.js'></script>
     <script type='module' src='/src/js/index/brands-dynamic.js'></script>
     <script type='module' src='/src/js/index/offers.js'></script>
-    <link rel='stylesheet' href='/src/css/index/brands-dynamic.css' />
-    <link rel='stylesheet' href='/src/css/index/offers.css' />
-    <link rel='stylesheet' href='/src/css/index/filter-box.css' />
 </head>
 <body>
 {{> "header/header" }}
@@ -32,6 +30,8 @@
 <main>
 
 <!--    {{> 'index/search'}}-->
+
+
 
     <div id='brands_dynamic'></div>
 
@@ -42,7 +42,9 @@
         <div class='offer-fields' id='caroffers' style='min-height: 660px'></div>
     </div>
 
-    <br><br><br><br>
+    {{> 'index/ourservice'}}
+
+
     <div>
         <img src='/src/images/bnr_geo_desc.webp' id='mainPhoto' alt='география присутствия' loading='lazy'>
         <img src='/src/images/bnr_geo_mobile.webp' class='mainPhoto_little' alt='география присутствия' loading='lazy'

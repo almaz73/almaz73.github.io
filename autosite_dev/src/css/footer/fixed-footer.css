@@ -42,15 +42,15 @@
     height: 20px;
 }
 .fix__foot .fix__foot_img.zvezda{
-    background: url(/src/images/zvezda.svg) center no-repeat;
+    background: url(/src/svg/zvezda.svg) center no-repeat;
 }
 .fix__foot .fix__foot_img.car{
-    background: url(/src/images/car.svg) center no-repeat;
+    background: url(/src/svg/car.svg) center no-repeat;
 }
 .fix__foot .fix__foot_img.comment{
-    background: url(/src/images/comment.svg) center no-repeat;
+    background: url(/src/svg/comment.svg) center no-repeat;
 }
 .fix__foot .fix__foot_img.adress{
-    background: url(/src/images/adress.svg) center no-repeat;
+    background: url(/src/svg/adress.svg) center no-repeat;
 }
 

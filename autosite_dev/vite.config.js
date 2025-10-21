@@ -26,8 +26,9 @@ export default defineConfig({
 				main: resolve(__dirname, 'index.html'),
 				about: resolve(__dirname, 'about.html'),
 				contacts: resolve(__dirname, 'contacts.html'),
-        cookies: resolve(__dirname, './privacy-policy/index.html'),
+				cookies: resolve(__dirname, './privacy-policy/index.html'),
 				papka: resolve(__dirname, './papka/index.html'),
+				_404: resolve(__dirname, '404.html'),
 			},
 		},
 
