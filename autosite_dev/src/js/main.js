@@ -18,5 +18,9 @@ window.addEventListener('DOMContentLoaded', function(e) {
   let isExist = false;
   if (parts[3] && available.includes(parts[3])) isExist = true;
   if (parts[4] && available.includes(parts[4])) isExist = true;
-  if (!isExist) window.location.href = '404.html';
+  
+  console.log('parts = ',parts)
+  console.log('isExist = ',isExist)
+  
+  // if (!isExist) window.location.href = '404.html';
 });
