@@ -1,6 +1,8 @@
 .main__provided--top .page__flex {
     justify-content: space-between;
     align-items: center;
+    margin-top: 160px;
+
 }
 
 .page__link {
@@ -32,7 +34,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
 }
 
 .main__provided--block .item {
