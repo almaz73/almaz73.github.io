@@ -15,5 +15,8 @@ window.addEventListener('DOMContentLoaded', function(e) {
     'papka'
   ];
 
-  if (parts[3] && !available.includes(parts[3])) window.location.href = '/404.html';
+  let isExist = false;
+  if (parts[3] && available.includes(parts[3])) isExist = true;
+  if (parts[4] && available.includes(parts[4])) isExist = true;
+  if (!isExist) window.location.href = '404.html';
 });
