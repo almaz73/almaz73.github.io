@@ -1,7 +1,7 @@
 function createNode(item, N) {
     let txt = `<div class="cart" id="galery_${N}">
                 <div class="cart__slide">
-                    <img class="photo" alt='' loading='lazy'>
+                    <img class="photo" alt=''>
                     <div class="area a0"></div>
                     <div class="area a1"></div>
                     <div class="area a2"></div>
@@ -26,10 +26,10 @@ function createNode(item, N) {
                 </div>
                 <div class="cart__box--bottom">
                 <a href="#">
-                    <img src="icons/compare_cars.svg" alt='' loading='lazy'>
+                    <img src="icons/compare_cars.svg" alt=''>
                 </a>
                 <a href="#">
-                    <img src="icons/penta.svg" alt='' loading='lazy'>
+                    <img src="icons/penta.svg" alt=''>
                 </a>
             </div>
             </div>`
