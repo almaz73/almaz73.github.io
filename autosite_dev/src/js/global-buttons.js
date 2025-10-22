@@ -63,3 +63,19 @@ cookieAccept.addEventListener('click', () => {
   cookieBanner.classList.remove('show');
 });
 
+
+function open_YA_map(show) {
+  let ya_map = document.getElementById('ya_map');
+  if (show) ya_map.style.display = show ? 'none' : 'block';
+  else ya_map.style.display = ya_map.style.display === 'block' ? 'none' : 'block';
+
+}
+
+window.open_YA_map = open_YA_map;
+document.addEventListener('keydown', (e) => {
+  console.log('e = ', e);
+  if (e.key === 'Escape') {
+    open_YA_map(false);
+  }
+});
+

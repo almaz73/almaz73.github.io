@@ -2,7 +2,7 @@
     <div class="main__provided--top">
         <div class="page__flex">
             <h2> Адреса дилерских центров Автосеть.РФ </h2>
-            <a href="/contacts/" class="page__link">
+            <a href="contacts/" class="page__link">
                 <img src="/src/svg/red_arrow.svg" alt=''>
                 <span>Все адреса</span>
             </a>
@@ -17,7 +17,8 @@
                         Казань
                     </div>
                     <div class="address">
-                        <a href="javascript:void(0);" data-point="55.823581, 49.159553" class="showPoint">
+                        <a href="javascript:void(0);" onclick="open_YA_map()">
+                            <!--                            55.823581, 49.159553-->
                             <span>пр. Ямашева, 115а</span>
                         </a>
                     </div>
@@ -38,9 +39,11 @@
             <div class="dealers__flex">
                 <div class="block">
                     <div class="city">
-                        Казань                            </div>
+                        Казань
+                    </div>
                     <div class="address">
-                        <a href="javascript:void(0);" data-point="55.826655, 49.022026" class="showPoint">
+                        <a href="javascript:void(0);" onclick="open_YA_map()" data-point="55.826655, 49.022026"
+                           class="showPoint">
                                     <span>
                                         Горьковское шоссе, 55                                    </span>
                         </a>
@@ -52,7 +55,8 @@
                         Режим работы
                     </div>
                     <div class="time">
-                        ПН-ВС с 9:00 до 21:00                            </div>
+                        ПН-ВС с 9:00 до 21:00
+                    </div>
                 </div>
             </div>
             <img src="photo-dealers/kazan2.jpg" alt=''>
@@ -61,9 +65,11 @@
             <div class="dealers__flex">
                 <div class="block">
                     <div class="city">
-                        Казань                            </div>
+                        Казань
+                    </div>
                     <div class="address">
-                        <a href="javascript:void(0);" data-point="55.803967, 49.208709" class="showPoint">
+                        <a href="javascript:void(0);" onclick="open_YA_map()" data-point="55.803967, 49.208709"
+                           class="showPoint">
                                     <span>
                                         пр. Победы, 212к2                                    </span>
                         </a>
@@ -75,11 +81,22 @@
                         Режим работы
                     </div>
                     <div class="time">
-                        ПН-ВС с 9:00 до 21:00                            </div>
+                        ПН-ВС с 9:00 до 21:00
+                    </div>
                 </div>
             </div>
             <img src="photo-dealers/kazan3.jpg" alt=''>
         </div>
+    </div>
+
+    <div id='ya_map'>
+
+        <div class='map'>
+            <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3Af07e3201e875be6092e61590f448772cffe85e92ded8b6eefb9df43092e5ff94&amp;source=constructor"
+                width="100%" height="700" frameborder="0"></iframe>
+        </div>
+        <div class='x' onclick='open_YA_map()'><img src="/src/images/x.png" alt=''></div>
     </div>
 
 
