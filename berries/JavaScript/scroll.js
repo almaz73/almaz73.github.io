@@ -34,7 +34,7 @@ function chosen(id, iaAuto) {
   clear();
   name.innerHTML = counterTitle[id];
   images[id].style.opacity = '1';
-  _50x50s[id].style.boxShadow = '0 0 15px orange';
+  _50x50s[id].style.boxShadow = '0 0 15px rgb(59, 47, 23)';
   if (!iaAuto) window.scroll({ top: 0, behavior: 'smooth' });
 }
 
