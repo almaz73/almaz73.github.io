@@ -147,3 +147,28 @@ body {
     padding: 12px 22px;
 
 }
+
+.oredering_buttons {
+    display: block;
+    position: fixed;
+    color: white;
+    top: 300px;
+    padding: 80px 0;
+    width: 340px;
+    left: calc(50% - 170px);
+    font-size: 20px;
+    background: #79694bee;
+    border-radius: 10px;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.oredering_buttons button {
+    padding: 12px 42px;
+    margin: 0 4px;
+}
+
+.oredering_buttons.disabled button {
+    pointer-events: none;
+    background: #999;
+}

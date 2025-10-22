@@ -6,7 +6,7 @@ let meAllOrders = localStorage.getItem('meAllOrders');
 let OrederList = meAllOrders ? JSON.parse(meAllOrders) : []; // из локалстораж прежние заказы отображаю
 // OrederList= [{id:1233, name:'Торт очароывашка', received:true}, {id:33, name:'Треугольник'}, {id:554, name:'Зефир'}];
 
-OrederList.sort(function (a, b) {
+OrederList.sort(function(a, b) {
   if (a.time > b.time) return -1;
 })
 
@@ -19,6 +19,7 @@ function noorder() {
 }
 
 function order() {
+  oredering_buttons.classList.add('disabled');
   let codeOrder = parseInt(Math.random() * 9999);
   OrederList.push({ code: codeOrder, name: counterTitle[counter], id: counter, time: Date.now() });
 
@@ -30,8 +31,9 @@ function order() {
 
   fetch(linkTelega)
     .then(response => response.json())
-    .then(json => {
+    .then(() => {
       oredering_buttons.style.display = 'none';
+      oredering_buttons.classList.remove('disabled');
       localStorage.setItem('meAllOrders', JSON.stringify(OrederList));
       showOrders();
     });
@@ -44,7 +46,7 @@ function removeOrder(event, code) {
   if (found.received && !found.deleted) found.deleted = true;
   if (!found.received) found.received = true;
 
-  OrederList.sort(function (a, b) {
+  OrederList.sort(function(a, b) {
     if (a.time > b.time) return -1;
   })
 
