@@ -5,6 +5,10 @@
     min-height: 60px;
     padding: 10px;
     display: flex;
+
+
+    position: relative;
+    padding: 35px;
 }
 
 .filter__wrapper {
@@ -17,25 +21,8 @@
     flex-wrap: wrap;
     gap: 20px 5px;
 
-
 }
 
-@media (max-width: 640px) {
-    .filter {
-        margin: -10px;
-        width: 100%;
-
-    }
-
-    .filter__controls {
-        justify-items: center;
-    }
-
-    .filter__controls {
-        justify-content: center;
-        display: flex;
-    }
-}
 
 .filter__controls-button.active {
     color: #e32136;
@@ -55,7 +42,6 @@
 }
 
 .filter__controls-info-button {
-
     font-weight: 600;
     font-size: 15px;
     line-height: 125%;
@@ -67,5 +53,31 @@
     align-items: center;
     gap: 10px;
     justify-content: right;
-    background: yellow;;
+    position: absolute;
+    right: 60px;
+    top: 35px;
+}
+
+
+@media (max-width: 640px) {
+    .filter {
+        margin: -10px;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .filter__controls {
+        justify-items: center;
+    }
+
+    .filter__controls {
+        justify-content: center;
+        display: flex;
+    }
+
+    .filter__controls-info{
+        position: relative;
+        right: 0;
+        top: 0;
+    }
 }

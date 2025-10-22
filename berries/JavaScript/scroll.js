@@ -44,3 +44,19 @@ setTimeout(() => {
   go(1);
 }, 2000);
 document.addEventListener('click', () => clearTimeout(timer));
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  let carusel = document.querySelector('.carusel');
+  let offset1, offset2, i = 0;
+  carusel.addEventListener('touchstart', e => offset1 = e.targetTouches[0].pageX - carusel.offsetLeft);
+  carusel.addEventListener('touchmove', e => offset2 = e.targetTouches[0].pageX - carusel.offsetLeft);
+  carusel.addEventListener('touchend', () => {
+    if (offset1 > offset2) i++;
+    else i--;
+    if (i > 14) i = 5;
+    if (i < 0) i = 0;
+    chosen(i);
+  });
+})

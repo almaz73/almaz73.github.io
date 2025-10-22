@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   firebase.initializeApp(firebaseConfig);
   // Получаем ссылку на базу данных
   database = firebase.database();
+
+  readTextsFromDatabase('i2')
 });
 
 
