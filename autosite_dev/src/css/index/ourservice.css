@@ -66,6 +66,8 @@
     right: 0;
     max-width: 45vw;
     transition: all 0.4s;
+    width: 192px;
+    height: 174px;
 }
 
 .main__provided--item {

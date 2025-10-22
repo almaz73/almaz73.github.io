@@ -10,14 +10,13 @@ const firebaseConfig = {
 };
 
 let database;
-document.addEventListener('DOMContentLoaded', () => {
+function onloaded() {
 // Инициализация Firebase
   firebase.initializeApp(firebaseConfig);
   // Получаем ссылку на базу данных
   database = firebase.database();
-
   readTextsFromDatabase('i2')
-});
+}
 
 
 function readTextsFromDatabase(page) {
@@ -28,6 +27,7 @@ function readTextsFromDatabase(page) {
   let forMessages = document.querySelector(`#forMessages`);
 
   textRef.on('value', (snapshot) => {
+    console.log('snapshot', snapshot)
     const texts = snapshot.val();
     if (forMessages) forMessages.innerHTML = '';
     // Можно обработать и отобразить тексты на странице
@@ -36,7 +36,7 @@ function readTextsFromDatabase(page) {
         let tx = '<div style="border:1px solid #D3A984FF; border-radius:7px; padding: 4px; margin: 4px">' + texts[key].text;
         if (admin) tx += `<a onclick="deleteMessage('${key}', '${page}')" style='float: right; text-decoration: none'>❌</a>`;
         tx += '</div>';
-        forMessages.innerHTML += tx;
+        forMessages.innerHTML = tx + forMessages.innerHTML;
       }
     }
   });
