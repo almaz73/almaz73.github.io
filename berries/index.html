@@ -6,10 +6,22 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>B&B coffee</title>
     <link type='text/css' rel='stylesheet' href='css/style.css'>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104795948', 'ym');
 
+      ym(104795948, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/104795948" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 
-<body>
+<body onload="onloaded()">
 <div class='header'>
     <img class='logo' src='image/logo.jpg' alt='' loading='lazy'>
     <a class='header-text' href='#'>Онлайн заказ</a>
@@ -71,10 +83,26 @@
 </div>
 
 <br><br><br>
+<!----гостевая----->
+<hr style="height: 12px; border: none; background: rgb(211, 169, 132)">
+<h4>О Т З Ы В Ы</h4>
+<div id="forMessages"></div>
+<textarea id="textInput" style="width: 93%" placeholder=" Введите отзыв"></textarea>
+<br>
 
+<button onclick="saveTextToFireBase('i2')"
+        style="padding: 8px; background: rgb(211, 169, 132); border-radius: 7px">
+    Сохранить
+</button>
+<!----end гостевая----->
+<br><br>
 
 <script type='text/javascript' async='' src='JavaScript/scroll.js'></script>
 <script type='text/javascript' async='' src='JavaScript/order.js'></script>
+<script type='text/javascript' async='' src='JavaScript/guestbook.js'></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
 </body>
 
 </html>
