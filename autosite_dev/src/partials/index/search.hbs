@@ -7,21 +7,38 @@
                 <button class="filter__controls-button">Шины</button>
                 <div class="filter__controls-info">
                     <img src="/src/svg/tires.svg" alt=''>
-                    <a href="#tyreSize" class="filter__controls-info-button inlineLnk">Где&nbsp;смотреть&nbsp;параметры</a>
+                    <a href="#tyreSize"
+                       class="filter__controls-info-button inlineLnk">Где&nbsp;смотреть&nbsp;параметры</a>
                 </div>
             </div>
             <div class="filter__controls">
-              <div class="frame-filter__item">
-                {{> big-combo}}
-              </div>
-              <div class="frame-filter__item">
-                {{> big-combo}}
-              </div>
-              <div class="frame-filter__item">
-                {{> big-combo}}
-              </div>
+                <div class="frame-filter__item">
+                    {{> big-combo}}
+                </div>
+                <div class="frame-filter__item">
+                    {{> big-combo}}
+                </div>
+                <div class="frame-filter__item">
+                    {{> big-combo}}
+                </div>
+                <div class="frame-filter__item">
+                    {{> big-combo}}
+                </div>
+                <div class="frame-filter__item">
+                    {{> big-combo}}
+                </div>
             </div>
+            <div class="frame-filter__controls">
+                <button class="frame-filter__controls-advanced">
+                    <span class="frame-filter__controls-advanced-icon"></span>
+                    <span class="frame-filter__controls-advanced-text">Расширенный фильтр</span>
+                </button>
 
+                <a href="/filter/tyres.php" class="frame-filter__controls-reset">Сбросить</a>
+
+                <button class="frame-filter__submit" type="submit" id="set_filter" name="set_filter" value="Показать" onclick="document.querySelector('#tyres_submit_hidden').click()">
+                    Показать&nbsp;<span class="number">1</span>&nbsp;предложений</button>
+            </div>
 
         </div>
 

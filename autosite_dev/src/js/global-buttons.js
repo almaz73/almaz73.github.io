@@ -79,3 +79,9 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+window.zzz = function (val) {
+  //todo
+  console.log('val = ',val)
+  let item = val.srcElement.innerText
+  console.log('item = ',item)
+}
