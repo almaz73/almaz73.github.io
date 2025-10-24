@@ -7,6 +7,7 @@ import '@/js/photo-opener.js';
 // При переходе на неверный адрес перенаправляем пользователя на страницу 404
 window.addEventListener('DOMContentLoaded', function(e) {
   let parts = e.target.URL.split('/');
+  console.log('e.target.URL = ',e.target.URL)
   let available = [
     'index.html',
     'privacy-policy',
@@ -17,7 +18,7 @@ window.addEventListener('DOMContentLoaded', function(e) {
   if (parts[3] && available.includes(parts[3])) isExist = true;
   if (parts[4] && available.includes(parts[4])) isExist = true;
   
-  console.log('parts = ',parts)
+  // console.log('parts = ',parts)
 
   // if (!isExist) window.location.href = '404.html';
 });
