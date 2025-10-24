@@ -66,11 +66,6 @@
 
 
 @media (max-width: 640px) {
-    .filter {
-        margin: -10px;
-        width: 100%;
-        padding: 10px 0;
-    }
 
     .filter__controls {
         justify-items: center;

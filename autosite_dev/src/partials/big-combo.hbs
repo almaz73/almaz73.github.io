@@ -34,7 +34,8 @@
         border-radius: 10px;
         position: relative;
     }
-    .big-combo img{
+
+    .big-combo img {
         float: right;
         opacity: 0.5;
         margin-left: 8px;
@@ -44,7 +45,7 @@
     }
 
 
-    .big_comb__items{
+    .big_comb__items {
         display: none;
         position: absolute;
         width: 90%;
@@ -62,18 +63,19 @@
 
     }
 
-    .big-combo:focus{
+    .big-combo:focus {
         outline: 1px dotted #999;
     }
-    .big-combo:focus .big_comb__items{
+
+    .big-combo:focus .big_comb__items {
         display: block;
     }
 
-    .big-combo:focus img{
+    .big-combo:focus img {
         rotate: 180deg;
     }
 
-    .big_comb__items div{
+    .big_comb__items div {
         padding: 10px;
     }
 
@@ -98,12 +100,14 @@
         gap: 30px;
         margin-top: 20px;
     }
+
     @media (max-width: 533px) {
         .frame-filter__controls {
             justify-content: space-between;
             gap: 16px;
         }
     }
+
     .frame-filter__controls-advanced, .frame-filter__controls-reset {
         display: flex;
         align-items: center;
@@ -121,12 +125,14 @@
         user-select: none;
         cursor: pointer;
     }
+
     @media (max-width: 533px) {
         .frame-filter__controls-advanced, .frame-filter__controls-reset {
             font-size: 12px;
             line-height: 156%;
         }
     }
+
     .frame-filter__controls-advanced-icon {
         position: relative;
         display: inline-block;
@@ -137,6 +143,7 @@
         border: 2px solid #000000;
         border-radius: 28px;
     }
+
     .frame-filter__controls-advanced-icon::before {
         content: "";
         position: absolute;
@@ -150,19 +157,48 @@
         transform: translateY(-50%);
         transition: left ease-in-out 0.1s;
     }
+
     .frame-filter__controls-advanced.active .frame-filter__controls-advanced-icon::before {
         left: calc(100% - 8px);
 
     }
+
     .frame-filter__controls-reset {
         color: #6d6c6c;
     }
+
     .frame-filter__controls-reset::before {
         content: "";
         display: inline-block;
         width: 15px;
         height: 15px;
         background: url(/src/svg/reset.svg) center no-repeat;
+    }
+
+    @media (max-width: 533px) {
+        .frame-filter__submit {
+            width: 100%;
+        }
+    }
+    .frame-filter__submit {
+        margin-left: auto;
+        flex: 0 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 44px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 125%;
+        text-align: center;
+        color: #ffffff;
+        border: 1px solid #e32136;
+        border-radius: 7px;
+        background-color: #e32136;
+        transition: all ease-in-out 0.1s;
+        cursor: pointer;
     }
 
 </style>
