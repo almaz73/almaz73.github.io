@@ -73,15 +73,6 @@ function open_YA_map(show) {
 
 window.open_YA_map = open_YA_map;
 document.addEventListener('keydown', (e) => {
-  console.log('e = ', e);
-  if (e.key === 'Escape') {
-    open_YA_map(false);
-  }
+  if (e.key === 'Escape')  open_YA_map(false);
 });
 
-window.zzz = function (val) {
-  //todo
-  console.log('val = ',val)
-  let item = val.srcElement.innerText
-  console.log('item = ',item)
-}

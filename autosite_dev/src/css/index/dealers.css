@@ -104,13 +104,14 @@
         gap: 1em;
         margin: 0 -10px;
     }
+
     .dealers__block .phone a {
         font-size: 1em;
         white-space: nowrap;
     }
 }
 
-#ya_map{
+#ya_map {
     position: fixed;
     display: none;
     top: 105px;
@@ -120,15 +121,24 @@
     z-index: 10000;
 
 }
-#ya_map .map{
+
+#ya_map .map {
     width: 100%;
     height: 100%;
     border-radius: 10px;
     border: 1px solid #999;
     overflow: hidden;
     box-shadow: 0 0 20px gray;
+    background: white;
 }
-#ya_map .x{
+
+/*#ya_map .map .loader {*/
+/*    height: 100%;*/
+/*    display: grid;*/
+/*    place-items: center;*/
+/*}*/
+
+#ya_map .x {
     position: absolute;
     right: -15px;
     top: -20px;
