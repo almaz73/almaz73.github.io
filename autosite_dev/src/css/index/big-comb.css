@@ -167,7 +167,7 @@
     color: #ffffff;
     border: 1px solid #e32136;
     border-radius: 7px;
-    background-color: #e32136;
+    background-color:var(--color-red);;
     transition: all ease-in-out 0.1s;
     cursor: pointer;
 }

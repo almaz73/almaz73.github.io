@@ -1,8 +1,9 @@
+.main__provided--top{
+    margin-bottom: 30px;
+}
 .main__provided--top .page__flex {
     justify-content: space-between;
     align-items: center;
-    margin-top: 160px;
-
 }
 
 .page__link {

@@ -37,19 +37,13 @@
 
     <div class='container'>
         <h2>Специальные предложения по цене</h2>
-        <br>
-        <div class='offer-fields' id='caroffers' style='min-height: 660px'></div>
+
+        <div class='offer-fields' id='caroffers'></div>
     </div>
 
     {{> 'index/ourservice'}}
     {{> 'index/dealers'}}
-
-    <div>
-        <img src='/src/images/bnr_geo_desc.webp' id='mainPhoto' alt='география присутствия' loading='lazy'>
-        <img src='/src/images/bnr_geo_mobile.webp' class='mainPhoto_little' alt='география присутствия' loading='lazy'
-             width='483' height='534'>
-    </div>
-    <br><br><br><br>
+    {{> geography}}
     <div class='container'>
         <h2>Легковые авто с пробегом в автосалонах Автосеть.рф</h2>
         <p>
@@ -129,14 +123,9 @@
         </p>
     </div>
 </main>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 {{> "footer/footer" }}
-{{> accept-cookie }}
+
 <script defer src='swiper-bundle.min.js'></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ let big_comb_html = `<div class='big-combo' tabindex='1'>
 
 let items = {};
 items['Марка'] = ['Все', 'AUDI', 'BMV', 'Brilliance', 'BYD', 'Cadilac']
-items['Марка'].value='zzzzzz'
+items['Марка'].value=''; // тут будут выбранные значения
 items['Модель'] = ['Все', '3 серия', '5 серия', 'X1', 'X3', 'X5']
 
 items['Производитель'] = ['Amtel', 'Bfgoodrich', 'Cordiant', 'Formula', 'Gislaved', 'Hankook', 'Kormoran', 'Kumho', 'Nokian'];
@@ -25,9 +25,6 @@ items['Сезон'] = ['Все', 'Зима Шип', 'Лето']
 // после загрузки сайта, заполняем все комбы
 window.addEventListener('load', () => {
   let combs = document.querySelectorAll('comb');
-  console.log('combs = ', combs);
-  console.log('combs[0].dataset = ', combs[0].dataset);
-
 
   //заполняем исходя из настроек
   combs.forEach(comb => {

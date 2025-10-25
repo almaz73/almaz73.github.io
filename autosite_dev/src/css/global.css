@@ -6,6 +6,7 @@
 
 @font-face {
     font-family: "Gilroy";
+    font-display: swap;
     src: url("@/fonts/Gilroy-Light.otf");
     font-style: normal;
     font-weight: 400;
@@ -13,6 +14,7 @@
 
 @font-face {
     font-family: "Gilroy-Bold";
+    font-display: swap;
     src: url("@/fonts/Gilroy-ExtraBold.otf");
     font-style: normal;
     font-weight: 400;
@@ -27,6 +29,7 @@ body {
 main {
     max-width: 1200px;
     margin: auto;
+    margin-bottom: 100px;
 }
 
 main .container {
@@ -83,4 +86,7 @@ main .container h2 {
 }
 .bread_cranbs a:hover{
     color: var(--color-red);
+}
+.geography{
+    margin-bottom: 60px;
 }
