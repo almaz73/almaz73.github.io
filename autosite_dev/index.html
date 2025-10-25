@@ -22,7 +22,6 @@
 
     <script type='module' src='/src/js/main.js'></script>
     <script type='module' src='/src/js/index/brands-dynamic.js'></script>
-    <script type='module' src='/src/js/index/offers.js'></script>
     <script type='module' src='/src/js/index/big-comb.js'></script>
 </head>
 <body>
@@ -36,9 +35,21 @@
 
 
     <div class='container'>
-        <h2>Специальные предложения по цене</h2>
+        <h2>Специальные предложения по цене
+            <span class='type_views'>
+                <div class='dot8'>
+                    <img src='svg/dot8.svg'>
+                </div>
+                <div class='dot4 active'>
+                    <img src='svg/dot4.svg'>
+                </div>
+                <div class='dot1'>
+                    <img src='svg/dot1.svg'>
+                </div>
+            </span>
+        </h2>
 
-        <div class='offer-fields' id='caroffers'></div>
+        <cards class='cards horisontal'></cards>
     </div>
 
     {{> 'index/ourservice'}}

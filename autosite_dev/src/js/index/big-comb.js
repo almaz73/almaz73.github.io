@@ -1,6 +1,6 @@
 let big_comb_html = `<div class='big-combo' tabindex='1'>
     <span class='big-comb__selected'>Россия</span>
-    <img src='arrow-down.svg' alt='arrow' loading='lazy' width='10' height='18'>
+    <img src='svg/arrow-down.svg' alt='arrow' loading='lazy' width='10' height='18'>
 
     <div class='big_comb__items' onclick='big_comb_select(event)'>
         <div>Альметьевск</div>
@@ -35,7 +35,7 @@ window.addEventListener('load', () => {
 
       let html = `<div class='big-combo' tabindex='1'>
         <span class='big-comb__selected'>${the_Items.value || comb_name}</span>
-        <img src='arrow-down.svg' alt='arrow' loading='lazy' width='10' height='18'>            
+        <img src='svg/arrow-down.svg' alt='arrow' loading='lazy' width='10' height='18'>            
         <div class='big_comb__items' onclick='big_comb_select(event)'>
             ${items_list.join('')}
         </div>
@@ -54,6 +54,6 @@ window.big_comb_select = function(val) {
   let parent = val.srcElement.parentElement.parentElement
   items[combName].value = value
   parent.querySelector('.big-comb__selected').innerText = value
-  setTimeout(()=>parent.blur(), 100)
+  parent.blur()
   console.log('items = ',items)
 };
