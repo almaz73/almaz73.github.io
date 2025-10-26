@@ -73,4 +73,3 @@ window.cars = [
   },
 ]
 
-console.log('2222 = ',2222)

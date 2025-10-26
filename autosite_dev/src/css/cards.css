@@ -25,17 +25,17 @@
     grid-template-areas: 'c_slide name' 'c_slide c_price' 'c_slide c_info' 'c_slide  c_box'
 }
 
-cards.big {
+cards.dot1 {
     grid-template-columns: 1fr;
     margin-bottom: 120px;
 }
 
-cards.vertical {
+cards.dot8 {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
 }
 
-cards.vertical .cart {
+cards.dot8 .cart {
     grid-template-columns: auto;
     grid-template-areas: 'c_slide' 'name' 'c_price' 'c_info' 'c_box';
     border-radius: 5px;
@@ -58,12 +58,40 @@ cards.vertical .cart {
     border-radius: 5px 0 0 5px;
 }
 
-.area {
-    position: absolute;
+.cart__slide.watch {
+    position: fixed;
+    top: 150px;
+    left: calc(50% - 350px);
+    z-index: 1000;
+}
+
+.cart__slide .dark {
+    display: none;
+    position: fixed;
     top: 0;
+    left: 0;
+    background: #000000cc;
+    width: 100%;
     height: 100%;
-    width: 16.5%;
     cursor: pointer;
+    z-index: -1;
+}
+
+.cart__slide.watch .dark {
+    display: block;
+}
+
+.cart__slide svg {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    display: none;
+    padding: 0;
+}
+
+.cart:hover .cart__slide svg {
+    display: block;
 }
 
 .a0 {
