@@ -66,12 +66,12 @@ cookieAccept.addEventListener('click', () => {
 
 function open_YA_map(show) {
   let ya_map = document.getElementById('ya_map');
-  if (show) ya_map.style.display = show ? 'none' : 'block';
-  else ya_map.style.display = 'none';
+  ya_map.style.display = ya_map.style.display === 'block' ? 'none' : 'block';
+  if (show !== undefined) ya_map.style.display = show ? 'block' : 'none';
 }
 
 window.open_YA_map = open_YA_map;
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape')  open_YA_map(false);
+  if (e.key === 'Escape') open_YA_map(false);
 });
 
