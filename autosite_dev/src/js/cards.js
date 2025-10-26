@@ -4,10 +4,6 @@ let cards = document.querySelector('cards');
 function createNode(item, N) {
   let txt = `<div class='cart' id='galery_${N}'>
                 <div class='cart__slide'>                    
-                    <svg width='17' height='15' xmlns='http://www.w3.org/2000/svg'>
-                      <rect x='3' y='3' width='12' height='8' stroke='white' fill='transparent' stroke-width='1'/>
-                      <rect x='2' y='2' width='14' height='10' stroke='black' fill='transparent' stroke-width='1'/>                    
-                    </svg>    
                     <img class='photo' alt=''>
                     <div class='cart__blank'>${item.address}</div>
                     <div class='field'>
@@ -41,12 +37,12 @@ function createNode(item, N) {
 
 function galeryEvents(id, images) {
   const gallery = document.querySelector('#galery_' + id + ' .cart__slide');
-  // const wider = document.querySelector('#galery_' + id + ' .cart__slide svg');
-  window.current_slide = null
+  window.current_slide = null;
 
   if (!gallery) return false;
   const photo = gallery.querySelector('.photo');
   const red = gallery.querySelector('.cart .red');
+  let offset1, offset2, i = 0;
 
   photo.src = 'photo-offers/' + id + '/p1.jpg';
 
@@ -59,8 +55,6 @@ function galeryEvents(id, images) {
     photo.src = images[0];
     red.style.left = '0%';
   });
-
-  let offset1, offset2, i = 0;
   gallery.addEventListener('touchstart', e => offset1 = e.targetTouches[0].pageX - gallery.offsetLeft);
   gallery.addEventListener('touchmove', e => offset2 = e.targetTouches[0].pageX - gallery.offsetLeft);
   gallery.addEventListener('touchend', () => {
@@ -72,6 +66,7 @@ function galeryEvents(id, images) {
     red.style.left = i * 16.5 + '%';
   });
   gallery.addEventListener('click', () => {
+    if (document.body.clientWidth < 500) return false;
     gallery.classList.toggle('watch');
     window.current_slide = gallery;
     getWidth();
@@ -89,8 +84,7 @@ let getWidth = () => {
   if (current_slide) pieceWidth = current_slide.clientWidth;
 };
 document.addEventListener('DOMContentLoaded', () => getWidth());
-document.addEventListener('resize', () => getWidth());
-
+window.addEventListener('resize', () => current_slide && current_slide.classList.remove('watch'));
 type_views.addEventListener('click', (e) => {
   // выбор варианта отображения галерии
   for (let childrenKey in type_views.children) type_views.children[childrenKey].classList && type_views.children[childrenKey].classList.remove('active');
@@ -104,5 +98,3 @@ type_views.addEventListener('click', (e) => {
 
 document.addEventListener('keydown', (e) => e.key === 'Escape' && current_slide && current_slide.classList.toggle('watch'));
 
-
-// todo нужно подумать об удалении прикрепленных событий, после смены фоток, чтобы устранить утечку памяти
