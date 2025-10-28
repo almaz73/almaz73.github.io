@@ -104,7 +104,7 @@
     bottom: 0;
     z-index: 21;
     max-height: 100vh;
-    background-color: var(--color-gray);
+    background-color: var(--color-grey);
     transition: transform ease-in-out 0.4s;
     transform: translateX(150vw);
     overflow: auto;
@@ -113,7 +113,7 @@
 .main-nav_bondazh {
     height: 120px;
     width: 100%;
-    background-color: var(--color-gray);
+    background-color: var(--color-grey);
     position: fixed;
 }
 

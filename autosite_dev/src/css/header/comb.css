@@ -66,5 +66,5 @@
 }
 
 .comb__item:hover {
-    background: #f1f8fb;
+    background: var(--color-grey);
 }

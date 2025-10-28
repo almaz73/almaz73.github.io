@@ -1,6 +1,6 @@
 .filter {
     border-radius: 15px;
-    background: #f3f3f5;
+    background: var(--color-grey);
     width: calc(100% - 50px);
     min-height: 60px;
     padding: 10px;

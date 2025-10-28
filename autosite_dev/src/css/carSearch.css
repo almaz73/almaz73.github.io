@@ -5,7 +5,7 @@
 }
 .car-search__content{
     border-radius: 15px;
-    background: #f3f3f5;
+    background: var(--color-grey);
     width: 100%;
     min-height: 60px;
 }

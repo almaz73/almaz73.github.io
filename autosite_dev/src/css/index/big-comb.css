@@ -19,9 +19,9 @@
 .big_comb__items {
     display: none;
     position: absolute;
-    width: 90%;
-    top: 48px;
-    right: 10px;
+    width: calc(100% - 10px);
+    top: 47px;
+    right: 0;
     z-index: 1000000;
     padding: 8px 5px;
     max-height: 240px;
@@ -42,6 +42,15 @@
     display: block;
 }
 
+
+.big-comb__selected input{
+    display: none;
+    width: calc(100% - 40px);
+    border: none;
+    outline: none;
+}
+
+
 .big-combo:focus img {
     rotate: 180deg;
 }
@@ -51,7 +60,7 @@
 }
 
 .big_comb__items div:hover {
-    background: var(--color-light-blue);
+    background: var(--color-grey);
 }
 
 .big-comb__selected {
