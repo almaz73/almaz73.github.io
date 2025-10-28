@@ -13,7 +13,7 @@
 
 .page__wrap {
     margin: 0 auto;
-    max-width: 1280px;
+    max-width: 1200px;
     position: relative;
     width: 100%;
 }
@@ -31,11 +31,17 @@
     gap: 18px;
 }
 
-.footer__top .city {
+.footer__top .footer-city-button {
     font-weight: 600;
-    color: vaR(--color-red);
+    color: var(--color-red);
     padding-left: 20px;
     background: url(/src/svg/city-icon.svg) left no-repeat;
+}
+.footer__top .footer-city-button a{
+    color: var(--color-red);
+    text-decoration: underline;
+    font-size: 0.9em;
+    cursor: pointer;
 }
 
 .footer__top .phone {

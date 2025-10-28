@@ -1,6 +1,6 @@
 const mainPhoto = document.getElementById('mainPhoto');
 
-mainPhoto && mainPhoto.addEventListener('dblclick', function() {
+mainPhoto && mainPhoto.addEventListener('click', function() {
     if (mainPhoto.requestFullscreen) {
         mainPhoto.requestFullscreen(); // Запрашиваем полноэкранный режим
     } else if (mainPhoto.mozRequestFullScreen) { // Firefox

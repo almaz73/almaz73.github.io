@@ -5,7 +5,7 @@ let panel = document.querySelector('.main-nav.menu');
 let buttonBurger = document.querySelector('.button__burger');
 
 let cities = document.querySelector('.main-nav.cities');
-let cityButton = document.querySelector('.city');
+let cityButton = document.querySelector('.footer-city-button');
 let cityClose = document.querySelector('.modal-place__close');
 let isOpened;
 
