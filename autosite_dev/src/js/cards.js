@@ -76,8 +76,12 @@ function galeryEvents(id, images) {
 cars = cars.concat(cars);
 cars = cars.concat(cars); // имитация большого списка
 
+let VITE_PROD_URL = import.meta.env.VITE_PROD_URL
+
+console.log('VITE_PROD_URL = ',VITE_PROD_URL)
+
 cars.forEach((el, i) => createNode(el, i + 1)); // прикручиваем html
-cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
+cars.forEach((el, i) => galeryEvents(i + 1, VITE_PROD_URL+el.photos)); // прикрепляем события
 
 let type_views = document.querySelector('.type_views');
 let pieceWidth;

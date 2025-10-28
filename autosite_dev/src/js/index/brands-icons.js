@@ -127,11 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class='list_brands'>`
 
+  let VITE_PROD_URL = import.meta.env.VITE_PROD_URL
+
   brandDatas.forEach((el => {
     txt += ` <div>
-              <a href='${el.urlc}'>
+              <a href='${el.url}'>
                   <span class='icon'>
-                      <img src='${el.imgSrc}' alt='' class='d-block' loading='lazy'>
+                      <img src='${VITE_PROD_URL}${el.imgSrc}' alt='' class='d-block' loading='lazy'>
                   </span>
                   <span class='text'>${el.text}</span>
                   <span class='total'>${el.total}</span>
