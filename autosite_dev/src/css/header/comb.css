@@ -18,7 +18,7 @@
     background: url(@/svg/location.svg) center left no-repeat;
 }
 
-.comb_field img {
+.comb_field img , .type_views.coin img{
     opacity: 0.5;
     margin-left: 8px;
     width: 10px;

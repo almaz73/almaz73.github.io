@@ -24,11 +24,12 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
-				about: resolve(__dirname, 'about.html'),
-				contacts: resolve(__dirname, 'contacts.html'),
-				cookies: resolve(__dirname, './privacy-policy/index.html'),
+        privacyPolicy: resolve(__dirname, './privacy-policy/index.html'),
 				papka: resolve(__dirname, './papka/index.html'),
 				_404: resolve(__dirname, '404.html'),
+        cars: resolve(__dirname, './cars/index.html'),
+        vykup: resolve(__dirname, './services/vykup/index.html'),
+        tyres: resolve(__dirname, './tyres/index.html'),
 			},
 		},
 

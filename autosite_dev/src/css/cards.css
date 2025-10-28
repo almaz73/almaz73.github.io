@@ -221,6 +221,11 @@ h2 .type_views {
     display: flex;
     cursor: pointer;
 }
+h2 .type_views.coin {
+    font-size: 16px;
+    font-family: 'Gilroy';
+    margin: 6px 100px 0;
+}
 
 @media (max-width: 600px) {
     h2 .type_views {

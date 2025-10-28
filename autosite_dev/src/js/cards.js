@@ -24,10 +24,10 @@ function createNode(item, N) {
                 </div>
                 <div class='cart__box--bottom'>
                 <a href='#'>
-                    <img src='icons/compare_cars.svg' alt=''>
+                    <img src='/icons/compare_cars.svg' alt=''>
                 </a>
                 <a href='#'>
-                    <img src='icons/penta.svg' alt=''>
+                    <img src='/icons/penta.svg' alt=''>
                 </a>
             </div>
             </div>`;
@@ -43,9 +43,7 @@ function galeryEvents(id, images) {
   const photo = gallery.querySelector('.photo');
   const red = gallery.querySelector('.cart .red');
   let offset1, offset2, i = 0;
-
-  photo.src = 'photo-offers/' + id + '/p1.jpg';
-
+  photo.src = '/photo-offers/' + id + '/p1.jpg';
   photo.addEventListener('mousemove', (e) => {
     let i = parseInt(e.layerX * 100 / pieceWidth / 16.5 - 0.1);
     photo.src = images[i];
@@ -74,6 +72,10 @@ function galeryEvents(id, images) {
 }
 
 // cars нужно будет скачать с сервера
+
+cars = cars.concat(cars);
+cars = cars.concat(cars); // имитация большого списка
+
 cars.forEach((el, i) => createNode(el, i + 1)); // прикручиваем html
 cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
 
@@ -97,4 +99,13 @@ type_views.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => e.key === 'Escape' && current_slide && current_slide.classList.toggle('watch'));
+
+let price_order = document.querySelector('.type_views.coin');
+
+price_order.addEventListener('click', (e) => {
+  let more = price_order.querySelector('img').style.rotate!=='180deg'
+  price_order.querySelector('img').style.rotate = more ? '180deg' : '0deg';
+  console.log('запрос нужен more = ',more)
+  // запрос нужен
+})
 
