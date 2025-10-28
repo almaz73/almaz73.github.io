@@ -1,6 +1,11 @@
 // создает визитки, встраивает рекламные и информационные баннеры
 let cards = document.querySelector('cards');
 
+let VITE_PROD_URL = import.meta.env.VITE_PROD_URL
+// VITE_PROD_URL = 'http://localhost:5173'
+
+console.log('VITE_PROD_URL = ',VITE_PROD_URL)
+
 function createNode(item, N) {
   let txt = `<div class='cart' id='galery_${N}'>
                 <div class='cart__slide'>                    
@@ -43,14 +48,14 @@ function galeryEvents(id, images) {
   const photo = gallery.querySelector('.photo');
   const red = gallery.querySelector('.cart .red');
   let offset1, offset2, i = 0;
-  photo.src = '/photo-offers/' + id + '/p1.jpg';
+  photo.src = VITE_PROD_URL+'/photo-offers/' + id + '/p1.jpg';
   photo.addEventListener('mousemove', (e) => {
     let i = parseInt(e.layerX * 100 / pieceWidth / 16.5 - 0.1);
-    photo.src = images[i];
+    photo.src = VITE_PROD_URL+images[i];
     red.style.left = i * 16.5 + '%';
   });
   gallery.addEventListener('mouseleave', () => {
-    photo.src = images[0];
+    photo.src = VITE_PROD_URL+images[0];
     red.style.left = '0%';
   });
   gallery.addEventListener('touchstart', e => offset1 = e.targetTouches[0].pageX - gallery.offsetLeft);
@@ -60,7 +65,7 @@ function galeryEvents(id, images) {
     else i--;
     if (i > 5) i = 5;
     if (i < 0) i = 0;
-    photo.src = images[i];
+    photo.src = VITE_PROD_URL+images[i];
     red.style.left = i * 16.5 + '%';
   });
   gallery.addEventListener('click', () => {
@@ -76,12 +81,9 @@ function galeryEvents(id, images) {
 cars = cars.concat(cars);
 cars = cars.concat(cars); // имитация большого списка
 
-let VITE_PROD_URL = import.meta.env.VITE_PROD_URL
-
-console.log('VITE_PROD_URL = ',VITE_PROD_URL)
 
 cars.forEach((el, i) => createNode(el, i + 1)); // прикручиваем html
-cars.forEach((el, i) => galeryEvents(i + 1, VITE_PROD_URL+el.photos)); // прикрепляем события
+cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
 
 let type_views = document.querySelector('.type_views');
 let pieceWidth;
