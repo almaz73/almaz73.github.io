@@ -134,12 +134,16 @@ cards.dot8 .cart {
 }
 
 @media (max-width: 575px) {
-    .cart {
+    .cart, .cards.dot8 .cart {
         margin: 0 -20px;
         padding: 0 20px;
         border-radius: 0;
         grid-template-columns: auto auto;
-        grid-template-areas: 'name name' 'c_price c_price'  'c_slide c_slide' 'c_info c_box'
+        grid-template-areas: 'name name' 'c_price c_price'  'c_slide c_slide' 'c_info c_box';
+    }
+
+    cards.dot8 {
+        grid-template-columns: 1fr;
     }
 
     .cart__slide {

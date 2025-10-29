@@ -1,4 +1,4 @@
-<!doctype html>
+    <!doctype html>
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
@@ -12,5 +12,25 @@
 <h1>
  В РАЗРАБОТКЕ
 </h1>
+
+<textarea class='text' cols="50" rows="10"></textarea>
+<button onclick='send()'> Отправить </button>
+
+<script>
+  function send() {
+    let message = document.querySelector('.text').value;
+
+    let botId = 'bot8235288635:AAF_soJaYR8OPHAQrpfcF4FDUr2JjRRDlVw';
+    let chatId = '-5064627941';
+    let text = 'Сообщение с сайта Автотсеть.РФ: ' + message + ' — ';
+    let linkTelega = `https://api.telegram.org/${botId}/sendMessage?chat_id=${chatId}&parse_mode=HTML&text=${text}`;
+
+    fetch(linkTelega)
+      .then(response => response.json())
+      .then(() => {
+        console.log('сообщение доставлено = ')
+      });
+  }
+</script>
 </body>
 </html>

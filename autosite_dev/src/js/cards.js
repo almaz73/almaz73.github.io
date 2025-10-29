@@ -78,8 +78,8 @@ function galeryEvents(id, images) {
 
 // cars нужно будет скачать с сервера
 
-cars = cars.concat(cars);
-cars = cars.concat(cars); // имитация большого списка
+
+cars = cars.concat(cars).concat(cars); // имитация большого списка
 
 
 cars.forEach((el, i) => createNode(el, i + 1)); // прикручиваем html
