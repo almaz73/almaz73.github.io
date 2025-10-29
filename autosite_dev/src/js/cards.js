@@ -78,6 +78,7 @@ function galeryEvents(id, images) {
 
 // cars нужно будет скачать с сервера
 
+
 cars = cars.concat(cars).concat(cars); // имитация большого списка
 
 
