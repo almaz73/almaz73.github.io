@@ -73,7 +73,8 @@ window.big_comb_select = function(val) {
   let value = val.srcElement.innerText
   let parent = val.srcElement.parentElement.parentElement
   items[combName].value = value
-  parent.querySelector('.big-comb__selected').innerText = value
-  parent.blur()
+  parent.querySelector('.big-comb__placeholder').innerText = value
+  parent.querySelector('.big-comb__input').value = value
+  parent.querySelector('.big-comb__input').blur()
   console.log('items = ',items)
 };
