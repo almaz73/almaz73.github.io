@@ -26,12 +26,10 @@
     padding: 8px 5px;
     max-height: 240px;
     overflow-y: auto;
-    scrollbar-width: none;
     border-radius: 12px;
     background-color: #ffffff;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
     cursor: pointer;
-
 }
 
 .big-combo:focus {

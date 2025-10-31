@@ -11,7 +11,7 @@ function createNode(item, N) {
                     <div class='field'>
                         <div class='red'></div>
                     </div>
-                    <span class='dark'/>                    
+                    <span class='dark-fon'/>                    
                 </div>
                 <div class='name'>
                     <br>

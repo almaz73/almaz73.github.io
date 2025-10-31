@@ -67,19 +67,19 @@ cards.dot8 .cart {
     overflow: hidden;
 }
 
-.cart__slide .dark {
+.cart__slide .dark-fon {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
-    background: #000000cc;
+    background: #000000bb;
     width: 100%;
     height: 100%;
     cursor: pointer;
     z-index: -1;
 }
 
-.cart__slide.watch .dark {
+.cart__slide.watch .dark-fon {
     display: block;
 }
 

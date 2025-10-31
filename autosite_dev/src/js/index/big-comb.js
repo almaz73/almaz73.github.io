@@ -55,9 +55,16 @@ window.addEventListener('load', () => {
       bigCombInput.style.display = 'inline'
       bigCombPlaceholder.style.display = 'none'
       bigCombInput.focus()
+      bigCombInput.select()
     })
 
-    bigCombInput.addEventListener('blur', ()=>{
+    bigCombInput.addEventListener('blur', () => {
+      bigCombItems.style.display = 'none'
+      bigCombInput.style.display = 'none'
+      bigCombPlaceholder.style.display = ''
+    })
+
+    bigCombInput.addEventListener('click', () => {
       bigCombItems.style.display = 'none'
       bigCombInput.style.display = 'none'
       bigCombPlaceholder.style.display = ''

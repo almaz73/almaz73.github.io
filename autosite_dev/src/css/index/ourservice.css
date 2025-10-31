@@ -191,19 +191,19 @@
     fill: rgba(255, 255, 255, 0.8);
 }
 
-.main__provided--item.dark .name {
+.main__provided--item.dark-fon .name {
     color: #000;
 }
 
-.main__provided--item.dark .info {
+.main__provided--item.dark-fon .info {
     color: rgba(0, 0, 0, 0.8);
 }
 
-.main__provided--item.dark .main__provided--link {
+.main__provided--item.dark-fon .main__provided--link {
     color: rgba(0, 0, 0, 0.8);
 }
 
-.main__provided--item.dark .main__provided--link .icon svg {
+.main__provided--item.dark-fon .main__provided--link .icon svg {
     fill: rgba(0, 0, 0, 0.8);
 }
 
