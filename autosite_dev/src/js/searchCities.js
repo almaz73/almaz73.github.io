@@ -16,7 +16,6 @@ export function fillCities(txt) {
 
     towns.forEach(el => {
       let yel = txt && el.toUpperCase().includes(txt) ? ' class=\'yel\'' : '';
-      console.log(el, 'yel = ', yel);
       innerTowns += `<li><a href="#"><span ${yel}>${el}</span></a></li>`;
     });
     inner += `<div class="modal-place__box">
