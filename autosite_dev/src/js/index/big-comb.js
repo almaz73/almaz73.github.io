@@ -1,14 +1,4 @@
-let big_comb_html = `<div class='big-combo' tabindex='1'>
-    <span class='big-comb__selected'>Россия</span>
-    <img src='svg/arrow-down.svg' alt='arrow' loading='lazy' width='10' height='18'>
-
-    <div class='big_comb__items' onclick='big_comb_select(event)'>
-        <div>Альметьевск</div>
-        <div>Астрахань</div>
-    </div>
-</div>`;
-
-let items = {};
+let items = {}; // некоторые поля нужно запросить с обюновляемой базы
 items['Марка'] = ['Все', 'AUDI', 'BMV', 'Brilliance', 'BYD', 'Cadilac']
 items['Марка'].value=''; // тут будут выбранные значения
 items['Модель'] = ['Все', '3 серия', '5 серия', 'X1', 'X3', 'X5']
@@ -33,7 +23,7 @@ window.addEventListener('load', () => {
     if(the_Items) {
       let items_list = the_Items.map(item =>  '<div data-parent="'+comb_name+'">'+item+'</div>')
 
-      let html = `<div class='big-combo' tabindex='1'>
+      comb.innerHTML = `<div class='big-combo' tabindex='1'>
         <span class='big-comb__selected'>
           <span class='big-comb__placeholder'>${the_Items.value || comb_name}</span>
           <input class='big-comb__input' type="text">
@@ -42,8 +32,7 @@ window.addEventListener('load', () => {
         <div class='big_comb__items' onclick='big_comb_select(event)'>
             ${items_list.join('')}
         </div>
-    </div>`;
-      comb.innerHTML = html;
+    </div>`
     }
 
     let bigCombo = comb.querySelector('.big-combo')
@@ -58,17 +47,15 @@ window.addEventListener('load', () => {
       bigCombInput.select()
     })
 
-    bigCombInput.addEventListener('blur', () => {
-      bigCombItems.style.display = 'none'
-      bigCombInput.style.display = 'none'
-      bigCombPlaceholder.style.display = ''
-    })
+    bigCombInput.addEventListener('blur', () => blur())
+    bigCombInput.addEventListener('click', () => blur())
+    bigCombInput.addEventListener('keydown', (e) => e.key === 'Escape' && blur())
 
-    bigCombInput.addEventListener('click', () => {
+    function blur() {
       bigCombItems.style.display = 'none'
       bigCombInput.style.display = 'none'
       bigCombPlaceholder.style.display = ''
-    })
+    }
   })
 });
 
