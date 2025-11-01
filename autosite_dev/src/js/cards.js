@@ -101,7 +101,12 @@ type_views.addEventListener('click', (e) => {
   e.srcElement.classList.add('active');
 });
 
-document.addEventListener('keydown', (e) => e.key === 'Escape' && current_slide && current_slide.classList.toggle('watch'));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && current_slide) {
+    current_slide.classList.remove('watch')
+    getWidth();
+  }
+});
 
 let price_order = document.querySelector('.type_views.coin');
 

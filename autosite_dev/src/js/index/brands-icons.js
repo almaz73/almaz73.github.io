@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  let brands_dynamic = document.querySelector('#brands_dynamic')
+  if (!brands_dynamic) return false
   let brandDatas = [
     {
       "url": "/cars/vaz-lada/",
@@ -143,6 +145,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   txt += `</div>`
 
-  document.querySelector('#brands_dynamic').innerHTML = txt
+  brands_dynamic.innerHTML = txt
 })
 

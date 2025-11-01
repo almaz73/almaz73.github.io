@@ -41,7 +41,7 @@
 .main__provided--block .item {
     flex: 0 0 35%;
     max-width: 25%;
-    background: #f2f2f7;
+    background: var(--color-grey);
     border-radius: 10px;
     position: relative;
 }
@@ -104,7 +104,7 @@
 }
 
 .main__provided--light {
-    background-color: #F2F2F7;
+    background-color: var(--color-grey);
 }
 
 .main__provided--light::after {

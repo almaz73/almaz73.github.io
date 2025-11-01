@@ -8,6 +8,7 @@ items['Ширина профиля'] = ['Все', '155', '185', '195', '205', '2
 items['Высота профиля'] = ['Все', '45', '55', '60', '65', '70']
 items['Диаметр'] = ['Все', '13', '14', '15', '16', '17']
 items['Сезон'] = ['Все', 'Зима Шип', 'Лето']
+items['Город'] = ['Все', 'Альметьевск', 'Казань', 'Набережные Челны', 'Нижнекамск', 'Стерлитамак']
 
 
 
@@ -28,7 +29,7 @@ window.addEventListener('load', () => {
           <span class='big-comb__placeholder'>${the_Items.value || comb_name}</span>
           <input class='big-comb__input' type="text">
         </span>
-        <img src='svg/arrow-down.svg' alt='arrow' loading='lazy' width='10' height='18'>            
+        <img src='/svg/arrow-down.svg' alt='arrow' loading='lazy' width='10' height='18'>            
         <div class='big_comb__items' onclick='big_comb_select(event)'>
             ${items_list.join('')}
         </div>
@@ -68,6 +69,7 @@ window.big_comb_select = function(val) {
   let parent = val.srcElement.parentElement.parentElement
   items[combName].value = value
   parent.querySelector('.big-comb__placeholder').innerText = value
+  parent.querySelector('.big-comb__placeholder').classList.add('bold')
   parent.querySelector('.big-comb__input').value = value
   parent.querySelector('.big-comb__input').blur()
   console.log('items = ',items)

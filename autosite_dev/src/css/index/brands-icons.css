@@ -41,6 +41,8 @@
 .list_brands a .icon img {
     max-width: 37px !important;
     filter: grayscale(1);
+    position: relative;
+    z-index: -1;
 }
 
 .list_brands a {

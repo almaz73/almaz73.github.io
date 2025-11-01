@@ -1,0 +1,46 @@
+<div class="filter-white">
+    <div class="filter-white-back">
+        <div class="frame-filter__item">
+            <comb data-placeholder='Марка' />
+        </div>
+        <div class="frame-filter__item">
+            <comb data-placeholder='Модель' />
+        </div>
+        <div class="frame-filter__item">
+            <comb data-placeholder='Город' />
+        </div>
+
+        <div>
+            <div class="big-combo control-flex">
+                <span style="width: 60px">Год от</span>
+                <input class="big-comb__input" style="width: 40px" value="1997" onclick="this.select()">
+            </div>
+        </div>
+
+        <div>
+            <div class="big-combo control-flex">
+                <span style="width: 80px">Цена до: </span>
+                <input class="big-comb__input" style="width: 80px" value="6882400" onclick="this.select()">
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+    <div class="frame-filter__controls">
+        <button class="frame-filter__controls-advanced" onclick='this.classList.add("active")'>
+            <span class="frame-filter__controls-advanced-icon"></span>
+            <span class="frame-filter__controls-advanced-text">Расширенный фильтр</span>
+        </button>
+
+        <a href="#" class="frame-filter__controls-reset">Сбросить</a>
+
+        <button class="frame-filter__submit" type="submit" id="set_filter" name="set_filter" value="Показать"
+                onclick="document.querySelector('#tyres_submit_hidden').click()">
+            Показать&nbsp;<span class="number">12</span>&nbsp;предложений
+        </button>
+    </div>
+</div>

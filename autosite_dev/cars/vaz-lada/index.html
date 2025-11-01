@@ -28,7 +28,6 @@
 <body>
 {{> "header/header" }}
 <main>
-
     <div class='page_padding_20'>
         <div class='bread_cranbs'>
             <a href='%VITE_PROD_URL%/'>Главная</a>
@@ -37,14 +36,10 @@
         </div>
     </div>
 
-    <div class='container main__top--block'>
-        <div id='brands_dynamic'></div>
-    </div>
-
+    {{> filter_white}}
 
     <div class='container'>
         <h2 style='font-size: 2em; font-weight: 200'>Автомобили ВАЗ (LADA) с пробегом
-
             <span class='type_views'>
                 <div class='dot8 active'>
                     <img src='/svg/dot8.svg'>
