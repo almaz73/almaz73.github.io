@@ -19,10 +19,10 @@
     <meta name='description'
           content='Более 500 автомобилей ВАЗ (LADA) с пробегом в наличии. Классические и современные модели: Granta, Vesta, Niva, Priora. Гарантия, автокредит, обмен Trade-In — Автосеть.РФ.'>
 
-  <script type="module" crossorigin src="../../assets/main-CGFBWEMA.js"></script>
-  <script type="module" crossorigin src="../../assets/big-comb-BWuHLjX_.js"></script>
+  <script type="module" crossorigin src="../../assets/main-C71HYwLT.js"></script>
+  <script type="module" crossorigin src="../../assets/big-comb-B6OKRwVp.js"></script>
   <link rel="stylesheet" crossorigin href="../../assets/main-D3jWMZLa.css">
-  <link rel="stylesheet" crossorigin href="../../assets/big-comb-W4SUNlgs.css">
+  <link rel="stylesheet" crossorigin href="../../assets/big-comb-CNoEIC7R.css">
 </head>
 <body>
 <div class="header">
@@ -178,7 +178,6 @@
   </div>
 </div>
 </div><main>
-
     <div class='page_padding_20'>
         <div class='bread_cranbs'>
             <a href='https://fmap.ru/autosite/'>Главная</a>
@@ -187,14 +186,54 @@
         </div>
     </div>
 
-    <div class='container main__top--block'>
-        <div id='brands_dynamic'></div>
+    <div class="filter-white">
+    <div class="filter-white-back">
+        <div class="frame-filter__item">
+            <comb data-placeholder='Марка' />
+        </div>
+        <div class="frame-filter__item">
+            <comb data-placeholder='Модель' />
+        </div>
+        <div class="frame-filter__item">
+            <comb data-placeholder='Город' />
+        </div>
+
+        <div>
+            <div class="big-combo control-flex">
+                <span style="width: 60px">Год от</span>
+                <input class="big-comb__input" style="width: 40px" value="1997" onclick="this.select()">
+            </div>
+        </div>
+
+        <div>
+            <div class="big-combo control-flex">
+                <span style="width: 80px">Цена до: </span>
+                <input class="big-comb__input" style="width: 80px" value="6882400" onclick="this.select()">
+            </div>
+        </div>
+
+
+
+
+
     </div>
 
+    <div class="frame-filter__controls">
+        <button class="frame-filter__controls-advanced" onclick='this.classList.add("active")'>
+            <span class="frame-filter__controls-advanced-icon"></span>
+            <span class="frame-filter__controls-advanced-text">Расширенный фильтр</span>
+        </button>
 
+        <a href="#" class="frame-filter__controls-reset">Сбросить</a>
+
+        <button class="frame-filter__submit" type="submit" id="set_filter" name="set_filter" value="Показать"
+                onclick="document.querySelector('#tyres_submit_hidden').click()">
+            Показать&nbsp;<span class="number">12</span>&nbsp;предложений
+        </button>
+    </div>
+</div>
     <div class='container'>
         <h2 style='font-size: 2em; font-weight: 200'>Автомобили ВАЗ (LADA) с пробегом
-
             <span class='type_views'>
                 <div class='dot8 active'>
                     <img src='../../svg/dot8.svg'>
