@@ -16,7 +16,7 @@ export function fillCities(txt) {
 
     towns.forEach(el => {
       let yel = txt && el.toUpperCase().includes(txt) ? ' class=\'yel\'' : '';
-      innerTowns += `<li><a href="#"><span ${yel}>${el}</span></a></li>`;
+      innerTowns += `<li><a href="javascript:void(0)" onclick="setCity('${el}')"><span ${yel}>${el}</span></a></li>`;
     });
     inner += `<div class="modal-place__box">
 <div><div class="letter">${letter}</div><ul>${innerTowns}</ul></div></div>`;
@@ -28,7 +28,6 @@ export function fillCities(txt) {
 
 cityInput.addEventListener('input', res => {
   fillCities(cityInput.value.toUpperCase());
-
 });
 
 

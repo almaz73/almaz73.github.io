@@ -6,6 +6,8 @@ let buttonBurger = document.querySelector('.button__burger');
 
 let cities = document.querySelector('.main-nav.cities');
 let cityButton = document.querySelector('.footer-city-button');
+let cityName = document.querySelector('.footer-city-button a');
+let cityCombName = document.querySelector('.comb__selected');
 let cityClose = document.querySelector('.modal-place__close');
 let isOpened;
 
@@ -52,6 +54,14 @@ cityClose.addEventListener('click', () => {
   hideMainScroll(false);
 });
 
+cityName.innerHTML =  localStorage.getItem('selectedCity');
+window.setCity = function (val) {
+  localStorage.setItem('selectedCity', val);
+  cities.style.transform = 'translateX(150vw)';
+  cityName.innerHTML = val
+  cityCombName.innerHTML = val
+  hideMainScroll(false);
+}
 
 /* работа с cookie-banner */
 let cookieAccept = document.querySelector('#cookie-accept');

@@ -1,6 +1,7 @@
 let option_div = document.querySelector('.comb__items');
 let comb_field = document.querySelector('.comb_field');
 let select_div = document.querySelector('.comb__selected');
+let cityName = document.querySelector('.footer-city-button a');
 let comb_arrow = document.querySelector('.comb_field img');
 
 
@@ -16,6 +17,7 @@ function getCity(e) {
   let val = e.target.innerText;
   if (val.length > 30) return false;
   select_div.innerHTML = val;
+  cityName.innerHTML = val
   localStorage.setItem('selectedCity', val);
 }
 

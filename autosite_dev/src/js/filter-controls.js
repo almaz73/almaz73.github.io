@@ -47,10 +47,12 @@ window.addEventListener('load', () => {
     let bigCombItems = comb.querySelector('.big_comb__items')
     let bigCombInput = comb.querySelector('.big-comb__input')
     let bigCombPlaceholder = comb.querySelector('.big-comb__placeholder')
+    let comb_field_img = comb.querySelector('.big-combo img')
     bigCombo.addEventListener('focus', ()=>{
       bigCombItems.style.display = 'block'
       bigCombInput.style.display = 'inline'
       bigCombPlaceholder.style.display = 'none'
+      comb_field_img.style.rotate='180deg'
       bigCombInput.focus()
       bigCombInput.select()
     })
@@ -63,6 +65,7 @@ window.addEventListener('load', () => {
       bigCombItems.style.display = 'none'
       bigCombInput.style.display = 'none'
       bigCombPlaceholder.style.display = ''
+      comb_field_img.style.rotate='0deg'
     }
   })
 });
@@ -103,22 +106,24 @@ advanced.addEventListener('click', () => {
 // Переключение на шины
 let f_auto = document.querySelector('.f_auto')
 let f_tire = document.querySelector('.f_tire')
-let f_auto_buttons= document.querySelector('.f_auto_buttons')
-let f_tire_buttons= document.querySelector('.f_tire_buttons')
-let tireSizeInfo = document.querySelector('.filter__controls-info')
+if(f_auto && f_tire) {
+  let f_auto_buttons = document.querySelector('.f_auto_buttons')
+  let f_tire_buttons = document.querySelector('.f_tire_buttons')
+  let tireSizeInfo = document.querySelector('.filter__controls-info')
 
-f_auto.addEventListener('click',()=>{
-  f_auto.classList.add("active")
-  f_tire.classList.remove("active")
-  f_tire_buttons.style.display='none'
-  f_auto_buttons.style.display='flex'
-  tireSizeInfo.style.display='none'
-})
-f_tire.addEventListener('click',()=>{
-  f_tire.classList.add("active")
-  f_auto.classList.remove("active")
-  f_auto_buttons.style.display='none'
-  f_tire_buttons.style.display='flex'
-  tireSizeInfo.style.display='block'
-})
 
+  f_auto.addEventListener('click', () => {
+    f_auto.classList.add("active")
+    f_tire.classList.remove("active")
+    f_tire_buttons.style.display = 'none'
+    f_auto_buttons.style.display = 'flex'
+    tireSizeInfo.style.display = 'none'
+  })
+  f_tire.addEventListener('click', () => {
+    f_tire.classList.add("active")
+    f_auto.classList.remove("active")
+    f_auto_buttons.style.display = 'none'
+    f_tire_buttons.style.display = 'flex'
+    tireSizeInfo.style.display = 'block'
+  })
+}
