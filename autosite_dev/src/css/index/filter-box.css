@@ -23,7 +23,7 @@
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 20px 10px;
+    gap: 16px;
 }
 
 .filter__controls-button {
@@ -64,6 +64,7 @@
     position: absolute;
     right: 60px;
     top: 35px;
+    display: none;
 }
 
 
@@ -87,8 +88,9 @@
 
 
 .frame-filter__item{
-    width: 250px;
+    width: 170px;
     outline: none;
+    flex-grow: 1;
 }
 
 /***********/
@@ -96,7 +98,7 @@
 .filter-white {
     background-color: #fff;
     border-radius: 5px;
-    padding: 1.5em;
+    padding: 2.5em;
     box-shadow: 0 0 40px #0003;
     margin-bottom: 100px;
 }
@@ -104,6 +106,7 @@
 .filter-white-back {
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
 }
 
 .filter-white .big-combo, .filter-white .big-comb__input {
@@ -112,4 +115,22 @@
 
 .control-flex{
     display: flex;
+}
+
+.control-flex span{
+    font-size: 14px;
+    margin-left: 10px;
+}
+.control-flex input:hover{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: -1px;
+}
+
+.no_advanced{
+    display: none;
+    flex-grow: 1;
+}
+
+.filter-fields.active .no_advanced {
+    display: block;
 }

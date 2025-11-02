@@ -1,7 +1,10 @@
+import {filter_changed} from '@/js/filter.js';
+import {w} from "../../../games/combo/assets/index-f457a676.js";
+
 let items = {}; // некоторые поля нужно запросить с обюновляемой базы
-items['Марка'] = ['Все', 'AUDI', 'BMV', 'Brilliance', 'BYD', 'Cadilac']
+items['Марка'] = ['Все', 'AUDI', 'BMV', 'Brilliance', 'BYD', 'Cadilac'] // todo нужно запросить с сервера
 items['Марка'].value=''; // тут будут выбранные значения
-items['Модель'] = ['Все', '3 серия', '5 серия', 'X1', 'X3', 'X5']
+items['Модель'] = ['Все', '3 серия', '5 серия', 'X1', 'X3', 'X5'] // todo нужно запросить с сервера после изменения марки
 
 items['Производитель'] = ['Amtel', 'Bfgoodrich', 'Cordiant', 'Formula', 'Gislaved', 'Hankook', 'Kormoran', 'Kumho', 'Nokian'];
 items['Ширина профиля'] = ['Все', '155', '185', '195', '205', '215', '225'];
@@ -9,9 +12,13 @@ items['Высота профиля'] = ['Все', '45', '55', '60', '65', '70']
 items['Диаметр'] = ['Все', '13', '14', '15', '16', '17']
 items['Сезон'] = ['Все', 'Зима Шип', 'Лето']
 items['Город'] = ['Все', 'Альметьевск', 'Казань', 'Набережные Челны', 'Нижнекамск', 'Стерлитамак']
-
-
-
+items['Тип кузова'] = ['Все', 'Автобус', 'Внедорожник', 'Кроссовер', 'Купе', 'Лифтбек', 'Минивэн', 'Пикап', 'Седан', 'Универсал', 'Фургон', 'Хетчбэк']
+items['Цвет'] = ['Все', 'Бежевый', 'Белый', 'Голубой', 'Желтый', 'Зелёный', 'Золотой', 'Коричневый', 'Красный', 'Оранжевый', 'Серебряный', 'Серый', 'Синий', 'Фиолетовый', 'Чёрный']
+items['Тип КПП'] = ['Все', 'Автоматическая', 'Вариатор', 'Механическая', 'Робот']
+items['Тип двигателя'] = ['Все', 'Бензиновый', 'Гибридный', 'Дизельный', 'Электро']
+items['Тип привода'] = ['Все', 'Задний', 'Передний', 'Полный']
+items['Руль'] = ['Все', 'Левый']
+items['Диски'] = ['Все', 'Отсутствуют']
 
 // после загрузки сайта, заполняем все комбы
 window.addEventListener('load', () => {
@@ -72,5 +79,46 @@ window.big_comb_select = function(val) {
   parent.querySelector('.big-comb__placeholder').classList.add('bold')
   parent.querySelector('.big-comb__input').value = value
   parent.querySelector('.big-comb__input').blur()
-  console.log('items = ',items)
+  filter_changed(items, combName)
 };
+
+/* Реагирование текстовых кнопок*/
+
+
+
+/* Сюда же добавим управление видом фильтров */
+let advanced = document.querySelector('.frame-filter__controls-advanced')
+let filterAdvanced = document.querySelector('.filter-fields')
+
+advanced.addEventListener('click', () => {
+  if (advanced.classList.length === 1) {
+    advanced.classList.add("active")
+    filterAdvanced.classList.add("active")
+  } else {
+    advanced.classList.remove("active")
+    filterAdvanced.classList.remove("active")
+  }
+})
+
+// Переключение на шины
+let f_auto = document.querySelector('.f_auto')
+let f_tire = document.querySelector('.f_tire')
+let f_auto_buttons= document.querySelector('.f_auto_buttons')
+let f_tire_buttons= document.querySelector('.f_tire_buttons')
+let tireSizeInfo = document.querySelector('.filter__controls-info')
+
+f_auto.addEventListener('click',()=>{
+  f_auto.classList.add("active")
+  f_tire.classList.remove("active")
+  f_tire_buttons.style.display='none'
+  f_auto_buttons.style.display='flex'
+  tireSizeInfo.style.display='none'
+})
+f_tire.addEventListener('click',()=>{
+  f_tire.classList.add("active")
+  f_auto.classList.remove("active")
+  f_auto_buttons.style.display='none'
+  f_tire_buttons.style.display='flex'
+  tireSizeInfo.style.display='block'
+})
+
