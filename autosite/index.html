@@ -18,13 +18,12 @@
         🚗 БУ авто в автосалонах Автосеть.рф.
         Подробная информация по телефону: ☎ 8-800-500-11-56. Звоните!'>
 
-  <script type="module" crossorigin src="./assets/main-Cgov2mYt.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/main-Brg6-qs_.js">
-  <link rel="modulepreload" crossorigin href="./assets/car-vitrina-E5aHhRVZ.js">
+  <script type="module" crossorigin src="./assets/main-D3O53H8_.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/main-gHPCorgH.js">
   <link rel="modulepreload" crossorigin href="./assets/brands-icons-_MUfc6UZ.js">
-  <link rel="stylesheet" crossorigin href="./assets/main-D3jWMZLa.css">
-  <link rel="stylesheet" crossorigin href="./assets/car-vitrina-CNoEIC7R.css">
+  <link rel="stylesheet" crossorigin href="./assets/main-BUondL2d.css">
   <link rel="stylesheet" crossorigin href="./assets/main-SUftkamZ.css">
+  <link rel="stylesheet" crossorigin href="./assets/index-jKiwnmFH.css">
 </head>
 <body>
 <div class="header">
@@ -285,48 +284,125 @@
     <section class="container">
     <div class="filter">
 
-        <div class="filter__wrapper">
+        <div class="filter__wrapper filter-fields">
             <div class="filter__controls">
-                <button class="filter__controls-button active">Автомобили</button>
-                <button class="filter__controls-button">Шины</button>
+                <button class="filter__controls-button f_auto active">Автомобили</button>
+                <button class="filter__controls-button f_tire">Шины</button>
                 <div class="filter__controls-info">
                     <img src="./assets/tires-DYaYxKJK.svg" alt=''>
-                    <span
-                       class="filter__controls-info-button">Где смотреть параметры</span>
+                    <span class="filter__controls-info-button">Где смотреть параметры</span>
                 </div>
             </div>
-            <div class="filter__controls">
+
+            <div class="filter__controls filter-fields f_auto_buttons">
                 <div class="frame-filter__item">
                     <comb data-placeholder='Марка' />
                 </div>
                 <div class="frame-filter__item">
                     <comb data-placeholder='Модель' />
                 </div>
-                <div class="frame-filter__item">
-                    <comb data-placeholder='Производитель' />
-                </div>
-                <div class="frame-filter__item">
-                    <comb data-placeholder='Ширина профиля' />
-                </div>
-                <div class="frame-filter__item">
-                    <comb data-placeholder='Высота профиля' />
-                </div>
-                <div class="frame-filter__item">
-                    <comb data-placeholder='Диаметр' />
-                </div>
-                <div class="frame-filter__item">
-                    <comb data-placeholder='Сезон' />
+
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Город' />
                 </div>
 
-                <div>
+                <div style="flex-grow: 1">
                     <div class="big-combo control-flex">
-                        <span style="width: 60px">Год от</span>
+                        <span style="width: 60px">Год от:</span>
                         <input class="big-comb__input" style="width: 40px" value="1997" onclick="this.select()">
                     </div>
                 </div>
+
+                <div style="flex-grow: 1">
+                    <div class="big-combo control-flex">
+                        <span style="width: 60px">Год до:</span>
+                        <input class="big-comb__input" style="width: 40px" value="1997" onclick="this.select()">
+                    </div>
+                </div>
+
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Цвет'/>
+                </div>
+
+                <div class="no_advanced">
+                    <div class="big-combo control-flex">
+                        <span style="width: 100px">Цена от: </span>
+                        <input class="big-comb__input" style="width: 70px" onclick="this.select()">
+                    </div>
+                </div>
+
+                <div class="no_advanced">
+                    <div class="big-combo control-flex">
+                        <span style="width: 100px">Цена до: </span>
+                        <input class="big-comb__input" style="width: 70px" onclick="this.select()">
+                    </div>
+                </div>
+
+                <div class="no_advanced">
+                    <div class="big-combo control-flex">
+                        <span style="width: 100px">Пробег от: </span>
+                        <input class="big-comb__input" style="width: 70px" onclick="this.select()">
+                    </div>
+                </div>
+
+                <div class="no_advanced">
+                    <div class="big-combo control-flex">
+                        <span style="width: 100px">Пробег до: </span>
+                        <input class="big-comb__input" style="width: 70px" onclick="this.select()">
+                    </div>
+                </div>
+
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Тип кузова'/>
+                </div>
+
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Тип КПП'/>
+                </div>
+
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Тип двигателя'/>
+                </div>
+
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Тип привода'/>
+                </div>
+
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Руль'/>
+                </div>
+            </div>
+
+            <div class="filter__controls f_tire_buttons" style="display: none">
+                <div class="frame-filter__item">
+                    <comb data-placeholder='Производитель'/>
+                </div>
+                <div class="frame-filter__item">
+                    <comb data-placeholder='Ширина профиля'/>
+                </div>
+                <div class="frame-filter__item">
+                    <comb data-placeholder='Высота профиля'/>
+                </div>
+                <div class="frame-filter__item">
+                    <comb data-placeholder='Диаметр'/>
+                </div>
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Сезон'/>
+                </div>
+                &nbsp;
+                <div class="frame-filter__item no_advanced">
+                    <comb data-placeholder='Диски'/>
+                </div>
+                <div class="no_advanced">
+                    <div class="big-combo control-flex">
+                        <span style="width: 100px">Цена до: </span>
+                        <input class="big-comb__input" style="width: 70px" onclick="this.select()">
+                    </div>
+                </div>
+                &nbsp;
             </div>
             <div class="frame-filter__controls">
-                <button class="frame-filter__controls-advanced" onclick='this.classList.add("active")'>
+                <button class="frame-filter__controls-advanced">
                     <span class="frame-filter__controls-advanced-icon"></span>
                     <span class="frame-filter__controls-advanced-text">Расширенный фильтр</span>
                 </button>
@@ -367,7 +443,8 @@
     </div>
 
     <div class='container'>
-    <h2 style='font-size: 2em; font-weight: 200'>Автомобили ВАЗ (LADA) с пробегом
+    <h2 >
+        <span id="vitrina_name" style='font-size: 2rem; font-weight: 200'/>
         <span class='type_views'>
                 <div class='dot8 active'>
                     <img src='./svg/dot8.svg'>
@@ -387,7 +464,6 @@
     </h2>
 
     <cards class='cards dot8' data-col='dot8'></cards>
-
 </div>    <div class="container">
     <div class="main__provided--top">
         <div class="page__flex">

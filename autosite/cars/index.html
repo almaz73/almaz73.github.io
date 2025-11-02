@@ -20,11 +20,10 @@
           content='Цены на Б/У авто 🚗 в автосалонах Автосеть.рф в Казани, Екатеринбурге, Уфе, Туле, Самаре и других городах России.
           ✅ Купить автомобили с пробегом из каталога - иномарки, Lada в наличии. ☎ Звоните по телефону 8-800-500-11-56.'>
 
-  <script type="module" crossorigin src="../assets/main-Brg6-qs_.js"></script>
-  <script type="module" crossorigin src="../assets/car-vitrina-E5aHhRVZ.js"></script>
+  <script type="module" crossorigin src="../assets/main-gHPCorgH.js"></script>
   <script type="module" crossorigin src="../assets/brands-icons-_MUfc6UZ.js"></script>
-  <link rel="stylesheet" crossorigin href="../assets/main-D3jWMZLa.css">
-  <link rel="stylesheet" crossorigin href="../assets/car-vitrina-CNoEIC7R.css">
+  <link rel="stylesheet" crossorigin href="../assets/main-BUondL2d.css">
+  <link rel="stylesheet" crossorigin href="../assets/index-jKiwnmFH.css">
 </head>
 <body>
 <div class="header">
@@ -188,12 +187,114 @@
         </div>
     </div>
 
+    <div class="filter-white">
+    <div class="filter-white-back filter-fields">
+        <div class="frame-filter__item">
+            <comb data-placeholder='Марка' />
+        </div>
+        <div class="frame-filter__item">
+            <comb data-placeholder='Модель' />
+        </div>
+        <div class="frame-filter__item">
+            <comb data-placeholder='Город' />
+        </div>
+
+        <div style="flex-grow: 1">
+            <div class="big-combo control-flex">
+                <span style="width: 60px">Год от:</span>
+                <input class="big-comb__input" style="width: 40px" value="1997" onclick="this.select()">
+            </div>
+        </div>
+
+        <div class="no_advanced">
+            <div class="big-combo control-flex">
+                <span style="width: 60px">Год до:</span>
+                <input class="big-comb__input" style="width: 40px" value="2025" onclick="this.select()">
+            </div>
+        </div>
+
+        <div class="frame-filter__item no_advanced">
+            <comb data-placeholder='Цвет'/>
+        </div>
+
+        <div>
+            <div class="big-combo control-flex">
+                <span style="width: 80px">Цена от: </span>
+                <input class="big-comb__input" style="width: 70px" value="6882400" onclick="this.select()">
+            </div>
+        </div>
+
+        <div class="no_advanced">
+            <div class="big-combo control-flex">
+                <span style="width: 80px">Цена до: </span>
+                <input class="big-comb__input" style="width: 70px" value="6882400" onclick="this.select()">
+            </div>
+        </div>
+
+        <div class="no_advanced">
+            <div class="big-combo control-flex">
+                <span style="width: 85px">Пробег до: </span>
+                <input class="big-comb__input" style="width: 70px" onclick="this.select()">
+            </div>
+        </div>
+
+        <div class="frame-filter__item no_advanced">
+            <comb data-placeholder='Тип кузова'/>
+        </div>
+
+
+
+        <div class="frame-filter__item no_advanced">
+            <comb data-placeholder='Тип КПП'/>
+        </div>
+
+        <div class="frame-filter__item no_advanced">
+            <comb data-placeholder='Тип двигателя'/>
+        </div>
+
+        <div class="no_advanced">
+            <div class="big-combo control-flex">
+                <span style="width: 160px">Объем двигателя до: </span>
+                <input class="big-comb__input" style="width: 60px" value="" onclick="this.select()">
+            </div>
+        </div>
+
+        <div class="no_advanced">
+            <div class="big-combo control-flex">
+                <span style="width: 187px">Мощность двигателя до: </span>
+                <input class="big-comb__input" style="width: 60px" value="" onclick="this.select()">
+            </div>
+        </div>
+
+        <div class="frame-filter__item no_advanced">
+            <comb data-placeholder='Тип привода'/>
+        </div>
+
+        <div class="frame-filter__item no_advanced">
+            <comb data-placeholder='Руль'/>
+        </div>
+    </div>
+
+    <div class="frame-filter__controls">
+        <button class="frame-filter__controls-advanced">
+            <span class="frame-filter__controls-advanced-icon"></span>
+            <span class="frame-filter__controls-advanced-text">Расширенный фильтр</span>
+        </button>
+
+        <a href="javascript:void(0);" class="frame-filter__controls-reset">Сбросить</a>
+
+        <button class="frame-filter__submit" type="submit" id="set_filter" name="set_filter" value="Показать">
+            Показать&nbsp;<span class="number">12</span>&nbsp;предложений
+        </button>
+    </div>
+</div>
     <div class='container main__top--block'>
         <div id='brands_dynamic'></div>
     </div>
 
     <div class='container'>
-    <h2 style='font-size: 2em; font-weight: 200'>Автомобили ВАЗ (LADA) с пробегом
+    <h2 >
+        <span id="vitrina_name" style='font-size: 2rem; font-weight: 200'/>
         <span class='type_views'>
                 <div class='dot8 active'>
                     <img src='../svg/dot8.svg'>
@@ -213,7 +314,6 @@
     </h2>
 
     <cards class='cards dot8' data-col='dot8'></cards>
-
 </div>
 </main>
 
