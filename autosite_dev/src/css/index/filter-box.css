@@ -91,6 +91,8 @@
     width: 170px;
     outline: none;
     flex-grow: 1;
+    background: var(--color-grey);
+    border-radius: 5px;
 }
 
 /***********/
