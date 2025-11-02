@@ -66,6 +66,7 @@ cookieAccept.addEventListener('click', () => {
 
 function open_YA_map(show) {
   let ya_map = document.getElementById('ya_map');
+  if (!ya_map) return false
   ya_map.style.display = ya_map.style.display === 'block' ? 'none' : 'block';
   if (show !== undefined) ya_map.style.display = show ? 'block' : 'none';
 }

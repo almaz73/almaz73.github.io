@@ -73,14 +73,10 @@ function galeryEvents(id, images) {
   });
 }
 
-// cars нужно будет скачать с сервера
-
-
-cars = cars.concat(cars).concat(cars); // имитация большого списка
-
-
-cars.forEach((el, i) => createNode(el, i + 1)); // прикручиваем html
-cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
+export function fill(cars) {
+  cars.forEach((el, i) => createNode(el, i + 1)); // прикручиваем html
+  cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
+}
 
 let type_views = document.querySelector('.type_views');
 let pieceWidth;

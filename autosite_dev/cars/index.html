@@ -24,7 +24,6 @@
     <link rel='stylesheet' href='/src/css/index/index.css' />
     <script type='module' src='/src/js/main.js'></script>
     <script type='module' src='/src/js/index/brands-icons.js'></script>
-    <script type='module' src='/src/js/index/big-comb.js'></script>
 </head>
 <body>
 {{> "header/header" }}
@@ -41,30 +40,7 @@
         <div id='brands_dynamic'></div>
     </div>
 
-
-    <div class='container'>
-        <h2 style='font-size: 2em; font-weight: 200'>Автомобили
-
-            <span class='type_views'>
-                <div class='dot8 active'>
-                    <img src='/svg/dot8.svg'>
-                </div>
-                <div class='dot4 '>
-                    <img src='/svg/dot4.svg'>
-                </div>
-                <div class='dot1'>
-                    <img src='/svg/dot1.svg'>
-                </div>
-            </span>
-
-            <span class='type_views coin'>
-                цена
-                <img src="/src/svg/arrow-down.svg" alt="arrow" loading="lazy" width='10' height='18'>
-            </span>
-        </h2>
-
-        <cards class='cards dot8' data-col='dot8'></cards>
-    </div>
+    {{> car-vitrina}}
 
 </main>
 

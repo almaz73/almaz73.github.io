@@ -21,8 +21,7 @@
     <link rel='stylesheet' href='/src/css/index/index.css' />
 
     <script type='module' src='/src/js/main.js'></script>
-    <script type='module' src='/src/js/index/brands-icons.js'></script>
-    <script type='module' src='/src/js/index/big-comb.js'></script>
+    <script type='module' src='/src/js/index/index.js'></script>
 </head>
 <body>
 {{> "header/header" }}
@@ -36,25 +35,7 @@
         <div id='brands_dynamic'></div>
     </div>
 
-
-    <div class='container'>
-        <h2>Специальные предложения по цене
-            <span class='type_views'>
-                <div class='dot8'>
-                    <img src='svg/dot8.svg'>
-                </div>
-                <div class='dot4 active'>
-                    <img src='svg/dot4.svg'>
-                </div>
-                <div class='dot1'>
-                    <img src='svg/dot1.svg'>
-                </div>
-            </span>
-        </h2>
-
-        <cards class='cards dot4'></cards>
-    </div>
-
+    {{> car-vitrina}}
     {{> 'index/ourservice'}}
     {{> 'index/dealers'}}
     {{> geography}}
