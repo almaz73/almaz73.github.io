@@ -35,7 +35,8 @@ export default defineConfig({
 		},
 
 		outDir: '../autosite', // Выходная папка
-		sourcemap: false, // Генерация sourcemaps (путь js)
+		sourcemap: true, // Генерация sourcemaps (путь js)
+		chunkSizeWarningLimit: 1000, // Sets the warning limit to 1000 kB (1MB)
 	},
 	resolve: {
 		alias: {

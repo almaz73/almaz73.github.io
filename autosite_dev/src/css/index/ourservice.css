@@ -93,7 +93,9 @@
      border-radius: 10px;
  }
 
-
+.main__provided--item a{
+    color: black;
+}
 
 .main__provided--renctable {
     background-color: #E22427;
