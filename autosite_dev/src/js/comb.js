@@ -7,7 +7,7 @@ let comb_arrow = document.querySelector('.comb_field img');
 
 let selectedCity = localStorage.getItem('selectedCity');
 if (comb_field) {
-  select_div.innerHTML = selectedCity || 'Россия';
+  select_div.innerHTML = selectedCity || 'Россия';  
   document.addEventListener('click', () => openOptions(false));
   comb_field.addEventListener('click', event => openComb(event));
   option_div.addEventListener('click', event => getCity(event));

@@ -26,10 +26,10 @@ function createNode(item, N) {
                 </div>
                 <div class='cart__box--bottom'>
                 <a href='#'>
-                    <img src='${VITE_PROD_URL}/icons/compare_cars.svg' alt=''>
+                    <img class='compare_img' src='${VITE_PROD_URL}/icons/compare_cars.svg' alt=''>
                 </a>
                 <a href='#'>
-                    <img src='${VITE_PROD_URL}/icons/penta.svg' alt=''>
+                    <img class='penta_img1' src='${VITE_PROD_URL}/icons/penta.svg' alt=''>
                 </a>
             </div>
             </div>`;

@@ -54,7 +54,7 @@ cityClose.addEventListener('click', () => {
   hideMainScroll(false);
 });
 
-cityName.innerHTML =  localStorage.getItem('selectedCity');
+cityName.innerHTML =  localStorage.getItem('selectedCity') || 'Россия';
 window.setCity = function (val) {
   localStorage.setItem('selectedCity', val);
   cities.style.transform = 'translateX(150vw)';
@@ -74,15 +74,20 @@ cookieAccept.addEventListener('click', () => {
 });
 
 
-function open_YA_map(show) {
+function close_all_open_panels(show) {
   let ya_map = document.getElementById('ya_map');
   if (!ya_map) return false
   ya_map.style.display = ya_map.style.display === 'block' ? 'none' : 'block';
   if (show !== undefined) ya_map.style.display = show ? 'block' : 'none';
+
+  cities.style.transform = 'translateX(150vw)';
+  panel.style.transform = 'translateX(150vw)';
+  buttonBurger.classList.remove('close');
+  hideMainScroll(false);  
 }
 
-window.open_YA_map = open_YA_map;
+window.close_all = close_all_open_panels;
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') open_YA_map(false);
+  if (e.key === 'Escape') close_all_open_panels(false);
 });
 

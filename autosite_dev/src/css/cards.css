@@ -25,6 +25,15 @@
     grid-template-areas: 'c_slide name' 'c_slide c_price' 'c_slide c_info' 'c_slide  c_box'
 }
 
+.cart .compare_img{
+    width: 20px;
+    height: 18px;
+}
+.cart .penta_img{
+    width: 20px;
+    height: 20px;
+}
+
 cards.dot1 {
     grid-template-columns: 1fr;
     margin-bottom: 120px;

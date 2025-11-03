@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   brandDatas.forEach((el => {
     txt += ` <div>
-              <a href='${el.url}'>
+              <a href='${VITE_PROD_URL}${el.url}'>
                   <span class='icon'>
                       <img src='${VITE_PROD_URL}${el.imgSrc}' alt='' class='d-block' loading='lazy'>
                   </span>
