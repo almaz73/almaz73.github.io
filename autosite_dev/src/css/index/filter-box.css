@@ -91,8 +91,21 @@
     width: 170px;
     outline: none;
     flex-grow: 1;
-    background: var(--color-grey);
     border-radius: 5px;
+    position: relative;
+    background: white;
+}
+
+.filter-white-back{
+    background: var(--color-grey);
+}
+
+.frame-filter__item label{
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    font-size: 14px;
+    color: #6d6c6c;
 }
 
 /***********/
@@ -113,6 +126,10 @@
 
 .filter-white .big-combo, .filter-white .big-comb__input {
     background: var(--color-grey);
+}
+
+.filter-white .big-comb__input {
+    font-weight: bold;
 }
 
 .control-flex{

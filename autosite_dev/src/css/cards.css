@@ -76,7 +76,7 @@ cards.dot8 .cart {
     overflow: hidden;
 }
 
-.cart__slide .dark-fon {
+.cart__slide .dark-fon, #ya_map .dark-fon {
     display: none;
     position: fixed;
     top: 0;
@@ -86,6 +86,10 @@ cards.dot8 .cart {
     height: 100%;
     cursor: pointer;
     z-index: -1;
+}
+
+#ya_map .dark-fon {
+    display: block;
 }
 
 .cart__slide.watch .dark-fon {
