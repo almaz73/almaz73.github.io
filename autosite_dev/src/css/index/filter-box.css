@@ -96,7 +96,7 @@
     background: white;
 }
 
-.filter-white-back{
+.filter-white-back .frame-filter__item{
     background: var(--color-grey);
 }
 
@@ -116,6 +116,10 @@
     padding: 2.5em;
     box-shadow: 0 0 40px #0003;
     margin-bottom: 100px;
+
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-in-out;
 }
 
 .filter-white-back {
@@ -139,6 +143,7 @@
 .control-flex span{
     font-size: 14px;
     margin-left: 10px;
+    color: #6d6c6c;
 }
 .control-flex input:hover{
     border-bottom: 1px solid #ccc;
