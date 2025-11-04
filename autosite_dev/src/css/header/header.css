@@ -20,7 +20,7 @@ nav .header__nav-a:hover {
 
 .header {
     position: relative;
-    z-index: 100;
+    z-index: 0;
     padding: 20px 0;
     border-bottom: 2px solid #0000000d;
 }
@@ -32,6 +32,8 @@ nav .header__nav-a:hover {
 @media (max-width: 640px) {
     .header {
         padding: 0;
+        background: yellow;
+        z-index: 100;
     }
 
     header {
