@@ -9,8 +9,10 @@ let cityButton = document.querySelector('.footer-city-button');
 let cityName = document.querySelector('.footer-city-button a');
 let cityCombName = document.querySelector('.comb__selected');
 let cityClose = document.querySelector('.modal-place__close');
+let mySwiper = document.querySelector('.mySwiper')
 let isOpened;
 
+mySwiper.style.zIndex = 0
 
 function hideMainScroll(hide) {
   if (hide) {

@@ -37,12 +37,20 @@
     outline: none;
     border: none;
     text-decoration: none;
-    width: 0.8125em;
-    height: 0.8125em;
+    width: 1em;
+    height: 1em;
     display: block;
-    border: 40px solid #00000000;
+    border: 20px solid #00000000;
     cursor: pointer;
-    margin-top: -40px;
+    margin-top: -10px;
+}
+
+@media (max-width: 500px) {
+    .modal-place__close{
+        position: absolute;
+        top:5px;
+        right: -30px;
+    }
 }
 
 .modal-place__container--top {
@@ -116,6 +124,7 @@
 
 .page__flex {
     justify-content: space-between;
+    position: relative;
 }
 
 .modal-place__box .letter {

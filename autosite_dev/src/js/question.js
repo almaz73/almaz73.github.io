@@ -3,6 +3,8 @@ let textarea = document.querySelector('.question_panel .contentedit div')
 let history = document.querySelector('.question_panel .history')
 window.openChat = function (e, root) {
     e.stopPropagation()
+
+    if (root === 'no') return e.stopPropagation()
     if (!root || window.innerWidth > 500) question_block.style.display = 'block'
 
     history.scrollTo(0, 10000);

@@ -17,7 +17,7 @@
 
 .question {
     background: var(--color-red);
-    padding: 6px 30px;
+    padding: 7px 30px;
     display: flex;
     gap: 12px;
     color: white;
@@ -65,7 +65,7 @@
 .question_info {
     display: none;
     position: absolute;
-    top: -90px;
+    top: -135px;
     background: white;
     color: black;
 
@@ -90,8 +90,8 @@
     text-decoration: none;
 }
 
-.question_info div:first-child {
-    border-bottom: 1px solid var(--color-grey);
+.question_info div:not(:last-child) {
+    border-bottom: 1px solid #E3E2E2;
 }
 
 .question_info div:hover {
