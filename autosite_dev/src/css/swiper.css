@@ -52,7 +52,9 @@
     height: 100%;
     object-fit: cover;
 }
-
+.mySwiper{
+    z-index: -1;
+}
 .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
     background: #00000000;
     padding: 50px 40px;

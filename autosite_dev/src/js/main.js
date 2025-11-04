@@ -3,4 +3,5 @@ import '@/js/global-buttons.js';
 import '@/js/photo-opener.js';
 import '@/js/filter-controls.js';
 import '@/js/filter.js';
+import '@/js/question.js';
 

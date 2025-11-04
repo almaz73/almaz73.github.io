@@ -76,7 +76,7 @@ cards.dot8 .cart {
     overflow: hidden;
 }
 
-.cart__slide .dark-fon, #ya_map .dark-fon {
+.cart__slide .dark-fon, #ya_map .dark-fon, .question_block .dark-fon{
     display: none;
     position: fixed;
     top: 0;
