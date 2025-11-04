@@ -3,6 +3,7 @@ let comb_field = document.querySelector('.comb_field');
 let select_div = document.querySelector('.comb__selected');
 let cityName = document.querySelector('.footer-city-button a');
 let comb_arrow = document.querySelector('.comb_field img');
+let mySwiper = document.querySelector('.mySwiper')
 
 
 let selectedCity = localStorage.getItem('selectedCity');
@@ -29,4 +30,5 @@ function openComb(e) {
 function openOptions(isOpen) {
   option_div.style.display = isOpen ? 'block' : 'none';
   comb_arrow.style.rotate = isOpen ? '180deg' : '0deg';
+  mySwiper.style.zIndex = isOpen ?-1:0
 }

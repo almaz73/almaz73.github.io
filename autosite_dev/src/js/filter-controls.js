@@ -125,6 +125,6 @@ if(f_auto && f_tire) {
     f_auto.classList.remove("active")
     f_auto_buttons.style.display = 'none'
     f_tire_buttons.style.display = 'flex'
-    tireSizeInfo.style.display = 'block'
+    tireSizeInfo.style.display = 'flex'
   })
 }
