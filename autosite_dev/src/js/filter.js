@@ -26,6 +26,20 @@ function getVitrina() {
         name.style.fontSize = '1.5rem'
         cars = [
             {
+                address: 'Альметьевск , Герцена 1Б',
+                name: 'ВАЗ (LADA) 2106, 2002',
+                href: '/cars/2106/651138/',
+                price: '123 091',
+                fromPerMonth: '1 100',
+                info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
+                photos: ['/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p2.jpg',
+                    '/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p4.jpg',
+                    '/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p6.jpg']
+            },
+            {
                 address: 'Набережные Челны, Мусы Джалиля 15',
                 name: 'Volkswagen Polo, 2014',
                 href: '/cars/polo/649868/',
@@ -99,6 +113,20 @@ function getVitrina() {
     } else if (location.pathname === '/cars/') {
         document.querySelector('#vitrina_name').innerHTML = 'Автомобили'
         cars = [
+            {
+                address: 'Альметьевск , Герцена 1Б',
+                name: 'ВАЗ (LADA) 2106, 2002',
+                href: '/cars/2106/651138/',
+                price: '123 091',
+                fromPerMonth: '1 100',
+                info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
+                photos: ['/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p2.jpg',
+                    '/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p4.jpg',
+                    '/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p6.jpg']
+            },
             {
                 address: 'Набережные Челны, Мусы Джалиля 15',
                 name: 'Volkswagen Polo, 2014',
@@ -243,6 +271,20 @@ function getVitrina() {
     } else {
         document.querySelector('#vitrina_name').innerHTML = 'Автомобили ВАЗ (LADA) с пробегом'
         cars = [
+            {
+                address: 'Альметьевск , Герцена 1Б',
+                name: 'ВАЗ (LADA) 2106, 2002',
+                href: '/cars/2106/651138/',
+                price: '123 091',
+                fromPerMonth: '1 100',
+                info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
+                photos: ['/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p2.jpg',
+                    '/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p4.jpg',
+                    '/photo-offers/101-29-10-2025-11-25-13.jpg',
+                    '/photo-offers/1/p6.jpg']
+            },
             {
                 address: 'Набережные Челны, Мусы Джалиля 15',
                 name: 'Volkswagen Polo, 2014',

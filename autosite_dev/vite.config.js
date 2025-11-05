@@ -24,13 +24,14 @@ export default defineConfig({
 		rollupOptions: {
 			input: {
 				main: resolve(__dirname, 'index.html'),
-        privacyPolicy: resolve(__dirname, './privacy-policy/index.html'),
+				privacyPolicy: resolve(__dirname, './privacy-policy/index.html'),
 				papka: resolve(__dirname, './papka/index.html'),
 				_404: resolve(__dirname, '404.html'),
-        cars: resolve(__dirname, './cars/index.html'),
-        cars_lada: resolve(__dirname, './cars/vaz-lada/index.html'),
-        vykup: resolve(__dirname, './services/vykup/index.html'),
-        tyres: resolve(__dirname, './tyres/index.html'),
+				cars: resolve(__dirname, './cars/index.html'),
+				cars_lada: resolve(__dirname, './cars/vaz-lada/index.html'),
+				vykup: resolve(__dirname, './services/vykup/index.html'),
+				tyres: resolve(__dirname, './tyres/index.html'),
+				examle: resolve(__dirname, './cars/2106/651138/index.html'),
 			},
 		},
 

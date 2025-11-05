@@ -1,35 +1,35 @@
-.swiper a .img_lg {
+.mainPage.swiper a .img_lg {
     aspect-ratio: 12/5;
 }
 
-.swiper a .img_md {
+.mainPage.swiper a .img_md {
     aspect-ratio: 585/200;
 }
 
-.swiper a .img_sm {
+.mainPage.swiper a .img_sm {
     aspect-ratio: 250/362;
 }
 
 @media (width < 500px) {
-    .swiper a .img_lg, .swiper a .img_md {
+    .mainPage.swiper a .img_lg, .mainPage.swiper a .img_md {
         display: none;
     }
 }
 
 @media (width <= 1000px) and (width >= 500px) {
-    .swiper a .img_lg, .swiper a .img_sm {
+    .mainPage.swiper a .img_lg, .mainPage.swiper a .img_sm {
         display: none;
     }
 }
 
 @media (width > 1000px) {
-    .swiper a .img_sm, .swiper a .img_md {
+    .mainPage.swiper a .img_sm, .mainPage.swiper a .img_md {
         display: none;
     }
 }
 
 
-.swiper {
+.mainPage.swiper {
     width: 95%;
     z-index: 10;
     border-radius: 12px;
@@ -39,7 +39,7 @@
     margin-bottom: 30px;
 }
 
-.swiper-slide {
+.mainPage .swiper-slide {
     background: white;
     display: flex;
     justify-content: center;

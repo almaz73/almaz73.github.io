@@ -86,7 +86,7 @@ let getWidth = () => {
 };
 document.addEventListener('DOMContentLoaded', () => getWidth());
 window.addEventListener('resize', () => current_slide && current_slide.classList.remove('watch'));
-type_views.addEventListener('click', (e) => {
+type_views && type_views.addEventListener('click', (e) => {
   // выбор варианта отображения галерии
   for (let childrenKey in type_views.children) type_views.children[childrenKey].classList && type_views.children[childrenKey].classList.remove('active');
   cards.classList = [];

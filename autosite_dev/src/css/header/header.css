@@ -20,7 +20,7 @@ nav .header__nav-a:hover {
 
 .header {
     position: relative;
-    z-index: 0;
+    z-index: 100;
     padding: 20px 0;
     border-bottom: 2px solid #0000000d;
 }

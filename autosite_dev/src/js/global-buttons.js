@@ -12,7 +12,7 @@ let cityClose = document.querySelector('.modal-place__close');
 let mySwiper = document.querySelector('.mySwiper')
 let isOpened;
 
-mySwiper.style.zIndex = 0
+if (mySwiper) mySwiper.style.zIndex = 0
 
 function hideMainScroll(hide) {
   if (hide) {
@@ -77,16 +77,17 @@ cookieAccept.addEventListener('click', () => {
 
 
 function close_all_open_panels(show) {
-  let ya_map = document.getElementById('ya_map');
-  if (!ya_map) return false
-  ya_map.style.display = ya_map.style.display === 'block' ? 'none' : 'block';
-  if (show !== undefined) ya_map.style.display = show ? 'block' : 'none';
-
-  cities.style.transform = 'translateX(150vw)';
-  panel.style.transform = 'translateX(150vw)';
-  buttonBurger.classList.remove('close');
+  if (cities) cities.style.transform = 'translateX(150vw)';
+  if (panel) panel.style.transform = 'translateX(150vw)';
+  if (buttonBurger) buttonBurger.classList.remove('close');
   hideMainScroll(false);
   closeChat()
+
+  let ya_map = document.getElementById('ya_map');
+  if (ya_map) {
+    ya_map.style.display = ya_map.style.display === 'block' ? 'none' : 'block';
+    if (show !== undefined) ya_map.style.display = show ? 'block' : 'none';
+  }
 }
 
 window.close_all = close_all_open_panels;

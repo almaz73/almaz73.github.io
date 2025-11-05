@@ -8,7 +8,7 @@ let mySwiper = document.querySelector('.mySwiper')
 
 let selectedCity = localStorage.getItem('selectedCity');
 if (comb_field) {
-  select_div.innerHTML = selectedCity || 'Россия';  
+  select_div.innerHTML = selectedCity || 'Россия';
   document.addEventListener('click', () => openOptions(false));
   comb_field.addEventListener('click', event => openComb(event));
   option_div.addEventListener('click', event => getCity(event));
@@ -30,5 +30,5 @@ function openComb(e) {
 function openOptions(isOpen) {
   option_div.style.display = isOpen ? 'block' : 'none';
   comb_arrow.style.rotate = isOpen ? '180deg' : '0deg';
-  mySwiper.style.zIndex = isOpen ?-1:0
+  if (mySwiper) mySwiper.style.zIndex = isOpen ? -1 : 0
 }
