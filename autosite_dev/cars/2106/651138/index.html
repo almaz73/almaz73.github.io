@@ -38,48 +38,196 @@
         </div>
     </div>
 
-    <div>
+    <div class="container">
         <div class="alone">
             <div class="left">
+                <div class="big">
+                    <div class="x" onclick="toBig()"><img src="/src/images/x.png" loading="lazy" alt=""></div>
+                    <section class="swiper mySwiper">
+                        <div class="open_all" onclick="toBig('big')">Открыть на весь экран</div>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="http://export.cartat.ru/cm/e5ef3170-b3fe-11f0-9a64-00505699f212/119-30-10-2025-11-29-10.jpg"
+                                     alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="http://export.cartat.ru/cm/dd7ab8bb-c0a9-11ed-80dc-000c299df135/115-06-10-2025-10-58-20.jpg"
+                                     alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="http://export.cartat.ru/cm/69654307-b65c-11f0-9a64-00505699f212/101-05-11-2025-12-24-41.jpg"
+                                     alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../../../photo-offers/101-29-10-2025-11-25-13.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../../../photo-offers/2/p2.jpg" alt="" loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../../../photo-offers/1/p1.jpg" alt="" loading="lazy">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../../../photo-offers/101-29-10-2025-11-25-13.jpg" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="../../../photo-offers/2/p2.jpg" alt="" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </section>
 
-                <section class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="http://export.cartat.ru/cm/e5ef3170-b3fe-11f0-9a64-00505699f212/119-30-10-2025-11-29-10.jpg" alt="">
+                    <div class="fotos">
+                        <div class="fotos_black" onclick="showAll()"> Еще 14 фото</div>
+                        <div onclick="showSlide(1)"><img
+                                src="http://export.cartat.ru/cm/dd7ab8bb-c0a9-11ed-80dc-000c299df135/115-06-10-2025-10-58-20.jpg"
+                                alt=""></div>
+                        <div onclick="showSlide(2)"><img
+                                src="http://export.cartat.ru/cm/e5ef3170-b3fe-11f0-9a64-00505699f212/119-30-10-2025-11-29-10.jpg"
+                                alt=""></div>
+                        <div onclick="showSlide(3)"><img src="../../../photo-offers/101-29-10-2025-11-25-13.jpg" alt="">
                         </div>
-                        <div class="swiper-slide">
-                            <img src="http://export.cartat.ru/cm/dd7ab8bb-c0a9-11ed-80dc-000c299df135/115-06-10-2025-10-58-20.jpg" alt="">
+                        <div onclick="showSlide(4)"><img src="../../../photo-offers/1/p1.jpg" alt=""></div>
+                        <div onclick="showSlide(5)"><img src="../../../photo-offers/2/p2.jpg" alt=""></div>
+                        <div onclick="showSlide(6)"><img src="../../../photo-offers/101-29-10-2025-11-25-13.jpg" alt="">
                         </div>
-                        <div class="swiper-slide">
-                            <img src="http://export.cartat.ru/cm/69654307-b65c-11f0-9a64-00505699f212/101-05-11-2025-12-24-41.jpg" alt="">
+                        <div onclick="showSlide(7)"><img src="../../../photo-offers/1/p1.jpg" alt=""></div>
+                        <div onclick="showSlide(8)"><img src="../../../photo-offers/2/p2.jpg" alt=""></div>
+                    </div>
+
+                    <span class='dark-fon' onclick="closeChat()"/>
+                </div>
+
+                <div class="sticky-left">
+                    <h1 class="right__title">
+                        ВАЗ (LADA) 2106, 2002
+                    </h1>
+                    <div class="right__price">
+                        <div class="total">
+                            123&nbsp;091 ₽
                         </div>
-                        <div class="swiper-slide">
-                            <img src="../../../photo-offers/101-29-10-2025-11-25-13.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../../photo-offers/2/p2.jpg" alt="" loading="lazy">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../../photo-offers/1/p1.jpg" alt="" loading="lazy">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../../photo-offers/101-29-10-2025-11-25-13.jpg" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="../../../photo-offers/2/p2.jpg" alt="" loading="lazy">
+                        <div class="price__of">
+                            от 1&nbsp;370&nbsp;₽/мес
                         </div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                </section>
 
+                    <div class="right__tech">
+                        <div class="title">
+                            Характеристики
+                        </div>
 
+                        <div class="right__tech--block">
+                            <div class="right__flex">
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/calendar-icon.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        2002 год
+                                    </div>
+                                </div>
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/engine-icon.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        1.6 л / 74 л.с / бензин
+                                    </div>
+                                </div>
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/speed-icon.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        78&nbsp;957 км
+                                    </div>
+                                </div>
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/transmission-icon.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        Механическая
+                                    </div>
+                                </div>
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/4wd.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        Задний
+                                    </div>
+                                </div>
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/steering-wheel.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        Левый
+                                    </div>
+                                </div>
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/body.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        Седан
+                                    </div>
+                                </div>
+                                <div class="right__tech--box">
+                                    <div class="icon">
+                                        <img src="/src/svg/color-palette.svg" alt=""
+                                             class="mw-100 d-block">
+                                    </div>
+                                    <div class="text">
+                                        Коричневый
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right__bottom">
+                        <div class="right__flex">
+                            <div class="box">
+                                <span class="page__btn page__btn--current" style="padding: 15px">
+                                    Выбрать дату осмотра
+                                </span>
+                            </div>
+                            <div class="box">
+                                <a href="https://telegram.me/Autoset_RF_bot?start=ВАЗ (LADA) 2106" target="_blank"
+                                   class="page__btn page__btn--main"
+                                >
+                                    <img src="/src/svg/telegram-icon-white.svg">
+                                    Написать
+                                </a>
 
+                            </div>
+                        </div>
+                        <div class="right__bottom--button">
+                            <span class="page__btn page__btn--current">
+                                Забронировать
+                            </span>
+                        </div>
+                        <div class="right__bottom--button">
+                            <span class="page__btn page__btn--tr">
+                                Выгоднее обменять свой автомобиль
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
+                <br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32<br>32
             </div>
             <div class="right">
-
                 <div class="sticky">
                     <h1 class="right__title">
                         ВАЗ (LADA) 2106, 2002
@@ -205,7 +353,6 @@
                     </div>
                     <!-- /.right__bottom -->
                 </div>
-
             </div>
         </div>
     </div>
@@ -218,15 +365,12 @@
 <script defer src='../../../swiper-bundle.min.js'></script>
 
 <script>
-    // const img = new Image();
-    //
-    // document.addEventListener('DOMContentLoaded', () => {
-    //     img.src = 'photo-offers/101-29-10-2025-11-25-13.jpg';
-    // })
-    //
+    let swiper
+    let fotos = document.querySelector('.alone .fotos')
+    let fotos_black = document.querySelector('.fotos_black')
+    let big = document.querySelector('.big')
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('222 = ', 222)
-        new Swiper('.mySwiper', {
+        swiper = new Swiper('.mySwiper', {
             spaceBetween: 30,
             loop: true,
             autoHeight: true,
@@ -241,6 +385,31 @@
             }
         })
     })
+
+    function showSlide(val) {
+        swiper.slideTo(val);
+    }
+
+    function showAll() {
+        fotos.style.height = 'inherit';
+        fotos_black.style.display = 'none'
+    }
+
+    function toBig(val) {
+        if (window.innerWidth > 1000) {
+            if (val) big.classList.add('big_viewer')
+            else big.classList.remove('big_viewer')
+        }
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            fotos.style.height = '76px';
+            fotos_black.style.display = 'grid'
+            toBig()
+        }
+    });
+
 
 </script>
 </body>

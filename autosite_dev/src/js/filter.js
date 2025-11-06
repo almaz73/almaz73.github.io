@@ -28,7 +28,7 @@ function getVitrina() {
             {
                 address: 'Альметьевск , Герцена 1Б',
                 name: 'ВАЗ (LADA) 2106, 2002',
-                href: '/cars/2106/651138/',
+                href: '/autosite/cars/2106/651138/',
                 price: '123 091',
                 fromPerMonth: '1 100',
                 info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
@@ -116,7 +116,7 @@ function getVitrina() {
             {
                 address: 'Альметьевск , Герцена 1Б',
                 name: 'ВАЗ (LADA) 2106, 2002',
-                href: '/cars/2106/651138/',
+                href: '/autosite/cars/2106/651138/',
                 price: '123 091',
                 fromPerMonth: '1 100',
                 info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
@@ -274,7 +274,7 @@ function getVitrina() {
             {
                 address: 'Альметьевск , Герцена 1Б',
                 name: 'ВАЗ (LADA) 2106, 2002',
-                href: '/cars/2106/651138/',
+                href: '/autosite/cars/2106/651138/',
                 price: '123 091',
                 fromPerMonth: '1 100',
                 info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',

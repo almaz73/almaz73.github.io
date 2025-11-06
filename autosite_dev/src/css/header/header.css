@@ -97,7 +97,7 @@ nav .header__nav-a:hover {
 
 .header__logo {
     grid-area: logo;
-    margin-left: 12px;
+    margin-left: 20px;
     max-height: 45px;
 }
 
