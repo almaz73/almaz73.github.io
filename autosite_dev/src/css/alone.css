@@ -279,3 +279,13 @@
 .big.big_viewer .open_all {
     right: -4000px;
 }
+
+.rotated{
+    rotate: 90deg;
+    position: fixed;
+    width: 70vh;
+    height: 100vw;
+    z-index: 1000;
+    left: -120px;
+    top:90px;
+}

@@ -369,6 +369,8 @@
     let fotos = document.querySelector('.alone .fotos')
     let fotos_black = document.querySelector('.fotos_black')
     let big = document.querySelector('.big')
+    let swiperSection = document.querySelector('.swiper.mySwiper')
+
     document.addEventListener('DOMContentLoaded', () => {
         swiper = new Swiper('.mySwiper', {
             spaceBetween: 30,
@@ -396,10 +398,11 @@
     }
 
     function toBig(val) {
-        if (window.innerWidth > 1000) {
-            if (val) big.classList.add('big_viewer')
-            else big.classList.remove('big_viewer')
-        }
+        if (val) big.classList.add('big_viewer')
+        else big.classList.remove('big_viewer')
+
+        if (window.innerWidth > 1000) swiperSection.classList.remove('rotated')
+        else swiperSection.classList.add('rotated')
     }
 
     document.addEventListener('keydown', (e) => {
