@@ -21,10 +21,10 @@
 
 
     <link rel="stylesheet" href="../../../swiper-bundle.min.css"/>
-  <script type="module" crossorigin src="../../../assets/main-BUHUhDQ_.js"></script>
-  <link rel="stylesheet" crossorigin href="../../../assets/main-u4SoQI3q.css">
+  <script type="module" crossorigin src="../../../assets/main-Cw8xcJek.js"></script>
+  <link rel="stylesheet" crossorigin href="../../../assets/main-CRifzzw2.css">
   <link rel="stylesheet" crossorigin href="../../../assets/index-CXcW-puk.css">
-  <link rel="stylesheet" crossorigin href="../../../assets/swiper-Bm-drBoM.css">
+  <link rel="stylesheet" crossorigin href="../../../assets/swiper-BXufOxkS.css">
 </head>
 <body>
 <div class="header">
@@ -710,6 +710,8 @@
     let fotos = document.querySelector('.alone .fotos')
     let fotos_black = document.querySelector('.fotos_black')
     let big = document.querySelector('.big')
+    let swiperSection = document.querySelector('.swiper.mySwiper')
+
     document.addEventListener('DOMContentLoaded', () => {
         swiper = new Swiper('.mySwiper', {
             spaceBetween: 30,
@@ -737,16 +739,24 @@
     }
 
     function toBig(val) {
-        if (window.innerWidth > 1000) {
-            if (val) big.classList.add('big_viewer')
-            else big.classList.remove('big_viewer')
+        console.log('val = ',val)
+        if (val) big.classList.add('big_viewer')
+        else {
+            swiperSection.classList.remove('rotated')
+            big.classList.remove('big_viewer')
+
+            console.log('dele = ')
         }
+
+        if (window.innerWidth > 1000) swiperSection.classList.remove('rotated')
+        else swiperSection.classList.add('rotated')
     }
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             fotos.style.height = '76px';
             fotos_black.style.display = 'grid'
+            swiperSection.classList.remove('rotated')
             toBig()
         }
     });
