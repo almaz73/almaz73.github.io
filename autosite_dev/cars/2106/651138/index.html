@@ -401,13 +401,13 @@
         console.log('val = ',val)
         if (val) big.classList.add('big_viewer')
         else {
-            swiperSection.classList.remove('rotated')
+            setTimeout(()=>swiperSection.classList.remove('rotated'))
             big.classList.remove('big_viewer')
 
             console.log('dele = ')
         }
 
-        if (window.innerWidth > 1000) swiperSection.classList.remove('rotated')
+        if (window.innerWidth > 1000) setTimeout(()=>swiperSection.classList.remove('rotated'))
         else swiperSection.classList.add('rotated')
     }
 
@@ -415,7 +415,7 @@
         if (e.key === 'Escape') {
             fotos.style.height = '76px';
             fotos_black.style.display = 'grid'
-            swiperSection.classList.remove('rotated')
+            setTimeout(()=>swiperSection.classList.remove('rotated'))
             toBig()
         }
     });

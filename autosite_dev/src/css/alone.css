@@ -286,6 +286,9 @@
     width: 70vh;
     height: 100vw;
     z-index: 1000;
-    left: -120px;
+    right: 100px;
     top:200px;
+}
+.rotated ~ .fotos{
+    display: none;
 }
