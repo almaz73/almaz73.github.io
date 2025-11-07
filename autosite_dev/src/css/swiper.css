@@ -1,9 +1,9 @@
 .mainPage.swiper a .img_lg {
-    aspect-ratio: 12/5;
+    aspect-ratio: 585/200;
 }
 
 .mainPage.swiper a .img_md {
-    aspect-ratio: 585/200;
+    aspect-ratio: 12/5;
 }
 
 .mainPage.swiper a .img_sm {

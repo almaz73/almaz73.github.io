@@ -42,7 +42,7 @@ function getVitrina() {
             {
                 address: 'Набережные Челны, Мусы Джалиля 15',
                 name: 'Volkswagen Polo, 2014',
-                href: '/cars/polo/649868/',
+                href: '/cars/2106/651138/',
                 price: '784 238',
                 fromPerMonth: '8 700',
                 info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
@@ -130,7 +130,7 @@ function getVitrina() {
             {
                 address: 'Набережные Челны, Мусы Джалиля 15',
                 name: 'Volkswagen Polo, 2014',
-                href: '/cars/polo/649868/',
+                href: '/cars/2106/651138/',
                 price: '784 238',
                 fromPerMonth: '8 700',
                 info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
@@ -288,7 +288,7 @@ function getVitrina() {
             {
                 address: 'Набережные Челны, Мусы Джалиля 15',
                 name: 'Volkswagen Polo, 2014',
-                href: '/cars/polo/649868/',
+                href: '/cars/2106/651138/',
                 price: '784 238',
                 fromPerMonth: '8 700',
                 info: '133&nbsp;055 км, 1.6 MT (85 л.с), седан, передний, бензин',
