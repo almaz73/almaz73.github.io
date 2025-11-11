@@ -4,7 +4,9 @@ let cards = document.querySelector('cards');
 let VITE_PROD_URL = import.meta.env.VITE_PROD_URL;
 
 function createNode(item, N) {
-  let txt = `<div class='cart' id='galery_${N}'>
+  let txt
+  if (!isNaN(N)) {
+   txt = `<div class='cart' id='galery_${N}' >
                 <div class='cart__slide'>                    
                     <img class='photo' alt=''>
                     <div class='cart__blank'>${item.address}</div>
@@ -18,8 +20,8 @@ function createNode(item, N) {
                     <a href='${item.href}'> ${item.name}</a>
                 </div>
                 <div class='cart__price'>
-                    <div class='total'>${item.price} ₽</div>
-                    <div class='cart__of'> от 8&nbsp;700&nbsp;₽/мес</div>
+                    <div class='total'>${item.price?item.price+'₽':''} </div>
+                    <div class='cart__of'>${item.fromPerMonth?'ot '+item.fromPerMonth+'₽/мес':'' } </div>
                 </div>
                 <div class='cart__info'>
                     ${item.info}
@@ -33,6 +35,10 @@ function createNode(item, N) {
                 </a>
             </div>
             </div>`;
+  }
+
+  /* вкрапливаем другими баннерами*/
+  if (N==='abdul') txt = `<abdul></abdul>`
 
   cards.innerHTML += txt;
 }
@@ -45,7 +51,7 @@ function galeryEvents(id, images) {
   const photo = gallery.querySelector('.photo');
   const red = gallery.querySelector('.cart .red');
   let offset1, offset2, i = 0;
-  photo.src = VITE_PROD_URL + '/photo-offers/' + id + '/p1.jpg';
+  photo.src = VITE_PROD_URL + images[i];
   photo.addEventListener('mousemove', (e) => {
     let i = parseInt(e.layerX * 100 / pieceWidth / 16.5 - 0.1);
     photo.src = VITE_PROD_URL + images[i];
@@ -74,7 +80,10 @@ function galeryEvents(id, images) {
 }
 
 export function fill(cars) {
-  cars.forEach((el, i) => createNode(el, i + 1)); // прикручиваем html
+  cars.forEach((el, i) => {
+    createNode(el, i + 1)
+    if (i === 2) createNode(null, 'abdul')
+  }); // прикручиваем html
   cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
 }
 
@@ -106,7 +115,7 @@ document.addEventListener('keydown', (e) => {
 
 let price_order = document.querySelector('.type_views.coin');
 
-if (price_order) price_order.addEventListener('click', (e) => {
+if (price_order) price_order.addEventListener('click', () => {
   let more = price_order.querySelector('img').style.rotate !== '180deg';
   price_order.querySelector('img').style.rotate = more ? '180deg' : '0deg';
   console.log('запрос нужен more = ', more);
