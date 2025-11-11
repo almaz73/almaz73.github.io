@@ -52,9 +52,11 @@
     height: 100%;
     object-fit: cover;
 }
-.mySwiper{
+
+.mySwiper {
     z-index: -1;
 }
+
 .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
     background: #00000000;
     padding: 50px 40px;
@@ -88,4 +90,16 @@
 
 .swiper-pagination-bullet {
     background-color: var(--color-red);
+}
+
+.buy_swiper img {
+    border-radius: 5px;
+}
+
+.dot8 .buy_swiper img.buy_lg {
+    display: none;
+}
+
+.dot4 .buy_swiper img.buy_mg, .dot1 .buy_swiper img.buy_mg {
+    display: none;
 }

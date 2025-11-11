@@ -6,7 +6,7 @@ let VITE_PROD_URL = import.meta.env.VITE_PROD_URL;
 function createNode(item, N) {
   let txt
   if (!isNaN(N)) {
-   txt = `<div class='cart' id='galery_${N}' >
+   txt = `<div class='cart' id='galery_${N}'>
                 <div class='cart__slide'>                    
                     <img class='photo' alt=''>
                     <div class='cart__blank'>${item.address}</div>
@@ -37,10 +37,11 @@ function createNode(item, N) {
             </div>`;
   }
 
-  /* вкрапливаем другими баннерами*/
-  if (N==='abdul') txt = `<abdul></abdul>`
+    /* вкрапливаем другими баннерами*/
+    if (N === 'abdul') txt = `<abdul></abdul>`
+    if (N === 'swiper_buy') txt = `<div style="min-width: 200px; max-width: 730px"><swiper_buy></swiper_buy></div>`
 
-  cards.innerHTML += txt;
+    cards.innerHTML += txt;
 }
 
 function galeryEvents(id, images) {
@@ -83,6 +84,7 @@ export function fill(cars) {
   cars.forEach((el, i) => {
     createNode(el, i + 1)
     if (i === 2) createNode(null, 'abdul')
+    if (i === 0 && location.pathname==='/cars/') createNode(null, 'swiper_buy')
   }); // прикручиваем html
   cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
 }
@@ -98,12 +100,14 @@ window.addEventListener('resize', () => current_slide && current_slide.classList
 
 setTimeout(()=>{
   let TYPE_VIEW = localStorage.getItem('TYPE_VIEW') || 'dot4'
+  let dot = document.querySelector('.'+TYPE_VIEW)
+  dot.classList.add('active')
   setTypeView({srcElement:{classList:{value:TYPE_VIEW}}})
 })
 
 type_views && type_views.addEventListener('click', (e) => {
   setTypeView(e)
-  localStorage.setItem('TYPE_VIEW',e.srcElement.classList.value)
+  localStorage.setItem('TYPE_VIEW',e.srcElement.classList.value.slice(0,4))
 })
 function setTypeView(e) {
   // выбор варианта отображения галерии
@@ -112,6 +116,11 @@ function setTypeView(e) {
   if (e.srcElement.classList.value === 'dot8') cards.classList.add('cards', 'dot8');
   if (e.srcElement.classList.value === 'dot4') cards.classList.add('cards', 'dot4');
   if (e.srcElement.classList.value === 'dot1') cards.classList.add('cards', 'dot1');
+
+  if (e.srcElement.classList.add) {
+    for (let childrenKey in type_views.children) type_views.children[childrenKey].classList && type_views.children[childrenKey].classList.remove('active');
+    e.srcElement.classList.add('active');
+  }
 }
 
 document.addEventListener('keydown', (e) => {
