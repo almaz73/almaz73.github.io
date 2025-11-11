@@ -488,6 +488,8 @@
             setTimeout(()=>swiperSection.classList.remove('rotated'))
             toBig()
         }
+        if (e.key === 'ArrowRight') swiper.slideNext()
+        if (e.key === 'ArrowLeft') swiper.slidePrev()
     });
 
 

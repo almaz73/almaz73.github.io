@@ -95,16 +95,24 @@ let getWidth = () => {
 };
 document.addEventListener('DOMContentLoaded', () => getWidth());
 window.addEventListener('resize', () => current_slide && current_slide.classList.remove('watch'));
+
+setTimeout(()=>{
+  let TYPE_VIEW = localStorage.getItem('TYPE_VIEW') || 'dot4'
+  setTypeView({srcElement:{classList:{value:TYPE_VIEW}}})
+})
+
 type_views && type_views.addEventListener('click', (e) => {
+  setTypeView(e)
+  localStorage.setItem('TYPE_VIEW',e.srcElement.classList.value)
+})
+function setTypeView(e) {
   // выбор варианта отображения галерии
-  for (let childrenKey in type_views.children) type_views.children[childrenKey].classList && type_views.children[childrenKey].classList.remove('active');
   cards.classList = [];
   getWidth();
   if (e.srcElement.classList.value === 'dot8') cards.classList.add('cards', 'dot8');
   if (e.srcElement.classList.value === 'dot4') cards.classList.add('cards', 'dot4');
   if (e.srcElement.classList.value === 'dot1') cards.classList.add('cards', 'dot1');
-  e.srcElement.classList.add('active');
-});
+}
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && current_slide) {
