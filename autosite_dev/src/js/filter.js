@@ -20,7 +20,7 @@ function getVitrina() {
 
 // в зависимости от страницы, запрашиваем нужные данные
     let cars
-    if (location.pathname === '/') {
+    if (location.pathname === '/' || location.pathname === '/autosite/') {
         let name = document.querySelector('#vitrina_name')
         name.innerHTML = 'Специальные предложения по цене'
         name.style.fontSize = '1.5rem'
@@ -110,7 +110,7 @@ function getVitrina() {
                     '/photo-offers/2/p6.jpg']
             },
         ]
-    } else if (location.pathname === '/cars/') {
+    } else if (location.pathname === '/cars/' || location.pathname === '/autosite/cars') {
         document.querySelector('#vitrina_name').innerHTML = 'Автомобили'
         cars = [
             {
