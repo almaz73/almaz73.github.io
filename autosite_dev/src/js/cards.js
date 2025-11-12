@@ -84,7 +84,7 @@ export function fill(cars) {
   cars.forEach((el, i) => {
     createNode(el, i + 1)
     if (i === 2) createNode(null, 'abdul')
-    if (i === 0 && location.pathname==='/cars/') createNode(null, 'swiper_buy')
+    if (i === 0 && (location.pathname==='/cars/' || location.pathname==='/autosite/cars/')) createNode(null, 'swiper_buy')
   }); // прикручиваем html
   cars.forEach((el, i) => galeryEvents(i + 1, el.photos)); // прикрепляем события
 }

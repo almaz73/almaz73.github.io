@@ -12,7 +12,7 @@ export function filter_changed(items, name) {
 
 /** Запрос сервера и отображения витрины **/
 function getVitrina() {
-    if (location.pathname === '/') {
+    if (location.pathname === '/' || location.pathname === '/autosite/') {
         // Если это первая страница, скрываем сортировку по цене
         let coin = document.querySelector('.type_views.coin')
         if (coin) coin.style.display = 'none'
@@ -110,7 +110,7 @@ function getVitrina() {
                     '/photo-offers/2/p6.jpg']
             },
         ]
-    } else if (location.pathname === '/cars/' || location.pathname === '/autosite/cars') {
+    } else if (location.pathname === '/cars/' || location.pathname === '/autosite/cars/') {
         document.querySelector('#vitrina_name').innerHTML = 'Автомобили'
         cars = [
             {

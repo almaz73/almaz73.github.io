@@ -1,4 +1,4 @@
-import"./main-_uvJSFAW.js";/* empty css              */import"./brands-icons-CszoFu0y.js";/* empty css               */import"./filter-controls-BZTCEBEO.js";let i;document.addEventListener("DOMContentLoaded",()=>{let s=document.querySelector("swiper_buy");s.innerHTML=e,i=new Swiper(".mySwiper",{spaceBetween:30,loop:!0,autoHeight:!0,centeredSlides:!0,autoplay:{delay:5e3,disableOnInteraction:!1},pagination:{el:".swiper-pagination",clickable:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},on:{init(){let l=!1;this.el.addEventListener("click",()=>{this.autoplay.stop(),l=!0}),this.el.addEventListener("mouseenter",()=>this.autoplay.stop()),this.el.addEventListener("mouseleave",()=>!l&&this.autoplay.start())}}})});let e=`
+import"./main-_uvJSFAW.js";/* empty css              */import"./brands-icons-CszoFu0y.js";/* empty css               */import"./filter-controls-x0JK6HV9.js";let i;document.addEventListener("DOMContentLoaded",()=>{let s=document.querySelector("swiper_buy");if(s.innerHTML=e,!s)return console.warn("карусель фоток не подключен");i=new Swiper(".mySwiper",{spaceBetween:30,loop:!0,autoHeight:!0,centeredSlides:!0,autoplay:{delay:5e3,disableOnInteraction:!1},pagination:{el:".swiper-pagination",clickable:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},on:{init(){let l=!1;this.el.addEventListener("click",()=>{this.autoplay.stop(),l=!0}),this.el.addEventListener("mouseenter",()=>this.autoplay.stop()),this.el.addEventListener("mouseleave",()=>!l&&this.autoplay.start())}}})});let e=`
     <section class="swiper mySwiper buy_swiper" style="z-index: 1">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -99,4 +99,4 @@ import"./main-_uvJSFAW.js";/* empty css              */import"./brands-icons-Csz
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </section>`;document.addEventListener("keydown",s=>{s.key==="ArrowRight"&&i.slideNext(),s.key==="ArrowLeft"&&i.slidePrev()});
-//# sourceMappingURL=cars-CXLKC_LJ.js.map
+//# sourceMappingURL=cars-C2yQo3rr.js.map
