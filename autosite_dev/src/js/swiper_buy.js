@@ -1,40 +1,8 @@
-let swiper
-
 document.addEventListener('DOMContentLoaded', () => {
     let swiper_buy = document.querySelector('swiper_buy')
 
     swiper_buy.innerHTML = block
     if (!swiper_buy) return console.warn('карусель фоток не подключен')
-
-    swiper = new Swiper('.mySwiper', {
-        spaceBetween: 30,
-        loop: true,
-        autoHeight: true,
-        centeredSlides: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
-        on: {
-            init() {
-                let isUsed = false
-                this.el.addEventListener('click', () => {
-                    this.autoplay.stop();
-                    isUsed = true
-                })
-                this.el.addEventListener('mouseenter', () => this.autoplay.stop())
-                this.el.addEventListener('mouseleave', () => !isUsed && this.autoplay.start())
-            }
-        }
-    })
 })
 
 let block = `
@@ -120,26 +88,8 @@ let block = `
             <img class="buy_lg" src="../photo-buy/20/585х200.webp" alt="">
             <img class="buy_mg" src="../photo-buy/20/278х402.webp" alt="">
         </div>
-         <div class="swiper-slide">
-            <img class="buy_lg" src="../photo-buy/1/585х200.webp" alt="">
-            <img class="buy_mg" src="../photo-buy/1/278х402.webp" alt="">
-        </div>
-         <div class="swiper-slide">
-            <img class="buy_lg" src="../photo-buy/1/585х200.webp" alt="">
-            <img class="buy_mg" src="../photo-buy/1/278х402.webp" alt="">
-        </div>
-         <div class="swiper-slide">
-            <img class="buy_lg" src="../photo-buy/1/585х200.webp" alt="">
-            <img class="buy_mg" src="../photo-buy/1/278х402.webp" alt="">
-        </div>
-       
     </div>
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </section>`
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') swiper.slideNext()
-    if (e.key === 'ArrowLeft') swiper.slidePrev()
-});

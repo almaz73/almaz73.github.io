@@ -21,6 +21,9 @@
     <link rel='stylesheet' href='/src/css/index/index.css'/>
     <link rel='stylesheet' href='/src/css/vykup.css'/>
 
+    <link rel="stylesheet" href="../../../swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="/src/css/swiper.css"/>
+
     <script type='module' src='/src/js/main.js'></script>
     <script type='module' src='/src/js/index/index.js'></script>
 
@@ -130,31 +133,61 @@
                                 <a href="/privacy-policy/" target="_blank">персональных данных</a>
                             </label>
                         </div>
-<!--                        <div class="modal__error" id="personal_error_85343">Вы должны дать согласие на обработку-->
-<!--                            персональных данных-->
-<!--                        </div>-->
+                        <!--                        <div class="modal__error" id="personal_error_85343">Вы должны дать согласие на обработку-->
+                        <!--                            персональных данных-->
+                        <!--                        </div>-->
 
 
-<!--                        <div class="success" style="display: none;">-->
-<!--                            Сообщение успешно отправлено-->
-<!--                        </div>-->
-<!--                        <div class="form_loading">-->
-<!--                            <span>Идет отправка сообщения...</span>-->
-<!--                        </div>-->
+                        <!--                        <div class="success" style="display: none;">-->
+                        <!--                            Сообщение успешно отправлено-->
+                        <!--                        </div>-->
+                        <!--                        <div class="form_loading">-->
+                        <!--                            <span>Идет отправка сообщения...</span>-->
+                        <!--                        </div>-->
 
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
 
+<main>
+    <section class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="/photo-vykup/1/1200х501.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/photo-vykup/2/1200х501.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/photo-vykup/3/1200х501.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/photo-vykup/4/1200х501.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/photo-vykup/5/1200х501.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/photo-vykup/6/1200х501.webp" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="/photo-vykup/7/1200х501.webp" alt="">
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </section>
+</main>
 
 {{> "footer/footer" }}
 {{> "fixed_bottom/question" }}
 
 <script defer src='../../swiper-bundle.min.js'></script>
+<script defer src='../../swiper-starter.js'></script>
+
 </body>
 </html>
