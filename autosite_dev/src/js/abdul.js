@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     let abdul = document.querySelector('abdul')
-    abdul.innerHTML = block
+    if (abdul) abdul.innerHTML = block
 })
 
 export const block=`
