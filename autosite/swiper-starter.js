@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         on: {
             init() {
                 let isUsed = false
+                // Если один раз нажали на прокрутку - автопрокрутку выключаем
                 this.el.addEventListener('click', () => {
                     this.autoplay.stop();
                     isUsed = true

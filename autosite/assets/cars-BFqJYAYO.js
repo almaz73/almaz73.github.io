@@ -1,4 +1,4 @@
-import"./main-_uvJSFAW.js";/* empty css              */import"./brands-icons-CszoFu0y.js";/* empty css               */import"./filter-controls-x0JK6HV9.js";document.addEventListener("DOMContentLoaded",()=>{let s=document.querySelector("swiper_buy");if(s.innerHTML=l,!s)return console.warn("карусель фоток не подключен")});let l=`
+import"./main-DZRFa28X.js";/* empty css              */import"./brands-icons-CszoFu0y.js";/* empty css                          */import"./filter-controls-x0JK6HV9.js";document.addEventListener("DOMContentLoaded",()=>{let s=document.querySelector("swiper_buy");if(s.innerHTML=l,!s)return console.warn("карусель фоток не подключен")});let l=`
     <section class="swiper mySwiper buy_swiper" style="z-index: 1">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -86,4 +86,4 @@ import"./main-_uvJSFAW.js";/* empty css              */import"./brands-icons-Csz
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </section>`;
-//# sourceMappingURL=cars-DD1v-7Kb.js.map
+//# sourceMappingURL=cars-BFqJYAYO.js.map
