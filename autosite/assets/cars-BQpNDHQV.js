@@ -1,42 +1,4 @@
-let swiper
-
-document.addEventListener('DOMContentLoaded', () => {
-    let swiper_buy = document.querySelector('swiper_buy')
-
-    swiper_buy.innerHTML = block
-
-    swiper = new Swiper('.mySwiper', {
-        spaceBetween: 30,
-        loop: true,
-        autoHeight: true,
-        centeredSlides: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
-        on: {
-            init() {
-                let isUsed = false
-                this.el.addEventListener('click', () => {
-                    this.autoplay.stop();
-                    isUsed = true
-                })
-                this.el.addEventListener('mouseenter', () => this.autoplay.stop())
-                this.el.addEventListener('mouseleave', () => !isUsed && this.autoplay.start())
-            }
-        }
-    })
-})
-
-let block = `
+import"./main-CTu0b0e9.js";/* empty css              */import"./brands-icons-CszoFu0y.js";/* empty css               */import"./filter-controls-CF8vlKaA.js";let i;document.addEventListener("DOMContentLoaded",()=>{let s=document.querySelector("swiper_buy");s.innerHTML=e,i=new Swiper(".mySwiper",{spaceBetween:30,loop:!0,autoHeight:!0,centeredSlides:!0,autoplay:{delay:55e3,disableOnInteraction:!1},pagination:{el:".swiper-pagination",clickable:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},on:{init(){let l=!1;this.el.addEventListener("click",()=>{this.autoplay.stop(),l=!0}),this.el.addEventListener("mouseenter",()=>this.autoplay.stop()),this.el.addEventListener("mouseleave",()=>!l&&this.autoplay.start())}}})});let e=`
     <section class="swiper mySwiper buy_swiper" style="z-index: 1">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -136,9 +98,5 @@ let block = `
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
-</section>`
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') swiper.slideNext()
-    if (e.key === 'ArrowLeft') swiper.slidePrev()
-});
+</section>`;document.addEventListener("keydown",s=>{s.key==="ArrowRight"&&i.slideNext(),s.key==="ArrowLeft"&&i.slidePrev()});
+//# sourceMappingURL=cars-BQpNDHQV.js.map
