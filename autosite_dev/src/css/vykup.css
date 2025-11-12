@@ -3,7 +3,7 @@
     min-height: 40vh;
     background-position: center center;
     background-size: cover;
-    background-image: url(../../photo/banner_vykup.webp);
+    background-image: url(/photo/banner_vykup.webp);
 }
 
 .fullBanner:before {
