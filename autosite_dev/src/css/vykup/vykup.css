@@ -1,6 +1,6 @@
 .vykup h2 {
     font-family: Gilroy-Bold, sans-serif;
-    margin: 60px 0;
+    margin: 80px 0 60px;
 }
 
 @media (max-width: 1200px) {
@@ -23,8 +23,8 @@
     }
 }
 
-.numList > div{
-    padding: 0 0 30px;
+.numList > div {
+    padding: 0 0 30px 30px;
 }
 
 @media (max-width: 1200px) {
@@ -45,7 +45,6 @@
 .numList .ttl {
     font-size: 1.1em;
     font-weight: 600;
-
 }
 
 @media (min-width: 992px) {
@@ -85,3 +84,167 @@
 .numList a {
     text-decoration: none;
 }
+
+/***/
+
+
+.shadTbl {
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .shadTbl:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 30%;
+        height: 100%;
+        box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+        z-index: 9;
+        top: 0;
+        right: 30%;
+    }
+}
+
+@media (min-width: 768px) {
+    .shadTbl > div:first-child {
+        box-shadow: none;
+        z-index: 5;
+    }
+}
+@media (min-width: 768px) {
+    .shadTbl > div:nth-child(odd), .shadTbl > div:last-child {
+        background: #F4F2F7;
+    }
+}
+.shadTbl > div:first-child {
+    box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+    position: relative;
+    z-index: 10;
+}
+.shadTbl > div:nth-child(odd), .shadTbl > div:last-child {
+    background: #fff;
+}
+@media (min-width: 768px) {
+    .shadTbl > div {
+        padding: 0;
+        overflow: hidden;
+        border-bottom: solid 1px #CFCCDE;
+    }
+}
+.shadTbl > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 15px;
+}
+
+/*******************************************************/
+
+.shadowTable{
+    background: #F4F2F7;
+    font-weight: 600;
+    position: relative;
+    z-index: 0;
+
+    margin-bottom: 40px;
+}
+
+.shadowTable .row{
+    display:flex;
+    flex-wrap: wrap;
+}
+.shadowTable .row div{
+    flex: 1;
+    padding: 20px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    border-bottom: solid 1px #CFCCDE;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.shadowTable .row  div:first-child{
+    justify-content: start;
+    padding-left: 30px;
+}
+
+
+.shadowTable:after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 33%;
+    height: 100%;
+    box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+    z-index: 1;
+    top: 0;
+    right: 33%;
+    background: white;
+
+}
+
+.shadowTable .row span{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.shadowTable img{
+    height: 36px;
+    /*height: 28px;*/
+}
+.shadowTable strong{
+    color: var(--color-red);
+}
+
+.shadowTable__head{
+    font-size: 1.2em;
+    line-height: 1.1em;
+    text-align: center;
+}
+
+@media (max-width: 765px) {
+    .shadowTable:after{
+        display: none;
+    }
+
+    .shadowTable .row:nth-child(2n+1){
+        background: white;
+    }
+
+    .shadowTable .row  div:first-child{
+        min-width: 100%;
+        justify-content: center;
+        padding: 0;
+        border: 0;
+    }
+
+    .shadowTable .row  div:first-child img{
+        display: none;
+    }
+
+    .shadowTable .row:first-child{
+        box-shadow: 0 0 40px rgba(0, 0, 0, .2);
+        font-size: smaller;
+    }
+    .shadowTable .row:first-child img{
+        height: 32px !important;
+    }
+
+    .shadowTable .row:last-child{
+        background: white;
+        border: 0;
+    }
+    .shadowTable .row:last-child div:last-child{
+        display: none;
+    }
+
+    .shadowTable .row div{
+        text-align: center;
+    }
+}
+
