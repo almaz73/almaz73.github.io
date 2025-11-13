@@ -9,11 +9,6 @@
     }
 }
 
-@media (min-width: 992px) {
-    .numList {
-        padding-bottom: 100px;
-    }
-}
 
 @media (min-width: 768px) {
     .numList {

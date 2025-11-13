@@ -62,4 +62,32 @@
     color: white;
 }
 
+.fullBanner.persona {
+    background-position: 38% center;
+
+
+}
+
+@media (min-width: 992px) {
+    .fullBanner .textBlock p {
+        font-size: 1.4em;
+    }
+}
+
+.textBlock .person {
+    font-size: 1.3em;
+    font-weight: 600;
+
+    margin-top: 200px;
+
+}
+
+.textBlock .person .post {
+    display: block;
+    color: var(--color-red);
+    font-size: 0.7em;
+    font-weight: normal;
+}
+
+
 /***/
