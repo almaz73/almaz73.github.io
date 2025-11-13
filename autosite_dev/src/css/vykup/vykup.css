@@ -1,0 +1,87 @@
+.vykup h2 {
+    font-family: Gilroy-Bold, sans-serif;
+    margin: 60px 0;
+}
+
+@media (max-width: 1200px) {
+    .vykup h2 {
+        margin: 30px 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .numList {
+        padding-bottom: 100px;
+    }
+}
+
+@media (min-width: 768px) {
+    .numList {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+}
+
+.numList > div{
+    padding: 0 0 30px;
+}
+
+@media (max-width: 1200px) {
+    .numList {
+        padding: 20px;
+
+    }
+}
+
+@media (min-width: 768px) {
+    .numList > div {
+        padding: 0;
+        min-width: 21%;
+
+    }
+}
+
+.numList .ttl {
+    font-size: 1.1em;
+    font-weight: 600;
+
+}
+
+@media (min-width: 992px) {
+    .numList > div > * {
+        padding-right: 40px;
+
+    }
+}
+
+
+@media (min-width: 768px) {
+    .numList p {
+        font-size: 0.9em;
+
+    }
+}
+
+/*.numList p {*/
+/*    margin-bottom: 20px;*/
+/*}*/
+
+
+.numList .page__btn {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 0.8em;
+    padding: 10px 20px;
+    min-width: auto;
+
+}
+
+
+.numList .ttl strong {
+    color: var(--color-red);
+}
+
+.numList a {
+    text-decoration: none;
+}
