@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     let swiper_buy = document.querySelector('swiper_buy')
+    if (!swiper_buy) return console.warn('карусель фоток не подключен')
 
     swiper_buy.innerHTML = block
-    if (!swiper_buy) return console.warn('карусель фоток не подключен')
 })
 
 let block = `

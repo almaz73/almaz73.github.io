@@ -1,6 +1,7 @@
 /* Код для отображения и скрытия панели 'Где смотреть параметры' */
 
 let filter__controlsInfoButton = document.querySelector('.filter__controls-info-button')
+
 let tires_sizes = document.querySelector('.tires_sizes')
 let tires_x = document.querySelector('.tires_sizes .x')
 let tires_dark_fon = document.querySelector('.tires_sizes .dark-fon')
@@ -22,3 +23,5 @@ if(filter__controlsInfoButton) {
   });
 }
 
+
+console.log('111 = ',111)

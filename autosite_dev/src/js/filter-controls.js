@@ -49,18 +49,20 @@ window.addEventListener('load', () => {
     let bigCombInput = comb.querySelector('.big-comb__input')
     let bigCombPlaceholder = comb.querySelector('.big-comb__placeholder')
     let comb_field_img = comb.querySelector('.big-combo img')
-    bigCombo.addEventListener('focus', ()=>{
+    bigCombo && bigCombo.addEventListener('focus', () => {
       bigCombItems.style.display = 'block'
       bigCombInput.style.display = 'inline'
       bigCombPlaceholder.style.display = 'none'
-      comb_field_img.style.rotate='180deg'
+      comb_field_img.style.rotate = '180deg'
       bigCombInput.focus()
       bigCombInput.select()
     })
 
-    bigCombInput.addEventListener('blur', () => blur())
-    bigCombInput.addEventListener('click', () => blur())
-    bigCombInput.addEventListener('keydown', (e) => e.key === 'Escape' && blur())
+    if (bigCombInput) {
+      bigCombInput.addEventListener('blur', () => blur())
+      bigCombInput.addEventListener('click', () => blur())
+      bigCombInput.addEventListener('keydown', (e) => e.key === 'Escape' && blur())
+    }
 
     function blur() {
       bigCombItems.style.display = 'none'
@@ -94,7 +96,8 @@ window.big_comb_select = function(val) {
 let advanced = document.querySelector('.frame-filter__controls-advanced')
 let filterAdvanced = document.querySelector('.filter-fields')
 
-advanced.addEventListener('click', () => {
+
+advanced && advanced.addEventListener('click', () => {
   if (advanced.classList.length === 1) {
     advanced.classList.add("active")
     filterAdvanced.classList.add("active")
