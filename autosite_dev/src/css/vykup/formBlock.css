@@ -17,26 +17,26 @@
     margin: 0 0 30px 0;
 }
 
-.formBlock .title strong{
+.formBlock .title strong {
     color: var(--color-red);
 }
 
 
-.formBlock  .form__modal--group {
+.formBlock .form__modal--group {
     margin-bottom: 1.25em;
 }
 
 @media (min-width: 576px) {
-    .formBlock  .form__group input {
+    .formBlock .form__group input {
         height: 3rem;
     }
 }
 
-.formBlock  .form__group {
+.formBlock .form__group {
     position: relative;
 }
 
-.formBlock  .form__group input, .formBlock .form__group textarea {
+.formBlock .form__group input, .formBlock .form__group textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 7px 10px;
@@ -51,7 +51,7 @@
     background-color: var(--color-grey);
 }
 
-.formBlock  .form__group label {
+.formBlock .form__group label {
     display: block;
     text-align: center;
     font-size: 0.875em;
@@ -86,9 +86,14 @@
     position: relative;
 }
 
-.formBlock{
+.formBlock {
     margin-top: 200px;
 }
+
+.fullBanner.second .formBlock {
+    margin-top: 400px;
+}
+
 
 @media (max-width: 768px) {
     .formBlock {
@@ -100,6 +105,13 @@
     .fullBanner .formBlock, .fullBanner .textBlock {
         flex: 0 0 50%;
         max-width: 50%;
+    }
+}
+
+
+@media (width < 1400px) {
+    .fullBanner.second .formBlock {
+        margin-top: 200px;
     }
 }
 

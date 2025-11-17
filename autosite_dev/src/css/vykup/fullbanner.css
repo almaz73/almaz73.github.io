@@ -44,9 +44,6 @@
     margin-bottom: 60px;
 }
 
-.fullBanner.podbor .textBlock {
-    margin-top: 730px;
-}
 
 @media (max-width: 1200px) {
     .fullBanner.podbor .textBlock {
