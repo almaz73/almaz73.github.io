@@ -85,20 +85,33 @@
 }
 
 .fourBlocks > div:nth-child(2) {
-    background: #E22427;
+    background: var(--color-red);
     font-weight: 500;
 }
 
+.fourBlocks b{
+    color: var(--color-red);
+    font-family: Gilroy-Bold, sans-serif;
+}
 
 @media (min-width: 992px) {
     .fourBlocks > div:nth-child(2) > div {
         transform: rotate(-90deg) translate(45%, -30%);
+    }
+
+    .fourBlocks.podbor > div:nth-child(2) > div {
+        width: 330px;
+        transform: rotate(-90deg) translate(45%, -20%);
     }
 }
 
 .fourBlocks > div .num span strong {
     font-size: 0.8em;
     font-weight: 500;
+}
+
+.fourBlocks > div .num{
+    padding: 20px;
 }
 
 @media (min-width: 992px) {
