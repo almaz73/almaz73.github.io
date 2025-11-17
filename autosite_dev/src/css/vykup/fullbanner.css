@@ -25,7 +25,7 @@
 
 @media (max-width: 1240px) {
     .fullBanner .page__flex, .formBlock .page__flex {
-        padding: 0 20px !important;
+        width: calc(100% - 40px);
     }
 }
 

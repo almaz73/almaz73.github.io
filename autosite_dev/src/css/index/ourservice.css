@@ -89,7 +89,7 @@
      top: 10%;
      right: -43%;
      z-index: -1;
-     transform: translateX(0px) translateY(0px) rotate(36.03deg);
+     transform: translateX(0) translateY(0) rotate(36.03deg);
      border-radius: 10px;
  }
 
