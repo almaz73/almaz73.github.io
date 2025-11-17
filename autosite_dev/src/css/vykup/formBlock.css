@@ -86,6 +86,10 @@
     position: relative;
 }
 
+.formBlock{
+    margin-top: 200px;
+}
+
 @media (max-width: 768px) {
     .formBlock {
         display: none;

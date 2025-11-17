@@ -15,6 +15,10 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#f2000000', GradientType=0);
 }
 
+.fullBanner.podbor:before{
+    width: 0;
+}
+
 .fullBanner .bread_cranbs {
     color: white;
 }
@@ -38,6 +42,18 @@
     font-family: Gilroy-Bold, sans-serif;
     color: white;
     margin-bottom: 60px;
+}
+
+.fullBanner.podbor .textBlock {
+    margin-top: 730px;
+}
+
+@media (max-width: 1200px) {
+    .fullBanner.podbor .textBlock {
+        margin-right: 35px;
+        margin-top: 120px;
+        margin-bottom: 0;
+    }
 }
 
 @media (max-width: 500px) {
