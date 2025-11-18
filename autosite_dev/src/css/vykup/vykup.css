@@ -179,7 +179,12 @@
     top: 0;
     right: 33%;
     background: white;
+}
 
+.shadowTable.podbor:after{
+    width: 49%;
+    right: 0;
+    z-index: -1
 }
 
 .shadowTable .row span{
@@ -289,4 +294,58 @@
 .checkTbl .item .name {
     font-weight: bold;
     margin: 10px 0;
+}
+
+/****/
+
+.showFullPrice {
+    color: #fff;
+    padding: 10px 15px;
+    background-color: var(--color-red);
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+@media (min-width: 992px) {
+    .shadowTable.podbor .ttl {
+        font-size: 1.3em;
+        line-height: 1.1em;
+        padding-top: 20px;
+    }
+}
+
+.shadowTable.podbor .ttl {
+    font-size: 1rem;
+    font-family: Gilroy-Bold, sans-serif;
+}
+
+.shadowTable.podbor .row.R1, .shadowTable.podbor .row.R2, .shadowTable.podbor .row.R3{
+    z-index: 100;
+    height: 0;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.shadowTable.podbor .row.R1.active, .shadowTable.podbor .row.R2.active, .shadowTable.podbor .row.R3.active{
+    opacity: 1;
+    height: 60px;
+}
+
+@media (max-width: 600px) {
+    .shadowTable.podbor .row.R, .shadowTable.podbor .row.R1.active, .shadowTable.podbor .row.R2.active, .shadowTable.podbor .row.R3.active{
+        height: 100px;
+        padding: 0 80px;
+        padding-top: 20px;
+    }
+
+    .shadowTable.podbor .ttl {
+        margin-top: 30px;
+    }
+    .shadowTable.podbor button{
+        margin: 20px;
+    }
+    .shadowTable .row div{
+        border-bottom: none;
+    }
 }
