@@ -33,31 +33,33 @@
 
 .main__provided--block {
     display: flex;
-    flex-wrap: wrap;
     gap: 30px;
     margin-bottom: 60px;
 }
 
 .main__provided--block .item {
-    flex: 0 0 35%;
-    max-width: 25%;
+    flex: 0 0 23%;
+    max-width: 23%;
     background: var(--color-grey);
     border-radius: 10px;
     position: relative;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 1280px) {
     .main__provided--block .item {
         flex: inherit;
         max-width: 100%;
     }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 880px) {
+    .main__provided--block{
+        flex-wrap: wrap;
+    }
     .main__provided--block .item {
         flex: inherit;
         max-width: 100%;
-        width: 100%;
+        flex-grow: 1;
     }
 }
 
