@@ -1,2 +1,0 @@
-let t=document.querySelector(".filter__controls-info-button"),e=document.querySelector(".tires_sizes"),c=document.querySelector(".tires_sizes .x"),r=document.querySelector(".tires_sizes .dark-fon");t&&(t.addEventListener("click",()=>{e.classList.add("watch")}),r.addEventListener("click",()=>{e.classList.remove("watch")}),c.addEventListener("click",()=>{e.classList.remove("watch")}),document.addEventListener("keydown",s=>{s.key==="Escape"&&e.classList.remove("watch")}));console.log("111 = ",111);
-//# sourceMappingURL=whereSeeParams-CYvnVj-g.js.map
