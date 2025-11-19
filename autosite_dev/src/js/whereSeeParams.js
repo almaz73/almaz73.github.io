@@ -1,4 +1,4 @@
-/* Код для отображения и скрытия панели 'Где смотреть параметры' */
+/* Код для отображения и скрытия панели 'Где смотреть параметры' для фильотра шин*/
 
 let filter__controlsInfoButton = document.querySelector('.filter__controls-info-button')
 
@@ -22,6 +22,3 @@ if(filter__controlsInfoButton) {
     if (e.key === 'Escape') tires_sizes.classList.remove('watch')
   });
 }
-
-
-console.log('111 = ',111)

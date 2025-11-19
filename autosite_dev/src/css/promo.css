@@ -1,0 +1,28 @@
+.promo-photos{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 10px;
+    justify-content: space-around;
+}
+
+@media (max-width: 1240px) {
+    .promo-photos img{
+        width: calc(25% - 20px);
+    }
+}
+
+@media (max-width: 1240px) {
+    .promo-photos img.hor{
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 850px) {
+    .promo-photos img{
+        width: inherit;
+    }
+    .promo-photos img.hor{
+        width: calc(100%);
+    }
+}

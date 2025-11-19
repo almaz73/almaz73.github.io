@@ -33,8 +33,10 @@ main {
     margin-bottom: 100px;
 }
 
-main .container {
-    margin: 0 20px;
+@media (width < 1240px) {
+    main .container {
+        margin: 0 20px;
+    }
 }
 
 main .container h2 {

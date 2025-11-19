@@ -4,6 +4,7 @@ let fotos_black = document.querySelector('.fotos_black')
 let big = document.querySelector('.big')
 let swiperSection = document.querySelector('.swiper.mySwiper')
 
+
 document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         swiper = new Swiper('.mySwiper', {

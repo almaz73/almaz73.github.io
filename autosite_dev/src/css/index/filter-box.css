@@ -1,14 +1,13 @@
 .filter {
     border-radius: 15px;
     background: var(--color-grey);
-    width: calc(100% - 50px);
+    width: calc(100% - 70px);
     min-height: 60px;
     padding: 10px;
     display: flex;
     outline: none;
     position: relative;
     padding: 35px;
-    margin-left: -10px;
     margin-bottom: 100px;
 }
 
