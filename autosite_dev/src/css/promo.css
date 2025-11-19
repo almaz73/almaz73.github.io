@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     gap: 30px 10px;
     justify-content: space-around;
+    min-height: 402px;
 }
 
 
