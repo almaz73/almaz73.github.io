@@ -16,8 +16,7 @@
     <meta name='keywords' content='Купить автомобили с пробегом, авто в Казани'>
     <meta name='description' content='Специальные предложения и акции в автосалонах Автосеть.рф.'>
     <link rel='stylesheet' href='/src/css/style.css'/>
-    <link rel='stylesheet' href='/src/css/index/index.css'/>
-    <link rel="stylesheet" href="/src/css/ "/>
+    <link rel="stylesheet" href="/src/css/promo.css"/>
 
 
 </head>
@@ -28,22 +27,83 @@
     <div class='page_padding_20'>
         <div class='bread_cranbs'>
             <a href='%VITE_PROD_URL%/'>Главная</a>
+            <a href="%VITE_PROD_URL%/promo/" title="Акции и спецпредложения">Акции и спецпредложения</a>
             <span>Акции и спецпредложения</span>
         </div>
     </div>
 
-    <div class="container">
-        <h2> Акции и спецпредложения </h2>
+    <div class="container promo-banner">
+        <img src="/photo-main/6/1200х501.webp" alt="Выкуп автомобилей с пробегом" class="big">
+        <img src="/photo-main/6/250x362.webp" alt="Выкуп автомобилей с пробегом" class="small">
     </div>
 
 
-    <div class="promo-photos">
-        <a href="/autosite_dev/public"> <img src="/../../photo-action/_1.webp" alt="Подбор авто"> </a>
-        <a href="/promo/644223/"> <img src="/../../photo-action/_2.webp" alt="Выкуп автомобилей с пробегом"> </a>
-        <a href="/promo/644340/"> <img src="/../../photo-action/_3.webp" alt="Сделка через салон"> </a>
-        <a href="/promo/647168/"> <img src="/../../photo-action/_4.webp" alt="Постановка на учёт в ГИБДД"> </a>
+    <div class="container" style="padding: 40px 0 0">
+        <h2>Выкуп автомобилей с пробегом</h2>
+    </div>
+
+    <div class="container">
+        <div class="promo-detail-call__wrap">
+            <div>
+                <h3>Закажите обратный звонок</h3>
+
+                <p>Просто оставьте свои контактные данные и мы сами вам перезвоним!</p>
+            </div>
 
 
+            <div class="promo-form">
+                <form action="/" name="popup_form" enctype="multipart/form-data" method="POST" class="formBlock">
+                    <div class="form__modal--group">
+                        <div class="form__group">
+                            <input size="25">
+                            <label>Ваше имя <sup class="starrequired">*</sup></label>
+                        </div>
+                    </div>
+                    <div class="form__modal--group">
+                        <div class="form__group">
+                            <input size="25"> <label>Год выпуска</label>
+                        </div>
+                    </div>
+
+                    <div class="form__modal--group">
+                        <div>
+                            <div>
+                                <iframe title="reCAPTCHA" width="304" height="78" role="presentation"
+                                        name="a-yx1p19v4v6" frameborder="0" scrolling="no"
+                                        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation"
+                                        src="https://www.google.com/recaptcha/api2/anchor?ar=2&amp;k=6LfVEHsoAAAAAMPu1zqgnZkNQoSGMtYffz36y7xc&amp;co=aHR0cHM6Ly94bi0tODBhZWo5YXBlZDRmLnhuLS1wMWFpOjQ0Mw..&amp;hl=ru&amp;v=naPR4A6FAh-yZLuCX253WaZq&amp;size=normal&amp;anchor-ms=20000&amp;execute-ms=15000&amp;cb=e2hdlp5mo8dj"></iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="page__btn page__btn--current" type="submit">
+                        <span> Отправить заявку </span>
+                    </button>
+
+                    <div class="modal__personal">
+                        <input type="checkbox">
+                        <label> Нажав кнопку «Отправить заявку» я даю согласие на обработку
+                            <a href="/privacy-policy/" target="_blank">персональных данных</a>
+                        </label>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <br><br>
+    <div class="container">
+        <h2>Другие акции</h2>
+    </div>
+
+
+    <div class="container promo-photos">
+        <a href="/promo/651625/" class="ver"> <img src="/../photo-action/_7.webp" alt="Установка парктроников"></a>
+        <a href="/promo/644223/" class="ver"> <img src="/../photo-action/_2.webp" alt="Выкуп автомобилей с пробегом"></a>
+        <a href="/promo/651614/" class="ver"><img src="/../photo-action/_18_small.webp" alt="Гарантия на авто с пробегом"></a>
+        <a href="/promo/651613/" class="ver"><img src="/../photo-action/_19_small.webp" alt="Аренда авто"></a>
     </div>
 </main>
 

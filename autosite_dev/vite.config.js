@@ -33,6 +33,8 @@ export default defineConfig({
 				example: resolve(__dirname, './cars/2106/651138/index.html'),
 				podbor: resolve(__dirname, './services/autopodbor/index.html'),
 				promo: resolve(__dirname, './promo/index.html'),
+				promo644223: resolve(__dirname, './promo/644223/index.html'),
+
 			},
 		},
 
