@@ -89,14 +89,14 @@
     flex-wrap: wrap;
 }
 
-.promo-detail-call__wrap >div{
+.promo-detail-call__wrap .div{
     padding: 48px;
     width: calc(50% - 96px);
 }
 
 @media (max-width: 750px) {
-    .promo-detail-call__wrap >div{
-        padding: 48px;
+    .promo-detail-call__wrap .div{
+        padding: 0 20px 20px;
         width: 100%;
     }
 }
