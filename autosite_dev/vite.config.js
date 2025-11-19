@@ -30,7 +30,7 @@ export default defineConfig({
 				cars_lada: resolve(__dirname, './cars/vaz-lada/index.html'),
 				vykup: resolve(__dirname, './services/vykup/index.html'),
 				tyres: resolve(__dirname, './tyres/index.html'),
-				examle: resolve(__dirname, './cars/2106/651138/index.html'),
+				example: resolve(__dirname, './cars/2106/651138/index.html'),
 				podbor: resolve(__dirname, './services/autopodbor/index.html'),
 				promo: resolve(__dirname, './promo/index.html'),
 			},

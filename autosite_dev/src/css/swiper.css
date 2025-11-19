@@ -35,12 +35,6 @@
     margin-bottom: 30px;
 }
 
-@media (width < 1240px) {
-    .mainPage.swiper {
-        margin: 30px 20px;
-        width: calc(100% - 40px)
-    }
-}
 
 .mainPage .swiper-slide {
     background: white;
@@ -60,6 +54,17 @@
     z-index: -1;
     min-height: 410px;
 }
+
+@media (width < 1240px) {
+    .mainPage.swiper {
+        margin: 30px 20px;
+        width: calc(100% - 40px)
+    }
+    .mySwiper {
+        min-height: inherit;
+    }
+}
+
 
 .mySwiper .swiper-button-next, .mySwiper .swiper-button-prev {
     background: #00000000;

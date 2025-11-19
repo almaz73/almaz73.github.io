@@ -1,11 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-    let swiper_buy = document.querySelector('swiper_buy')
-    if (!swiper_buy) return console.warn('карусель фоток не подключен')
-
-    swiper_buy.innerHTML = block
-})
-
-let block = `
+document.addEventListener("DOMContentLoaded",()=>{let s=document.querySelector("swiper_buy");if(!s)return console.warn("карусель фоток не подключен");s.innerHTML=l});let l=`
     <section class="swiper mySwiper buy_swiper" style="z-index: 1">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -92,4 +85,5 @@ let block = `
     <div class="swiper-button-next"></div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
-</section>`
+</section>`;
+//# sourceMappingURL=swiper_buy-p2IKRxq6.js.map
