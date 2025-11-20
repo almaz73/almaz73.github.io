@@ -35,6 +35,7 @@ export default defineConfig({
 				promo: resolve(__dirname, './promo/index.html'),
 				promo644223: resolve(__dirname, './promo/644223/index.html'),
 				promo644340: resolve(__dirname, './promo/644340/index.html'),
+				promo647169: resolve(__dirname, './promo/647169/index.html'),
 				about: resolve(__dirname, './about-the-company/index.html')
 
 			},
