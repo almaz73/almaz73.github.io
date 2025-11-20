@@ -26,7 +26,7 @@ export function fillCities(txt) {
 }
 
 
-cityInput.addEventListener('input', res => {
+cityInput && cityInput.addEventListener('input', res => {
   fillCities(cityInput.value.toUpperCase());
 });
 

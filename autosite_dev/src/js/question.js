@@ -14,7 +14,7 @@ window.closeChat = function (e) {
 }
 
 
-textarea.addEventListener('keydown', key => {
+textarea && textarea.addEventListener('keydown', key => {
     if (key.code === 'Enter') {
         history.innerHTML += '<b>-Вы </b>' + textarea.innerHTML + '<br><br>'
         history.scrollTo({top: 10000, behavior: 'smooth'});

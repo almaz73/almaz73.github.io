@@ -34,8 +34,8 @@ main {
 }
 
 @media (width < 1240px) {
-    main .container {
-        margin: 0 20px;
+    main{
+        max-width: calc(100% - 40px);
     }
 }
 
@@ -43,28 +43,12 @@ main .container h2 , main .container h1 {
     font-family: Gilroy-Bold, sans-serif;
 }
 
-#mainPhoto, .mainPhoto_little {
-    width: 100%;
-    cursor: pointer;
-}
-
-.mainPhoto_little {
-    display: none;
-}
-
-#mainPhoto {
-    aspect-ratio: 1200/500
-}
 
 .page_padding_20 {
     padding: 20px 0 10px;
 }
 
 @media (max-width: 500px) {
-    #mainPhoto {
-        display: none;
-        aspect-ratio: 483/534
-    }
 
     .mainPhoto_little {
         display: block;
@@ -99,6 +83,31 @@ main .container h2 , main .container h1 {
     color: var(--color-red);
 }
 
-.geography {
-    margin-bottom: 60px;
+/***/
+
+.page__link {
+    font-weight: 600;
 }
+
+.page__link span {
+    color: #E22427;
+    transition: all 0.4s;
+}
+
+.page__link img {
+    margin-right: 7px;
+    margin-left: 0;
+    transition: all 0.4s;
+}
+
+.page__link span:hover {
+    color: black;
+}
+
+.page__link:hover img {
+    margin-right: 0px;
+    margin-left: 7px;
+    filter: grayscale(1);
+}
+
+/***/

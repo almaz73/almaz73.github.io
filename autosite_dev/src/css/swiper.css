@@ -52,7 +52,6 @@
 
 .mySwiper {
     z-index: -1;
-    min-height: 410px;
 }
 
 @media (width < 1240px) {

@@ -42,7 +42,7 @@ burger_menu && burger_menu.addEventListener('click', () => {
   } else buttonBurger.classList.remove('close');
 });
 
-cityButton.addEventListener('click', () => {
+cityButton && cityButton.addEventListener('click', () => {
   isOpened = cities.style.transform !== 'none';
   if (isOpened) {
     cities.style.transform = 'none';
@@ -51,26 +51,28 @@ cityButton.addEventListener('click', () => {
   hideMainScroll(isOpened);
   fillCities();
 });
-cityClose.addEventListener('click', () => {
+cityClose && cityClose.addEventListener('click', () => {
   cities.style.transform = 'translateX(150vw)';
   hideMainScroll(false);
 });
 
-cityName.innerHTML =  localStorage.getItem('selectedCity') || 'Россия';
-window.setCity = function (val) {
-  localStorage.setItem('selectedCity', val);
-  cities.style.transform = 'translateX(150vw)';
-  cityName.innerHTML = val
-  cityCombName.innerHTML = val
-  hideMainScroll(false);
+if(cityName) {
+  cityName.innerHTML = localStorage.getItem('selectedCity') || 'Россия';
+  window.setCity = function (val) {
+    localStorage.setItem('selectedCity', val);
+    cities.style.transform = 'translateX(150vw)';
+    cityName.innerHTML = val
+    cityCombName.innerHTML = val
+    hideMainScroll(false);
+  }
 }
 
 /* работа с cookie-banner */
 let cookieAccept = document.querySelector('#cookie-accept');
 let cookieBanner = document.querySelector('#cookie-banner');
 let isCoockieBannerShow = localStorage.getItem('isCoockieBannerShow');
-if (!isCoockieBannerShow) cookieBanner.classList.add('show');
-cookieAccept.addEventListener('click', () => {
+if (!isCoockieBannerShow && cookieBanner) cookieBanner.classList.add('show');
+cookieAccept && cookieAccept.addEventListener('click', () => {
   localStorage.setItem('isCoockieBannerShow', new Date().toISOString());
   cookieBanner.classList.remove('show');
 });

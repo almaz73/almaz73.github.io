@@ -1,6 +1,8 @@
 const mainPhoto = document.getElementById('mainPhoto');
 
 mainPhoto && mainPhoto.addEventListener('click', function() {
+    if (window.innerWidth < 900) return false
+
     if (mainPhoto.requestFullscreen) {
         mainPhoto.requestFullscreen(); // Запрашиваем полноэкранный режим
     } else if (mainPhoto.mozRequestFullScreen) { // Firefox
