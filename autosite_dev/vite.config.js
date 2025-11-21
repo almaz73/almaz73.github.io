@@ -37,6 +37,11 @@ export default defineConfig({
 				p644340: resolve(__dirname, './promo/644340/index.html'),
 				p647169: resolve(__dirname, './promo/647169/index.html'),
 
+				p651612: resolve(__dirname, './promo/651612/index.html'),
+				p651613: resolve(__dirname, './promo/651613/index.html'),
+				p651614: resolve(__dirname, './promo/651614/index.html'),
+				p651615: resolve(__dirname, './promo/651615/index.html'),
+				p651616: resolve(__dirname, './promo/651616/index.html'),
 				p651617: resolve(__dirname, './promo/651617/index.html'),
 				p651618: resolve(__dirname, './promo/651618/index.html'),
 				p651619: resolve(__dirname, './promo/651619/index.html'),
