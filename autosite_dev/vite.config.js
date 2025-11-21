@@ -36,10 +36,19 @@ export default defineConfig({
 				p644223: resolve(__dirname, './promo/644223/index.html'),
 				p644340: resolve(__dirname, './promo/644340/index.html'),
 				p647169: resolve(__dirname, './promo/647169/index.html'),
-				p651626: resolve(__dirname, './promo/651626/index.html'),
-				p651625: resolve(__dirname, './promo/651625/index.html'),
-				p651624: resolve(__dirname, './promo/651624/index.html'),
+
+				p651617: resolve(__dirname, './promo/651617/index.html'),
+				p651618: resolve(__dirname, './promo/651618/index.html'),
+				p651619: resolve(__dirname, './promo/651619/index.html'),
+				p651620: resolve(__dirname, './promo/651620/index.html'),
+				p651621: resolve(__dirname, './promo/651621/index.html'),
+				p651622: resolve(__dirname, './promo/651622/index.html'),
 				p651623: resolve(__dirname, './promo/651623/index.html'),
+				p651624: resolve(__dirname, './promo/651624/index.html'),
+				p651625: resolve(__dirname, './promo/651625/index.html'),
+				p651626: resolve(__dirname, './promo/651626/index.html'),
+
+
 
 				about: resolve(__dirname, './about-the-company/index.html')
 
