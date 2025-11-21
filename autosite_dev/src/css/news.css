@@ -78,3 +78,15 @@
 .read-more-btn:hover {
     background-color: #c51d2e;
 }
+
+.bottom-nav{
+    margin: 40px 0 0 0 ;
+}
+.bottom-nav a{
+    color: var(--color-red);
+    padding: 5px;
+    text-decoration: none;
+}
+.bottom-nav a.active{
+    font-family: Gilroy-Bold, system-ui;
+}
