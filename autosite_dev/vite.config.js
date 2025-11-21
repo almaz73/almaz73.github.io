@@ -33,9 +33,14 @@ export default defineConfig({
 				example: resolve(__dirname, './cars/2106/651138/index.html'),
 				podbor: resolve(__dirname, './services/autopodbor/index.html'),
 				promo: resolve(__dirname, './promo/index.html'),
-				promo644223: resolve(__dirname, './promo/644223/index.html'),
-				promo644340: resolve(__dirname, './promo/644340/index.html'),
-				promo647169: resolve(__dirname, './promo/647169/index.html'),
+				p644223: resolve(__dirname, './promo/644223/index.html'),
+				p644340: resolve(__dirname, './promo/644340/index.html'),
+				p647169: resolve(__dirname, './promo/647169/index.html'),
+				p651626: resolve(__dirname, './promo/651626/index.html'),
+				p651625: resolve(__dirname, './promo/651625/index.html'),
+				p651624: resolve(__dirname, './promo/651624/index.html'),
+				p651623: resolve(__dirname, './promo/651623/index.html'),
+
 				about: resolve(__dirname, './about-the-company/index.html')
 
 			},
