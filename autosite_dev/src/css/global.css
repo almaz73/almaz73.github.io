@@ -39,7 +39,7 @@ main {
     }
 }
 
-main .container h2 , main .container h1 {
+main h2 , main h1 {
     font-family: Gilroy-Bold, sans-serif;
 }
 

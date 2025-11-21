@@ -11,8 +11,11 @@
     width: 100%;
     border-radius: 6px;
 }
-.promo-photos .ver, .promo-photos .hor{
-    min-width: 30px;
+.promo-photos .ver{
+    aspect-ratio: 278/402
+}
+.promo-photos .hor{
+    aspect-ratio: 585/200
 }
 
 
@@ -40,11 +43,19 @@
         width: initial;
     }
 }
+
+/***/
+.promo-banner{
+    max-width: 1200px
+}
+
 .promo-banner .big{
     display: block;
+    aspect-ratio: 1200/500
 }
 .promo-banner .small{
     display: none;
+    aspect-ratio: 500/723
 }
 
 @media (max-width: 650px) {
@@ -53,6 +64,7 @@
     }
     .promo-photos img {
         margin-bottom: 0;
+        border-radius: 0;
     }
     .promo-photos .hor img{
         width: calc(100% + 40px);
@@ -66,11 +78,6 @@
     }
 }
 
-
-/***/
-.promo-banner{
-    max-width: 1200px
-}
 .promo-banner img{
     width: 100%;
     max-width: 100%;
