@@ -9,4 +9,3 @@ document.addEventListener("DOMContentLoaded",()=>{let r=document.querySelector("
                   <span class='total'>${t.total}</span>
               </a>
           </div>`})),a+="</div>",r.innerHTML=a});
-//# sourceMappingURL=brands-icons-CszoFu0y.js.map

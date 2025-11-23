@@ -86,4 +86,3 @@ document.addEventListener("DOMContentLoaded",()=>{let s=document.querySelector("
     <div class="swiper-button-prev"></div>
     <div class="swiper-pagination"></div>
 </section>`;
-//# sourceMappingURL=swiper_buy-CVXmjGOX.js.map

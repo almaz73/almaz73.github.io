@@ -14,4 +14,3 @@ import"./main-BGZYZBg-.js";/* empty css             */let e="https://fmap.ru/aut
                 </a>
             </div>
         </div>  `});o.innerHTML=p;
-//# sourceMappingURL=news-mkK3y8dN.js.map
