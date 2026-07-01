@@ -8,6 +8,19 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Начальное скрытое состояние элемента */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px); /* Сдвигаем элемент вниз на 30px */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Состояние, когда элемент появляется */
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Элемент встает на свое место */
+}
+
 header {
     max-width: 1300px;
     height: 80px;
@@ -53,22 +66,15 @@ article.top {
     height: 720px;
     background-image: url('Home_Hero.webp');
     background-color: black;
-    background-size: 100%;
     background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: scroll;
+    background-position: center bottom;
     background-size: cover;
-    transition: height 0.5s ease-in-out 0.1s;
 }
 
-.move-left {
-    padding-top: 220px;
-    max-width: 1600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 30px;
-    overflow: hidden;
+.top-div {
+    padding: 120px 40px;
+    max-width: 1250px;
+    margin: auto;
 }
 
 .slogan {
@@ -78,9 +84,7 @@ article.top {
     font-weight: 600;
     max-width: 1300px;
     max-width: 870px;
-    margin: 0 auto;
-    opacity: 0;
-    animation: slideIn 1.5s ease forwards;
+    opacity: 1;
 }
 
 .slogan2, .slogan3, .slogan4 {
@@ -89,23 +93,11 @@ article.top {
     line-height: 1.75;
     font-weight: 600;
     max-width: 660px;
-    min-width: 660px;
     text-align: left;
-    margin: 0 auto;
-    opacity: 0;
-    transform: translateX(-5%);
-    animation: slideIn 1.5s ease forwards;
-    animation-delay: 0.8s;
+    opacity: 1;
     padding-right: 202px;
 }
 
-.slogan3 {
-    animation-delay: 1.3s;
-}
-
-.slogan4 {
-    animation-delay: 1.8s;
-}
 
 @media (width < 1000px) and (width > 500px) {
     .slogan {
@@ -117,7 +109,6 @@ article.top {
         text-align: center;
         max-width: 600px;
         min-width: 100%;
-        text-align: center;
         padding-right: inherit;
     }
 }
@@ -132,24 +123,11 @@ article.top {
     .slogan2, .slogan3, .slogan4 {
         font-size: 14px;
         text-align: center;
-        max-width: 320px;
-        min-width: 320px;
         padding-right: inherit;
     }
 
-    .move-left {
-        padding-top: 120px;
-    }
-}
-
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateX(5%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
+    .top-div {
+        padding: 190px 30px;
     }
 }
 
@@ -214,7 +192,10 @@ footer {
 @media (width < 500px) {
     .atom3 {
         display: flex;
-        gap: 30px;
+        gap: 10px 30px;
+        font-size: small;
+        flex-wrap: wrap;
+        margin: 30px 0 ;
     }
 
     .atom4 {
@@ -342,7 +323,6 @@ article.tasks {
     .tasks-plash {
         font-size: 16px;
         margin: 8px auto;
-        min-width: calc(100% - 40px);
     }
 }
 
@@ -350,9 +330,10 @@ article.tasks {
 /*-------artiсle tarif-----------------*/
 article.tarif {
     background: none;
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 70px auto 0;
 }
+
 
 .tbl {
     width: 100%;
@@ -414,4 +395,14 @@ article.tarif {
     height: 30px;
     background: #efefef;
     margin-top: 60px;
+}
+
+@media (width < 500px) {
+    article.tarif {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+    nav.foot a{
+        margin: 20px 0;
+    }
 }
