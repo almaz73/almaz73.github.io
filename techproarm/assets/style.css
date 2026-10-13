@@ -378,6 +378,10 @@ article.tarif {
     font-weight: bold;
 }
 
+.tbl .td_left{
+    padding-left: 50px;
+}
+
 .tbl .cross {
     color: #e74c3c;
     font-weight: bold;
