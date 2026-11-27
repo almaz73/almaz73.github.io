@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang='ru'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
+    <title>Бюро финансового советника</title>
+    <style>
+        :root {
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            color-scheme: light;
+            --bg: #FAF6F0;
+            --card: #fff;
+            --line: #E8DFD3;
+            --ink: #2C1E16;
+            --mut: #7d6b5d;
+            --acc: #C87D55;
+            --good: #4A7C59;
+            --bad: #C85555
+        }
+
+        *, *::before, *::after {
+            box-sizing: inherit
+        }
+
+        html {
+            height: 100%;
+            scroll-padding-top: env(safe-area-inset-top, 0px)
+        }
+
+        body {
+            margin: 0;
+            min-height: 100%;
+            background: #efe7db;
+            color: var(--ink);
+            font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            display: grid;
+            place-items: center
+        }
+
+        .phone {
+            width: 100%;
+            height: 100dvh;
+            max-width: 420px;
+            max-height: 900px;
+            min-height: 560px;
+            background: var(--bg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative
+        }
+
+        @media (min-width: 520px) {
+            body {
+                padding: 20px
+            }
+
+            .phone {
+                height: min(900px, calc(100dvh - 40px));
+                border-radius: 32px;
+                border: 1px solid var(--line);
+                box-shadow: 0 20px 50px rgba(60, 40, 20, .18)
+            }
+        }
+
+        .hud {
+            display: flex;
+            gap: 6px;
+            padding: 10px 12px;
+            background: var(--card);
+            border-bottom: 1px solid var(--line);
+            font-size: 12.5px;
+            flex: none
+        }
+
+        .hud div {
+            flex: 1;
+            text-align: center;
+            line-height: 1.25
+        }
+
+        .hud b {
+            display: block;
+            font-size: 15px
+        }
+
+        .pulse {
+            animation: pl .5s
+        }
+
+        @keyframes pl {
+            40% {
+                transform: scale(1.2);
+                color: var(--acc)
+            }
+        }
+
+        #view {
+            flex: 1;
+            overflow-y: auto;
+            padding: 14px 14px 28px;
+            animation: fi .3s
+        }
+
+        @keyframes fi {
+            from {
+                opacity: 0;
+                transform: translateY(7px)
+            }
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin: 4px 0 6px
+        }
+
+        h3 {
+            font-size: 1.02rem;
+            margin: 14px 0 8px
+        }
+
+        .lead {
+            color: var(--mut);
+            margin: 0 0 14px;
+            font-size: 14.5px
+        }
+
+        button, .btn {
+            font: 600 15px inherit;
+            font-family: inherit;
+            border: 0;
+            border-radius: 12px;
+            padding: 12px 16px;
+            background: var(--acc);
+            color: #fff;
+            cursor: pointer
+        }
+
+        button:focus-visible, .btn:focus-visible, input:focus-visible, summary:focus-visible {
+            outline: 3px solid var(--acc);
+            outline-offset: 2px
+        }
+
+        .alt {
+            background: transparent;
+            color: var(--ink);
+            border: 1px solid var(--line)
+        }
+
+        .card {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            width: 100%;
+            text-align: left;
+            background: var(--card);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(80, 50, 20, .06)
+        }
+
+        .card svg {
+            width: 54px;
+            height: 62px;
+            flex: none;
+            background: var(--bg);
+            border-radius: 12px
+        }
+
+        .card small {
+            display: block;
+            color: var(--mut);
+            font-weight: 400
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 1px 8px;
+            border-radius: 9px;
+            color: #fff
+        }
+
+        details {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 12px;
+            margin-top: 14px
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer
+        }
+
+        #stage {
+            margin-top: 10px;
+            aspect-ratio: 16/9;
+            background: #2C1E16;
+            border-radius: 10px;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            color: #cbbfb2;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px
+        }
+
+        #stage video {
+            width: 100%;
+            height: 100%;
+            background: #000
+        }
+
+        .stage {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background: linear-gradient(#f3e9db, #faf6f0);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            height: 200px;
+            overflow: hidden
+        }
+
+        .fig svg {
+            height: 170px;
+            width: auto;
+            display: block
+        }
+
+        .bubble {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 42%;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 8px 10px;
+            font-size: 13px;
+            font-style: italic;
+            color: #5b4a3d;
+            line-height: 1.3;
+            opacity: 0;
+            transform: scale(.9);
+            transform-origin: left bottom;
+            transition: .3s
+        }
+
+        .bubble.on {
+            opacity: 1;
+            transform: none
+        }
+
+        .bubble:after {
+            content: "";
+            position: absolute;
+            right: -8px;
+            bottom: -7px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid var(--line)
+        }
+
+        .pop {
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            font-weight: 800;
+            color: var(--good);
+            animation: up 1.4s forwards
+        }
+
+        .pop.l {
+            color: var(--bad)
+        }
+
+        @keyframes up {
+            to {
+                transform: translateY(-14px);
+                opacity: 0
+            }
+        }
+
+        .say {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 10px 12px;
+            margin-top: 12px;
+            min-height: 5.2em
+        }
+
+        .say small {
+            display: block;
+            color: var(--acc);
+            font-weight: 700;
+            margin-bottom: 2px
+        }
+
+        .doc {
+            background: #fffdf8;
+            border: 1px dashed #cdbba3;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 12px;
+            font-family: Georgia, serif;
+            font-size: 14px
+        }
+
+        .doc h4 {
+            margin: 0 0 8px;
+            font-size: 13px;
+            letter-spacing: .04em
+        }
+
+        .doc p {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 0;
+            padding: 3px 0;
+            border-bottom: 1px dotted #e3d6c3
+        }
+
+        .doc p span:last-child {
+            text-align: right;
+            font-weight: 700
+        }
+
+        .doc .f {
+            display: block;
+            font-size: 10.5px;
+            color: #8a7a6a;
+            margin-top: 8px;
+            line-height: 1.3;
+            border: 0
+        }
+
+        .opts {
+            display: grid;
+            gap: 8px;
+            margin: 10px 0
+        }
+
+        .opt {
+            text-align: left;
+            background: var(--card);
+            color: var(--ink);
+            border: 1px solid var(--line);
+            font-weight: 500;
+            line-height: 1.35
+        }
+
+        .opt:disabled {
+            cursor: default
+        }
+
+        .opt.best {
+            border-color: var(--good);
+            background: #eef5ef
+        }
+
+        .opt.pick.bad {
+            border-color: var(--bad);
+            background: #faeded
+        }
+
+        .opt.pick.mid {
+            border-color: var(--acc);
+            background: #f9efe7
+        }
+
+        .fb {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--acc);
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            font-size: 14.5px;
+            animation: fi .3s
+        }
+
+        .fb b {
+            display: block;
+            margin-bottom: 2px
+        }
+
+        .rank {
+            font-size: 1.6rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin: 6px 0
+        }
+
+        .stats {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0
+        }
+
+        .stats div {
+            flex: 1;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 8px;
+            text-align: center;
+            font-size: 12.5px
+        }
+
+        .stats b {
+            display: block;
+            font-size: 17px
+        }
+
+        .rule {
+            background: #f9efe7;
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin: 10px 0;
+            font-size: 14.5px
+        }
+
+        .btns {
+            display: grid;
+            gap: 8px;
+            margin-top: 12px
+        }
+
+        .branch {
+            font-size: 13px;
+            color: var(--mut);
+            margin: 8px 0 0
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+<body>
+<div class='phone'>
+    <div class='hud' aria-live='polite'>
+        <div>Дело<b id='hs'>Выбор</b></div>
+        <div>Спасено<b id='hm'>0 монет</b></div>
+        <div>Доверие<b id='ht'>50%</b></div>
+    </div>
+    <div id='view'></div>
+</div>
+<script>
+  try {
+    const t = window.Telegram && window.Telegram.WebApp;
+    if (t) {
+      t.ready();
+      t.expand();
+    }
+  } catch (e) {
+  }
+
+  // SVG-разметка хранится строками: это обычный JavaScript, не JSX.
+  const INK = '#2C1E16';
+  const HAIR = {
+    cap: `<path d='M30 52Q32 26 60 26Q88 26 90 52Z' fill='#2c1e16'/><rect x='26' y='48' width='68' height='7' rx='3.5' fill='#2c1e16'/><path d='M36 70Q40 100 60 100Q80 100 84 70Q78 88 60 88Q42 88 36 70Z' fill='#6b4a35'/>`,
+    slick: `<path d='M33 58Q30 28 62 28Q90 28 88 56Q80 40 55 40Q40 42 33 58Z' fill='#3b2a20'/>`,
+    bun: `<circle cx='60' cy='21' r='10' fill='#7a4a2b'/><path d='M32 62Q28 28 60 28Q92 28 88 62Q84 42 60 42Q36 42 32 62Z' fill='#7a4a2b'/>`,
+    pony: `<path d='M30 60Q27 27 60 27Q93 27 90 60Q80 40 60 40Q40 40 30 60Z' fill='#c98b4a'/><path d='M88 50Q112 58 100 104Q94 78 84 64Z' fill='#c98b4a'/>`
+  };
+  const MOOD = {
+    worry: { b: ['M41 56L53 51', 'M67 51L79 56'], m: `<ellipse cx='60' cy='82' rx='5' ry='3.5' fill='#8a4b3c'/>` },
+    hope: {
+      b: ['M42 52q5-4 11 0', 'M67 52q5-4 11 0'],
+      m: `<path d='M50 79q10 8 20 0' fill='none' stroke='${INK}' stroke-width='2.5' stroke-linecap='round'/>`
+    },
+    confused: {
+      b: ['M42 55L52 55', 'M67 50q5-3 11 1'],
+      m: `<path d='M52 83l16-3' stroke='${INK}' stroke-width='2.5' stroke-linecap='round'/>`
+    },
+    relief: {
+      b: ['M42 51q5-3 11 0', 'M67 51q5-3 11 0'],
+      m: `<path d='M46 78q14 15 28 0Z' fill='#8a4b3c'/>`,
+      closed: true
+    },
+    sad: {
+      b: ['M41 56L53 51', 'M67 51L79 56'],
+      m: `<path d='M50 85q10-8 20 0' fill='none' stroke='${INK}' stroke-width='2.5' stroke-linecap='round'/><path d='M75 68q-4 7 0 10q4-3 0-10' fill='#8ec5e8'/>`
+    }
+  };
+
+  function person(p, mood) {
+    const M = MOOD[mood] || MOOD.hope;
+    const eyes = M.closed ? `<path d='M42 63q5-5 10 0M68 63q5-5 10 0' fill='none' stroke='${INK}' stroke-width='2.5' stroke-linecap='round'/>` : `<circle cx='47' cy='63' r='3.2' fill='${INK}'/><circle cx='73' cy='63' r='3.2' fill='${INK}'/>`;
+    return `<svg viewBox='0 0 120 150' role='img' aria-label='${p.name}, настроение: ${mood}'><path d='M12 150Q14 105 60 100Q106 105 108 150Z' fill='${p.cloth}'/><path d='M48 101L60 118L72 101Z' fill='#fff' opacity='.85'/><rect x='52' y='86' width='16' height='18' rx='6' fill='${p.skin}'/><ellipse cx='60' cy='62' rx='27' ry='30' fill='${p.skin}'/>${HAIR[p.h]}${eyes}<g fill='none' stroke='${INK}' stroke-width='2.5' stroke-linecap='round'><path d='${M.b[0]}'/><path d='${M.b[1]}'/></g>${M.m}</svg>`;
+  }
+
+  // Варианты переходов зависят от предыдущего решения: risky / cautious / balanced.
+  const Q = [
+    {
+      y: '1637',
+      t: 'Тюльпаномания',
+      sub: 'Харлем, Голландия',
+      stake: 1000,
+      p: { name: 'Ян ван дер Берг', role: 'торговец сукном', skin: '#f0c9a4', cloth: '#C87D55', h: 'cap' },
+      rk: ['Разорённый игрок', 'Жертва тюльпаномании', 'Должник с расписками', 'Игрок на чужих эмоциях', 'Скептик с лёгким азартом', 'Трезвый торговец', 'Выживший: сукно важнее тюльпанов'],
+      endings: [['Вы вложились в спекуляцию и потеряли капитал. Теперь придётся распродавать товар, чтобы расплатиться.', 'Я не хотел верить, что всё закончится так.'], ['Вы рискнули частью денег, но сохранили мастерскую. Урок оказался дорогим, но не разрушительным.', 'Пожалуй, в следующий раз я не буду торопиться.'], ['Вы сохранили капитал и продолжили торговать сукном. Луковицы не заменили настоящее дело.', 'Теперь я знаю: чужая удача — плохой бизнес-план.']],
+      rule: 'Если цену объясняет только рост цены, это пузырь. Не покупай то, что не приносит дохода, и не плати в долг.',
+      an: 'В феврале 1637 года на аукционе в Харлеме не нашлось покупателей, цены рухнули, а расписки остались долгами. Это один из первых хорошо известных спекулятивных пузырей: цена держалась на ожидании перепродажи, а не на доходе.',
+      S: [
+        {
+          m: 'hope',
+          say: 'Добрый день, господин советник. У меня тысяча гульденов, копил десять лет. Весь Харлем торгует луковицами тюльпанов — говорят, цена вырастет ещё вдвое!',
+          th: 'Сосед купил одну луковицу и теперь строит дом. Неужели я опять опоздаю?',
+          q: 'Какой вопрос вы зададите Яну?',
+          o: [['Кто, кроме перекупщиков, будет покупать у вас эти луковицы дальше?', 2], ['Сколько ваши знакомые уже заработали?', 0], ['Какой сорт вы присмотрели?', 1]],
+          why: 'Нужно понять, откуда берётся будущий спрос. Чужие истории об удаче не объясняют стоимость актива.'
+        },
+        {
+          m: 'confused',
+          say: 'Вот расписка, которую мне предлагают подписать. Продавец торопит: предложение действует только до заката.',
+          th: 'Цветок красивый, спору нет. Но почему продавец так спешит?',
+          branch: {
+            risky: 'Я уже почти согласился. После вашего вопроса всё равно думаю: вдруг упущу удачу?',
+            cautious: 'Я попросил время подумать. Продавец сразу стал заметно менее любезен.'
+          },
+          doc: {
+            t: 'РАСПИСКА О ПОКУПКЕ',
+            ch: 1,
+            rows: [['Товар', 'луковица Semper Augustus'], ['Цена', '3000 гульденов'], ['Оплата', 'в апреле, после цветения'], ['Предложение', 'до заката сегодня']],
+            f: 'Покупатель отвечает по расписке своим имуществом.'
+          },
+          q: 'Что здесь тревожнее всего?',
+          o: [['Красивое название сорта', 0], ['Платить позже, рассчитывая найти следующего покупателя', 2], ['Нет печати нотариуса', 1]],
+          why: 'Цена держится на очереди новых покупателей, а срочность мешает спокойно оценить риск.'
+        },
+        {
+          m: 'worry',
+          say: 'Так что же мне делать с моими деньгами?',
+          th: 'Мне нужен совет, но я не хочу потом винить вас за своё решение.',
+          branch: {
+            risky: 'Я всё ещё думаю о быстрой прибыли. Но теперь понимаю, что могу потерять не только деньги, но и мастерскую.',
+            cautious: 'Я не стал подписывать расписку. Похоже, впервые за долгое время я могу спокойно подумать.'
+          },
+          q: 'Ваш совет?',
+          o: [['Купить и продать на пике: главное вовремя выйти', 0], ['Оставить деньги в деле: сукно и оборудование приносят доход', 2], ['Купить на половину, вторую оставить', 1], ['Взять расписку с оплатой позже', 0]],
+          why: 'Доход даёт работа, а не угадывание пика.'
+        }]
+    },
+    {
+      y: '1929',
+      t: 'Великая депрессия',
+      sub: 'Нью-Йорк, США',
+      stake: 5000,
+      p: { name: 'Фрэнк Миллер', role: 'клерк', skin: '#e9bf9a', cloth: '#4A6B8A', h: 'slick' },
+      rk: ['Банкрот чёрного четверга', 'Жертва маржин-колла', 'Заёмщик на обрыве', 'Потрёпанный инвестор', 'Осторожный клерк', 'Хладнокровный вкладчик', 'Выживший: обвал без долгов'],
+      endings: [['Вы купили акции с плечом. После падения брокер потребовал доплату, и долг оказался тяжелее ожидаемого.', 'Я думал, что рынок всегда будет расти. Ошибся.'], ['Вы ограничили риск, но всё же потеряли часть накоплений. Теперь будете осторожнее с кредитным плечом.', 'Хорошо, что я не поставил на кон всё.'], ['Вы отказались от займа и сохранили финансовую подушку. Обвал оказался болезненным, но не уничтожил ваши сбережения.', 'Пожалуй, спокойный сон тоже чего-то стоит.']],
+      rule: 'Не вкладывай заёмные деньги: плечо превращает небольшое падение в потерю всего капитала.',
+      an: '24 октября 1929 года биржа пережила резкий обвал. Инвесторы, покупавшие акции с плечом, получили требования внести дополнительные деньги; вынужденные продажи усилили падение. Затем банковские кризисы и сокращение спроса углубили Великую депрессию.',
+      S: [
+        {
+          m: 'hope',
+          say: 'Мистер советник, брокер говорит, что акции растут пятый год подряд. Хочу купить на десять тысяч долларов, а своих у меня только тысяча. Остальное он одолжит.',
+          th: 'Даже уборщик у нас в офисе купил автомобиль на акциях. Неужели я хуже?',
+          q: 'Что вы спросите?',
+          o: [['Что будет с вашей тысячей, если акции упадут всего на 10 %?', 2], ['Какие акции сейчас популярнее?', 0], ['Какая у брокера комиссия?', 1]],
+          why: 'При плече 1:10 падение стоимости пакета на 10 % уничтожит весь первоначальный взнос.'
+        },
+        {
+          m: 'confused',
+          say: 'Вот квитанция брокера. Он уверяет, что это обычные условия.',
+          th: 'Мелкий шрифт я не дочитал. Брокер говорил так уверенно, что я не стал перебивать.',
+          branch: {
+            risky: 'Я уже представлял, как расплачусь с долгами за счёт прибыли. Теперь впервые задумался, что будет при падении.',
+            cautious: 'Я попросил брокера объяснить каждую строку. Он почему-то торопился закончить разговор.'
+          },
+          doc: {
+            t: 'КВИТАНЦИЯ БРОКЕРА',
+            rows: [['Куплено', 'акции на 10 000 $'], ['Ваш взнос', '1 000 $'], ['Заём брокера', '9 000 $ под 12 %']],
+            f: 'При падении стоимости пакета ниже установленного уровня клиент обязан внести доплату; иначе пакет может быть продан.'
+          },
+          q: 'На что обратить внимание?',
+          o: [['Громкое название компании', 0], ['Условие доплаты: пакет могут продать во время падения', 2], ['Комиссия брокера', 1]],
+          why: 'Маржин-колл заставляет искать деньги или продавать активы в самый неподходящий момент.'
+        },
+        {
+          m: 'worry',
+          say: 'Итак, что посоветуете, мистер советник?',
+          th: 'Если проиграю, то потеряю не только свои деньги. Я ведь должен буду вернуть заём.',
+          branch: {
+            risky: 'После разговора с брокером я уже не так уверен в «верном тренде». Но отказаться от сделки всё ещё трудно.',
+            cautious: 'Кажется, я впервые смотрю на эту сделку не как на шанс разбогатеть, а как на возможный долг.'
+          },
+          q: 'Ваш совет?',
+          o: [['Купить на все десять тысяч: тренд ваш друг', 0], ['Вложить только свои деньги, без займа', 2], ['Купить на пять тысяч с меньшим плечом', 1], ['Занять побольше: больше плечо — больше прибыль', 0]],
+          why: 'Заёмные деньги превращают обычную коррекцию в риск разорения.'
+        }]
+    },
+    {
+      y: '2008',
+      t: 'Ипотечный кризис',
+      sub: 'США, 2006 год',
+      stake: 3000,
+      p: { name: 'Кэрол Эванс', role: 'учительница', skin: '#d9a37c', cloth: '#6f8f72', h: 'bun' },
+      rk: ['Потеряла дом и накопления', 'Жертва ипотечного пузыря', 'Заёмщик с плавающей ставкой', 'Заёмщик под вопросом', 'Осторожный заёмщик', 'Внимательная к договору', 'Выжившая: дом по силам'],
+      endings: [['Вы подписали неподъёмную ипотеку. После пересмотра ставки платёж стал слишком велик, и дом пришлось потерять.', 'Я так хотела этот дом, что не заметила условий.'], ['Вы почти решились, но не учли все риски. Теперь нужно пересчитать бюджет и искать более безопасный вариант.', 'Лучше остановиться сейчас, чем потерять всё потом.'], ['Вы отложили покупку, накопили взнос и выбрали посильный кредит. Дом не исчез из мечты — просто стал реальнее.', 'Я подожду. Теперь я знаю, на что смотреть.']],
+      rule: 'Считай платёж по максимальной ставке, а не по стартовой, и бери только то, что выдержит твой доход.',
+      an: 'В 2007–2008 годах падение цен на жильё и рост просрочек по рискованным ипотекам ударили по финансовой системе. Сложные бумаги, связанные с ипотечными кредитами, распространили потери по банкам и рынкам; в сентябре 2008 года обанкротился Lehman Brothers.',
+      S: [
+        {
+          m: 'hope',
+          say: 'Мне предлагают ипотеку без первого взноса и без справки о доходах. Первые два года платёж всего 900 долларов, и дом почти мой!',
+          th: 'Цены на жильё всё время росли. Если что, продам дороже. Но почему не просят документы?',
+          q: 'О чём спросите Кэрол?',
+          o: [['Каким будет платёж после первых двух лет?', 2], ['Нравится ли вам район?', 0], ['Почему банк не просит справку о доходах?', 1]],
+          why: 'Низкий стартовый платёж может скрывать резкий рост платежей позже. Считать нужно по максимальной ставке.'
+        },
+        {
+          m: 'confused',
+          say: 'Вот договор. Менеджер сказал, что платёж у меня всего 900 в месяц. Моя зарплата — три тысячи.',
+          th: 'Стыдно признаться, что я не очень понимаю эти проценты.',
+          branch: {
+            risky: 'Я уже мысленно расставила мебель. Очень хочется верить, что через два года всё как-нибудь решится.',
+            cautious: 'Я попросила копию договора домой. Менеджер сказал, что условия стандартные, но отвечать на вопросы не спешил.'
+          },
+          doc: {
+            t: 'ИПОТЕЧНЫЙ ДОГОВОР',
+            rows: [['Сумма', '200 000 $'], ['Первый взнос', '0 $'], ['Месяцы 1–24', '3 %, платёж 900 $'], ['Подтверждение дохода', 'не требуется']],
+            f: 'С 25-го месяца ставка плавающая, до 9 %. Платёж может достигнуть 2100 $. Досрочное погашение: штраф 5 %.'
+          },
+          q: 'Где подвох?',
+          o: [['Красивый дом на фото', 0], ['После двух лет платёж может вырасти более чем вдвое', 2], ['Штраф за досрочное погашение', 1]],
+          why: 'Платёж 2100 долларов при зарплате 3000 — это 70 % дохода. Такой бюджет крайне уязвим.'
+        },
+        {
+          m: 'worry',
+          say: 'Скажите прямо: подписывать мне договор или нет?',
+          th: 'Дом подождёт? А вдруг цены уйдут и я потеряю мечту?',
+          branch: {
+            risky: 'Теперь я вижу, что надежда на рефинансирование — не гарантия. Но мне всё ещё страшно упустить дом.',
+            cautious: 'Я уже не так боюсь отложить покупку. Кажется, лучше подождать, чем подписать то, чего не понимаю.'
+          },
+          q: 'Ваш совет?',
+          o: [['Взять и через два года рефинансировать', 0], ['Накопить взнос и выбрать кредит с фиксированной ставкой по силам', 2], ['Взять, но сразу откладывать разницу в платеже', 1], ['Взять второй кредит на первый взнос', 0]],
+          why: 'Рефинансирование зависит от дохода, ставок и стоимости жилья. На него нельзя рассчитывать как на гарантированный выход.'
+        }]
+    },
+    {
+      y: '2020',
+      t: 'Коронавирус и паника',
+      sub: 'Март 2020 года',
+      stake: 2000,
+      p: { name: 'Лена Орлова', role: 'мама двоих детей', skin: '#f3d2b5', cloth: '#d6a23c', h: 'pony' },
+      rk: ['Пленница пустых полок', 'Жертва паники 2020', 'Запасливая без подушки', 'Запасливая наполовину', 'Спокойный покупатель', 'Хозяйка подушки безопасности', 'Выжившая: паника не прошла'],
+      endings: [['Вы потратили почти весь резерв на запасы. Теперь на аренду и лекарства денег не хватает.', 'Я хотела защитить детей, но забыла о самых важных расходах.'], ['Вы купили больше обычного и сохранили часть накоплений. Это не идеальный план, но у семьи остался резерв.', 'В следующий раз сначала всё посчитаю.'], ['Вы купили обычный запас и сохранили деньги на обязательные расходы. Паника не лишила семью опоры.', 'Теперь я могу спокойно вернуться домой.']],
+      rule: 'Подушка безопасности нужна для аренды, лекарств и еды, а не для запасов на панике. Покупай как обычно.',
+      an: 'В марте 2020 года резкий рост покупок и сбои поставок привели к пустым полкам во многих магазинах. Панические закупки сами усиливали дефицит. При этом деньги на жильё, лекарства и повседневные расходы оставались особенно важны во время неопределённости.',
+      S: [
+        {
+          m: 'hope',
+          say: 'В новостях говорят про карантин, а полки в магазинах пустеют! Хочу снять почти все накопления и купить запас на полгода.',
+          th: 'Соседка уже вынесла три тележки. Вдруг детям не хватит?',
+          q: 'С чего начнёте разговор?',
+          o: [['Что у вас уже есть дома и на сколько этого хватит?', 2], ['Какой магазин ещё не закрыт?', 0], ['Вам, наверное, очень страшно?', 1]],
+          why: 'Сначала стоит оценить реальные запасы и потребности семьи, а не следовать слухам.'
+        },
+        {
+          m: 'confused',
+          say: 'Вот список, который я составила прямо в магазине.',
+          th: 'Деньги можно потом заработать, а еда нужна сейчас.',
+          branch: {
+            risky: 'Я уже набрала почти полную тележку. Но когда посчитала сумму, стало не по себе.',
+            cautious: 'Я пересчитала продукты дома и поняла, что часть списка мне пока вообще не нужна.'
+          },
+          doc: {
+            t: 'КОРЗИНА: ЗАПАС НА ПОЛГОДА',
+            rows: [['Крупы и масло', '9 400 ₽'], ['Бумага и мыло', '7 800 ₽'], ['Консервы и крупы', '24 800 ₽'], ['Итого', '42 000 ₽']],
+            f: 'Оплата из накоплений: 90 % резерва. Остаток после покупки: 4 500 ₽. Аренда: 25 000 ₽ в месяц.'
+          },
+          q: 'Что здесь главное?',
+          o: [['Нет скидки на товары', 0], ['Подушка почти вся уйдёт, на аренду и лекарства не останется', 2], ['Часть продуктов может испортиться', 1]],
+          why: 'После покупки останется 4 500 рублей, а аренда — 25 000 рублей в месяц. Резерв нужен прежде всего для обязательных расходов.'
+        },
+        {
+          m: 'worry',
+          say: 'Так сколько мне всё-таки купить?',
+          th: 'Дети ждут дома. Я не могу вернуться с пустыми руками.',
+          branch: {
+            risky: 'Я понимаю, что закупка на полгода оставит нас без денег на аренду. Но тревога всё ещё не отпускает.',
+            cautious: 'Я успокоилась, когда увидела, что дома уже есть запас на несколько дней. Можно не скупать всё подряд.'
+          },
+          q: 'Ваш совет?',
+          o: [['Купить побольше: лучше перебдеть', 0], ['Взять обычный запас на пару недель, накопления оставить', 2], ['Купить на месяц и половину накоплений оставить', 1], ['Взять кредитку на закупки', 0]],
+          why: 'Подушка нужна для аренды, лекарств и еды в будущем, а не для панических закупок.'
+        }]
+    }
+  ];
+
+  const view = document.getElementById('view');
+  const el = (t, c, x) => {
+    const e = document.createElement(t);
+    if (c) e.className = c;
+    if (x !== undefined) e.textContent = x;
+    return e;
+  };
+  const res = {};
+  let cur = -1, sc = 0, live = null, tm = null, bubbleTimer = null;
+  const TD = [-8, 0, 6], CL = ['bad', 'mid', 'good'],
+    RC = ['#C85555', '#C85555', '#C26A4A', '#C87D55', '#A98B4E', '#6f8f5a', '#4A7C59'],
+    RM = ['sad', 'sad', 'worry', 'confused', 'confused', 'hope', 'relief'];
+
+  function totals() {
+    let s = 0, t = 50;
+    for (const k in res) {
+      s += res[k].saved;
+      t += res[k].td;
+    }
+    if (live) {
+      s += live.saved;
+      t += live.td;
+    }
+    return [s, Math.max(0, Math.min(100, t))];
+  }
+
+  function hud(flash = false) {
+    const [s, t] = totals();
+    const m = document.getElementById('hm'), tt = document.getElementById('ht'), hs = document.getElementById('hs');
+    m.textContent = s + ' монет';
+    tt.textContent = t + '%';
+    hs.textContent = live ? 'Сцена ' + (sc + 1) + ' из 3' : 'Выбор';
+    if (flash) [m, tt].forEach(e => {
+      e.classList.remove('pulse');
+      void e.offsetWidth;
+      e.classList.add('pulse');
+    });
+  }
+
+  function shuffle(a) {
+    a = a.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.random() * (i + 1) | 0;
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function typeText(e, t) {
+    clearInterval(tm);
+    let i = 0;
+    e.textContent = '';
+    tm = setInterval(() => {
+      e.textContent = t.slice(0, ++i);
+      if (i >= t.length) clearInterval(tm);
+    }, 10);
+  }
+
+  function menu() {
+    clearInterval(tm);
+    clearTimeout(bubbleTimer);
+    cur = -1;
+    live = null;
+    view.replaceChildren();
+    hud();
+    view.append(el('h1', null, 'Бюро финансового советника'), el('p', 'lead', 'Выбери эпоху и дело. В каждом три сцены: расспроси клиента, изучи документ и дай совет. Твои решения меняют следующие реплики и финал.'));
+    Q.forEach((q, i) => {
+      const b = el('button', 'card'), ic = el('span');
+      ic.innerHTML = person(q.p, res[i] ? RM[res[i].score] : 'hope');
+      const tx = el('span');
+      tx.append(el('b', null, q.y + ' · ' + q.t), el('small', null, q.sub + ' · клиент: ' + q.p.name));
+      if (res[i]) {
+        const r = res[i].score, g = el('span', 'tag', q.rk[r]);
+        g.style.background = RC[r];
+        tx.append(g);
+      }
+      b.append(ic.firstChild, tx);
+      b.onclick = () => start(i);
+      view.append(b);
+    });
+    const done = Object.keys(res).length;
+    if (done) view.append(el('p', 'lead', 'Пройдено дел: ' + done + ' из 4. Любое дело можно пройти заново.'));
+    const d = el('details');
+    d.open = true;
+    d.innerHTML = '<summary>🎬 Видео: economic_crisis.mov</summary><div id="stage"><video src="economic_crisis.mov" controls playsinline preload="metadata">Ваш браузер не поддерживает .mov — <a href="economic_crisis.mov">скачать файл</a></video></div>';
+    view.append(d);
+  }
+
+  function start(i) {
+    clearInterval(tm);
+    clearTimeout(bubbleTimer);
+    cur = i;
+    sc = 0;
+    live = { score: 0, saved: 0, td: 0, p: [], path: 'neutral' };
+    scene();
+  }
+
+  function getScene(q) {
+    const s = q.S[sc];
+    if (sc === 1 && live.p[0] !== undefined) {
+      const prev = live.p[0];
+      const key = prev === 0 ? 'risky' : prev === 2 ? 'cautious' : 'balanced';
+      if (s.branch && s.branch[key]) return { ...s, th: s.branch[key] };
+    }
+    if (sc === 2 && live.p.length > 1) {
+      const prev = live.p[1];
+      const key = prev === 0 ? 'risky' : prev === 2 ? 'cautious' : 'balanced';
+      if (s.branch && s.branch[key]) return { ...s, th: s.branch[key] };
+    }
+    return s;
+  }
+
+  function scene() {
+    clearInterval(tm);
+    clearTimeout(bubbleTimer);
+    const q = Q[cur], s = getScene(q);
+    view.replaceChildren();
+    hud();
+    const stg = el('div', 'stage'), fig = el('div', 'fig'), bub = el('div', 'bubble', s.th);
+    fig.innerHTML = person(q.p, s.m);
+    stg.append(bub, fig);
+    const say = el('div', 'say'), nm = el('small', null, q.p.name + ', ' + q.p.role), sp = el('div');
+    say.append(nm, sp);
+    view.append(stg, say);
+    typeText(sp, s.say);
+    bubbleTimer = setTimeout(() => bub.classList.add('on'), 450);
+    if (s.doc) {
+      const d = el('div', 'doc');
+      d.append(el('h4', null, s.doc.t));
+      if (s.doc.ch) d.insertAdjacentHTML('beforeend', '<svg viewBox="0 0 200 56" width="100%" role="img" aria-label="Схематичный график роста цены"><polyline points="0,52 40,49 80,43 110,34 140,18 165,5 185,3" fill="none" stroke="#C85555" stroke-width="3"/><text x="2" y="12" font-size="9" fill="#7d6b5d">цена за 4 месяца</text></svg>');
+      s.doc.rows.forEach(r => {
+        const p = el('p');
+        p.append(el('span', null, r[0]), el('span', null, r[1]));
+        d.append(p);
+      });
+      d.append(el('span', 'f', s.doc.f));
+      view.append(d);
+    }
+    view.append(el('h3', null, s.q));
+    const box = el('div', 'opts');
+    shuffle(s.o).forEach(([tx, pt]) => {
+      const b = el('button', 'opt', tx);
+      b.dataset.p = pt;
+      b.onclick = () => choose(b, box, pt, fig, bub, sp);
+      box.append(b);
+    });
+    view.append(box);
+  }
+
+  function choose(btn, box, pt, fig, bub, sp) {
+    const q = Q[cur], s = getScene(q), last = sc === 2, gain = Math.round(q.stake * pt / 6), td = TD[pt];
+    live.score += pt;
+    live.saved += gain;
+    live.td += td;
+    live.p.push(pt);
+    [...box.children].forEach(b => {
+      b.disabled = true;
+      if (+b.dataset.p === 2) b.classList.add('best');
+    });
+    btn.classList.add('pick', CL[pt]);
+    fig.innerHTML = person(q.p, last ? RM[Math.min(6, Math.round(live.score / 3))] : ['worry', 'confused', 'hope'][pt]);
+    if (last) {
+      const ending = q.endings[Math.min(2, live.score <= 2 ? 0 : live.score <= 4 ? 1 : 2)];
+      bub.textContent = ending[0];
+      typeText(sp, ending[1]);
+    } else {
+      bub.textContent = pt === 0 ? 'Кажется, я не до конца убедил вас...' : pt === 2 ? 'Хорошо, что мы это обсудили.' : 'Мне нужно ещё немного подумать.';
+      typeText(sp, pt === 0 ? 'Я всё ещё сомневаюсь, но продолжайте.' : pt === 2 ? 'Теперь я понимаю, на что смотреть.' : 'В этом есть смысл.');
+    }
+    const pop = el('div', 'pop' + (pt === 0 ? ' l' : ''), pt ? '+' + gain : '0');
+    fig.parentNode.append(pop);
+    setTimeout(() => pop.remove(), 1500);
+    hud(true);
+    const fb = el('div', 'fb');
+    fb.style.borderLeftColor = ['var(--bad)', 'var(--acc)', 'var(--good)'][pt];
+    fb.append(el('b', null, ['Мимо', 'Частично', 'Верно'][pt] + ' · +' + gain + ' монет · доверие ' + (td > 0 ? '+' : '') + td), el('span', null, s.why));
+    const nx = el('button', null, last ? 'Посмотреть итог' : 'Дальше');
+    nx.onclick = () => {
+      if (last) result(); else {
+        sc++;
+        scene();
+      }
+    };
+    box.after(fb, nx);
+    nx.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
+  function result() {
+    const q = Q[cur], score = live.score, r = score,
+      mine = { score, saved: live.saved, td: live.td, p: live.p.slice() };
+    res[cur] = mine;
+    live = null;
+    const i = cur;
+    cur = -1;
+    hud(true);
+    const miss = mine.p.map((x, k) => x < 2 ? ['расспрос', 'документ', 'совет'][k] : null).filter(Boolean);
+    const mt = miss.length ? 'Стоит повторить темы: ' + miss.join(', ') + '.' : 'Вы не допустили ошибок.';
+    view.replaceChildren();
+    const stg = el('div', 'stage'), fig = el('div', 'fig');
+    fig.innerHTML = person(q.p, RM[r]);
+    stg.append(fig);
+    const rk = el('div', 'rank', q.rk[r]);
+    rk.style.color = RC[r];
+    const st = el('div', 'stats');
+    [['Баллы', score + '/6'], ['Спасено', mine.saved + ' из ' + q.stake], ['Доверие', (mine.td > 0 ? '+' : '') + mine.td]].forEach(([a, b]) => {
+      const d = el('div', null, a);
+      d.append(el('b', null, b));
+      st.append(d);
+    });
+    const tier = score <= 2 ? 0 : score <= 4 ? 1 : 2;
+    const ending = q.endings[tier];
+    view.append(stg, el('p', 'lead', 'Твой ранг'), rk, el('p', null, ending[0]), el('p', 'lead', mt), st, el('h3', null, 'Как это было на самом деле'), el('p', null, q.an));
+    const rl = el('div', 'rule');
+    rl.append(el('b', null, 'Главное правило: '), document.createTextNode(q.rule));
+    const b1 = el('button', null, 'Пройти заново'), b2 = el('button', 'alt', 'К выбору дела');
+    b1.onclick = () => start(i);
+    b2.onclick = menu;
+    const bt = el('div', 'btns');
+    bt.append(b1, b2);
+    view.append(rl, bt);
+  }
+
+  menu();
+</script>
+</body>
+</html>
